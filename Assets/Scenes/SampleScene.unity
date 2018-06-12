@@ -2909,13 +2909,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114769631170834352, guid: 3029b8a6fa43a004993adf57ea258c6d,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114234960328505426, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1931289653 stripped

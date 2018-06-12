@@ -8,11 +8,12 @@ public class Inventario : MonoBehaviour {
 
     static public Inventario inventarioSingleton;
     public int TamañoInventario { get; set; }
-    private Hashtable nombreObjetos;
+    private Dictionary<string, Item> ObjetosEnInventario;
     private void Awake()
     {
         inventarioSingleton = this;
         inventarioSingleton.TamañoInventario = 12;
+        
     }
 
     static List<GameObject> casillas = new List<GameObject>();
@@ -55,7 +56,7 @@ public class Inventario : MonoBehaviour {
         DeterminarSiguienteCasilla();
 
       //Primero checkea si es consumible y además es nuevo objeto
-        if (objeto.item.Consumible == false || !nombreObjetos.ContainsValue(objeto.name)) //Revisar si funciona al implementar stack
+       // if (objeto.item.Consumible == false || !nombreObjetos.ContainsValue(objeto.name)) //Revisar si funciona al implementar stack
         {
             Debug.Log("Añadiendo");
             GameObject NuevoObjeto = new GameObject();
@@ -66,22 +67,22 @@ public class Inventario : MonoBehaviour {
             NuevoObjeto.AddComponent<Image>().sprite = objeto.Sprite;
             NuevoObjeto.name = objeto.Nombre;
             CasillaVacia++;
-            nombreObjetos.Add(CasillaVacia, objeto);
+            //nombreObjetos.Add(CasillaVacia, objeto);
             DeterminarSiguienteCasilla();
         }
-        else
-        {
-            int casilla = 0;
-            for ( casilla = 0; casilla < TamañoInventario; casilla++)
-            {
-                if (casillas[casilla].GetComponent<Casilla>().objetoInventario.name==nombreObjetos[casilla].ToString() )
-                {
-                    casillas[casilla].GetComponent<Casilla>().objetoInventario.CantidadStack++;
-                    Debug.Log("stack "+casillas[casilla].GetComponent<Casilla>().objetoInventario.CantidadStack);
-                    break;
-                }
-            }
-        }
+       // else
+        //{
+        //    int casilla = 0;
+        //    for ( casilla = 0; casilla < TamañoInventario; casilla++)
+        //    {
+        //        if (casillas[casilla].GetComponent<Casilla>().objetoInventario.name==nombreObjetos[casilla].ToString() )
+        //        {
+        //            casillas[casilla].GetComponent<Casilla>().objetoInventario.CantidadStack++;
+        //            Debug.Log("stack "+casillas[casilla].GetComponent<Casilla>().objetoInventario.CantidadStack);
+        //            break;
+        //        }
+        //    }
+        //}
     }
 
 }
