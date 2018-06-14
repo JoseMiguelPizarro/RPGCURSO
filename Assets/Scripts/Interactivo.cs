@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.EventSystems;
 
 
 public class Interactivo : MonoBehaviour {
@@ -16,18 +17,19 @@ public class Interactivo : MonoBehaviour {
 
     protected void Interactuar()
     {
-        if (CrossPlatformInputManager.GetButtonDown("Interactuar"))
-        {
             if (player.Interactuar() == gameObject)
             {
-                Interaccion();
-            }
-        }
+               Interaccion();
+           }
     }
+
     protected virtual void Interaccion() //Virtual porque distintos elementos tienen distinta forma de interactuar
     {
         Debug.Log("Interactuó con: " + gameObject.name);
-        Destroy(gameObject);
     }
 
+   public void interacciónprueba()
+    {
+        
+    }
 }

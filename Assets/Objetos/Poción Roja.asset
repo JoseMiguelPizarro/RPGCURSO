@@ -13,6 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "Poci\xF3n"
   descripcion: cura 20HP
-  artwokr: {fileID: 21300000, guid: a51220f59468eed4ba7f76c27bc468fa, type: 3}
+  artwokr: {fileID: 21300000, guid: dba7db15f6198ea4ba62533f00e7b61b, type: 3}
   value: 20
   apilable: 1

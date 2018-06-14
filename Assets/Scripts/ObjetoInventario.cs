@@ -16,7 +16,7 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler {
     public void OnPointerClick(PointerEventData eventData)
     {
         PanelInventario.panelInventario.objetoSeleccionado = this;
-        PanelInventario.panelInventario.ActualizarTextos(this);
+        PanelInventario.panelInventario.ActualizarTextos();
     }
     public void ReducirStock(int cantidadAReducir)
     {

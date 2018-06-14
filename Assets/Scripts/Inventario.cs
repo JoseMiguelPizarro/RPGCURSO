@@ -15,6 +15,7 @@ public class Inventario : MonoBehaviour
 
     private List<GameObject> casillas = new List<GameObject>();
     private int CasillaVacia = 0;
+    private bool Abierto = false;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class Inventario : MonoBehaviour
             casillas.Add(Child.gameObject);
         }
         DeterminarSiguienteCasilla();
-        PanelInventario.panelInventario.gameObject.SetActive(false);
+        PanelInventario.panelInventario.gameObject.SetActive(false); //Una vez cargadas las casillas se oculta el inventario
     }
     private void DeterminarSiguienteCasilla()
     {
@@ -57,6 +58,8 @@ public class Inventario : MonoBehaviour
     {
         Debug.Log("AñadirObjeto activado");
         DeterminarSiguienteCasilla();
+        
+        
       //Primero checkea si es consumible y además es nuevo objeto
         if ((objeto.item.apilable == true && !ObjetosEnInventario.ContainsValue(objeto.item)) || objeto.item.apilable==false) //Revisar si funciona al implementar stack
         {
@@ -82,6 +85,7 @@ public class Inventario : MonoBehaviour
             Debug.Log("Objeto añadido a key => " +key);
             Debug.Log("El stock es " + casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock);
         }
+        PanelInventario.panelInventario.ActualizarTextos();
     }
     public void UsarObjeto(ObjetoInventario objetoInventario)
     { //Busca Objeto en inventario

@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Objeto : Interactivo {
+using UnityEngine.EventSystems;
+public class Objeto : Interactivo,IPointerDownHandler
+{
 
     
     public Item item;
@@ -11,9 +12,6 @@ public class Objeto : Interactivo {
     public Sprite Sprite { get; set; }
     public bool Consumible { get; set; }
 
-    void Update () {
-        Interactuar();
-	}
 
     private void Start()
     {
@@ -39,5 +37,11 @@ public class Objeto : Interactivo {
         Nombre = item.name;
         Descripción = item.descripcion;
         Sprite = item.artwokr;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        Debug.Log("click en " + gameObject);
+        Interactuar();  
     }
 }

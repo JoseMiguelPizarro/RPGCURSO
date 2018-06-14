@@ -23,7 +23,7 @@ public class PanelInventario : MonoBehaviour {
         {
             Inventario.inventarioSingleton.UsarObjeto(objetoSeleccionado);
             if(objetoSeleccionado.CantidadStock>0)
-            ActualizarTextos(objetoSeleccionado);
+            ActualizarTextos();
             else
             {
                panelInventario.txtNombreItem.text = "";
@@ -33,10 +33,14 @@ public class PanelInventario : MonoBehaviour {
         }
     }
 
-    public void ActualizarTextos(ObjetoInventario objetoInventario)
+    public void ActualizarTextos()
     {
-            panelInventario.txtNombreItem.text = objetoInventario.item.name;
-            panelInventario.txtCantidadItem.text = objetoInventario.CantidadStock.ToString();
-            panelInventario.txtDescripcionItem.text = objetoInventario.item.descripcion;
+        try
+        {
+            panelInventario.txtNombreItem.text = objetoSeleccionado.item.name;
+            panelInventario.txtCantidadItem.text = objetoSeleccionado.CantidadStock.ToString();
+            panelInventario.txtDescripcionItem.text = objetoSeleccionado.item.descripcion;
+        }
+        catch { };
     }
 }
