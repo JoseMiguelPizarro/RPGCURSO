@@ -14,7 +14,6 @@ public class PanelInventario : MonoBehaviour {
     private void Awake()
     {
         panelInventario = this;
-        DontDestroyOnLoad(gameObject);
     }
    
     public void UsarObjeto()
@@ -38,9 +37,24 @@ public class PanelInventario : MonoBehaviour {
         try
         {
             panelInventario.txtNombreItem.text = objetoSeleccionado.item.name;
-            panelInventario.txtCantidadItem.text = objetoSeleccionado.CantidadStock.ToString();
+            if (objetoSeleccionado.item.apilable == true)
+                 panelInventario.txtCantidadItem.text = objetoSeleccionado.CantidadStock.ToString();
+            else panelInventario.txtCantidadItem.text = "";
             panelInventario.txtDescripcionItem.text = objetoSeleccionado.item.descripcion;
         }
         catch { };
+    }
+
+    public void CerrarInventario()
+    {
+        gameObject.SetActive(false);
+    }
+    public void Eliminar()
+    {
+        try
+        {
+            Inventario.inventarioSingleton.EliminarObjeto(objetoSeleccionado);
+        }
+        catch { }
     }
 }

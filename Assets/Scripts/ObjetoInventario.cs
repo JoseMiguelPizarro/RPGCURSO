@@ -21,11 +21,14 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler {
     public void ReducirStock(int cantidadAReducir)
     {
         CantidadStock = CantidadStock - cantidadAReducir <= 0 ? 0: (CantidadStock - cantidadAReducir);
-        if (CantidadStock == 0) {
+        if (CantidadStock <= 0) {
            PanelInventario.panelInventario.txtNombreItem.text = "";
             PanelInventario.panelInventario.txtCantidadItem.text = "";
             PanelInventario.panelInventario.txtDescripcionItem.text = "";
             Debug.Log("Destruyendo "+gameObject);
-            Destroy(gameObject); }
+            Destroy(gameObject);
+            PanelInventario.panelInventario.objetoSeleccionado=null;
+        }
+        else { PanelInventario.panelInventario.ActualizarTextos(); }
     }
 }

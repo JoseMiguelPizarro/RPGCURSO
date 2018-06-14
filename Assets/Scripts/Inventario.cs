@@ -89,16 +89,23 @@ public class Inventario : MonoBehaviour
     }
     public void UsarObjeto(ObjetoInventario objetoInventario)
     { //Busca Objeto en inventario
+        EliminarObjeto(objetoInventario);
+        objetoInventario.item.UsarObjeto();
+    }
+
+    public void EliminarObjeto( ObjetoInventario objetoInventario) //Elimina 1 stock del objeto seleccionado
+    {
         int key = ObjetosEnInventario.Where(pair => pair.Value == objetoInventario.item)
-                     .Select(pair => pair.Key)
-                     .FirstOrDefault();
+                             .Select(pair => pair.Key)
+                             .FirstOrDefault();
         Debug.Log("La llave a usar es :" + key);
-        
+
+        //Retira Objeto de la pila
         objetoInventario.ReducirStock(1);
         if (objetoInventario.CantidadStock <= 0)
         {
             ObjetosEnInventario.Remove(key);
         }
-        objetoInventario.item.UsarObjeto();
     }
+
 }
