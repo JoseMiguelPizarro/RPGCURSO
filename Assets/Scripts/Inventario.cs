@@ -1,24 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Inventario : MonoBehaviour {
+public class Inventario : MonoBehaviour
 
-    static public Inventario inventarioSingleton;
+{
     public int TamañoInventario { get; set; }
-    private Dictionary<string, Item> ObjetosEnInventario;
+    public bool InventarioLleno = false;
+    static public Inventario inventarioSingleton;
+    private Dictionary<int, Item> ObjetosEnInventario = new Dictionary<int, Item>();
+
+    private List<GameObject> casillas = new List<GameObject>();
+    private int CasillaVacia = 0;
+
     private void Awake()
     {
         inventarioSingleton = this;
         inventarioSingleton.TamañoInventario = 12;
-        
-    }
 
-    static List<GameObject> casillas = new List<GameObject>();
-     int CasillaVacia = 0;
-    public bool InventarioLleno = false;
+    }
     private void Start()
     {
         foreach (Transform Child in transform)
@@ -27,7 +30,6 @@ public class Inventario : MonoBehaviour {
         }
         DeterminarSiguienteCasilla();
     }
-
     private void DeterminarSiguienteCasilla()
     {
         CasillaVacia = 0;
@@ -54,9 +56,8 @@ public class Inventario : MonoBehaviour {
     {
         Debug.Log("AñadirObjeto activado");
         DeterminarSiguienteCasilla();
-
       //Primero checkea si es consumible y además es nuevo objeto
-       // if (objeto.item.Consumible == false || !nombreObjetos.ContainsValue(objeto.name)) //Revisar si funciona al implementar stack
+        if ((objeto.item.apilable == true && !ObjetosEnInventario.ContainsValue(objeto.item)) || objeto.item.apilable==false) //Revisar si funciona al implementar stack
         {
             Debug.Log("Añadiendo");
             GameObject NuevoObjeto = new GameObject();
@@ -66,23 +67,33 @@ public class Inventario : MonoBehaviour {
             NuevoObjeto.transform.localPosition = Vector2.zero;
             NuevoObjeto.AddComponent<Image>().sprite = objeto.Sprite;
             NuevoObjeto.name = objeto.Nombre;
+            ObjetosEnInventario.Add(CasillaVacia, objeto.item);
             CasillaVacia++;
-            //nombreObjetos.Add(CasillaVacia, objeto);
             DeterminarSiguienteCasilla();
         }
-       // else
-        //{
-        //    int casilla = 0;
-        //    for ( casilla = 0; casilla < TamañoInventario; casilla++)
-        //    {
-        //        if (casillas[casilla].GetComponent<Casilla>().objetoInventario.name==nombreObjetos[casilla].ToString() )
-        //        {
-        //            casillas[casilla].GetComponent<Casilla>().objetoInventario.CantidadStack++;
-        //            Debug.Log("stack "+casillas[casilla].GetComponent<Casilla>().objetoInventario.CantidadStack);
-        //            break;
-        //        }
-        //    }
-        //}
+        else
+        { //Apila objeto en inventario
+            Debug.Log("El objeto es consumible");
+            int key = ObjetosEnInventario.Where(pair => pair.Value == objeto.item)
+                      .Select(pair => pair.Key)
+                      .FirstOrDefault();
+            casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock++;
+            Debug.Log("Objeto añadido a key => " +key);
+            Debug.Log("El stock es " + casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock);
+        }
     }
-
+    public void UsarObjeto(ObjetoInventario objetoInventario)
+    { //Busca Objeto en inventario
+        int key = ObjetosEnInventario.Where(pair => pair.Value == objetoInventario.item)
+                     .Select(pair => pair.Key)
+                     .FirstOrDefault();
+        Debug.Log("La llave a usar es :" + key);
+        
+        objetoInventario.ReducirStock(1);
+        if (objetoInventario.CantidadStock <= 0)
+        {
+            ObjetosEnInventario.Remove(key);
+        }
+        objetoInventario.item.UsarObjeto();
+    }
 }

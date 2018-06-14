@@ -8,10 +8,10 @@ public class Item : ScriptableObject {
     public string descripcion;
     public Sprite artwokr;
     public int value;
-    public bool Consumible;
+    public bool apilable;
 
-    public void Usar()
+    public void UsarObjeto()
     {
-        Debug.Log("Cura 20 HP");
+        Debug.Log("Usando Objeto");
     }
 }

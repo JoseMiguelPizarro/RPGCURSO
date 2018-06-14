@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224807621955783794}
   - component: {fileID: 222445062517826514}
   - component: {fileID: 114015936476677114}
+  - component: {fileID: 114826030959992846}
   m_Layer: 5
   m_Name: casilla (0)
   m_TagString: Untagged
@@ -55,6 +56,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114826030959992846
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1740121540861844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20babe3ee6b0af47816be7a977d25b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objetoInventario: {fileID: 0}
 --- !u!222 &222445062517826514
 CanvasRenderer:
   m_ObjectHideFlags: 1

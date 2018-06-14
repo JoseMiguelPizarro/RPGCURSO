@@ -2,11 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Consumible : Objeto {
+public class Consumible : Item
+{
 
-    void Consumir()
-        {
-
-        }
-	
 }

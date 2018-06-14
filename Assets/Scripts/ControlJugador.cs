@@ -28,6 +28,12 @@ public class ControlJugador : MonoBehaviour {
             mirando = (int)Mathf.Sign(h);
         }
         Debug.DrawRay(transform.position, Vector2.right * mirando*(distanciaInteración+ GetComponent<BoxCollider2D>().size.y / 2), Color.red);
+
+        if (CrossPlatformInputManager.GetButtonDown("Inventario"))
+        {
+            Debug.Log("Desactivando Inventario");
+            inventario.SetActive(!inventario.activeSelf);
+        }
       
     }
 
