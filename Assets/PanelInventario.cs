@@ -16,13 +16,20 @@ public class PanelInventario : MonoBehaviour {
         panelInventario = this;
         DontDestroyOnLoad(gameObject);
     }
-
+   
     public void UsarObjeto()
     {
         if (objetoSeleccionado)
         {
             Inventario.inventarioSingleton.UsarObjeto(objetoSeleccionado);
+            if(objetoSeleccionado.CantidadStock>0)
             ActualizarTextos(objetoSeleccionado);
+            else
+            {
+               panelInventario.txtNombreItem.text = "";
+               panelInventario.txtCantidadItem.text = "";
+               panelInventario.txtDescripcionItem.text = "";
+            }
         }
     }
 

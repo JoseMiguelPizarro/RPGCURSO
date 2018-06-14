@@ -25,7 +25,7 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler {
            PanelInventario.panelInventario.txtNombreItem.text = "";
             PanelInventario.panelInventario.txtCantidadItem.text = "";
             PanelInventario.panelInventario.txtDescripcionItem.text = "";
+            Debug.Log("Destruyendo "+gameObject);
             Destroy(gameObject); }
-        Debug.Log("El stock es " + CantidadStock);
     }
 }

@@ -29,6 +29,7 @@ public class Inventario : MonoBehaviour
             casillas.Add(Child.gameObject);
         }
         DeterminarSiguienteCasilla();
+        PanelInventario.panelInventario.gameObject.SetActive(false);
     }
     private void DeterminarSiguienteCasilla()
     {
