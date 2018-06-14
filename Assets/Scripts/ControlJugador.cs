@@ -37,13 +37,13 @@ public class ControlJugador : MonoBehaviour {
       
     }
 
-    public string Interactuar()
+    public GameObject Interactuar()
     {
         RaycastHit2D circlecast = Physics2D.CircleCast(transform.position, GetComponent<BoxCollider2D>().size.y / 2, Vector2.right*mirando, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
         if (circlecast.collider)
         {
             Debug.Log("Interactuó");
-            return circlecast.collider.name;
+            return circlecast.collider.gameObject;
         }
         else
         {

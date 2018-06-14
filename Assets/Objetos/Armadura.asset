@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Armadura
   m_EditorClassIdentifier: 
   name: Armadura
-  descripcion: No Consumible
+  descripcion: Una armadurita muy bonita
   artwokr: {fileID: 21300000, guid: 5b1a64ea234fb2343b8d0686c51280de, type: 3}
   value: 0
-  Consumible: 0
+  apilable: 0

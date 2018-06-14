@@ -18,7 +18,7 @@ public class Interactivo : MonoBehaviour {
     {
         if (CrossPlatformInputManager.GetButtonDown("Interactuar"))
         {
-            if (player.Interactuar() == gameObject.name)
+            if (player.Interactuar() == gameObject)
             {
                 Interaccion();
             }
