@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 
 {
+   
     public int TamañoInventario { get; set; }
     public bool InventarioLleno = false;
     static public Inventario inventarioSingleton;
@@ -43,6 +44,7 @@ public class Inventario : MonoBehaviour
                 if (CasillaVacia >= casillas.Count)
                 {
                     InventarioLleno = true;
+                    
                 }
             }
             else break;
@@ -69,6 +71,7 @@ public class Inventario : MonoBehaviour
             NuevoObjeto.GetComponent<ObjetoInventario>().item = objeto.item;
             NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
             NuevoObjeto.transform.localPosition = Vector2.zero;
+            NuevoObjeto.transform.localScale = new Vector3(4, 4, 1); //Ajustar tamaño
             NuevoObjeto.AddComponent<Image>().sprite = objeto.Sprite;
             NuevoObjeto.name = objeto.Nombre;
             ObjetosEnInventario.Add(CasillaVacia, objeto.item);
@@ -98,12 +101,15 @@ public class Inventario : MonoBehaviour
         int key = ObjetosEnInventario.Where(pair => pair.Value == objetoInventario.item)
                              .Select(pair => pair.Key)
                              .FirstOrDefault();
-        Debug.Log("La llave a usar es :" + key);
+       
 
+        Debug.Log("La llave a usar es :" + key +"La llave 2 es ");
+        
         //Retira Objeto de la pila
-        objetoInventario.ReducirStock(1);
-        if (objetoInventario.CantidadStock <= 0)
+        casillas[key].GetComponentInChildren<ObjetoInventario>().ReducirStock(1);
+        if (casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock <= 0)
         {
+            Debug.Log("Eliminando objeto del inventario");
             ObjetosEnInventario.Remove(key);
         }
     }

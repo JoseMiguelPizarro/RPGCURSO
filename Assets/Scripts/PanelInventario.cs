@@ -9,6 +9,7 @@ public class PanelInventario : MonoBehaviour {
     public Text txtDescripcionItem;
     public Text txtCantidadItem;
     public ObjetoInventario objetoSeleccionado;
+    public int casillaSeleccionada;
 
     static public PanelInventario panelInventario;
     private void Awake()
@@ -21,14 +22,14 @@ public class PanelInventario : MonoBehaviour {
         if (objetoSeleccionado)
         {
             Inventario.inventarioSingleton.UsarObjeto(objetoSeleccionado);
-            if(objetoSeleccionado.CantidadStock>0)
-            ActualizarTextos();
-            else
-            {
-               panelInventario.txtNombreItem.text = "";
-               panelInventario.txtCantidadItem.text = "";
-               panelInventario.txtDescripcionItem.text = "";
-            }
+            //if(objetoSeleccionado.CantidadStock>0)
+            //ActualizarTextos();
+            //else
+            //{
+            //   panelInventario.txtNombreItem.text = "";
+            //   panelInventario.txtCantidadItem.text = "";
+            //   panelInventario.txtDescripcionItem.text = "";
+            //}
         }
     }
 
