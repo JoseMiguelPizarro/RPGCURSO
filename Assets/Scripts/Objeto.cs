@@ -4,13 +4,16 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 public class Objeto : Interactivo,IPointerDownHandler
 {
-
-    
     public Item item;
     public string Nombre { get; set; }
     public string Descripción { get; set; }
     public Sprite Sprite { get; set; }
     public bool Consumible { get; set; }
+
+    private void OnValidate()
+    {
+        GetComponent<SpriteRenderer>().sprite = item.artwokr; 
+    }
 
 
     private void Start()
@@ -21,12 +24,10 @@ public class Objeto : Interactivo,IPointerDownHandler
 
     protected override void Interaccion()
     {
-        if (Inventario.inventarioSingleton.InventarioLleno == false) //Si se logra ejecutar el Añadir Objeto, corregir y verificar inventario lleno antes y después de añadir objeto
+        if (Inventario.inventario.InventarioLleno == false) //Si se logra ejecutar el Añadir Objeto, corregir y verificar inventario lleno antes y después de añadir objeto
         {
-            ObtenerDatos();
             Debug.Log("Interactuó con " + name + " por override");
-
-            Inventario.inventarioSingleton.AñadirObjeto(this);
+           Inventario.inventario.AñadirObjeto(item);
             Destroy(gameObject);
         }
         else { Debug.Log("Inventario Lleno"); }

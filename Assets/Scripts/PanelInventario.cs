@@ -5,23 +5,28 @@ using UnityEngine.UI;
 
 public class PanelInventario : MonoBehaviour {
 
+    [SerializeField] Inventario inventario;
     public Text txtNombreItem;
     public Text txtDescripcionItem;
     public Text txtCantidadItem;
     public ObjetoInventario objetoSeleccionado;
     public int casillaSeleccionada;
-
+    private CanvasGroup canvasGroup;
+    private bool abierto = true;
     static public PanelInventario panelInventario;
     private void Awake()
     {
         panelInventario = this;
+        canvasGroup = GetComponent<CanvasGroup>();
+        AbrirCerrarInventario();
     }
    
     public void UsarObjeto()
     {
         if (objetoSeleccionado)
         {
-            Inventario.inventarioSingleton.UsarObjeto(objetoSeleccionado);
+           inventario.UsarObjeto(objetoSeleccionado);
+            ActualizarTextos();
             //if(objetoSeleccionado.CantidadStock>0)
             //ActualizarTextos();
             //else
@@ -46,16 +51,38 @@ public class PanelInventario : MonoBehaviour {
         catch { };
     }
 
-    public void CerrarInventario()
+    public void AbrirCerrarInventario()
     {
-        gameObject.SetActive(false);
+        if (abierto)
+        {
+            Debug.Log("Desactivando Inventario");
+            canvasGroup.interactable = false;
+            canvasGroup.alpha = 0;
+            canvasGroup.blocksRaycasts = false;
+            canvasGroup.ignoreParentGroups = true;
+            abierto = false;
+        }
+        else
+        {
+            Debug.Log("Activando Inventario");
+            canvasGroup.interactable = true;
+            canvasGroup.alpha = 1;
+            canvasGroup.blocksRaycasts = true;
+            canvasGroup.ignoreParentGroups = true;
+            abierto = true;
+        }
+        
     }
     public void Eliminar()
     {
         try
         {
-            Inventario.inventarioSingleton.EliminarObjeto(objetoSeleccionado);
+            inventario.EliminarObjeto( objetoSeleccionado);
+            ActualizarTextos();
         }
-        catch { }
+        catch
+        {
+            ActualizarTextos();
+        }
+        }
     }
-}

@@ -8,31 +8,35 @@ using UnityEngine.UI;
 public class Inventario : MonoBehaviour
 
 {
-   
-    public int TamañoInventario { get; set; }
     public bool InventarioLleno = false;
-    static public Inventario inventarioSingleton;
-    private Dictionary<int, Item> ObjetosEnInventario = new Dictionary<int, Item>();
+    public GameObject casilla;
 
+    private List<Item> objetos = new List<Item>();
+    public static List<ObjetoInventario> objetosInventario = new List<ObjetoInventario>();
     private List<GameObject> casillas = new List<GameObject>();
     private int CasillaVacia = 0;
-    private bool Abierto = false;
+    private bool abierto = false;
+    public static Inventario inventario;
 
     private void Awake()
     {
-        inventarioSingleton = this;
-        inventarioSingleton.TamañoInventario = 12;
-
+        inventario = this;
     }
+
     private void Start()
+    {
+        CargarCasillas();
+    }
+
+    private void CargarCasillas()
     {
         foreach (Transform Child in transform)
         {
             casillas.Add(Child.gameObject);
         }
         DeterminarSiguienteCasilla();
-        PanelInventario.panelInventario.gameObject.SetActive(false); //Una vez cargadas las casillas se oculta el inventario
     }
+
     private void DeterminarSiguienteCasilla()
     {
         CasillaVacia = 0;
@@ -56,62 +60,78 @@ public class Inventario : MonoBehaviour
         Debug.Log(CasillaVacia);
     }
 
-    public void AñadirObjeto(Objeto objeto)
+    public bool AñadirObjeto(Item item)
     {
-        Debug.Log("AñadirObjeto activado");
         DeterminarSiguienteCasilla();
-        
-        
-      //Primero checkea si es consumible y además es nuevo objeto
-        if ((objeto.item.apilable == true && !ObjetosEnInventario.ContainsValue(objeto.item)) || objeto.item.apilable==false) //Revisar si funciona al implementar stack
+        //Primero checkea si es consumible y además es nuevo objeto
+        if (!InventarioLleno)
         {
-            Debug.Log("Añadiendo");
-            GameObject NuevoObjeto = new GameObject();
-            NuevoObjeto.AddComponent<ObjetoInventario>();
-            NuevoObjeto.GetComponent<ObjetoInventario>().item = objeto.item;
-            NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
-            NuevoObjeto.transform.localPosition = Vector2.zero;
-            NuevoObjeto.transform.localScale = new Vector3(4, 4, 1); //Ajustar tamaño
-            NuevoObjeto.AddComponent<Image>().sprite = objeto.Sprite;
-            NuevoObjeto.name = objeto.Nombre;
-            ObjetosEnInventario.Add(CasillaVacia, objeto.item);
-            CasillaVacia++;
-            DeterminarSiguienteCasilla();
+            if ((item.apilable == true && !objetos.Contains(item) || item.apilable == false))//Revisar si funciona al implementar stack
+            {
+                Debug.Log("Añadiendo");
+                objetos.Add(item);
+                GameObject NuevoObjeto = new GameObject();
+                NuevoObjeto.AddComponent<ObjetoInventario>();
+                NuevoObjeto.AddComponent<Arrastrable>();
+                NuevoObjeto.GetComponent<ObjetoInventario>().item = item;
+                NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
+                NuevoObjeto.transform.localPosition = Vector2.zero;
+                NuevoObjeto.transform.localScale = new Vector3(5, 5, 1); //Ajustar tamaño
+                NuevoObjeto.AddComponent<Image>().sprite = item.artwokr;
+                NuevoObjeto.name = item.name;
+                CasillaVacia++;
+                DeterminarSiguienteCasilla();
+
+            }
+            else
+            {
+                Debug.Log("Objeto Apilable");
+                for (int i = 0; i < casillas.Count; i++) //Bugeado al eliminar un objeto en una casilla con número superior al número de objetos
+                {
+                    try
+                    {
+                        if (item == casillas[i].GetComponentInChildren<ObjetoInventario>().item)
+                        {
+                            casillas[i].GetComponentInChildren<ObjetoInventario>().CantidadStock++;
+
+                            break;
+                        }
+                    }
+                    catch { }
+
+                }
+            }
+            PanelInventario.panelInventario.ActualizarTextos();
+            return true;
         }
-        else
-        { //Apila objeto en inventario
-            Debug.Log("El objeto es consumible");
-            int key = ObjetosEnInventario.Where(pair => pair.Value == objeto.item)
-                      .Select(pair => pair.Key)
-                      .FirstOrDefault();
-            casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock++;
-            Debug.Log("Objeto añadido a key => " +key);
-            Debug.Log("El stock es " + casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock);
-        }
-        PanelInventario.panelInventario.ActualizarTextos();
+        return false;
     }
     public void UsarObjeto(ObjetoInventario objetoInventario)
     { //Busca Objeto en inventario
-        EliminarObjeto(objetoInventario);
-        objetoInventario.item.UsarObjeto();
+        if(objetoInventario.item is Equipamiento)   //Revisa si el objeto es equipable
+        {
+            Equipamiento objetoEquipado;
+            if (PanelEquipamiento.Equipamiento.Equipar((Equipamiento)objetoInventario.item, out objetoEquipado))
+            {
+                EliminarObjeto(objetoInventario);
+                if(objetoEquipado!=null)
+                AñadirObjeto(objetoEquipado);
+            }
+        }
+        if (objetoInventario.item.UsarObjeto())
+        {
+            if (objetoInventario.CantidadStock <= 1)
+            {
+                objetos.Remove(objetoInventario.item);
+            }
+            objetoInventario.ReducirStock(1);
+        }
     }
 
     public void EliminarObjeto( ObjetoInventario objetoInventario) //Elimina 1 stock del objeto seleccionado
     {
-        int key = ObjetosEnInventario.Where(pair => pair.Value == objetoInventario.item)
-                             .Select(pair => pair.Key)
-                             .FirstOrDefault();
-       
-
-        Debug.Log("La llave a usar es :" + key +"La llave 2 es ");
-        
-        //Retira Objeto de la pila
-        casillas[key].GetComponentInChildren<ObjetoInventario>().ReducirStock(1);
-        if (casillas[key].GetComponentInChildren<ObjetoInventario>().CantidadStock <= 0)
-        {
-            Debug.Log("Eliminando objeto del inventario");
-            ObjetosEnInventario.Remove(key);
-        }
+        objetos.Remove(objetoInventario.item);
+        Destroy(objetoInventario.gameObject);
     }
 
 }

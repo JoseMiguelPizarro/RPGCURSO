@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="objeto",menuName ="Item")]
+[CreateAssetMenu(fileName ="objeto",menuName ="Objeto/Item")]
 public class Item : ScriptableObject {
     public new string name;
     public string descripcion;
@@ -10,8 +10,9 @@ public class Item : ScriptableObject {
     public int value;
     public bool apilable;
 
-    public void UsarObjeto()
+   virtual public bool UsarObjeto()
     {
         Debug.Log("Usando Objeto");
+        return true;
     }
 }

@@ -32,7 +32,7 @@ public class ControlJugador : MonoBehaviour {
         if (CrossPlatformInputManager.GetButtonDown("Inventario"))
         {
             Debug.Log("Desactivando Inventario");
-            inventario.SetActive(!inventario.activeSelf);
+            PanelInventario.panelInventario.AbrirCerrarInventario();
         }
       
     }
