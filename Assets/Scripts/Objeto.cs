@@ -24,11 +24,10 @@ public class Objeto : Interactivo,IPointerDownHandler
 
     protected override void Interaccion()
     {
-        if (Inventario.inventario.InventarioLleno == false) //Si se logra ejecutar el Añadir Objeto, corregir y verificar inventario lleno antes y después de añadir objeto
+        if (Inventario.inventario.AñadirObjeto(item)) //Si se logra ejecutar el Añadir Objeto, corregir y verificar inventario lleno antes y después de añadir objeto
         {
-            Debug.Log("Interactuó con " + name + " por override");
-           Inventario.inventario.AñadirObjeto(item);
             Destroy(gameObject);
+            Debug.Log("Interactuó con " + name + " por override");
         }
         else { Debug.Log("Inventario Lleno"); }
     }
@@ -42,7 +41,6 @@ public class Objeto : Interactivo,IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log("click en " + gameObject);
         Interactuar();  
     }
 }

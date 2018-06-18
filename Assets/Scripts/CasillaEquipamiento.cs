@@ -6,16 +6,21 @@ using UnityEngine.EventSystems;
 
 public class CasillaEquipamiento : MonoBehaviour,IPointerClickHandler {
 
-    private Item item;
+   [SerializeField] private Item item;
     private Image image;
     public Item Item { get{ return item; }
-        set {item=value;
-            image.sprite = item.artwokr;
-            if (item = null)
+        set {
+            if (value == null)
             {
-                image.sprite = null;
+                image.enabled = false;
             }
+            else { image.enabled = true;
+                image.sprite = value.artwokr;
+            }
+            item = value;
+
         } }
+   
 
     public TipoDeEquipamiento tipoDeEquipamiento;
 
@@ -27,6 +32,11 @@ public class CasillaEquipamiento : MonoBehaviour,IPointerClickHandler {
     private void Start()
     {
         image = GetComponent<Image>();
+        if (Item == null)
+        {
+            image.enabled = false;
+        }
+        
     }
 
     public void OnPointerClick(PointerEventData eventData)

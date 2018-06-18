@@ -12,8 +12,8 @@ public class Inventario : MonoBehaviour
     public GameObject casilla;
 
     private List<Item> objetos = new List<Item>();
-    public static List<ObjetoInventario> objetosInventario = new List<ObjetoInventario>();
-    private List<GameObject> casillas = new List<GameObject>();
+    public static List<GameObject> objetosInventario = new List<GameObject>();
+    [SerializeField] private List<GameObject> casillas = new List<GameObject>();
     private int CasillaVacia = 0;
     private bool abierto = false;
     public static Inventario inventario;
@@ -37,9 +37,26 @@ public class Inventario : MonoBehaviour
         DeterminarSiguienteCasilla();
     }
 
-    private void DeterminarSiguienteCasilla()
+    public void DeterminarSiguienteCasilla()
     {
         CasillaVacia = 0;
+        //for (int i = 0; i < casillas.Count; i++)
+        //{
+        //    if (!casillas[i].GetComponentInChildren<ObjetoInventario>())
+        //    {
+        //        CasillaVacia = i;
+        //        if (CasillaVacia<casillas.Count)
+        //        {
+        //            InventarioLleno = false;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        InventarioLleno = true;
+        //    }
+        //}
+
+
         foreach (GameObject casilla in casillas)
         {
             if (casilla.GetComponentInChildren<ObjetoInventario>())
@@ -48,27 +65,27 @@ public class Inventario : MonoBehaviour
                 if (CasillaVacia >= casillas.Count)
                 {
                     InventarioLleno = true;
-                    
+                    Debug.Log("Inventario Lleno");
                 }
             }
-            else break;
+            else
+            {
+                InventarioLleno = false;
+                break;
+            }
         }
-        if (CasillaVacia >= casillas.Count)
-        {
-            InventarioLleno = true;
-        }
-        Debug.Log(CasillaVacia);
+
+        Debug.Log("Casilla Vacia es "+ CasillaVacia);
     }
 
     public bool AñadirObjeto(Item item)
     {
         DeterminarSiguienteCasilla();
         //Primero checkea si es consumible y además es nuevo objeto
-        if (!InventarioLleno)
-        {
-            if ((item.apilable == true && !objetos.Contains(item) || item.apilable == false))//Revisar si funciona al implementar stack
+       
+            if (((item.apilable == true && !objetos.Contains(item) && !InventarioLleno)|| (item.apilable == false && !InventarioLleno)))//Revisar si funciona al implementar stack
             {
-                Debug.Log("Añadiendo");
+                Debug.Log("Añadiendo "+ item.name);
                 objetos.Add(item);
                 GameObject NuevoObjeto = new GameObject();
                 NuevoObjeto.AddComponent<ObjetoInventario>();
@@ -79,11 +96,11 @@ public class Inventario : MonoBehaviour
                 NuevoObjeto.transform.localScale = new Vector3(5, 5, 1); //Ajustar tamaño
                 NuevoObjeto.AddComponent<Image>().sprite = item.artwokr;
                 NuevoObjeto.name = item.name;
-                CasillaVacia++;
-                DeterminarSiguienteCasilla();
+                objetosInventario.Add(NuevoObjeto);
+            return true;
 
             }
-            else
+            else if(item.apilable==true && objetos.Contains(item))
             {
                 Debug.Log("Objeto Apilable");
                 for (int i = 0; i < casillas.Count; i++) //Bugeado al eliminar un objeto en una casilla con número superior al número de objetos
@@ -100,11 +117,10 @@ public class Inventario : MonoBehaviour
                     catch { }
 
                 }
-            }
             PanelInventario.panelInventario.ActualizarTextos();
             return true;
-        }
-        return false;
+            }
+            return false;
     }
     public void UsarObjeto(ObjetoInventario objetoInventario)
     { //Busca Objeto en inventario
@@ -113,12 +129,20 @@ public class Inventario : MonoBehaviour
             Equipamiento objetoEquipado;
             if (PanelEquipamiento.Equipamiento.Equipar((Equipamiento)objetoInventario.item, out objetoEquipado))
             {
-                EliminarObjeto(objetoInventario);
-                if(objetoEquipado!=null)
-                AñadirObjeto(objetoEquipado);
+                Debug.Log("Objeto previamente equipado es "+ objetoEquipado);
+                DeterminarSiguienteCasilla();
+                if (objetoEquipado != null)
+                {
+                    objetoInventario.item = objetoEquipado; //Traspasar Objeto del inventario
+                    objetoInventario.gameObject.GetComponent<Image>().sprite = objetoEquipado.artwokr; //Actualizar artwork del objeto
+                }
+                else
+                {
+                    objetoInventario.Destruir();
+                }
             }
         }
-        if (objetoInventario.item.UsarObjeto())
+       else if (objetoInventario.item.UsarObjeto())
         {
             if (objetoInventario.CantidadStock <= 1)
             {
@@ -131,7 +155,10 @@ public class Inventario : MonoBehaviour
     public void EliminarObjeto( ObjetoInventario objetoInventario) //Elimina 1 stock del objeto seleccionado
     {
         objetos.Remove(objetoInventario.item);
-        Destroy(objetoInventario.gameObject);
+        //objetosInventario.Remove(objetoInventario.gameObject);
+        objetoInventario.Destruir();
+        Debug.Log("ObjetoInventario eliminado: " + objetoInventario);
+        DeterminarSiguienteCasilla();
     }
 
 }

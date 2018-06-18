@@ -53,4 +53,10 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler,IDragHandler 
     {
         transform.position = Input.mousePosition;
     }
+
+    public void Destruir()
+    {
+        Debug.Log("Objeto destruido es "+gameObject);
+        Destroy(gameObject,0f);
+    }
 }

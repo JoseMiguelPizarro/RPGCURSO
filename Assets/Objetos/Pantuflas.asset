@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pantuflas
   descripcion: Unas bonitas pantuflas
-  artwokr: {fileID: 0}
+  artwokr: {fileID: 21300000, guid: 3820aeedd5003ad4d918154ec99d0aea, type: 3}
   value: 0
   apilable: 0
   tipoEquipo: 2
@@ -21,4 +21,5 @@ MonoBehaviour:
   Magia: 0
   Inteligencia: 0
   Fuerza: 0
+  Defensa: 0
   Velocidad: 1

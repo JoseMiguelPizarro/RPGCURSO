@@ -5,7 +5,6 @@ using UnityEngine;
 public class PanelEquipamiento : MonoBehaviour {
 
     public static PanelEquipamiento Equipamiento;
-
     
 
     [SerializeField] CasillaEquipamiento[] casillaEquipamientos;
@@ -27,11 +26,9 @@ public class PanelEquipamiento : MonoBehaviour {
         {
             if (casillaEquipamientos[i].tipoDeEquipamiento == item.tipoEquipo) //Determinar Casilla
             {
-
-                    previousItem = (Equipamiento)casillaEquipamientos[i].Item;
+                previousItem = (Equipamiento)casillaEquipamientos[i].Item;
                 casillaEquipamientos[i].Item = item;
                 return true;
-
             }
         }
         previousItem = null;

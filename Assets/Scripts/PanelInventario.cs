@@ -77,7 +77,7 @@ public class PanelInventario : MonoBehaviour {
     {
         try
         {
-            inventario.EliminarObjeto( objetoSeleccionado);
+            inventario.EliminarObjeto(objetoSeleccionado);
             ActualizarTextos();
         }
         catch
