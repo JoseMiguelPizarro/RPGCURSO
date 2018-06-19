@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class ObjetoInventario : MonoBehaviour,IPointerClickHandler,IDragHandler {
+public class ObjetoInventario : MonoBehaviour,IPointerClickHandler{
 
     private Casilla casilla;
     public Item item;
@@ -49,10 +49,7 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler,IDragHandler 
         casilla.ActualizarTextoStock(0);
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        transform.position = Input.mousePosition;
-    }
+   
 
     public void Destruir()
     {

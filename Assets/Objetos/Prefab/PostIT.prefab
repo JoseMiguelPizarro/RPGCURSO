@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212074054779831914}
   - component: {fileID: 114898954909180064}
   - component: {fileID: 114769631170834352}
-  - component: {fileID: 60789609597444668}
+  - component: {fileID: 61741444084056316}
   m_Layer: 9
   m_Name: PostIT
   m_TagString: Untagged
@@ -37,14 +37,14 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612052922629318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.804792, y: -0.52756417, z: 0.167}
+  m_LocalPosition: {x: 2.0915174, y: 2.9312115, z: 0.33378237}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60789609597444668
-PolygonCollider2D:
+--- !u!61 &61741444084056316
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -52,7 +52,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -65,35 +65,9 @@ PolygonCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.805, y: -1.265}
-      - {x: 0.96, y: -1.05}
-      - {x: 0.96, y: -0.56}
-      - {x: 0.885, y: -0.355}
-      - {x: 0.5, y: 0}
-      - {x: 0.39999998, y: -0.03}
-      - {x: 0.4168744, y: 0.7959461}
-      - {x: 0.50256586, y: 0.78487015}
-      - {x: 0.49499997, y: 1.17}
-      - {x: 0.39, y: 1.275}
-      - {x: -0.37, y: 1.275}
-      - {x: -0.48, y: 1.185}
-      - {x: -0.45499998, y: 0.775}
-      - {x: -0.35999998, y: 0.78999996}
-      - {x: -0.3774557, y: 0.0032596588}
-      - {x: -0.475, y: -0.099999994}
-      - {x: -0.59, y: -0.11}
-      - {x: -0.8450842, y: -0.421134}
-      - {x: -0.92663, y: -0.583786}
-      - {x: -0.91999996, y: -1.0699999}
-      - {x: -0.84, y: -1.16}
-      - {x: -0.64, y: -1.37}
-      - {x: -0.445, y: -1.4449999}
-      - {x: 0.48499998, y: -1.4449999}
-      - {x: 0.49499997, y: -1.435}
-      - {x: 0.66999996, y: -1.35}
-      - {x: 0.68, y: -1.3399999}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &114769631170834352
 MonoBehaviour:
   m_ObjectHideFlags: 1

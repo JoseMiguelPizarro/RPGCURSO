@@ -7,13 +7,15 @@ public class AtributosJugador : MonoBehaviour {
 
     public Text textoSalud;
 
-	public int Salud { get; set; }
-    public int Velocidad { get; set; }
-    public int Magia { get; set; }
-    public int Inteligencia { get; set; }
-    public int Fuerza { get; set; }
-    public int Experiencia { get; set; }
-    public int Nivel { get; set; }
+
+        public int Salud { get; set; }
+        public int Velocidad { get; set; }
+        public int Magia { get; set; }
+        public int Inteligencia { get; set; }
+        public int Fuerza { get; set; }
+        public int Experiencia { get; set; }
+        public int Nivel { get; set; }
+   
 
     private int saludActual;
     public int SaludActual
