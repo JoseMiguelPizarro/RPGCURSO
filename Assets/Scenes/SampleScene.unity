@@ -693,7 +693,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.000054955, y: 0.000076294}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0.000061035156}
   m_SizeDelta: {x: 700, y: 1338}
   m_Pivot: {x: 0.49999997, y: 0.50000006}
 --- !u!114 &211344489
@@ -3301,38 +3301,23 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224667384498519410, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
-        type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.0000052
-      objectReference: {fileID: 0}
-    - target: {fileID: 224667384498519410, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
-        type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.0000057
-      objectReference: {fileID: 0}
-    - target: {fileID: 224667384498519410, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
-        type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0000057
-      objectReference: {fileID: 0}
     - target: {fileID: 1405098021676072, guid: 8063c3b2fc89b0b4fb0a55d0cf140786, type: 2}
       propertyPath: m_Name
       value: Casilla (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114782074093402020, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
+    - target: {fileID: 224667384498519410, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
         type: 2}
-      propertyPath: m_Color.r
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114782074093402020, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
+    - target: {fileID: 224667384498519410, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
         type: 2}
-      propertyPath: m_Color.g
+      propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114782074093402020, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
+    - target: {fileID: 224667384498519410, guid: 8063c3b2fc89b0b4fb0a55d0cf140786,
         type: 2}
-      propertyPath: m_Color.b
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

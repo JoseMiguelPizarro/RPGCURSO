@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 222308793579149208}
   - component: {fileID: 114370284632684834}
   - component: {fileID: 114550934033462170}
+  - component: {fileID: 114742580827918426}
   m_Layer: 5
   m_Name: Casilla
   m_TagString: Untagged
@@ -84,6 +85,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969a1c956eb3250449c442161696294e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114742580827918426
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1405098021676072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 108951eee6a088c4ea716a666453d097, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemArrastrable: {fileID: 0}
 --- !u!114 &114782074093402020
 MonoBehaviour:
   m_ObjectHideFlags: 1

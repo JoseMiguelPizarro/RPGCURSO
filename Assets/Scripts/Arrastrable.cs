@@ -35,23 +35,21 @@ public class Arrastrable : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         iconRect.anchorMin = new Vector2(0.5f, 0.5f);
         iconRect.anchorMax = new Vector2(0.5f, 0.5f);
         iconRect.sizeDelta = new Vector2(myRect.rect.width, myRect.rect.height);
+        iconRect.localScale = new Vector3(2, 2, 1f);
 
-        if (OnItemDragStartEvent != null)
-        {
-            OnItemDragStartEvent(gameObject);                                   // Notify all items about drag start for raycast disabling
-        }
+        OnItemDragStartEvent?.Invoke(gameObject);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        if (icono != null)
-        {
-            icono.transform.position = Input.mousePosition;                          // Item's icon follows to cursor in screen pixels
-        }
+        transform.position = Input.mousePosition;
+        
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        transform.position = transform.parent.position;
+        MakeRaycast(true);
        
     }
 
@@ -66,12 +64,19 @@ public class Arrastrable : MonoBehaviour,IBeginDragHandler,IDragHandler,IEndDrag
         {
             Destroy(icono);                                                          // Destroy icon on item drop
         }
-        if (OnItemDragEndEvent != null)
-        {
-            OnItemDragEndEvent(gameObject);                                         // Notify all cells about item drag end
-        }
+        OnItemDragEndEvent?.Invoke(gameObject);                                         // Notify all cells about item drag end
         objetoArrastrado = null;
         icono = null;
         casillaPadre = null;
+        MakeRaycast(true);
+    }
+
+    public void MakeRaycast(bool condition)
+    {
+        Image image = GetComponent<Image>();
+        if (image != null)
+        {
+            image.raycastTarget = condition;
+        }
     }
 }
