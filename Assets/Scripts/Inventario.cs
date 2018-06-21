@@ -182,10 +182,10 @@ public class Inventario : MonoBehaviour
     //Eventos
     private void BeginDrag(Casilla casilla)
     {
-        if (casilla.objetoInventario!=null)
+        if (casilla.GetComponentInChildren<ObjetoInventario>()!=null)
         {
             casillaArrastrada = casilla;
-            objetoArrastrado = casilla.objetoInventario;
+            objetoArrastrado = casilla.GetComponentInChildren<ObjetoInventario>();
             objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = false;
             objetoArrastrado.transform.SetParent(PanelInventario.panelInventario.transform);
         }
@@ -194,24 +194,34 @@ public class Inventario : MonoBehaviour
     private void EndDrag(Casilla casilla)
     {
         Debug.Log("Terminó de dragear");
+        if (objetoArrastrado.transform.parent == PanelInventario.panelInventario.transform)
+        {
+            objetoArrastrado.transform.SetParent(casillaArrastrada.transform);
+            objetoArrastrado.transform.position = casillaArrastrada.transform.position;
+        }
+
     }
     private void Drag(Casilla casilla)
     {
-        if (casilla.objetoInventario != null)
+        if (objetoArrastrado != null)
         {
-            casilla.objetoInventario.transform.position = Input.mousePosition;
+            objetoArrastrado.transform.position = Input.mousePosition;
         }
     }
 
     private void Drop(Casilla casilla)
     {
-       
-        casillaArrastrada.objetoInventario = casilla.objetoInventario;
-        casilla.objetoInventario.gameObject.transform.SetParent(casillaArrastrada.transform);
-        casilla.objetoInventario.gameObject.transform.position = casillaArrastrada.transform.position;
-        objetoArrastrado.transform.SetParent(casilla.transform);
-        objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = true;
-        objetoArrastrado.transform.position = casilla.transform.position;
         Debug.Log("Dropeando en casilla " + casilla.name);
+        ObjetoInventario objetoEnNuevaCasilla = casilla.GetComponentInChildren<ObjetoInventario>();
+        if (objetoEnNuevaCasilla!=null)
+        {
+            objetoEnNuevaCasilla.transform.position = casillaArrastrada.transform.position;
+            objetoEnNuevaCasilla.transform.SetParent(casillaArrastrada.transform);
+
+        }
+            objetoArrastrado.transform.SetParent(casilla.transform);
+            objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = true;
+            objetoArrastrado.transform.position = casilla.transform.position;
+        }
     }
-}
+
