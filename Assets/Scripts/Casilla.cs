@@ -13,11 +13,12 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
     public static GameObject icono; //Icono objeto arrastrado
     public static Casilla casillaPadre; //Casilla donde se encuentra el objeto arrastrado;
 
+    public delegate void DragEvent(Casilla casilla);
 
-    public event Action<Casilla> OnBeginDragEvent;
-    public event Action<Casilla> OnEndDragEvent;
-    public event Action<Casilla> OnDragEvent;
-    public event Action<Casilla> OnDropEvent;
+    public event DragEvent OnBeginDragEvent;
+    public event DragEvent OnEndDragEvent;
+    public event DragEvent OnDragEvent;
+    public event DragEvent OnDropEvent;
     
 
 
@@ -50,12 +51,10 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
     public void OnDrag(PointerEventData eventData)
     {
         OnDragEvent?.Invoke(this);
-
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-
         OnEndDragEvent?.Invoke(this);
     }
 

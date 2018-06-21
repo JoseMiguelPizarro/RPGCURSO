@@ -33,6 +33,7 @@ public class Inventario : MonoBehaviour
 
     private void Start()
     {
+        
         CargarCasillas();           //Suscribirse al evento;
         for (int i = 0; i < casillas.Count; i++)
         {
@@ -41,7 +42,10 @@ public class Inventario : MonoBehaviour
             listaCasillas[i].OnDragEvent += Drag;
             listaCasillas[i].OnDropEvent += Drop;
         }
-            Basurero.basurero.OnDropEvent += Drop;
+        for (int i = 0; i < PanelEquipamiento.Equipamiento.casillaEquipamientos.Length; i++)
+        {
+            PanelEquipamiento.Equipamiento.casillaEquipamientos[i].OnDropEvent += Drop;
+        }
     }
 
     private void CargarCasillas()
@@ -145,6 +149,7 @@ public class Inventario : MonoBehaviour
             DeterminarSiguienteCasilla();
             if (objetoEquipado != null)
             {
+
                 objetoInventario.item = objetoEquipado; //Traspasar Objeto del inventario
                 objetoInventario.gameObject.GetComponent<Image>().sprite = objetoEquipado.artwokr; //Actualizar artwork del objeto
             }
@@ -231,10 +236,6 @@ public class Inventario : MonoBehaviour
             objetoArrastrado.ActualizarCasillaPadre();
             casilla.ActualizarTextoStock(objetoArrastrado.CantidadStock);
         }
-    }
-    void Prueba(GameObject basurero)
-    {
-
     }
 }
 

@@ -35,6 +35,11 @@ public class PanelEquipamiento : MonoBehaviour {
             {
                 previousItem = (Equipamiento)casillaEquipamientos[i].Item;
                 casillaEquipamientos[i].Item = item;
+                equipamientos.Add(item);
+                if (previousItem!=null)
+                {
+                    equipamientos.Remove(previousItem);
+                }
                 return true;
             }
         }
@@ -46,6 +51,7 @@ public class PanelEquipamiento : MonoBehaviour {
     {
         if (Inventario.inventario.AñadirObjeto(equipamiento.Item))
         {
+            equipamientos.Remove((Equipamiento)equipamiento.Item);
             equipamiento.Item = null;
         }
     }
