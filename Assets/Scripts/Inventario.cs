@@ -4,36 +4,51 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
 
 public class Inventario : MonoBehaviour
 
 {
     public bool InventarioLleno = false;
     public GameObject casilla;
+    public static Inventario inventario;
 
     private List<Item> objetos = new List<Item>();
     public static List<GameObject> objetosInventario = new List<GameObject>();
-    [SerializeField] private List<GameObject> casillas = new List<GameObject>();
+    private Casilla[] listaCasillas;
+    [SerializeField] private List<Casilla> casillas = new List<Casilla>();
     private int CasillaVacia = 0;
     private bool abierto = false;
-    public static Inventario inventario;
+
+    public event Action<Casilla> OnBeginDragEvent;
+    public event Action<Casilla> OnEndDragEvent;
+    public event Action<Casilla> OnDragEvent;
+    public event Action<Casilla> OnDropEvent;
+    private Casilla casillaArrastrada;
+    private ObjetoInventario objetoArrastrado;
 
     private void Awake()
     {
         inventario = this;
+        listaCasillas = GetComponentsInChildren<Casilla>();
+
     }
 
     private void Start()
     {
         CargarCasillas();
+        for (int i = 0; i < casillas.Count; i++)
+        {
+            listaCasillas[i].OnBeginDragEvent += BeginDrag;
+            listaCasillas[i].OnEndDragEvent += EndDrag;
+            listaCasillas[i].OnDragEvent += Drag;
+            listaCasillas[i].OnDropEvent += Drop;
+        }
     }
 
     private void CargarCasillas()
     {
-        foreach (Transform Child in transform)
-        {
-            casillas.Add(Child.gameObject);
-        }
+        casillas = GetComponentsInChildren<Casilla>().ToList();
         DeterminarSiguienteCasilla();
     }
 
@@ -57,9 +72,9 @@ public class Inventario : MonoBehaviour
         //}
 
 
-        foreach (GameObject casilla in casillas)
+        foreach (Casilla casilla in casillas)
         {
-            if (casilla.GetComponentInChildren<ObjetoInventario>())
+            if (casilla.gameObject.GetComponentInChildren<ObjetoInventario>())
             {
                 CasillaVacia++;
                 if (CasillaVacia >= casillas.Count)
@@ -85,6 +100,7 @@ public class Inventario : MonoBehaviour
        
             if (((item.apilable == true && !objetos.Contains(item) && !InventarioLleno)|| (item.apilable == false && !InventarioLleno)))//Revisar si funciona al implementar stack
             {
+           
                 Debug.Log("Añadiendo "+ item.name);
                 objetos.Add(item);
                 GameObject NuevoObjeto = new GameObject();
@@ -96,6 +112,7 @@ public class Inventario : MonoBehaviour
                 NuevoObjeto.transform.localScale = new Vector3(5, 5, 1); //Ajustar tamaño
                 NuevoObjeto.AddComponent<Image>().sprite = item.artwokr;
                 NuevoObjeto.name = item.name;
+                casillas[CasillaVacia].ObtenerObjetoInventario();
                 objetosInventario.Add(NuevoObjeto);
             return true;
 
@@ -161,4 +178,40 @@ public class Inventario : MonoBehaviour
         DeterminarSiguienteCasilla();
     }
 
+
+    //Eventos
+    private void BeginDrag(Casilla casilla)
+    {
+        if (casilla.objetoInventario!=null)
+        {
+            casillaArrastrada = casilla;
+            objetoArrastrado = casilla.objetoInventario;
+            objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = false;
+            objetoArrastrado.transform.SetParent(PanelInventario.panelInventario.transform);
+        }
+    }
+
+    private void EndDrag(Casilla casilla)
+    {
+        Debug.Log("Terminó de dragear");
+    }
+    private void Drag(Casilla casilla)
+    {
+        if (casilla.objetoInventario != null)
+        {
+            casilla.objetoInventario.transform.position = Input.mousePosition;
+        }
+    }
+
+    private void Drop(Casilla casilla)
+    {
+       
+        casillaArrastrada.objetoInventario = casilla.objetoInventario;
+        casilla.objetoInventario.gameObject.transform.SetParent(casillaArrastrada.transform);
+        casilla.objetoInventario.gameObject.transform.position = casillaArrastrada.transform.position;
+        objetoArrastrado.transform.SetParent(casilla.transform);
+        objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = true;
+        objetoArrastrado.transform.position = casilla.transform.position;
+        Debug.Log("Dropeando en casilla " + casilla.name);
+    }
 }
