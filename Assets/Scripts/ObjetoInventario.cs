@@ -21,9 +21,13 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler{
 
     private void Start()
     {
+        ActualizarCasillaPadre();
+    }
+
+    public void ActualizarCasillaPadre()
+    {
         casilla = GetComponentInParent<Casilla>();
     }
-    
 
     public void OnPointerClick(PointerEventData eventData)
     {

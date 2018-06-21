@@ -7,7 +7,7 @@ public class PanelEquipamiento : MonoBehaviour {
     public static PanelEquipamiento Equipamiento;
     
 
-    [SerializeField] CasillaEquipamiento[] casillaEquipamientos;
+    public CasillaEquipamiento[] casillaEquipamientos;
     public List<Equipamiento> equipamientos = new List<Equipamiento>();
 
     private void Awake()
@@ -18,6 +18,13 @@ public class PanelEquipamiento : MonoBehaviour {
     private void OnValidate()
     {
         casillaEquipamientos = GetComponentsInChildren<CasillaEquipamiento>();
+    }
+    private void Start()
+    {
+        for (int i = 0; i < casillaEquipamientos.Length; i++)
+        {
+
+        }
     }
 
     public bool Equipar(Equipamiento item, out Equipamiento previousItem)

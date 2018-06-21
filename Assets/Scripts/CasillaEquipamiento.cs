@@ -4,17 +4,19 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class CasillaEquipamiento : MonoBehaviour,IPointerClickHandler {
+public class CasillaEquipamiento : Casilla,IPointerClickHandler {
 
    [SerializeField] private Item item;
     private Image image;
+    private Color colorNormal = Color.white;
+    private Color colorDesactivado = new Color(0, 0, 0, 0);
     public Item Item { get{ return item; }
         set {
             if (value == null)
             {
-                image.enabled = false;
+                image.color=colorDesactivado;
             }
-            else { image.enabled = true;
+            else { image.color=colorNormal;
                 image.sprite = value.artwokr;
             }
             item = value;
@@ -34,7 +36,7 @@ public class CasillaEquipamiento : MonoBehaviour,IPointerClickHandler {
         image = GetComponent<Image>();
         if (Item == null)
         {
-            image.enabled = false;
+            image.color= colorDesactivado;
         }
         
     }

@@ -18,14 +18,11 @@ public class Inventario : MonoBehaviour
     private Casilla[] listaCasillas;
     [SerializeField] private List<Casilla> casillas = new List<Casilla>();
     private int CasillaVacia = 0;
-    private bool abierto = false;
 
-    public event Action<Casilla> OnBeginDragEvent;
-    public event Action<Casilla> OnEndDragEvent;
-    public event Action<Casilla> OnDragEvent;
-    public event Action<Casilla> OnDropEvent;
+
     private Casilla casillaArrastrada;
-    private ObjetoInventario objetoArrastrado;
+    private Text StockArrastrado;
+    public ObjetoInventario objetoArrastrado;
 
     private void Awake()
     {
@@ -36,7 +33,7 @@ public class Inventario : MonoBehaviour
 
     private void Start()
     {
-        CargarCasillas();
+        CargarCasillas();           //Suscribirse al evento;
         for (int i = 0; i < casillas.Count; i++)
         {
             listaCasillas[i].OnBeginDragEvent += BeginDrag;
@@ -44,6 +41,7 @@ public class Inventario : MonoBehaviour
             listaCasillas[i].OnDragEvent += Drag;
             listaCasillas[i].OnDropEvent += Drop;
         }
+            Basurero.basurero.OnDropEvent += Drop;
     }
 
     private void CargarCasillas()
@@ -55,23 +53,6 @@ public class Inventario : MonoBehaviour
     public void DeterminarSiguienteCasilla()
     {
         CasillaVacia = 0;
-        //for (int i = 0; i < casillas.Count; i++)
-        //{
-        //    if (!casillas[i].GetComponentInChildren<ObjetoInventario>())
-        //    {
-        //        CasillaVacia = i;
-        //        if (CasillaVacia<casillas.Count)
-        //        {
-        //            InventarioLleno = false;
-        //        }
-        //    }
-        //    else
-        //    {
-        //        InventarioLleno = true;
-        //    }
-        //}
-
-
         foreach (Casilla casilla in casillas)
         {
             if (casilla.gameObject.GetComponentInChildren<ObjetoInventario>())
@@ -143,29 +124,34 @@ public class Inventario : MonoBehaviour
     { //Busca Objeto en inventario
         if(objetoInventario.item is Equipamiento)   //Revisa si el objeto es equipable
         {
-            Equipamiento objetoEquipado;
-            if (PanelEquipamiento.Equipamiento.Equipar((Equipamiento)objetoInventario.item, out objetoEquipado))
-            {
-                Debug.Log("Objeto previamente equipado es "+ objetoEquipado);
-                DeterminarSiguienteCasilla();
-                if (objetoEquipado != null)
-                {
-                    objetoInventario.item = objetoEquipado; //Traspasar Objeto del inventario
-                    objetoInventario.gameObject.GetComponent<Image>().sprite = objetoEquipado.artwokr; //Actualizar artwork del objeto
-                }
-                else
-                {
-                    objetoInventario.Destruir();
-                }
-            }
+            EquiparObjetoDesdeInventario(objetoInventario);
         }
-       else if (objetoInventario.item.UsarObjeto())
+        else if (objetoInventario.item.UsarObjeto())
         {
             if (objetoInventario.CantidadStock <= 1)
             {
                 objetos.Remove(objetoInventario.item);
             }
             objetoInventario.ReducirStock(1);
+        }
+    }
+
+    private void EquiparObjetoDesdeInventario(ObjetoInventario objetoInventario)
+    {
+        Equipamiento objetoEquipado;
+        if (PanelEquipamiento.Equipamiento.Equipar((Equipamiento)objetoInventario.item, out objetoEquipado))
+        {
+            Debug.Log("Objeto previamente equipado es " + objetoEquipado);
+            DeterminarSiguienteCasilla();
+            if (objetoEquipado != null)
+            {
+                objetoInventario.item = objetoEquipado; //Traspasar Objeto del inventario
+                objetoInventario.gameObject.GetComponent<Image>().sprite = objetoEquipado.artwokr; //Actualizar artwork del objeto
+            }
+            else
+            {
+                objetoInventario.Destruir();
+            }
         }
     }
 
@@ -193,19 +179,22 @@ public class Inventario : MonoBehaviour
 
     private void EndDrag(Casilla casilla)
     {
-        Debug.Log("Terminó de dragear");
+        Debug.Log("Terminó de dragear "+casilla.name);
         if (objetoArrastrado.transform.parent == PanelInventario.panelInventario.transform)
         {
             objetoArrastrado.transform.SetParent(casillaArrastrada.transform);
             objetoArrastrado.transform.position = casillaArrastrada.transform.position;
-        }
+            objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = true;
 
+        }
+       
     }
     private void Drag(Casilla casilla)
     {
         if (objetoArrastrado != null)
         {
-            objetoArrastrado.transform.position = Input.mousePosition;
+            objetoArrastrado.transform.position= Input.mousePosition;
+            
         }
     }
 
@@ -217,11 +206,35 @@ public class Inventario : MonoBehaviour
         {
             objetoEnNuevaCasilla.transform.position = casillaArrastrada.transform.position;
             objetoEnNuevaCasilla.transform.SetParent(casillaArrastrada.transform);
-
+            objetoEnNuevaCasilla.ActualizarCasillaPadre();
+            casillaArrastrada.ActualizarTextoStock(objetoEnNuevaCasilla.CantidadStock);
         }
+        else
+        {
+            casillaArrastrada.ActualizarTextoStock(0);
+        }
+        if (casilla as CasillaEquipamiento)
+        {
+            Debug.Log("En casilla Equipamiento");
+            EquiparObjetoDesdeInventario(objetoArrastrado);
+        }
+        else if (casilla as Basurero)
+        {
+            EliminarObjeto(objetoArrastrado);
+            casillaArrastrada.ActualizarTextoStock(0);
+        }
+        else
+        {
             objetoArrastrado.transform.SetParent(casilla.transform);
             objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = true;
             objetoArrastrado.transform.position = casilla.transform.position;
+            objetoArrastrado.ActualizarCasillaPadre();
+            casilla.ActualizarTextoStock(objetoArrastrado.CantidadStock);
         }
     }
+    void Prueba(GameObject basurero)
+    {
+
+    }
+}
 
