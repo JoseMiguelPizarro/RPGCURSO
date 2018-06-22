@@ -46,6 +46,7 @@ public class Inventario : MonoBehaviour
         {
             PanelEquipamiento.Equipamiento.casillaEquipamientos[i].OnDropEvent += Drop;
         }
+        Basurero.basurero.OnDropEvent += Drop;
     }
 
     private void CargarCasillas()

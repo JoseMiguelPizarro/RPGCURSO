@@ -36,15 +36,23 @@ public class PanelEquipamiento : MonoBehaviour {
                 previousItem = (Equipamiento)casillaEquipamientos[i].Item;
                 casillaEquipamientos[i].Item = item;
                 equipamientos.Add(item);
-                if (previousItem!=null)
+                if (previousItem != null)
                 {
                     equipamientos.Remove(previousItem);
+
                 }
+                ActualizarAtributos();
                 return true;
             }
         }
         previousItem = null;
         return false;
+    }
+
+    private void ActualizarAtributos()
+    {
+        AtributosJugador.atributosJugador.ActualizarAtributos(equipamientos);
+        PanelEstado.panelEstado.ActualizarTextos();
     }
 
     public void DesEquipar(CasillaEquipamiento equipamiento)
@@ -54,5 +62,6 @@ public class PanelEquipamiento : MonoBehaviour {
             equipamientos.Remove((Equipamiento)equipamiento.Item);
             equipamiento.Item = null;
         }
+        ActualizarAtributos();
     }
 }

@@ -9,10 +9,6 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
     private Text txtStock;
     public ObjetoInventario objetoInventario;
 
-    public static GameObject objetoArrastrado; //objeto a arrastrar
-    public static GameObject icono; //Icono objeto arrastrado
-    public static Casilla casillaPadre; //Casilla donde se encuentra el objeto arrastrado;
-
     public delegate void DragEvent(Casilla casilla);
 
     public event DragEvent OnBeginDragEvent;
