@@ -1,15 +1,10 @@
 fileFormatVersion: 2
-guid: 70c5c94ac17e90a4a98bb3b063f68b5a
+guid: 86ee1d310e9974d409f94ab1fd37f635
 TextureImporter:
   fileIDToRecycleName:
-    21300000: RommyCorriendo_0
-    21300002: RommyCorriendo_1
-    21300004: RommyCorriendo_2
-    21300006: RommyCorriendo_3
-    21300008: RommyCorriendo_4
-    21300010: RommyCorriendo_5
-    21300012: RommyCorriendo_6
-    21300014: RommyCorriendo_7
+    21300000: RommyAtacando_0
+    21300002: RommyAtacando_1
+    21300004: RommyAtacando_2
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -90,13 +85,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: RommyCorriendo_0
+      name: RommyAtacando_0
       rect:
         serializedVersion: 2
-        x: 36
+        x: 30
         y: 24
-        width: 27
-        height: 48
+        width: 36
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -104,59 +99,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 02c0e1502fea7b64f8607cc74e753522
+      spriteID: f6ea18b6614b98e46b18a9dcc62698d8
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RommyCorriendo_1
+      name: RommyAtacando_1
       rect:
         serializedVersion: 2
-        x: 136
-        y: 24
-        width: 27
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 545d2ed61c5e03143b13dd9213fae273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RommyCorriendo_2
-      rect:
-        serializedVersion: 2
-        x: 232
-        y: 24
-        width: 33
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 857d4ae0fdffdca4d9f273d6fb5ea29f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RommyCorriendo_3
-      rect:
-        serializedVersion: 2
-        x: 334
+        x: 133
         y: 24
         width: 31
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -164,19 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c81bd45a7059ed4b9629c3ef1568151
+      spriteID: f28f0d9c25159354d85f5c471ace6b42
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: RommyCorriendo_4
+      name: RommyAtacando_2
       rect:
         serializedVersion: 2
-        x: 436
+        x: 237
         y: 24
         width: 27
-        height: 48
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,67 +139,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab49a9e0ac5be84aa0f6a05a56c3c7f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RommyCorriendo_5
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 24
-        width: 27
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a8787a002bfcd8b44804f752906e1824
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RommyCorriendo_6
-      rect:
-        serializedVersion: 2
-        x: 632
-        y: 24
-        width: 33
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 09979f6a6bfdb4e489f318e3e78bee7e
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: RommyCorriendo_7
-      rect:
-        serializedVersion: 2
-        x: 734
-        y: 24
-        width: 31
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d173616759f70ba44adf082d0dc1fce1
+      spriteID: fd2d24ed3a3082d439592ae0cfb2ee1b
       vertices: []
       indices: 
       edges: []
@@ -252,7 +147,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 2a246dc60a826fa42a68104462c50dc5
+    spriteID: 7c5dd9b47f109bb45bcf82f84f35ae3f
     vertices: []
     indices: 
     edges: []

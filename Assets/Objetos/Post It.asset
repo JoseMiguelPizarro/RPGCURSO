@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Post-IT!
   descripcion: "Es s\xF3lo un POST-IT!"
-  artwokr: {fileID: 21300000, guid: aa64d2f08d6d5db4c8add3d532df7745, type: 3}
+  artwork: {fileID: 21300000, guid: aa64d2f08d6d5db4c8add3d532df7745, type: 3}
   value: 0
   apilable: 0
   tipoEquipo: 3
@@ -21,4 +21,5 @@ MonoBehaviour:
   Magia: 0
   Inteligencia: 1
   Fuerza: 0
+  Defensa: 0
   Velocidad: 0

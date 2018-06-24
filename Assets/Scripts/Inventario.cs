@@ -19,7 +19,6 @@ public class Inventario : MonoBehaviour
     [SerializeField] private List<Casilla> casillas = new List<Casilla>();
     private int CasillaVacia = 0;
 
-
     private Casilla casillaArrastrada;
     private Text StockArrastrado;
     public ObjetoInventario objetoArrastrado;
@@ -96,7 +95,7 @@ public class Inventario : MonoBehaviour
                 NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
                 NuevoObjeto.transform.localPosition = Vector2.zero;
                 NuevoObjeto.transform.localScale = new Vector3(5, 5, 1); //Ajustar tamaño
-                NuevoObjeto.AddComponent<Image>().sprite = item.artwokr;
+                NuevoObjeto.AddComponent<Image>().sprite = item.artwork;
                 NuevoObjeto.name = item.name;
                 casillas[CasillaVacia].ObtenerObjetoInventario();
                 objetosInventario.Add(NuevoObjeto);
@@ -152,7 +151,7 @@ public class Inventario : MonoBehaviour
             {
 
                 objetoInventario.item = objetoEquipado; //Traspasar Objeto del inventario
-                objetoInventario.gameObject.GetComponent<Image>().sprite = objetoEquipado.artwokr; //Actualizar artwork del objeto
+                objetoInventario.gameObject.GetComponent<Image>().sprite = objetoEquipado.artwork; //Actualizar artwork del objeto
             }
             else
             {
@@ -180,6 +179,7 @@ public class Inventario : MonoBehaviour
             objetoArrastrado = casilla.GetComponentInChildren<ObjetoInventario>();
             objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = false;
             objetoArrastrado.transform.SetParent(PanelInventario.panelInventario.transform);
+            
         }
     }
 

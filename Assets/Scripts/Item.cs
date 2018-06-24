@@ -6,7 +6,7 @@ using UnityEngine;
 public class Item : ScriptableObject {
     public new string name;
     public string descripcion;
-    public Sprite artwokr;
+    public Sprite artwork;
     public int value;
     public bool apilable;
 

@@ -12,18 +12,19 @@ public class Objeto : Interactivo,IPointerDownHandler
 
     private void OnValidate()
     {
-        GetComponent<SpriteRenderer>().sprite = item.artwokr; 
+        GetComponent<SpriteRenderer>().sprite = item.artwork; 
     }
 
 
     private void Start()
     {
-            GetComponent<SpriteRenderer>().sprite = item.artwokr;
+            GetComponent<SpriteRenderer>().sprite = item.artwork;
     }
 
 
     protected override void Interaccion()
     {
+        Debug.Log("Interactuando con " + gameObject.name);
         if (Inventario.inventario.AñadirObjeto(item)) //Si se logra ejecutar el Añadir Objeto, corregir y verificar inventario lleno antes y después de añadir objeto
         {
             Destroy(gameObject);
@@ -36,7 +37,7 @@ public class Objeto : Interactivo,IPointerDownHandler
     {
         Nombre = item.name;
         Descripción = item.descripcion;
-        Sprite = item.artwokr;
+        Sprite = item.artwork;
     }
 
     public void OnPointerDown(PointerEventData eventData)

@@ -9,7 +9,7 @@ public class PociónSalud : Item {
 
     public override bool UsarObjeto()
     {
-        if (AtributosJugador.atributosJugador.SaludActual == AtributosJugador.atributosJugador.SaludBase) {
+        if (AtributosJugador.atributosJugador.SaludActual == AtributosJugador.atributosJugador.Salud) {
 
             return false;
              }

@@ -17,7 +17,7 @@ public class CasillaEquipamiento : Casilla,IPointerClickHandler {
                 image.color=colorDesactivado;
             }
             else { image.color=colorNormal;
-                image.sprite = value.artwokr;
+                image.sprite = value.artwork;
             }
             item = value;
 
