@@ -39,9 +39,4 @@ public class Objeto : Interactivo,IPointerDownHandler
         Descripción = item.descripcion;
         Sprite = item.artwork;
     }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Interactuar();  
-    }
 }

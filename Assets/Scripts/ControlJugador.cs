@@ -9,8 +9,8 @@ public class ControlJugador : MonoBehaviour {
 	public GameObject inventario;
 	private float EscalaInicial;
 	private float h;
-    private Vector2 mirada;
-	public float distanciaInteración = 1;
+    private Vector3 mirada;
+	public float distanciaInteración = 0.5f;
 	private int mirando; //-1 izquierda +1 derecha
 	public int velocidad;
     private Animator animator;
@@ -25,6 +25,7 @@ public class ControlJugador : MonoBehaviour {
 
 		Vector2 movimiento = new Vector2(h, v);
         AnimatorStateInfo animatorState= animator.GetCurrentAnimatorStateInfo(0);
+        
         
         if (CrossPlatformInputManager.GetButtonDown("Atacar"))
         {
@@ -49,7 +50,7 @@ public class ControlJugador : MonoBehaviour {
 		}
        
 		Debug.DrawRay(transform.position,mirada.normalized*(distanciaInteración+ GetComponent<BoxCollider2D>().size.y / 2), Color.red);
-
+        Debug.DrawLine(transform.position, transform.position + mirada * 0.2f,Color.green);
 		if (CrossPlatformInputManager.GetButtonDown("Inventario"))
 		{
 			Debug.Log("Desactivando Inventario");
@@ -59,13 +60,13 @@ public class ControlJugador : MonoBehaviour {
 	  
 	}
 
-	public GameObject Interactuar()
+	public RaycastHit2D[] Interactuar()
 	{
-		RaycastHit2D circlecast = Physics2D.CircleCast(transform.position, GetComponent<BoxCollider2D>().size.y, mirada.normalized, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
-		if (circlecast.collider.gameObject)
+		RaycastHit2D[] circleCasts = Physics2D.CircleCastAll(transform.position+mirada.normalized*GetComponent<BoxCollider2D>().size.y/4f, GetComponent<BoxCollider2D>().size.y/4f, mirada.normalized, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
+		if (circleCasts!=null)
 		{
-			Debug.Log("Interactuó con "+ circlecast.collider.gameObject.name);
-			return circlecast.collider.gameObject;
+			//Debug.Log("Interactuó con "+ circleCasts.collider.gameObject.name);
+            return circleCasts;
 		}
 		else
 		{

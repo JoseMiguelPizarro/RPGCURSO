@@ -5,7 +5,7 @@ using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.EventSystems;
 
 
-public class Interactivo : MonoBehaviour {
+public class Interactivo : MonoBehaviour,IPointerDownHandler {
 
     public float radio = 5f;
     private ControlJugador player;
@@ -17,10 +17,14 @@ public class Interactivo : MonoBehaviour {
 
     protected void Interactuar()
     {
-            if (player.Interactuar() == gameObject)
+        foreach (RaycastHit2D item in player.Interactuar())
+        {
+            if (item.collider.gameObject == gameObject)
             {
-               Interaccion();
-           }
+                Interaccion();
+            }
+        }
+            
     }
 
     protected virtual void Interaccion() //Virtual porque distintos elementos tienen distinta forma de interactuar
@@ -28,8 +32,8 @@ public class Interactivo : MonoBehaviour {
         Debug.Log("Interactuó con: " + gameObject.name);
     }
 
-   public void interacciónprueba()
+    public void OnPointerDown(PointerEventData eventData)
     {
-        
+        Interactuar();
     }
 }

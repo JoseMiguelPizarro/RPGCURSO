@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class PanelInventario : MonoBehaviour {
+public class PanelInventario : MonoBehaviour,IDragHandler,IBeginDragHandler {
 
     [SerializeField] Inventario inventario;
     public Text txtNombreItem;
@@ -12,6 +13,7 @@ public class PanelInventario : MonoBehaviour {
     public ObjetoInventario objetoSeleccionado;
     public int casillaSeleccionada;
     private CanvasGroup canvasGroup;
+    private Vector3 relativePos;
     private bool abierto = true;
     static public PanelInventario panelInventario;
     private void Awake()
@@ -85,4 +87,15 @@ public class PanelInventario : MonoBehaviour {
             ActualizarTextos();
         }
         }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+       
+        transform.position = Input.mousePosition-relativePos;
     }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        relativePos = Input.mousePosition - transform.position;
+    }
+}
