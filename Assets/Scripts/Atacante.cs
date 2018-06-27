@@ -9,7 +9,7 @@ public class Atacante : MonoBehaviour {
 
     //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
     public Collider2D LastHit { get { return golpe; } }
-    public float offset = 1.5f;
+    public float offset = 1f;
     public Vector2 tamaño = new Vector2(1f, 1f);
     public LayerMask hittableLayers;
 
@@ -43,7 +43,7 @@ public class Atacante : MonoBehaviour {
         Debug.Log("Atacó");
         escala = AtacanteTransform.lossyScale;
 
-        facingOffset = Vector2.Scale(offset * mirada, escala);
+        facingOffset = Vector2.Scale(offset * mirada.normalized, escala);
 
         tamañoEscalado = Vector2.Scale(tamaño, escala);
 

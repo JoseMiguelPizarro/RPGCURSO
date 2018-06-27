@@ -13,32 +13,39 @@ public class MovimientoGuardia : MonoBehaviour {
     private Vector2 dirección;
     private AnimatorStateInfo animInfo;
     // Update is called once per frame
-    private void Start()
+    private void Awake()
     {
         atacante = GetComponent<Atacante>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         guardia = GetComponent<Enemigo>();
-        animInfo = animator.GetCurrentAnimatorStateInfo(0);
     }
     void Update () {
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);
         dirección = jugador.position - transform.position;
+        animInfo = animator.GetCurrentAnimatorStateInfo(0);
+        
         if (distanciaJugador<2)
         {
             animator.SetBool("Caminando", false);
             animator.SetTrigger("Atacar");
-            atacante.Atacar(dirección,guardia.Fuerza );
         }
-        if (distanciaJugador<=10&& !animInfo.IsTag("Atacando"))
+        else if (!animInfo.IsTag("Ataque") && distanciaJugador <= 6)
         {
             animator.SetBool("Caminando", true);
-            transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
+            //transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
+            transform.position += (Vector3)dirección.normalized * 3 * Time.deltaTime;
             if (dirección.x<0)
             {
                 GetComponent<SpriteRenderer>().flipX = true;
             }
             else { GetComponent<SpriteRenderer>().flipX = false; }
         }
+    }
+    public void GuardiaAtaque()
+    {
+        Debug.Log("GuardiaAtacando");
+        atacante.Atacar(dirección, guardia.Fuerza);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position+ (Vector3)dirección.normalized*3, 0.5f);
     }
 }

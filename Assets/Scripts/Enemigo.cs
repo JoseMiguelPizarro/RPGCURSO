@@ -30,7 +30,6 @@ public class Enemigo : MonoBehaviour {
         }
          }
 
-
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -56,7 +55,7 @@ public class Enemigo : MonoBehaviour {
         Destroy(gameObject);
     }
 
-    public void Atacar() { }
+   
 
 
 }
