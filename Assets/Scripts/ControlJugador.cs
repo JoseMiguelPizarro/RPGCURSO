@@ -7,17 +7,17 @@ public enum Mirada { Arriba,Abajo,Izquierda,Derecha}
 
 
 public class ControlJugador : MonoBehaviour {
-	private AtributosJugador atributos = AtributosJugador.atributosJugador;
+    private AtributosJugador atributos;
 	public GameObject inventario;
 	private float EscalaInicial;
 	private float h;
-	[HideInInspector]
-	public Vector3 mirada;
+    [HideInInspector]
+    public Vector2 mirada = Vector2.down;
 	public float distanciaInteración = 0.5f;
 	private int mirando; //-1 izquierda +1 derecha
 	public int velocidad;
 	private Animator animator;
-	public Mirada direcciónMirada;
+    public Mirada direcciónMirada = Mirada.Abajo;
 	private Atacante atacante;
 	private Vector2 direcciónAtaque;
 	
@@ -25,6 +25,7 @@ public class ControlJugador : MonoBehaviour {
 		EscalaInicial = transform.localScale.x;
 		animator = GetComponent<Animator>();
 		atacante = GetComponent<Atacante>();
+        atributos = GetComponent<AtributosJugador>();
 	}
 	void Update () {
 		h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -104,7 +105,7 @@ public class ControlJugador : MonoBehaviour {
 
 	public RaycastHit2D[] Interactuar()
 	{
-		RaycastHit2D[] circleCasts = Physics2D.CircleCastAll(transform.position+mirada.normalized*GetComponent<BoxCollider2D>().size.y/4f, GetComponent<BoxCollider2D>().size.y/4f, mirada.normalized, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
+		RaycastHit2D[] circleCasts = Physics2D.CircleCastAll((Vector2)transform.position+mirada.normalized*GetComponent<BoxCollider2D>().size.y/4f, GetComponent<BoxCollider2D>().size.y/4f, mirada.normalized, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
 		if (circleCasts!=null)
 		{
 			//Debug.Log("Interactuó con "+ circleCasts.collider.gameObject.name);

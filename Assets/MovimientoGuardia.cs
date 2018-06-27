@@ -18,6 +18,7 @@ public class MovimientoGuardia : MonoBehaviour {
         atacante = GetComponent<Atacante>();
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        guardia = GetComponent<Enemigo>();
         animInfo = animator.GetCurrentAnimatorStateInfo(0);
     }
     void Update () {
@@ -25,11 +26,11 @@ public class MovimientoGuardia : MonoBehaviour {
         dirección = jugador.position - transform.position;
         if (distanciaJugador<2)
         {
-            animator.SetBool("Corriendo", false);
+            animator.SetBool("Caminando", false);
             animator.SetTrigger("Atacar");
             atacante.Atacar(dirección,guardia.Fuerza );
         }
-        if (distanciaJugador<=10&& animInfo.IsTag("Atacando"))
+        if (distanciaJugador<=10&& !animInfo.IsTag("Atacando"))
         {
             animator.SetBool("Caminando", true);
             transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
