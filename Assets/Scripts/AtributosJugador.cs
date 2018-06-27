@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AtributosJugador : Daniable {
+public class AtributosJugador : Atacable {
 
     public Text textoSalud;
     public ControlJugador jugador;
@@ -20,14 +20,25 @@ public class AtributosJugador : Daniable {
         private int saludActual;
         public int SaludActual
     {
-        get { return saludActual; }
+        get
+        {
+            return saludActual;
+        }
         set
         {
             if (value > SaludBase)
             {
-                saludActual = SaludBase;
+                saludActual = Salud;
             }
-            else saludActual = value;
+            else if (value <= 0)
+            {
+                saludActual = 0;
+                Morir();
+            }
+            else
+            {
+                saludActual = value;
+            }
         }
     }
         public int MagiaActual
@@ -67,7 +78,7 @@ public class AtributosJugador : Daniable {
     AtributosJugador()
     {
         SaludBase = 10;
-        SaludActual = 2;
+        SaludActual = 10;
         VelocidadBase = 5;
         MagiaBase = 5;
         InteligenciaBase = 1;
@@ -120,5 +131,12 @@ public class AtributosJugador : Daniable {
         Empujar(atacante);
         SaludActual -= daño;
     }
+
+    void Morir()
+    {
+        Debug.Log("Jugador Murio");
+        Destroy(gameObject);
+    }
     
+
 }

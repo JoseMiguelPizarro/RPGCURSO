@@ -71,7 +71,6 @@ GameObject:
   - component: {fileID: 95022526958452868}
   - component: {fileID: 61939923234580248}
   - component: {fileID: 50739346863011938}
-  - component: {fileID: 114749671189638008}
   - component: {fileID: 114567393310727198}
   - component: {fileID: 114067257454640050}
   - component: {fileID: 114500556859493370}
@@ -131,7 +130,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870136368227900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.41, y: -1.97, z: 0}
+  m_LocalPosition: {x: 7.62, y: 1.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4808381227853444}
@@ -212,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32d144b17786c54da98f8752291fabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  empujable: 0
+  empujable: 1
   jugador: {fileID: 0}
 --- !u!114 &114500556859493370
 MonoBehaviour:
@@ -266,18 +265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraDeSalud: {fileID: 114860506252770524}
   salud: 2
---- !u!114 &114749671189638008
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1870136368227900}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f68e3a3b3f425374b9d20ce4812386d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  empujable: 1
 --- !u!114 &114860506252770524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -289,6 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cdf90239e46fb429d7efde9fbbfdfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fondo: {fileID: 212876044301109374}
 --- !u!212 &212031793438187540
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -6,9 +6,10 @@ using UnityEngine.Events;
 using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class Daniable : MonoBehaviour {
+public class Atacable : MonoBehaviour {
 
-    public bool empujable;
+    public bool empujable = true;
+    public bool atacable = true;
 
 
     public virtual void RecibirDanio(Transform atacante, int daño)

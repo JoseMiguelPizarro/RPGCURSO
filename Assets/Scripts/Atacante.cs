@@ -55,7 +55,7 @@ public class Atacante : MonoBehaviour {
         for (int i = 0; i < hitCount; i++)
         {
             golpe = AtaqueOverlapResults[i];
-            Daniable objetivo = golpe.GetComponent<Daniable>();
+            Atacable objetivo = golpe.GetComponent<Atacable>();
 
             if (objetivo)
             {
@@ -83,7 +83,7 @@ public class Atacante : MonoBehaviour {
         for (int i = 0; i < hitCount; i++)
         {
             golpe = AtaqueOverlapResults[i];
-           Daniable objetivo = golpe.GetComponent<Daniable>();
+           Atacable objetivo = golpe.GetComponent<Atacable>();
 
             if (objetivo)
             {
