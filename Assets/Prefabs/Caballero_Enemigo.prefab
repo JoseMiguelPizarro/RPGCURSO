@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114567393310727198}
   - component: {fileID: 114067257454640050}
   - component: {fileID: 114500556859493370}
+  - component: {fileID: 114604158493442384}
   m_Layer: 10
   m_Name: Caballero_Enemigo
   m_TagString: Untagged
@@ -211,6 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b32d144b17786c54da98f8752291fabf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  empujable: 0
   jugador: {fileID: 0}
 --- !u!114 &114500556859493370
 MonoBehaviour:
@@ -243,11 +245,27 @@ MonoBehaviour:
   nombre: 
   exp: 0
   drop: []
-  salud: 50
+  salud: 1
+  saludEnemigo: {fileID: 0}
+  muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
+  muerto: 0
   Fuerza: 1
   Velocidad: 1
   Magia: 1
   Inteligencia: 1
+--- !u!114 &114604158493442384
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870136368227900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d6fa995d7b1254f97e6873277c1474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraDeSalud: {fileID: 114860506252770524}
+  salud: 2
 --- !u!114 &114749671189638008
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f68e3a3b3f425374b9d20ce4812386d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  empujable: 1
 --- !u!114 &114860506252770524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,7 +323,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 1375026ef6bc2d145ae8ed065c01769c, type: 3}
   m_Color: {r: 0.8490566, g: 0, b: 0, a: 1}
   m_FlipX: 0
@@ -394,7 +413,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 1375026ef6bc2d145ae8ed065c01769c, type: 3}
   m_Color: {r: 0.31132078, g: 0.25829566, b: 0.20705768, a: 1}
   m_FlipX: 0

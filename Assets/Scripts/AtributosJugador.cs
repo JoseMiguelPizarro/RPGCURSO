@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class AtributosJugador : MonoBehaviour {
+public class AtributosJugador : Daniable {
 
     public Text textoSalud;
     public ControlJugador jugador;
@@ -78,6 +78,11 @@ public class AtributosJugador : MonoBehaviour {
 
     private void Update()
     {
+        ActualizarSaludActual();
+    }
+
+    private void ActualizarSaludActual()
+    {
         textoSalud.text = SaludActual.ToString();
     }
 
@@ -109,4 +114,11 @@ public class AtributosJugador : MonoBehaviour {
         ModificadorVelocidad = 0;
     }
 
+    public override void RecibirDanio(Transform atacante, int daño)
+    {
+        Debug.Log("Jugador Dañado");
+        Empujar(atacante);
+        SaludActual -= daño;
+    }
+    
 }

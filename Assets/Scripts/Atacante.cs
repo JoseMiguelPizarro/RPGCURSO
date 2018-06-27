@@ -55,12 +55,12 @@ public class Atacante : MonoBehaviour {
         for (int i = 0; i < hitCount; i++)
         {
             golpe = AtaqueOverlapResults[i];
-            Enemigo enemigo = golpe.GetComponent<Enemigo>();
+            Daniable objetivo = golpe.GetComponent<Daniable>();
 
-            if (enemigo)
+            if (objetivo)
             {
-                Debug.Log("Dañó a " + enemigo.name);
-                enemigo.RecibirDaño(transform, daño);
+                Debug.Log("Dañó a " + objetivo.name);
+                objetivo.RecibirDanio(transform, daño);
             }
         }
     }
@@ -83,12 +83,12 @@ public class Atacante : MonoBehaviour {
         for (int i = 0; i < hitCount; i++)
         {
             golpe = AtaqueOverlapResults[i];
-           Enemigo enemigo = golpe.GetComponent<Enemigo>();
+           Daniable objetivo = golpe.GetComponent<Daniable>();
 
-            if (enemigo)
+            if (objetivo)
             {
-                Debug.Log("Dañó a "+enemigo.name);
-                enemigo.RecibirDaño(transform,daño);
+                Debug.Log("Dañó a "+objetivo.name);
+                objetivo.RecibirDanio(transform,daño);
             }
         }
         

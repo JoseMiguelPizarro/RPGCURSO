@@ -6,7 +6,6 @@ using UnityEngine;
 public class PociónSalud : Item {
 
     [SerializeField] int CantidadCurar;
-
     public override bool UsarObjeto()
     {
         if (AtributosJugador.atributosJugador.SaludActual == AtributosJugador.atributosJugador.Salud) {

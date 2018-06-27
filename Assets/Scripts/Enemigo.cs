@@ -8,54 +8,24 @@ public class Enemigo : MonoBehaviour {
     public int exp;
     public Objeto[] drop;
     public int salud;
-    private Rigidbody2D rb;
     private Enemigo enemigo;
-    private BarraDeSalud barraDeSalud;
+    private Animator animator;
+    private SpriteRenderer sprite;
 
+    public GestorDeSalud saludEnemigo;
+    public AnimationClip muerteAnim;
+    public  bool muerto = false;
     public int Fuerza = 1;
     public int Velocidad = 1;
     public int Magia = 1;
     public int Inteligencia = 1;
-
-    private int saludActual;
-    public int SaludActual {
-
-        get {return saludActual; }
-
-        set { saludActual = value;
-            if (saludActual<0)
-            {
-                saludActual = 0;
-            }
-        }
-         }
+    
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
         enemigo = GetComponent<Enemigo>();
-        barraDeSalud = GetComponentInChildren<BarraDeSalud>();
-        SaludActual = salud;
+        animator = GetComponent<Animator>();
+        sprite = GetComponent<SpriteRenderer>();
+        saludEnemigo = GetComponent<GestorDeSalud>();
     }
-
-    public void RecibirDaño(Transform atacante, int daño)
-    {
-        Debug.Log("dañado " + gameObject.name);
-        Vector2 fuerza = (Vector2)transform.position - (Vector2)atacante.position;
-        rb.velocity = fuerza.normalized * 20;
-        enemigo.SaludActual -= daño;
-        barraDeSalud.Actualizar(SaludActual/(float)salud);
-        if (SaludActual<=0)
-        {
-            Morir();
-        }
-    }
-    private void Morir()
-    {
-        Destroy(gameObject);
-    }
-
-   
-
-
 }
