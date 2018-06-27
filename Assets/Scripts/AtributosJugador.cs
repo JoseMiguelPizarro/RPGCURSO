@@ -68,7 +68,7 @@ public class AtributosJugador : MonoBehaviour {
     {
         SaludBase = 10;
         SaludActual = 2;
-        VelocidadBase = 1;
+        VelocidadBase = 5;
         MagiaBase = 5;
         InteligenciaBase = 1;
         Experiencia = 0;

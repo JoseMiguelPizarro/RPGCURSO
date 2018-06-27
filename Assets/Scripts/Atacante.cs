@@ -6,90 +6,113 @@ using System;
 
 public class Atacante : MonoBehaviour {
 
-    [Serializable]
-    public class DamagableEvent : UnityEvent<Atacante, Dañable>
-    { }
-
-
-    [Serializable]
-    public class NonDamagableEvent : UnityEvent<Atacante>
-    { }
 
     //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
-    public Collider2D LastHit { get { return m_LastHit; } }
-
-    public int damage = 1;
-    public Vector2 offset = new Vector2(1.5f, 1f);
-    public Vector2 size = new Vector2(2.5f, 1f);
-    [Tooltip("If this is set, the offset x will be changed base on the sprite flipX setting. e.g. Allow to make the damager alway forward in the direction of sprite")]
-    public bool offsetBasedOnSpriteFacing = true;
-    [Tooltip("SpriteRenderer used to read the flipX value used by offset Based OnSprite Facing")]
-    public SpriteRenderer spriteRenderer;
-    [Tooltip("If disabled, damager ignore trigger when casting for damage")]
-    public bool canHitTriggers;
-    public bool disableDamageAfterHit = false;
-    [Tooltip("If set, the player will be forced to respawn to latest checkpoint in addition to loosing life")]
-    public bool forceRespawn = false;
-    [Tooltip("If set, an invincible damageable hit will still get the onHit message (but won't loose any life)")]
-    public bool ignoreInvincibility = false;
+    public Collider2D LastHit { get { return golpe; } }
+    public float offset = 1.5f;
+    public Vector2 tamaño = new Vector2(1f, 1f);
     public LayerMask hittableLayers;
-    public DamagableEvent OnDamageableHit;
-    public NonDamagableEvent OnNonDamageableHit;
 
-    protected bool m_SpriteOriginallyFlipped;
-    protected bool m_CanDamage = true;
-    protected ContactFilter2D m_AttackContactFilter;
-    protected Collider2D[] m_AttackOverlapResults = new Collider2D[10];
-    protected Transform m_DamagerTransform;
-    protected Collider2D m_LastHit;
+    protected ContactFilter2D filtroAtaque;
+    protected Collider2D[] AtaqueOverlapResults = new Collider2D[10];
+    protected Transform AtacanteTransform;
+    protected Collider2D golpe;
+
+    public Vector2 direcciónAtaque;
+    Vector2 escala = new Vector2();
+    Vector2 facingOffset = new Vector2();
+    Vector2 tamañoEscalado = new Vector2();
+    Vector2 puntoA = new Vector2();
+    Vector2 puntoB = new Vector2();
 
     void Awake()
     {
-        m_AttackContactFilter.layerMask = hittableLayers;
-        m_AttackContactFilter.useLayerMask = true;
-        m_AttackContactFilter.useTriggers = canHitTriggers;
-
-        if (offsetBasedOnSpriteFacing && spriteRenderer != null)
-            m_SpriteOriginallyFlipped = spriteRenderer.flipX;
-
-        m_DamagerTransform = transform;
+        filtroAtaque.layerMask = hittableLayers;
+        filtroAtaque.useLayerMask = true;
+        AtacanteTransform = transform;
+    }
+    private void Update()
+    {
+        Debug.DrawRay(transform.position, facingOffset, Color.yellow);
+        Debug.DrawLine(puntoA, puntoB, Color.red);
     }
 
-   
 
-    void FixedUpdate()
+    public void Atacar(Vector2 mirada, int daño)
     {
-        if (!m_CanDamage)
-            return;
+        Debug.Log("Atacó");
+        escala = AtacanteTransform.lossyScale;
 
-        Vector2 scale = m_DamagerTransform.lossyScale;
+        facingOffset = Vector2.Scale(offset * mirada, escala);
 
-        Vector2 facingOffset = Vector2.Scale(offset, scale);
-        if (offsetBasedOnSpriteFacing && spriteRenderer != null && spriteRenderer.flipX != m_SpriteOriginallyFlipped)
-            facingOffset = new Vector2(-offset.x * scale.x, offset.y * scale.y);
+        tamañoEscalado = Vector2.Scale(tamaño, escala);
 
-        Vector2 scaledSize = Vector2.Scale(size, scale);
+        puntoA = (Vector2)AtacanteTransform.position + facingOffset - tamañoEscalado * 0.5f;
+        puntoB = puntoA + tamañoEscalado;
 
-        Vector2 pointA = (Vector2)m_DamagerTransform.position + facingOffset - scaledSize * 0.5f;
-        Vector2 pointB = pointA + scaledSize;
-
-        int hitCount = Physics2D.OverlapArea(pointA, pointB, m_AttackContactFilter, m_AttackOverlapResults);
+        int hitCount = Physics2D.OverlapArea(puntoA, puntoB, filtroAtaque, AtaqueOverlapResults);
 
         for (int i = 0; i < hitCount; i++)
         {
-            m_LastHit = m_AttackOverlapResults[i];
-            Dañable dañable = m_LastHit.GetComponent<Dañable>();
+            golpe = AtaqueOverlapResults[i];
+            Enemigo enemigo = golpe.GetComponent<Enemigo>();
 
-            if (dañable)
+            if (enemigo)
             {
-                OnDamageableHit.Invoke(this, dañable);
-                dañable
-                if (disableDamageAfterHit) ;
+                Debug.Log("Dañó a " + enemigo.name);
+                enemigo.RecibirDaño(transform, daño);
             }
-            else
+        }
+    }
+
+    public void Atacar(Mirada mirada, int daño)
+    {
+        Debug.Log("Atacó");
+        DeterminarDirecciónAtaque(mirada);
+         escala = AtacanteTransform.lossyScale;
+
+         facingOffset = Vector2.Scale(offset*direcciónAtaque, escala);
+
+         tamañoEscalado = Vector2.Scale(tamaño, escala);
+
+         puntoA = (Vector2)AtacanteTransform.position + facingOffset - tamañoEscalado * 0.5f;
+         puntoB = puntoA + tamañoEscalado;
+
+        int hitCount = Physics2D.OverlapArea(puntoA, puntoB, filtroAtaque, AtaqueOverlapResults);
+
+        for (int i = 0; i < hitCount; i++)
+        {
+            golpe = AtaqueOverlapResults[i];
+           Enemigo enemigo = golpe.GetComponent<Enemigo>();
+
+            if (enemigo)
             {
-                OnNonDamageableHit.Invoke(this);
+                Debug.Log("Dañó a "+enemigo.name);
+                enemigo.RecibirDaño(transform,daño);
             }
+        }
+        
+    }
+
+   public void DeterminarDirecciónAtaque(Mirada mirada)
+    {
+        switch (mirada)
+        {
+            case Mirada.Arriba:
+                direcciónAtaque = Vector2.up;
+                break;
+            case Mirada.Abajo:
+                direcciónAtaque = Vector2.down;
+                break;
+            case Mirada.Izquierda:
+                direcciónAtaque = Vector2.left;
+                break;
+            case Mirada.Derecha:
+                direcciónAtaque = Vector2.right;
+                break;
+            default:
+                direcciónAtaque = Vector2.down;
+                break;
         }
     }
 }

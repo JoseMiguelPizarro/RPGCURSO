@@ -20,6 +20,6 @@ MonoBehaviour:
   Salud: 0
   Magia: 1
   Inteligencia: 1
-  Fuerza: 0
+  Fuerza: 10
   Defensa: 0
   Velocidad: 1
