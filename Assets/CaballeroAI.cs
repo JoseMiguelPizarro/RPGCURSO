@@ -22,68 +22,83 @@ public class CaballeroAI : Atacable {
         atacante = GetComponent<Atacante>();
         animator = GetComponent<Animator>();
         enemigo = GetComponent<Enemigo>();
-        sprite = GetComponent<SpriteRenderer>();
         miSalud = GetComponent<GestorDeSalud>();
+        sprite = GetComponent<SpriteRenderer>();
+
+    }
+    private void Start()
+    {
     }
     void Update()
     {
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);
-        direccion = jugador.position - transform.position;
         animInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if (enemigo.saludEnemigo.SaludActual<=0)
-        {
-            StartCoroutine(Morir());
-        }
+      
         if (enemigo.muerto == false)
         {
-            if (distanciaJugador < 2) //Atacar
+            if (distanciaJugador < 2.5 && !animInfo.IsTag("Ataque")) //Atacar
             {
-                if (!animInfo.IsTag("Ataque"))
+                GenerarDireccion(); //La dirección debe mantenerse mientras se realiza el ataque
+                VoltearSprite();
+                int rand = Random.Range(0, 100);
+                animator.SetBool("Caminando", false);
+                if (rand < 10)
                 {
-                    int rand = Random.Range(0, 100);
-                    animator.SetBool("Caminando", false);
-                    if (rand < 10)
-                    {
-                        animator.SetTrigger("Atacar");
-                    }
-                    else if (blockeoCD <= cd)
-                    {
-                        animator.SetTrigger("Defender");
-                        cd = 0;
-                    }
-                    else
-                    {
-                        animator.SetTrigger("Atacar");
-                    }
+                    animator.SetTrigger("Atacar");
                 }
+                else if (blockeoCD <= cd)
+                {
+                    animator.SetTrigger("Defender");
+                    cd = 0;
+                }
+                else
+                {
+                    animator.SetTrigger("Atacar");
+                }
+
             }
             else if ((!animInfo.IsTag("Ataque") && (enCombate|| distanciaJugador <= 6)))
             {
+                GenerarDireccion();
                 enCombate = true;
                 animator.SetBool("Caminando", true);
                 //transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
-                transform.position += (Vector3)direccion.normalized * 3 * Time.deltaTime;
-                if (direccion.x < 0)
-                {
-                    sprite.flipX = true;
-                }
-                else { sprite.flipX = false; }
+                transform.position += (Vector3)direccion.normalized * enemigo.Velocidad * Time.deltaTime;
+                VoltearSprite();
             }
             else
             {
                 animator.SetBool("Caminando", false);
             }
-            cd += Time.deltaTime;
+            cd += Time.deltaTime; //Aumentar el colddown del escudo
         }
+    }
+
+    private void GenerarDireccion()
+    {
+        direccion = jugador.position - transform.position;
+    }
+
+    private void VoltearSprite()
+    {
+        if (direccion.x < 0)
+        {
+            sprite.flipX = true;
+        }
+        else { sprite.flipX = false; }
     }
 
     public void GuardiaAtaque()
     {
         Debug.Log("GuardiaAtacando");
-        transform.position = Vector3.MoveTowards(transform.position, transform.position+ (Vector3)direccion.normalized*3, 0.5f);
+        Dash();
         atacante.Atacar(direccion, enemigo.Fuerza);
     }
 
+    private void Dash()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)direccion.normalized, 1f);
+    }
 
     public override void RecibirDanio(Transform atacante, int danio)
     {
@@ -93,13 +108,13 @@ public class CaballeroAI : Atacable {
             miSalud.SaludActual -= danio;
             if (enemigo.saludEnemigo.SaludActual <= 0)
             {
+                enemigo.Dropear();
                 StartCoroutine(Morir());
             }
         }
         else
         {
             animator.Play("Caballero_Atacar"); //Contraatque al estar bloqueando
-            StartCoroutine(ContraAtaque());
             atacable = true;
         }
     }
@@ -110,18 +125,17 @@ public class CaballeroAI : Atacable {
         empujable = false;
         enemigo.muerto = true;
         AnimatorStateInfo animInfo = animator.GetCurrentAnimatorStateInfo(0);
-        float duración = animInfo.length;
+        float duracion = animInfo.length;
         Debug.Log("Muriendo");
         animator.Play("Caballero_muerto");
-        
         yield return new WaitForSeconds(enemigo.muerteAnim.length);
         Destroy(gameObject);
     }
 
-    IEnumerator Fade(float duración)
+    IEnumerator Fade(float duracion)
     {
         float alpha = 1;
-        for (;  alpha>= 0; alpha-=duración*Time.deltaTime)
+        for (;  alpha>= 0; alpha-=duracion*Time.deltaTime)
         {
             sprite.color = new Color(1, 1, 1, alpha);
             yield return null;
@@ -139,23 +153,5 @@ public class CaballeroAI : Atacable {
     {
         atacable = true;
         Debug.Log("Desbloqueando");
-    }
-
-    IEnumerator ContraAtaque()
-    {
-        Color colorInicial = sprite.color;
-        for (int i = 0; i < 30; i++)
-        {
-            if (i%2==0)
-            {
-                sprite.color = colorInicial;
-            }
-            else
-            {
-                sprite.color = new Color(1, 1, 1, 1);
-            }
-            yield return new WaitForEndOfFrame();
-
-        }
     }
 }

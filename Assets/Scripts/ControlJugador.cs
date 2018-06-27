@@ -19,13 +19,15 @@ public class ControlJugador : MonoBehaviour {
 	private Animator animator;
     public Mirada direcciónMirada = Mirada.Abajo;
 	private Atacante atacante;
-	private Vector2 direcciónAtaque;
+	private Vector2 direccionAtaque;
+    private Skills skills;
 	
 	void Awake () {
 		EscalaInicial = transform.localScale.x;
 		animator = GetComponent<Animator>();
 		atacante = GetComponent<Atacante>();
         atributos = GetComponent<AtributosJugador>();
+        skills = GetComponent<Skills>();
 	}
 	void Update () {
 		h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -49,9 +51,9 @@ public class ControlJugador : MonoBehaviour {
 			atacante.Atacar(direcciónMirada,atributos.Fuerza);
 			Debug.Log(direcciónMirada);
 		}
-		if (CrossPlatformInputManager.GetButton("Skill1")&&!animatorState.IsTag("Atacando"))
+		if (CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando"))
 		{
-			Dash();
+			StartCoroutine(skills.Dash(direccionAtaque));
 		}
 		else if (!animatorState.IsTag("Atacando") && movimiento.magnitude>0)
 		{
@@ -64,9 +66,6 @@ public class ControlJugador : MonoBehaviour {
 		{
 			animator.SetBool("Corriendo", false);
 		}
-
-
-
   //      Debug.DrawRay(transform.position,mirada.normalized*(distanciaInteración+ GetComponent<BoxCollider2D>().size.y / 2), Color.red);
 		//Debug.DrawLine(transform.position, transform.position + mirada * 0.2f,Color.green);
 		if (CrossPlatformInputManager.GetButtonDown("Inventario"))
@@ -74,15 +73,9 @@ public class ControlJugador : MonoBehaviour {
 			Debug.Log("Desactivando Inventario");
 			PanelInventario.panelInventario.AbrirCerrarInventario();
 		}
-	   
-	  
 	}
 
-	IEnumerator Dash()
-	{
-		transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)direcciónAtaque, 1);
-		yield return new WaitForSeconds(2);
-	}
+	
 
 	private void VoltearSprite()
 	{
@@ -123,24 +116,24 @@ public class ControlJugador : MonoBehaviour {
 		{
 			if (mirada.x>=0)
 			{
-				direcciónAtaque = Vector2.right;
+				direccionAtaque = Vector2.right;
 				direcciónMirada = Mirada.Derecha;
 			}
 			else
 			{
-				direcciónAtaque = Vector2.left;
+				direccionAtaque = Vector2.left;
 				direcciónMirada = Mirada.Izquierda;
 			}
 		}
 		else if (mirada.y>=0)
 		{
 			direcciónMirada = Mirada.Arriba;
-			direcciónAtaque = Vector2.up;
+			direccionAtaque = Vector2.up;
 		}
 		else
 		{
 			direcciónMirada = Mirada.Abajo;
-			direcciónAtaque = Vector2.down;
+			direccionAtaque = Vector2.down;
 		}
 	   
 	}

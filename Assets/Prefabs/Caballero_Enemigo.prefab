@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 114067257454640050}
   - component: {fileID: 114500556859493370}
   - component: {fileID: 114604158493442384}
+  - component: {fileID: 114229929368984636}
   m_Layer: 10
   m_Name: Caballero_Enemigo
   m_TagString: Untagged
@@ -212,7 +213,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   empujable: 1
+  atacable: 1
   jugador: {fileID: 0}
+  blockeoCD: 1
+--- !u!114 &114229929368984636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1870136368227900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409ecf4afd2e1804aa8a1c234b16eb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops:
+  - {fileID: 114769631170834352, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
+  - {fileID: 114769631170834352, guid: f5f7f1fa0e3c157458c421e0aa140625, type: 2}
+  dropRate:
+  - 10
+  - 5
 --- !u!114 &114500556859493370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -243,13 +263,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nombre: 
   exp: 0
-  drop: []
-  salud: 1
   saludEnemigo: {fileID: 0}
   muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
   muerto: 0
   Fuerza: 1
-  Velocidad: 1
+  Velocidad: 2
   Magia: 1
   Inteligencia: 1
 --- !u!114 &114604158493442384
@@ -264,7 +282,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraDeSalud: {fileID: 114860506252770524}
-  salud: 2
+  salud: 10
 --- !u!114 &114860506252770524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -358,7 +376,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: ab1c4b6efa4af7340a3447f78322e287, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
