@@ -96,6 +96,7 @@ public class EnemigoAI : Atacable {
         {
             if (!atacando && distanciaJugador < distanciaAtaque) //Atacar
             {
+                enCombate = true;
                 GenerarDireccion(); //La dirección debe mantenerse mientras se realiza el ataque
                 VoltearSprite();
                 int rand = Random.Range(0, 100);
