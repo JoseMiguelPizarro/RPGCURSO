@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4828891735316560}
   - component: {fileID: 198659997267206136}
   - component: {fileID: 199236720995956608}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Clastos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4211427983827220}
   - component: {fileID: 198218650113331284}
   - component: {fileID: 199670479684019038}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Humo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,8 @@ GameObject:
   - component: {fileID: 198947643517571176}
   - component: {fileID: 199518123859886870}
   - component: {fileID: 114818437592337672}
-  m_Layer: 0
+  - component: {fileID: 61214338054537574}
+  m_Layer: 11
   m_Name: Fuego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1755203673265902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.43, y: -1.1683553, z: 0}
+  m_LocalPosition: {x: 5.982519, y: -5.2220373, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828891735316560}
@@ -98,12 +99,37 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164996495827684}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.83, y: -0.02, z: 0.06}
+  m_LocalPosition: {x: 0.573, y: 0.023, z: 0.06}
   m_LocalScale: {x: 1, y: 0.5376347, z: -1}
   m_Children: []
   m_Father: {fileID: 4193207728545488}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61214338054537574
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1755203673265902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.2, y: 0.83}
+  m_EdgeRadius: 0
 --- !u!114 &114818437592337672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -115,6 +141,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcdaca13a7945784784435235843de98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trayectoria: {x: 0, y: 0}
+  velocidad: 0
+  "da\xF1o": 0
 --- !u!198 &198218650113331284
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -1324,7 +1353,7 @@ ParticleSystem:
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.759, g: 0.759, b: 0.759, a: 0.43529412}
+        key0: {r: 0.7921569, g: 0.599066, b: 0.4392157, a: 0.48235294}
         key1: {r: 0.16037738, g: 0, b: 0, a: 1}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -1332,8 +1361,8 @@ ParticleSystem:
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
-        ctime0: 12914
-        ctime1: 47417
+        ctime0: 4241
+        ctime1: 51464
         ctime2: 0
         ctime3: 0
         ctime4: 0
@@ -1341,7 +1370,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 20239
+        atime1: 65535
         atime2: 0
         atime3: 0
         atime4: 0

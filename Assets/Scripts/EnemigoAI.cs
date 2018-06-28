@@ -10,7 +10,7 @@ public class EnemigoAI : Atacable {
     public float distanciaAtaque = 2.5f;
     protected float distanciaJugador;
     protected Animator animator;
-    protected Vector2 direccion;
+    protected Vector2 direccionAtaque;
     protected Enemigo enemigo;
     public Transform jugador;
     protected SpriteRenderer sprite;
@@ -41,19 +41,19 @@ public class EnemigoAI : Atacable {
         enCombate = true;
         animator.SetBool("Caminando", true);
         //transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
-        transform.position += (Vector3)direccion.normalized * enemigo.Velocidad * Time.deltaTime;
+        transform.position += (Vector3)direccionAtaque.normalized * enemigo.Velocidad * Time.deltaTime;
         VoltearSprite();
     }
 
     protected virtual Vector2 GenerarDireccion()
     {
-        direccion = jugador.position - transform.position;
-        return direccion;
+        direccionAtaque = jugador.position - transform.position;
+        return direccionAtaque;
     }
 
     protected virtual void VoltearSprite()
     {
-        if (direccion.x < 0)
+        if (direccionAtaque.x < 0)
         {
             sprite.flipX = true;
         }
@@ -62,7 +62,7 @@ public class EnemigoAI : Atacable {
 
     public virtual void Atacar()
     {
-        atacante.Atacar(direccion, enemigo.Fuerza);
+        atacante.Atacar(direccionAtaque, enemigo.Fuerza);
     }
 
     public override void RecibirDanio(Transform atacante, int danio)

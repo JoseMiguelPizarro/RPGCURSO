@@ -6,19 +6,24 @@ public class Proyectil : MonoBehaviour {
 
     public Vector2 trayectoria;
     public float velocidad;
+    public int daño;
 
-    private void Update()
+    private void FixedUpdate()
     {
         transform.position += (Vector3)trayectoria.normalized * velocidad * Time.deltaTime;
     }
-
-    public IEnumerator Disparar(Vector2 trayectoria, float velocidad, float tiempoDeVida)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject, tiempoDeVida);
-        while (true)
+        Debug.Log("Bola de fuego colisionando");
+        if (collision.gameObject.tag == "Player")
         {
-            transform.position = transform.position + (Vector3)trayectoria.normalized * velocidad * Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            collision.gameObject.GetComponent<AtributosJugador>().RecibirDanio(transform, daño);
+            Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        Destroy(gameObject, 3);
     }
 }

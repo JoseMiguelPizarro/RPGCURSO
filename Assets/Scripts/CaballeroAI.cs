@@ -50,7 +50,7 @@ public class CaballeroAI : EnemigoAI {
 
     private void Dash()
     {
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)direccion.normalized, 1f);
+        transform.position = Vector3.MoveTowards(transform.position, transform.position + (Vector3)direccionAtaque.normalized, 1f);
     }
 
     public override void RecibirDanio(Transform atacante, int danio)

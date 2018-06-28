@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803448836233420}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.47, y: 0.59, z: 0}
+  m_LocalPosition: {x: 6.48, y: 0.09, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173800254720296}
@@ -149,7 +149,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -260,9 +260,13 @@ MonoBehaviour:
   empujable: 1
   atacable: 1
   textHit: {fileID: 0}
-  distanciaDetectar: 6
-  distanciaAtaque: 2.5
+  distanciaDetectar: 10
+  distanciaAtaque: 10
   jugador: {fileID: 0}
+  proyectil: {fileID: 114818437592337672, guid: c3b88ee3c9b068e42a43f9aae3f9771e,
+    type: 2}
+  velocidadProyectil: 15
+  fuerzaRetroceso: 10
 --- !u!114 &114748132060850418
 MonoBehaviour:
   m_ObjectHideFlags: 1

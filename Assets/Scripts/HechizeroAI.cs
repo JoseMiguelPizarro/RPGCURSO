@@ -5,6 +5,8 @@ using UnityEngine;
 public class HechizeroAI : EnemigoAI {
 
     public Proyectil proyectil;
+    public float velocidadProyectil;
+    public float fuerzaRetroceso = 5f;
 	// Update is called once per frame
 	void Update ()
     {
@@ -14,7 +16,7 @@ public class HechizeroAI : EnemigoAI {
 
     protected override void VoltearSprite()
     {
-        if (direccion.x > 0)
+        if (direccionAtaque.x > 0)
         {
             sprite.flipX = true;
         }
@@ -24,7 +26,25 @@ public class HechizeroAI : EnemigoAI {
     void InvocarBolaDeFuego()
     {
       Proyectil bolaDeFuego=  Instantiate(proyectil, transform.position,Quaternion.identity);
-        bolaDeFuego.velocidad = 3;
-        bolaDeFuego.trayectoria = GenerarDireccion();
+        bolaDeFuego.daño = enemigo.Inteligencia;
+        bolaDeFuego.velocidad = velocidadProyectil;
+        bolaDeFuego.trayectoria = direccionAtaque;
+        float anguloRotacion = Mathf.Atan2(direccionAtaque.y, direccionAtaque.x)*Mathf.Rad2Deg;
+        bolaDeFuego.transform.Rotate(0,0,anguloRotacion);
+        RetrocederRb();
+    }
+
+    IEnumerator Retroceso()
+    {
+        for (int i = 0; i < 10; i++)
+        {
+            transform.position = transform.position - (Vector3)direccionAtaque.normalized*10* Time.deltaTime;
+            yield return new WaitForEndOfFrame();
+        }
+    }
+
+    void RetrocederRb()
+    {
+        GetComponent<Rigidbody2D>().velocity=((transform.position - (Vector3)direccionAtaque).normalized*fuerzaRetroceso);
     }
 }
