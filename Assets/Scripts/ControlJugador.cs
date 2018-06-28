@@ -51,11 +51,11 @@ public class ControlJugador : MonoBehaviour {
 			atacante.Atacar(direcciónMirada,atributos.Fuerza);
 			Debug.Log(direcciónMirada);
 		}
-		if (CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando"))
+		if (skills.dashReady &&CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando"))
 		{
 			StartCoroutine(skills.Dash(direccionAtaque));
 		}
-		else if (!animatorState.IsTag("Atacando") && movimiento.magnitude>0)
+		else if (!skills.dashing && !animatorState.IsTag("Atacando") && movimiento.magnitude>0)
 		{
 			VoltearSprite();
 			DeterminarDirecciónMirada(mirada);

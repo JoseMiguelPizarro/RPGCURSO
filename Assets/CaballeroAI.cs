@@ -14,6 +14,7 @@ public class CaballeroAI : Atacable {
     private SpriteRenderer sprite;
     private GestorDeSalud miSalud;
     private bool enCombate = false;
+    private bool atacando = false;
     public float blockeoCD = 1;
     private float cd = 0; //Contador para coldown
     // Update is called once per frame
@@ -31,33 +32,30 @@ public class CaballeroAI : Atacable {
     }
     void Update()
     {
+
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);
         animInfo = animator.GetCurrentAnimatorStateInfo(0);
-      
         if (enemigo.muerto == false)
         {
-            if (distanciaJugador < 2.5 && !animInfo.IsTag("Ataque")) //Atacar
+            if (!atacando && distanciaJugador < 2.5) //Atacar
             {
+                Debug.Log("Estado de ataque");
                 GenerarDireccion(); //La dirección debe mantenerse mientras se realiza el ataque
                 VoltearSprite();
                 int rand = Random.Range(0, 100);
                 animator.SetBool("Caminando", false);
-                if (rand < 10)
-                {
-                    animator.SetTrigger("Atacar");
-                }
-                else if (blockeoCD <= cd)
+                if (rand < 90 && blockeoCD <= cd &&distanciaJugador<2)
                 {
                     animator.SetTrigger("Defender");
                     cd = 0;
                 }
-                else
+                else 
                 {
                     animator.SetTrigger("Atacar");
                 }
 
             }
-            else if ((!animInfo.IsTag("Ataque") && (enCombate|| distanciaJugador <= 6)))
+            else if ((!atacando && (enCombate|| distanciaJugador <= 6)))
             {
                 GenerarDireccion();
                 enCombate = true;
@@ -132,19 +130,10 @@ public class CaballeroAI : Atacable {
         Destroy(gameObject);
     }
 
-    IEnumerator Fade(float duracion)
-    {
-        float alpha = 1;
-        for (;  alpha>= 0; alpha-=duracion*Time.deltaTime)
-        {
-            sprite.color = new Color(1, 1, 1, alpha);
-            yield return null;
-        }
-    }
-
     public void Blockear()
     {
         atacable = false;
+        atacando = true;
         Debug.Log("Bloqueando");
 
     }
@@ -152,6 +141,19 @@ public class CaballeroAI : Atacable {
     public void DesBloquear()
     {
         atacable = true;
+        atacando = false;
         Debug.Log("Desbloqueando");
+    }
+
+    public void SetAtacandoFalse()
+    {
+        atacando = false;
+        Debug.Log("Atacando falso");
+    }
+
+    public void SetAtacandoTrue()
+    {
+        atacando = true;
+        Debug.Log("Atacando true");
     }
 }

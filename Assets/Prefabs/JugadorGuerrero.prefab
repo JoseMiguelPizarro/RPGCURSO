@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 61159526337462758}
   - component: {fileID: 50538685727273276}
   - component: {fileID: 114701062916846222}
+  - component: {fileID: 114615928592764594}
   m_Layer: 8
   m_Name: JugadorGuerrero
   m_TagString: Untagged
@@ -177,7 +178,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Time: 1
+  m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 1
@@ -195,7 +196,7 @@ TrailRenderer:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 0
+        value: 1
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -208,7 +209,7 @@ TrailRenderer:
     colorGradient:
       serializedVersion: 2
       key0: {r: 0.735849, g: 0.03123886, b: 0.03123886, a: 1}
-      key1: {r: 0.6762508, g: 0.07102172, b: 0.7169812, a: 0.7254902}
+      key1: {r: 0.8962264, g: 0.8897311, b: 0.5707102, a: 0.7254902}
       key2: {r: 0.8962264, g: 0.8897311, b: 0.5707102, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -216,7 +217,7 @@ TrailRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 30840
+      ctime1: 51657
       ctime2: 51657
       ctime3: 0
       ctime4: 0
@@ -232,10 +233,10 @@ TrailRenderer:
       atime6: 0
       atime7: 0
       m_Mode: 0
-      m_NumColorKeys: 3
+      m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 90
-    numCapVertices: 90
+    numCornerVertices: 0
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     generateLightingData: 0
@@ -254,6 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 0
+  textHit: {fileID: 0}
   textoSalud: {fileID: 0}
   jugador: {fileID: 114547257093726300}
 --- !u!114 &114547257093726300
@@ -289,6 +291,22 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   "direcci\xF3nAtaque": {x: 0, y: 0}
+--- !u!114 &114615928592764594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1094736695795072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b681608f1a4d678429b529d56fe4739d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 30
+  dashCD: 2
+  dashing: 0
+  dashReady: 1
+  dashDuration: 0.01
 --- !u!114 &114701062916846222
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,6 +318,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b681608f1a4d678429b529d56fe4739d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashSpeed: 10
+  dashCD: 1
+  dashing: 0
+  dashReady: 1
+  dashDuration: 0.2
 --- !u!212 &212238069499601424
 SpriteRenderer:
   m_ObjectHideFlags: 1

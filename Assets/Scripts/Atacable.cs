@@ -10,14 +10,12 @@ public class Atacable : MonoBehaviour {
 
     public bool empujable = true;
     public bool atacable = true;
-
+    [SerializeField] TextMesh textHit;
 
     public virtual void RecibirDanio(Transform atacante, int daño)
     {
         Empujar(atacante);
-        Debug.Log("dañado " + gameObject.name);
-
-
+        GenerartextHit(daño.ToString());
     }
 
     protected void Empujar(Transform atacante)
@@ -26,6 +24,15 @@ public class Atacable : MonoBehaviour {
         {
             Vector2 fuerza = (Vector2)transform.position - (Vector2)atacante.position;
             GetComponent<Rigidbody2D>().velocity = fuerza.normalized * 20;
+        }
+    }
+
+    protected void GenerartextHit(string texto)
+    {
+        if (textHit!=null)
+        {
+          TextMesh texthit=  Instantiate(textHit, transform.position, Quaternion.identity,transform);
+          textHit.text = texto;
         }
     }
 

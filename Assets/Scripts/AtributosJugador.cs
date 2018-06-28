@@ -129,6 +129,7 @@ public class AtributosJugador : Atacable {
     {
         Debug.Log("Jugador Dañado");
         Empujar(atacante);
+        GenerartextHit(daño.ToString());
         SaludActual -= daño;
     }
 

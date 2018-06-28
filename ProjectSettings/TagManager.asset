@@ -42,3 +42,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: TEXTO
+    uniqueID: 2529471541
+    locked: 0
