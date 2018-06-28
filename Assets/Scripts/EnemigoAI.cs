@@ -45,9 +45,10 @@ public class EnemigoAI : Atacable {
         VoltearSprite();
     }
 
-    protected virtual void GenerarDireccion()
+    protected virtual Vector2 GenerarDireccion()
     {
         direccion = jugador.position - transform.position;
+        return direccion;
     }
 
     protected virtual void VoltearSprite()
@@ -116,6 +117,11 @@ public class EnemigoAI : Atacable {
             }
            
         }
+    }
+    public virtual float CalcularDistanciaJugador()
+    {
+        distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+        return distanciaJugador;
     }
 
     public virtual void SetAtacandoFalse()

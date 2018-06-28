@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class HechizeroAI : EnemigoAI {
 
-	
+    public Proyectil proyectil;
 	// Update is called once per frame
 	void Update ()
     {
-        distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+        CalcularDistanciaJugador();
         EnemigoComportamiento();
     }
 
@@ -19,5 +19,12 @@ public class HechizeroAI : EnemigoAI {
             sprite.flipX = true;
         }
         else { sprite.flipX = false; }
+    }
+
+    void InvocarBolaDeFuego()
+    {
+      Proyectil bolaDeFuego=  Instantiate(proyectil, transform.position,Quaternion.identity);
+        bolaDeFuego.velocidad = 3;
+        bolaDeFuego.trayectoria = GenerarDireccion();
     }
 }
