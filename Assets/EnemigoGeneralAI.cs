@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CaballeroAI : Atacable {
+public class EnemigoGeneralAI : Atacable {
 
 	public Transform jugador;
     private Animator animator;
@@ -15,6 +15,8 @@ public class CaballeroAI : Atacable {
     private GestorDeSalud miSalud;
     private bool enCombate = false;
     private bool atacando = false;
+    public float distanciaDetectar = 6f;
+    public float distanciaAtaque = 2.5f;
     public float blockeoCD = 1;
     private float cd = 0; //Contador para coldown
     // Update is called once per frame
@@ -34,12 +36,12 @@ public class CaballeroAI : Atacable {
     {
 
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);
-        animInfo = animator.GetCurrentAnimatorStateInfo(0);
+       // animInfo = animator.GetCurrentAnimatorStateInfo(0); regular acciones via script
         if (enemigo.muerto == false)
         {
-            if (!atacando && distanciaJugador < 2.5) //Atacar
+            if (!atacando && distanciaJugador < distanciaAtaque) //Atacar
             {
-                Debug.Log("Estado de ataque");
+               
                 GenerarDireccion(); //La dirección debe mantenerse mientras se realiza el ataque
                 VoltearSprite();
                 int rand = Random.Range(0, 100);
@@ -55,14 +57,9 @@ public class CaballeroAI : Atacable {
                 }
 
             }
-            else if ((!atacando && (enCombate|| distanciaJugador <= 6)))
+            else if ((!atacando && (enCombate|| distanciaJugador <= distanciaDetectar)))
             {
-                GenerarDireccion();
-                enCombate = true;
-                animator.SetBool("Caminando", true);
-                //transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
-                transform.position += (Vector3)direccion.normalized * enemigo.Velocidad * Time.deltaTime;
-                VoltearSprite();
+                MoverHaciaJugador();
             }
             else
             {
@@ -70,6 +67,16 @@ public class CaballeroAI : Atacable {
             }
             cd += Time.deltaTime; //Aumentar el colddown del escudo
         }
+    }
+
+    private void MoverHaciaJugador()
+    {
+        GenerarDireccion();
+        enCombate = true;
+        animator.SetBool("Caminando", true);
+        //transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
+        transform.position += (Vector3)direccion.normalized * enemigo.Velocidad * Time.deltaTime;
+        VoltearSprite();
     }
 
     private void GenerarDireccion()
@@ -86,9 +93,8 @@ public class CaballeroAI : Atacable {
         else { sprite.flipX = false; }
     }
 
-    public void GuardiaAtaque()
+    public void Atacar()
     {
-        Debug.Log("GuardiaAtacando");
         Dash();
         atacante.Atacar(direccion, enemigo.Fuerza);
     }
@@ -135,7 +141,6 @@ public class CaballeroAI : Atacable {
         atacable = false;
         atacando = true;
         Debug.Log("Bloqueando");
-
     }
 
     public void DesBloquear()
