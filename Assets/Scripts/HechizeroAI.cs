@@ -9,10 +9,7 @@ public class HechizeroAI : EnemigoAI {
 	void Update ()
     {
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);
-        if (distanciaJugador <= distanciaDetectar)
-        {
-            MoverHaciaJugador();
-        }
+        EnemigoComportamiento();
     }
 
     protected override void VoltearSprite()

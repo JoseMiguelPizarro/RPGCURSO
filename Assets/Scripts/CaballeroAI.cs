@@ -5,7 +5,6 @@ using UnityEngine;
 public class CaballeroAI : EnemigoAI {
 
     private AnimatorStateInfo animInfo;
-
     public float blockeoCD = 1;
     private float cd = 0; //Contador para coldown
     // Update is called once per frame
@@ -22,7 +21,6 @@ public class CaballeroAI : EnemigoAI {
         {
             if (!atacando && distanciaJugador < distanciaAtaque) //Atacar
             {
-               
                 GenerarDireccion(); //La dirección debe mantenerse mientras se realiza el ataque
                 VoltearSprite();
                 int rand = Random.Range(0, 100);
@@ -36,7 +34,6 @@ public class CaballeroAI : EnemigoAI {
                 {
                     animator.SetTrigger("Atacar");
                 }
-
             }
             else if ((!atacando && (enCombate|| distanciaJugador <= distanciaDetectar)))
             {
@@ -80,10 +77,9 @@ public class CaballeroAI : EnemigoAI {
         GetComponent<BoxCollider2D>().isTrigger = true;
         empujable = false;
         enemigo.muerto = true;
-        AnimatorStateInfo animInfo = animator.GetCurrentAnimatorStateInfo(0);
-        float duracion = animInfo.length;
         Debug.Log("Muriendo");
-        animator.Play("Caballero_muerto");
+      //  animator.Play("Caballero_muerto");
+        animator.Play(stateHash,0);
         yield return new WaitForSeconds(enemigo.muerteAnim.length);
         Destroy(gameObject);
     }
@@ -106,17 +102,5 @@ public class CaballeroAI : EnemigoAI {
         atacable = true;
         atacando = false;
         Debug.Log("Desbloqueando");
-    }
-
-    public void SetAtacandoFalse()
-    {
-        atacando = false;
-        Debug.Log("Atacando falso");
-    }
-
-    public void SetAtacandoTrue()
-    {
-        atacando = true;
-        Debug.Log("Atacando true");
     }
 }

@@ -298,6 +298,83 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 1
+--- !u!1 &90052849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1345939412774062, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 90052851}
+  - component: {fileID: 90052850}
+  m_Layer: 0
+  m_Name: Fondo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &90052850
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212876044301109374, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90052849}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 3
+  m_Sprite: {fileID: 21300000, guid: 1375026ef6bc2d145ae8ed065c01769c, type: 3}
+  m_Color: {r: 0.31132078, g: 0.25829566, b: 0.20705768, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.03125, y: 0.03125}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &90052851
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4231363687659342, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90052849}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 885567762}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &108216185
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +797,97 @@ Transform:
   m_PrefabParentObject: {fileID: 4579772364002144, guid: 8631bc85ac1035a4c934e53af12531fd,
     type: 2}
   m_PrefabInternal: {fileID: 1048202139}
+--- !u!1 &269954767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1359585435438340, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 269954768}
+  - component: {fileID: 269954770}
+  - component: {fileID: 269954769}
+  m_Layer: 0
+  m_Name: Salud
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &269954768
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4817495012720414, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269954767}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 885567762}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &269954769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 114860506252770524, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269954767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cdf90239e46fb429d7efde9fbbfdfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fondo: {fileID: 90052850}
+--- !u!212 &269954770
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 212031793438187540, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 269954767}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 4
+  m_Sprite: {fileID: 21300000, guid: 1375026ef6bc2d145ae8ed065c01769c, type: 3}
+  m_Color: {r: 0.8490566, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.03125, y: 0.03125}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &284342300
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,6 +2944,38 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 841260646}
+--- !u!1 &885567761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 1314822561773132, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 885567762}
+  m_Layer: 0
+  m_Name: Barra De Salud (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885567762
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 4808381227853444, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 885567761}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.46875, y: 0.976, z: 0}
+  m_LocalScale: {x: 30, y: 2, z: 1}
+  m_Children:
+  - {fileID: 90052851}
+  - {fileID: 269954768}
+  m_Father: {fileID: 1809291364}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921579894
 GameObject:
   m_ObjectHideFlags: 0
@@ -6328,7 +6528,12 @@ GameObject:
   - component: {fileID: 1809291362}
   - component: {fileID: 1809291361}
   - component: {fileID: 1809291360}
-  m_Layer: 0
+  - component: {fileID: 1809291365}
+  - component: {fileID: 1809291366}
+  - component: {fileID: 1809291367}
+  - component: {fileID: 1809291368}
+  - component: {fileID: 1809291369}
+  m_Layer: 10
   m_Name: Hechizero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6390,14 +6595,14 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
+  m_LinearDrag: 10
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &1809291363
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6452,10 +6657,91 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.47, y: 0.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 885567762}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1809291365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809291359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1abc69a98d8d6214f843edbc3f3842eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empujable: 1
+  atacable: 1
+  textHit: {fileID: 0}
+  distanciaDetectar: 6
+  distanciaAtaque: 2.5
+  jugador: {fileID: 251060313}
+--- !u!114 &1809291366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809291359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e3eb62e0ac7024f9ca7b2cf1f4e3d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nombre: Hechizero
+  exp: 0
+  saludEnemigo: {fileID: 0}
+  muerteAnim: {fileID: 7400000, guid: 3a2607ba59ce2d941b6095eeef9631d1, type: 2}
+  muerto: 0
+  Fuerza: 1
+  Velocidad: 1
+  Magia: 1
+  Inteligencia: 1
+--- !u!114 &1809291367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809291359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9555d54f9da2964682c9f761f3481de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 1
+  "tama\xF1o": {x: 1, y: 1}
+  hittableLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  "direcci\xF3nAtaque": {x: 0, y: 0}
+--- !u!114 &1809291368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809291359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89d6fa995d7b1254f97e6873277c1474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraDeSalud: {fileID: 269954769}
+  salud: 1
+--- !u!114 &1809291369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1809291359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 409ecf4afd2e1804aa8a1c234b16eb09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  drops: []
+  dropRate: []
 --- !u!1 &1841642389
 GameObject:
   m_ObjectHideFlags: 0
@@ -7260,25 +7546,10 @@ Prefab:
       propertyPath: jugador
       value: 
       objectReference: {fileID: 251060313}
-    - target: {fileID: 114067257454640050, guid: 275dc18538d13d14a8ffe8b1ccd17851,
+    - target: {fileID: 114567393310727198, guid: 275dc18538d13d14a8ffe8b1ccd17851,
         type: 2}
-      propertyPath: blockeoCD
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114604158493442384, guid: 275dc18538d13d14a8ffe8b1ccd17851,
-        type: 2}
-      propertyPath: salud
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114229929368984636, guid: 275dc18538d13d14a8ffe8b1ccd17851,
-        type: 2}
-      propertyPath: dropRate.Array.data[0]
-      value: 76.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114229929368984636, guid: 275dc18538d13d14a8ffe8b1ccd17851,
-        type: 2}
-      propertyPath: dropRate.Array.data[1]
-      value: 45.2
+      propertyPath: nombre
+      value: Caballero
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 275dc18538d13d14a8ffe8b1ccd17851, type: 2}
