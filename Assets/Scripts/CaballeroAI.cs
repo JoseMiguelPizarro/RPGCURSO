@@ -2,39 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemigoGeneralAI : Atacable {
+public class CaballeroAI : EnemigoAI {
 
-	public Transform jugador;
-    private Animator animator;
-    private Atacante atacante;
-    private Enemigo enemigo;
-    private float distanciaJugador;
-    private Vector2 direccion;
     private AnimatorStateInfo animInfo;
-    private SpriteRenderer sprite;
-    private GestorDeSalud miSalud;
-    private bool enCombate = false;
-    private bool atacando = false;
-    public float distanciaDetectar = 6f;
-    public float distanciaAtaque = 2.5f;
+
     public float blockeoCD = 1;
     private float cd = 0; //Contador para coldown
     // Update is called once per frame
     private void Awake()
     {
-        atacante = GetComponent<Atacante>();
-        animator = GetComponent<Animator>();
-        enemigo = GetComponent<Enemigo>();
-        miSalud = GetComponent<GestorDeSalud>();
-        sprite = GetComponent<SpriteRenderer>();
-
+        InicializarComponentes();
     }
-    private void Start()
-    {
-    }
+  
     void Update()
     {
-
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);
        // animInfo = animator.GetCurrentAnimatorStateInfo(0); regular acciones via script
         if (enemigo.muerto == false)
@@ -69,35 +50,6 @@ public class EnemigoGeneralAI : Atacable {
         }
     }
 
-    private void MoverHaciaJugador()
-    {
-        GenerarDireccion();
-        enCombate = true;
-        animator.SetBool("Caminando", true);
-        //transform.position = Vector3.MoveTowards(transform.position, AtributosJugador.atributosJugador.transform.position, 3 * Time.deltaTime);
-        transform.position += (Vector3)direccion.normalized * enemigo.Velocidad * Time.deltaTime;
-        VoltearSprite();
-    }
-
-    private void GenerarDireccion()
-    {
-        direccion = jugador.position - transform.position;
-    }
-
-    private void VoltearSprite()
-    {
-        if (direccion.x < 0)
-        {
-            sprite.flipX = true;
-        }
-        else { sprite.flipX = false; }
-    }
-
-    public void Atacar()
-    {
-        Dash();
-        atacante.Atacar(direccion, enemigo.Fuerza);
-    }
 
     private void Dash()
     {
@@ -134,6 +86,12 @@ public class EnemigoGeneralAI : Atacable {
         animator.Play("Caballero_muerto");
         yield return new WaitForSeconds(enemigo.muerteAnim.length);
         Destroy(gameObject);
+    }
+
+   public void CaballeroAtacar()
+    {
+        Atacar();
+        Dash();
     }
 
     public void Blockear()

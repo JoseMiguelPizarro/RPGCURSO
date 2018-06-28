@@ -7,15 +7,15 @@ using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Atacable : MonoBehaviour {
-
     public bool empujable = true;
     public bool atacable = true;
     [SerializeField] TextMesh textHit;
 
     public virtual void RecibirDanio(Transform atacante, int daño)
     {
+        Debug.Log(gameObject.name+" atacado");
         Empujar(atacante);
-        GenerartextHit(daño.ToString());
+       // GenerartextHit(daño.ToString());
     }
 
     protected void Empujar(Transform atacante)
