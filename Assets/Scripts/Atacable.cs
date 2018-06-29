@@ -5,7 +5,7 @@ using UnityEngine;
 public class Atacable : MonoBehaviour {
     public bool empujable = true;
     public bool atacable = true;
-    [SerializeField] TextMesh textHit;
+    [SerializeField] TextoHit textoHit;
     
    
     public virtual void RecibirDanio(Transform atacante, int daño)
@@ -27,28 +27,30 @@ public class Atacable : MonoBehaviour {
     protected void GenerartextHit(string texto)
     {
         Debug.Log("Generando texto hit");
-        if (textHit!=null)
+        if (textoHit!=null)
         {
             float desfaseY = Random.Range(0.5f, 1f);
             float desfaseX = Random.Range(-0.5f, 0.5f);
             Vector3 desfase = new Vector3(desfaseX, desfaseY);
-          TextMesh textohit=  Instantiate(textHit,transform.position,Quaternion.identity,transform);
-            textohit.transform.localPosition += desfase;
-            textohit.text = texto;
+            TextoHit hitText=  Instantiate(textoHit,transform.position,Quaternion.identity,transform);
+            hitText.transform.localPosition += desfase;
+            hitText.textMesh.text = texto;
         }
     }
 
     protected void GenerartextHit(string texto, float duracion, Color color)
     {
         Debug.Log("Generando texto hit");
-        if (textHit != null)
+        if (textoHit != null)
         {
             float desfaseY = Random.Range(0.5f, 1f);
             float desfaseX = Random.Range(-0.5f, 0.5f);
             Vector3 desfase = new Vector3(desfaseX, desfaseY);
-            TextMesh textohit = Instantiate(textHit, transform.position, Quaternion.identity, transform);
-            textohit.transform.localPosition += desfase;
-            textohit.text = texto;
+            TextoHit hitText = Instantiate(textoHit, transform.position, Quaternion.identity, transform);
+            hitText.transform.localPosition += desfase;
+            hitText.textMesh.text = texto;
+            hitText.textMesh.color = color;
+            hitText.tiempoDeVida = duracion;
         }
     }
 

@@ -111,6 +111,7 @@ public class AtributosJugador : Atacable {
         MagiaBase = 5;
         magiaActual = Magia;
         saludActual = Salud;
+        PanelEstado.panelEstado.ActualizarTextos();
     }
 
     //private void Update()

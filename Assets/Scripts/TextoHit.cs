@@ -7,9 +7,15 @@ public class TextoHit : MonoBehaviour {
     public string sortingLayer;
     public float distanciaElevacion = 2;
     private float distanciaActual = 0;
-    
-	// Use this for initialization
-	void Start () {
+    public TextMesh textMesh;
+
+
+    private void Awake()
+    {
+        textMesh = GetComponent<TextMesh>();
+    }
+
+    void Start () {
         GetComponent<Renderer>().sortingLayerName = sortingLayer;
         Destroy(gameObject, tiempoDeVida);
     }
