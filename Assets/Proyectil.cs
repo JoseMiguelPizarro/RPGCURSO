@@ -7,6 +7,7 @@ public class Proyectil : MonoBehaviour {
     public Vector2 trayectoria;
     public float velocidad;
     public int daño;
+    public GameObject explosion;
 
     private void FixedUpdate()
     {
@@ -18,7 +19,12 @@ public class Proyectil : MonoBehaviour {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<AtributosJugador>().RecibirDanio(transform, daño);
+        }
+        if (collision.gameObject.tag!="Enemigo")
+        {
+            Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
+
         }
     }
 

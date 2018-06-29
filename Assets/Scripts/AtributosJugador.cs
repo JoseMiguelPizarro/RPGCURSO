@@ -6,7 +6,13 @@ using UnityEngine.UI;
 public class AtributosJugador : Atacable {
 
     public Text textoSalud;
-    public ControlJugador jugador;
+    private ControlJugador jugador;
+    public BarraPlayer barraDeSalud;
+    public BarraPlayer barraDeMana;
+
+    //Atributos iniciales
+   
+
     //Atributos Base
         public int SaludBase { get; set; }
         public int VelocidadBase { get; set; }
@@ -26,30 +32,44 @@ public class AtributosJugador : Atacable {
         }
         set
         {
+            
             if (value > SaludBase)
             {
                 saludActual = Salud;
+
             }
             else if (value <= 0)
             {
                 saludActual = 0;
+                ActualizarBarraDeSalud();
                 Morir();
             }
             else
             {
                 saludActual = value;
+                ActualizarBarraDeSalud();
             }
         }
     }
         public int MagiaActual
     {
-        get { return MagiaActual; }
+        get { return magiaActual; }
         set
         {
-            if (value > MagiaBase)
+            if (value > Magia)
             {
-                MagiaActual = MagiaBase;
+                magiaActual = Magia;
+               
+            }
+            else if (value<0)
+            {
+                magiaActual = 0;
+            }
+            else
+            {
+                magiaActual = value;
             };
+            ActualizarBarraDeMana();
         }
     }
 
@@ -71,25 +91,38 @@ public class AtributosJugador : Atacable {
     private void Awake()
     {
         atributosJugador = this;
-        jugador.velocidad = Velocidad;
+        //Setear StatsIniciales
     }
-
-
-    AtributosJugador()
+    private void Start()
     {
         SaludBase = 10;
-        SaludActual = 10;
         VelocidadBase = 5;
         MagiaBase = 5;
         InteligenciaBase = 1;
         Experiencia = 0;
         Nivel = 1;
         FuerzaBase = 1;
+        magiaActual = 5;
+        SaludActual = 10;
+        jugador = GetComponent<ControlJugador>();
+        jugador.velocidad = Velocidad;
+        Debug.Log("Velocidad base es " + Velocidad);
+    }
+    //private void Update()
+    //{
+    //    ActualizarSaludActual();
+    //    Debug.Log(Salud);
+    //    ActualizarBarraDeSalud();
+    //}
+
+    private void ActualizarBarraDeSalud()
+    {
+        barraDeSalud.Actualizar(saludActual / (float)Salud);
     }
 
-    private void Update()
+    private void ActualizarBarraDeMana()
     {
-        ActualizarSaludActual();
+        barraDeMana.Actualizar(magiaActual / (float)Magia);
     }
 
     private void ActualizarSaludActual()

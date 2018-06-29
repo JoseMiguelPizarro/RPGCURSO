@@ -29,6 +29,7 @@ public class Atacable : MonoBehaviour {
 
     protected void GenerartextHit(string texto)
     {
+        Debug.Log("Generando texto hit");
         if (textHit!=null)
         {
           TextMesh texthit=  Instantiate(textHit, transform.position, Quaternion.identity,transform);

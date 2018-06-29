@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 70886092014913508}
   m_Layer: 10
   m_Name: Caballero_Enemigo
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

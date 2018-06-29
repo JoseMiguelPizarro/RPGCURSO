@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - inventario
+  - Enemigo
+  - Proyectil
   layers:
   - Default
   - TransparentFX

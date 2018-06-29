@@ -263,6 +263,7 @@ MonoBehaviour:
   trayectoria: {x: 0, y: 0}
   velocidad: 0
   "da\xF1o": 0
+  explosion: {fileID: 1451395651591726, guid: 0ff561e29a2a70e4998ace125479dd04, type: 2}
 --- !u!198 &198218650113331284
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -11,22 +11,6 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1094736695795072}
   m_IsPrefabParent: 1
---- !u!1 &1011367263454772
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4406542013495610}
-  - component: {fileID: 212238069499601424}
-  m_Layer: 8
-  m_Name: Cabeza
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1094736695795072
 GameObject:
   m_ObjectHideFlags: 0
@@ -51,19 +35,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4406542013495610
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1011367263454772}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.07, y: 0.07, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4579772364002144}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4579772364002144
 Transform:
   m_ObjectHideFlags: 1
@@ -73,8 +44,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 4406542013495610}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -244,9 +214,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 0
-  textHit: {fileID: 0}
+  textHit: {fileID: 102231917911005968, guid: 55136c04114f6234f99f520037dabb23, type: 2}
   textoSalud: {fileID: 0}
   jugador: {fileID: 114547257093726300}
+  barraDeSalud: {fileID: 114032652178804186, guid: 2499ffb4f1d9fd3428b90652a6284629,
+    type: 2}
+  barraDeMana: {fileID: 114240874676520300, guid: 367a12ba0bdc5eb4892b4138f185b9db,
+    type: 2}
 --- !u!114 &114547257093726300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -258,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bd5e68d2264d634f933396aaf293823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventario: {fileID: 0}
+  inventario: {fileID: 1707941594425840, guid: c09bfa6c243f3d54c941acc832d82e22, type: 2}
   mirada: {x: 0, y: 0}
   "distanciaInteraci\xF3n": 0.5
   velocidad: 0
@@ -296,51 +270,6 @@ MonoBehaviour:
   dashing: 0
   dashReady: 1
   dashDuration: 0.1
---- !u!212 &212238069499601424
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1011367263454772}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4457f4d96e27ba34182fea2916aa98bb, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
 --- !u!212 &212829381048207662
 SpriteRenderer:
   m_ObjectHideFlags: 1

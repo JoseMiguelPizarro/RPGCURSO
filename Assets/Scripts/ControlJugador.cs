@@ -26,10 +26,10 @@ public class ControlJugador : MonoBehaviour {
 		EscalaInicial = transform.localScale.x;
 		animator = GetComponent<Animator>();
 		atacante = GetComponent<Atacante>();
-        atributos = GetComponent<AtributosJugador>();
+        atributos = AtributosJugador.atributosJugador;
         skills = GetComponent<Skills>();
 	}
-	void Update () {
+	void FixedUpdate () {
 		h = CrossPlatformInputManager.GetAxis("Horizontal");
 		float v = CrossPlatformInputManager.GetAxis("Vertical");
 
@@ -53,7 +53,8 @@ public class ControlJugador : MonoBehaviour {
 		}
 		if (skills.dashReady &&CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando"))
 		{
-			StartCoroutine(skills.Dash(direccionAtaque));
+            atributos.MagiaActual -= 1;
+            StartCoroutine(skills.Dash(direccionAtaque));
 		}
 		else if (!skills.dashing && !animatorState.IsTag("Atacando") && movimiento.magnitude>0)
 		{

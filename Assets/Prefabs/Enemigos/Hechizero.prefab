@@ -69,16 +69,16 @@ GameObject:
   - component: {fileID: 4567811920035022}
   - component: {fileID: 212552579908517908}
   - component: {fileID: 50445788798318996}
-  - component: {fileID: 61702322548526696}
   - component: {fileID: 95185080960092074}
   - component: {fileID: 114704447204719968}
   - component: {fileID: 114563434041338636}
   - component: {fileID: 114748132060850418}
   - component: {fileID: 114599730335952146}
   - component: {fileID: 114970605058709474}
+  - component: {fileID: 70517613465010384}
   m_Layer: 10
   m_Name: Hechizero
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -158,8 +158,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &61702322548526696
-BoxCollider2D:
+--- !u!70 &70517613465010384
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -170,19 +170,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.5, y: 2.5}
-    newSize: {x: 80, y: 80}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.96, y: 1.52}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.09, y: 0}
+  m_Size: {x: 0.89, y: 1.53}
+  m_Direction: 0
 --- !u!95 &95185080960092074
 Animator:
   serializedVersion: 3
