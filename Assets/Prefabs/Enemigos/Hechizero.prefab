@@ -181,7 +181,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.26, y: 2.27}
+  m_Size: {x: 0.96, y: 1.52}
   m_EdgeRadius: 0
 --- !u!95 &95185080960092074
 Animator:
@@ -230,7 +230,7 @@ MonoBehaviour:
   muerteAnim: {fileID: 7400000, guid: 3a2607ba59ce2d941b6095eeef9631d1, type: 2}
   muerto: 0
   Fuerza: 1
-  Velocidad: 1
+  Velocidad: 2
   Magia: 1
   Inteligencia: 1
 --- !u!114 &114599730335952146

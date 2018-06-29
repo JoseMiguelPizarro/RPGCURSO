@@ -94,7 +94,7 @@ public class Inventario : MonoBehaviour
                 NuevoObjeto.GetComponent<ObjetoInventario>().item = item;
                 NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
                 NuevoObjeto.transform.localPosition = Vector2.zero;
-                NuevoObjeto.transform.localScale = new Vector3(5, 5, 1); //Ajustar tamaño
+                NuevoObjeto.transform.localScale = new Vector3(10, 10, 1); //Ajustar tamaño
                 NuevoObjeto.AddComponent<Image>().sprite = item.artwork;
                 NuevoObjeto.name = item.name;
                 casillas[CasillaVacia].ObtenerObjetoInventario();

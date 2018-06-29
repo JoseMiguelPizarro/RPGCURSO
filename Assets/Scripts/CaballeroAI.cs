@@ -72,17 +72,17 @@ public class CaballeroAI : EnemigoAI {
         }
     }
 
-    public override IEnumerator Morir()
-    {
-        GetComponent<BoxCollider2D>().isTrigger = true;
-        empujable = false;
-        enemigo.muerto = true;
-        Debug.Log("Muriendo");
-      //  animator.Play("Caballero_muerto");
-        animator.Play(stateHash,0);
-        yield return new WaitForSeconds(enemigo.muerteAnim.length);
-        Destroy(gameObject);
-    }
+    //public override IEnumerator Morir()
+    //{
+    //    GetComponent<Collider2D>().isTrigger = true;
+    //    empujable = false;
+    //    enemigo.muerto = true;
+    //    Debug.Log("Muriendo");
+    //  //  animator.Play("Caballero_muerto");
+    //    animator.Play(stateHash,0);
+    //    yield return new WaitForSeconds(enemigo.muerteAnim.length);
+    //    Destroy(gameObject);
+    //}
 
    public void CaballeroAtacar()
     {

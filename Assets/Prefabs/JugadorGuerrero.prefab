@@ -41,9 +41,9 @@ GameObject:
   - component: {fileID: 114010625940801106}
   - component: {fileID: 114548295912883790}
   - component: {fileID: 96827984414455194}
-  - component: {fileID: 61159526337462758}
   - component: {fileID: 50538685727273276}
   - component: {fileID: 114615928592764594}
+  - component: {fileID: 70007456808833672}
   m_Layer: 8
   m_Name: JugadorGuerrero
   m_TagString: Player
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094736695795072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.87, y: 0.39, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4406542013495610}
@@ -98,8 +98,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &61159526337462758
-BoxCollider2D:
+--- !u!70 &70007456808833672
+CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -110,19 +110,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.9375, y: 2.5}
-    newSize: {x: 0.9375, y: 1.53125}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.9375, y: 2.36}
-  m_EdgeRadius: 0
+  m_Offset: {x: 0, y: -0.09}
+  m_Size: {x: 0.99, y: 2.34}
+  m_Direction: 0
 --- !u!95 &95945710868802410
 Animator:
   serializedVersion: 3

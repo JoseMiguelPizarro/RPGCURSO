@@ -82,7 +82,7 @@ public class EnemigoAI : Atacable {
 
     public override IEnumerator Morir()
     {
-        GetComponent<BoxCollider2D>().isTrigger = true;
+        GetComponent<Collider2D>().isTrigger = true;
         empujable = false;
         enemigo.muerto = true;
         Debug.Log("Muriendo");

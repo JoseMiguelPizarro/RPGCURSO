@@ -71,7 +71,7 @@ public class ControlJugador : MonoBehaviour {
 		if (CrossPlatformInputManager.GetButtonDown("Inventario"))
 		{
 			Debug.Log("Desactivando Inventario");
-			PanelInventario.panelInventario.AbrirCerrarInventario();
+            PanelesInventario.panelesInventario.AbrirCerrarInventario();
 		}
 	}
 
@@ -98,7 +98,7 @@ public class ControlJugador : MonoBehaviour {
 
 	public RaycastHit2D[] Interactuar()
 	{
-		RaycastHit2D[] circleCasts = Physics2D.CircleCastAll((Vector2)transform.position+mirada.normalized*GetComponent<BoxCollider2D>().size.y/4f, GetComponent<BoxCollider2D>().size.y/4f, mirada.normalized, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
+		RaycastHit2D[] circleCasts = Physics2D.CircleCastAll((Vector2)transform.position+mirada.normalized*GetComponent<CapsuleCollider2D>().size.y/4f, GetComponent<CapsuleCollider2D>().size.y/4f, mirada.normalized, distanciaInteración, LayerMask.GetMask("Interactivo"),-10,10);
 		if (circleCasts!=null)
 		{
 			//Debug.Log("Interactuó con "+ circleCasts.collider.gameObject.name);
