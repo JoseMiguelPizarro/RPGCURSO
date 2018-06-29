@@ -45,3 +45,6 @@ TagManager:
   - name: TEXTO
     uniqueID: 2529471541
     locked: 0
+  - name: Proyectiles
+    uniqueID: 1726997975
+    locked: 0

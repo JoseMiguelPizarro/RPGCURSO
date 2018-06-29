@@ -43,11 +43,10 @@ GameObject:
   - component: {fileID: 96827984414455194}
   - component: {fileID: 61159526337462758}
   - component: {fileID: 50538685727273276}
-  - component: {fileID: 114701062916846222}
   - component: {fileID: 114615928592764594}
   m_Layer: 8
   m_Name: JugadorGuerrero
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +176,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Time: 0.2
   m_Parameters:
     serializedVersion: 2
@@ -235,7 +234,7 @@ TrailRenderer:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    numCornerVertices: 0
+    numCornerVertices: 90
     numCapVertices: 0
     alignment: 0
     textureMode: 0
@@ -302,27 +301,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b681608f1a4d678429b529d56fe4739d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 100
+  dashSpeed: 20
   dashCD: 2
   dashing: 0
   dashReady: 1
-  dashDuration: 0.01
---- !u!114 &114701062916846222
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1094736695795072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b681608f1a4d678429b529d56fe4739d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dashSpeed: 10
-  dashCD: 1
-  dashing: 0
-  dashReady: 1
-  dashDuration: 0.2
+  dashDuration: 0.1
 --- !u!212 &212238069499601424
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -402,7 +385,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: bc36d0f91ab5c2248ae964268141e998, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

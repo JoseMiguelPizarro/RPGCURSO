@@ -33,6 +33,7 @@ public class EnemigoAI : Atacable {
         miSalud = GetComponent<GestorDeSalud>();
         string hashstring = enemigo.nombre + "_muerto";
         stateHash = Animator.StringToHash(hashstring);
+        jugador = FindObjectOfType<AtributosJugador>().transform;
     }
 
     protected virtual void MoverHaciaJugador()
