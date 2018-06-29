@@ -59,6 +59,7 @@ public class CaballeroAI : EnemigoAI {
         {
             Empujar(atacante);
             miSalud.SaludActual -= danio;
+            GenerartextHit(danio.ToString());
             if (enemigo.saludEnemigo.SaludActual <= 0)
             {
                 enemigo.Dropear();

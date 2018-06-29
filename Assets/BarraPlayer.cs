@@ -5,6 +5,7 @@ using UnityEngine;
 public class BarraPlayer : MonoBehaviour {
 
     RectTransform rectTransform;
+    
     public void Awake()
     {
         rectTransform = GetComponent<RectTransform>();

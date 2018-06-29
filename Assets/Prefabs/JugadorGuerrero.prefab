@@ -167,8 +167,8 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.735849, g: 0.03123886, b: 0.03123886, a: 1}
-      key1: {r: 0.8962264, g: 0.8897311, b: 0.5707102, a: 0.7254902}
+      key0: {r: 0.50491595, g: 0.031372547, b: 0.7372549, a: 0.43529412}
+      key1: {r: 0.57254905, g: 0.8980392, b: 0.8664723, a: 0.12941177}
       key2: {r: 0.8962264, g: 0.8897311, b: 0.5707102, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -176,15 +176,15 @@ TrailRenderer:
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
-      ctime1: 51657
+      ctime1: 48959
       ctime2: 51657
       ctime3: 0
       ctime4: 0
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 35659
-      atime1: 59174
+      atime0: 0
+      atime1: 65535
       atime2: 0
       atime3: 0
       atime4: 0
@@ -214,13 +214,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 0
-  textHit: {fileID: 102231917911005968, guid: 55136c04114f6234f99f520037dabb23, type: 2}
+  textHit: {fileID: 0}
   textoSalud: {fileID: 0}
-  jugador: {fileID: 114547257093726300}
-  barraDeSalud: {fileID: 114032652178804186, guid: 2499ffb4f1d9fd3428b90652a6284629,
-    type: 2}
-  barraDeMana: {fileID: 114240874676520300, guid: 367a12ba0bdc5eb4892b4138f185b9db,
-    type: 2}
+  barraDeSalud: {fileID: 0}
+  barraDeMana: {fileID: 0}
 --- !u!114 &114547257093726300
 MonoBehaviour:
   m_ObjectHideFlags: 1

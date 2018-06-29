@@ -7,7 +7,6 @@ public enum Mirada { Arriba,Abajo,Izquierda,Derecha}
 
 
 public class ControlJugador : MonoBehaviour {
-    private AtributosJugador atributos;
 	public GameObject inventario;
 	private float EscalaInicial;
 	private float h;
@@ -26,13 +25,12 @@ public class ControlJugador : MonoBehaviour {
 		EscalaInicial = transform.localScale.x;
 		animator = GetComponent<Animator>();
 		atacante = GetComponent<Atacante>();
-        atributos = AtributosJugador.atributosJugador;
         skills = GetComponent<Skills>();
 	}
 	void FixedUpdate () {
 		h = CrossPlatformInputManager.GetAxis("Horizontal");
 		float v = CrossPlatformInputManager.GetAxis("Vertical");
-
+        
 		Vector2 movimiento = new Vector2(h, v);
 		AnimatorStateInfo animatorState= animator.GetCurrentAnimatorStateInfo(0);
 
@@ -48,12 +46,12 @@ public class ControlJugador : MonoBehaviour {
 			DeterminarDirecciónMirada(mirada);
 			animator.SetBool("Corriendo", false);
 			animator.SetTrigger("Atacando");
-			atacante.Atacar(direcciónMirada,atributos.Fuerza);
+			atacante.Atacar(direcciónMirada,AtributosJugador.atributosJugador.Fuerza);
 			Debug.Log(direcciónMirada);
 		}
 		if (skills.dashReady &&CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando"))
 		{
-            atributos.MagiaActual -= 1;
+            AtributosJugador.atributosJugador.MagiaActual -= 1;
             StartCoroutine(skills.Dash(direccionAtaque));
 		}
 		else if (!skills.dashing && !animatorState.IsTag("Atacando") && movimiento.magnitude>0)
@@ -67,7 +65,7 @@ public class ControlJugador : MonoBehaviour {
 		{
 			animator.SetBool("Corriendo", false);
 		}
-  //      Debug.DrawRay(transform.position,mirada.normalized*(distanciaInteración+ GetComponent<BoxCollider2D>().size.y / 2), Color.red);
+        //Debug.DrawRay(transform.position,mirada.normalized*(distanciaInteración+ GetComponent<BoxCollider2D>().size.y / 2), Color.red);
 		//Debug.DrawLine(transform.position, transform.position + mirada * 0.2f,Color.green);
 		if (CrossPlatformInputManager.GetButtonDown("Inventario"))
 		{
@@ -75,8 +73,6 @@ public class ControlJugador : MonoBehaviour {
             PanelesInventario.panelesInventario.AbrirCerrarInventario();
 		}
 	}
-
-	
 
 	private void VoltearSprite()
 	{

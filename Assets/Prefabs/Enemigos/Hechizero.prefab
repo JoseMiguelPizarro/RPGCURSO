@@ -130,8 +130,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803448836233420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.9532447, y: 0.9508251, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -451.2175, y: -378.03427, z: 8.029404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173800254720296}
@@ -222,7 +222,7 @@ MonoBehaviour:
   Fuerza: 1
   Velocidad: 2
   Magia: 1
-  Inteligencia: 1
+  Inteligencia: 2
 --- !u!114 &114599730335952146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 1
-  textHit: {fileID: 0}
+  textHit: {fileID: 102084712559307198, guid: e565435babd0df544835b87f4654b2c3, type: 2}
   distanciaDetectar: 10
   distanciaAtaque: 10
   jugador: {fileID: 0}

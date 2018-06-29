@@ -71,6 +71,7 @@ public class EnemigoAI : Atacable {
         if (atacable)
         {
             Empujar(atacante);
+            GenerartextHit(danio.ToString());
             miSalud.SaludActual -= danio;
             if (enemigo.saludEnemigo.SaludActual <= 0)
             {
@@ -88,6 +89,7 @@ public class EnemigoAI : Atacable {
         Debug.Log("Muriendo");
         //  animator.Play("Caballero_muerto");
         animator.Play(stateHash, 0);
+        GenerartextHit(enemigo.exp.ToString() + " XP");
         yield return new WaitForSeconds(enemigo.muerteAnim.length);
         Destroy(gameObject);
     }

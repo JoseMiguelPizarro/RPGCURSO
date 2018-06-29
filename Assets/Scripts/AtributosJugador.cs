@@ -95,19 +95,24 @@ public class AtributosJugador : Atacable {
     }
     private void Start()
     {
-        SaludBase = 10;
+        atributosJugador.Inicializar();
+    }
+
+    private void Inicializar()
+    {
         VelocidadBase = 5;
-        MagiaBase = 5;
         InteligenciaBase = 1;
         Experiencia = 0;
         Nivel = 1;
         FuerzaBase = 1;
-        magiaActual = 5;
-        SaludActual = 10;
         jugador = GetComponent<ControlJugador>();
         jugador.velocidad = Velocidad;
-        Debug.Log("Velocidad base es " + Velocidad);
+        SaludBase = 10;
+        MagiaBase = 5;
+        magiaActual = Magia;
+        saludActual = Salud;
     }
+
     //private void Update()
     //{
     //    ActualizarSaludActual();
@@ -166,11 +171,9 @@ public class AtributosJugador : Atacable {
         SaludActual -= daño;
     }
 
-    void Morir()
+     new void Morir()
     {
         Debug.Log("Jugador Murio");
         Destroy(gameObject);
     }
-    
-
 }

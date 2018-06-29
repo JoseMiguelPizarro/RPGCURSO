@@ -1,16 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
-using System;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Atacable : MonoBehaviour {
     public bool empujable = true;
     public bool atacable = true;
     [SerializeField] TextMesh textHit;
-
+    
+   
     public virtual void RecibirDanio(Transform atacante, int daño)
     {
         Debug.Log(gameObject.name+" atacado");
@@ -32,8 +29,26 @@ public class Atacable : MonoBehaviour {
         Debug.Log("Generando texto hit");
         if (textHit!=null)
         {
-          TextMesh texthit=  Instantiate(textHit, transform.position, Quaternion.identity,transform);
-          textHit.text = texto;
+            float desfaseY = Random.Range(0.5f, 1f);
+            float desfaseX = Random.Range(-0.5f, 0.5f);
+            Vector3 desfase = new Vector3(desfaseX, desfaseY);
+          TextMesh textohit=  Instantiate(textHit,transform.position,Quaternion.identity,transform);
+            textohit.transform.localPosition += desfase;
+            textohit.text = texto;
+        }
+    }
+
+    protected void GenerartextHit(string texto, float duracion, Color color)
+    {
+        Debug.Log("Generando texto hit");
+        if (textHit != null)
+        {
+            float desfaseY = Random.Range(0.5f, 1f);
+            float desfaseX = Random.Range(-0.5f, 0.5f);
+            Vector3 desfase = new Vector3(desfaseX, desfaseY);
+            TextMesh textohit = Instantiate(textHit, transform.position, Quaternion.identity, transform);
+            textohit.transform.localPosition += desfase;
+            textohit.text = texto;
         }
     }
 
