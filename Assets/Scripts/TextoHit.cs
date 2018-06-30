@@ -8,6 +8,8 @@ public class TextoHit : MonoBehaviour {
     public float distanciaElevacion = 2;
     private float distanciaActual = 0;
     public TextMesh textMesh;
+    private float tiempoInicio;
+    private bool desvaneciendo=false;
 
 
     private void Awake()
@@ -16,6 +18,7 @@ public class TextoHit : MonoBehaviour {
     }
 
     void Start () {
+        tiempoInicio = Time.time;
         GetComponent<Renderer>().sortingLayerName = sortingLayer;
         Destroy(gameObject, tiempoDeVida);
     }
@@ -27,6 +30,23 @@ public class TextoHit : MonoBehaviour {
             Debug.Log("Subiendo");
             transform.localPosition += new Vector3(0, 0.1f, 0);
             distanciaActual += 0.1f;
+        }
+        if (!desvaneciendo && (Time.time-tiempoInicio)>=tiempoDeVida*0.5)
+        {
+            desvaneciendo = true;
+            Debug.Log("Desvaneciendo");
+            StartCoroutine(Desvanecer());
+        }
+    }
+
+   IEnumerator Desvanecer()
+    {
+        Color colorActual = textMesh.color;
+        for (float alpha = 1; alpha >=0; alpha-=(1/(tiempoDeVida*0.5f))*Time.deltaTime)
+        {
+            colorActual.a = alpha;
+            textMesh.color = colorActual;
+            yield return new WaitForEndOfFrame();
         }
     }
 }

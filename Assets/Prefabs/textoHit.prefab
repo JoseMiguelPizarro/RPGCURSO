@@ -112,3 +112,4 @@ MonoBehaviour:
   tiempoDeVida: 1
   sortingLayer: TEXTO
   distanciaElevacion: 1.5
+  textMesh: {fileID: 0}

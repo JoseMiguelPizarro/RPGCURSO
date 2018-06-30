@@ -12,6 +12,8 @@ public class Inventario : MonoBehaviour
     public bool InventarioLleno = false;
     public GameObject casilla;
     public static Inventario inventario;
+    private int dineroJugador = 0;
+    public int DineroJugador { get {return dineroJugador; } set {dineroJugador=value; } }
 
     private List<Item> objetos = new List<Item>();
     public static List<GameObject> objetosInventario = new List<GameObject>();

@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870136368227900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -447.32507, y: -380.3454, z: 8.029404}
+  m_LocalPosition: {x: -447.32507, y: -375.56, z: 8.029404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4808381227853444}
@@ -220,6 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409ecf4afd2e1804aa8a1c234b16eb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dinero: 5
   drops:
   - {fileID: 114769631170834352, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
   - {fileID: 114769631170834352, guid: f5f7f1fa0e3c157458c421e0aa140625, type: 2}
@@ -261,7 +262,7 @@ MonoBehaviour:
   muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
   muerto: 0
   Fuerza: 1
-  Velocidad: 2
+  Velocidad: 1
   Magia: 1
   Inteligencia: 1
 --- !u!114 &114604158493442384
@@ -276,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraDeSalud: {fileID: 114860506252770524}
-  salud: 3
+  salud: 1
 --- !u!114 &114860506252770524
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,6 +9,7 @@ public class AtributosJugador : Atacable {
     private ControlJugador jugador;
     public BarraPlayer barraDeSalud;
     public BarraPlayer barraDeMana;
+    public BarraPlayer barraDeEXP;
 
     //Atributos iniciales
    
@@ -18,9 +19,21 @@ public class AtributosJugador : Atacable {
         public int MagiaBase { get; set; }
         public int InteligenciaBase { get; set; }
         public int FuerzaBase { get; set; }
-        public int Experiencia { get; set; }
+        public int Experiencia
+    {
+        get {return experienciaActual; }
+
+        set {experienciaActual=value;
+            if ((float)(experienciaActual)/(ExpSiguienteNivel)==1)
+            {
+                LevelUp();
+            }
+            ActualizarBarraEXP();
+        } }
+
         public int Nivel { get; set; }
 
+        private int experienciaActual;
         private int magiaActual;
         private int saludActual;
         public int SaludActual
@@ -72,6 +85,8 @@ public class AtributosJugador : Atacable {
         }
     }
 
+    private int ExpSiguienteNivel = 20;
+
     public int ModificadorSalud { get; set; }
     public int ModificadorVelocidad { get; set; }
     public int ModificadorMagia { get; set; }
@@ -113,6 +128,11 @@ public class AtributosJugador : Atacable {
         PanelEstado.panelEstado.ActualizarTextos();
     }
 
+
+    private void ActualizarBarraEXP()
+    {
+        barraDeEXP.Actualizar((float)Experiencia /ExpSiguienteNivel);
+    }
 
     private void ActualizarBarraDeSalud()
     {
@@ -165,6 +185,19 @@ public class AtributosJugador : Atacable {
         Empujar(atacante);
         GenerartextHit(daño.ToString());
         SaludActual -= daño;
+    }
+
+    void LevelUp()
+    {
+        Nivel++;
+        ConfigurarSiguienteNivel();
+        Experiencia = 0;
+        PanelEstado.panelEstado.ActualizarTextos();
+    }
+
+    void ConfigurarSiguienteNivel()
+    {
+        ExpSiguienteNivel = (int)Mathf.Log(Nivel, 3f);
     }
 
      new void Morir()

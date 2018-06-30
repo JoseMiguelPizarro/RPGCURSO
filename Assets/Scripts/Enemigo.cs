@@ -45,4 +45,9 @@ public class Enemigo : MonoBehaviour {
         }
     }
 
+    public int Dinero()
+    {
+        return drop.dinero;
+    }
+
 }

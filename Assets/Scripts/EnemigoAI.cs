@@ -89,7 +89,10 @@ public class EnemigoAI : Atacable {
         Debug.Log("Muriendo");
         //  animator.Play("Caballero_muerto");
         animator.Play(stateHash, 0);
-        GenerartextHit(enemigo.exp.ToString() + " XP",1.3f,Color.green);
+        GenerartextHit(enemigo.exp.ToString() + " XP",1.3f,Color.green,0.25f);
+        AtributosJugador.atributosJugador.Experiencia += enemigo.exp;
+        Inventario.inventario.DineroJugador += enemigo.Dinero();
+        GenerartextHit(enemigo.Dinero().ToString() + " ORO", 1.3f, Color.yellow, 0.25f);
         yield return new WaitForSeconds(enemigo.muerteAnim.length);
         Destroy(gameObject);
     }

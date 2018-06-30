@@ -38,18 +38,19 @@ public class Atacable : MonoBehaviour {
         }
     }
 
-    protected void GenerartextHit(string texto, float duracion, Color color)
+    protected void GenerartextHit(string texto, float duracion, Color color, float tamaño)
     {
         Debug.Log("Generando texto hit");
         if (textoHit != null)
         {
             float desfaseY = Random.Range(0.5f, 1f);
-            float desfaseX = Random.Range(-0.5f, 0.5f);
+            float desfaseX = Random.Range(-0.8f, 0.8f);
             Vector3 desfase = new Vector3(desfaseX, desfaseY);
             TextoHit hitText = Instantiate(textoHit, transform.position, Quaternion.identity, transform);
             hitText.transform.localPosition += desfase;
             hitText.textMesh.text = texto;
             hitText.textMesh.color = color;
+            hitText.textMesh.characterSize = tamaño;
             hitText.tiempoDeVida = duracion;
         }
     }
