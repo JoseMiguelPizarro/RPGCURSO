@@ -5,7 +5,7 @@ using UnityEngine;
 public class CaballeroAI : EnemigoAI {
 
     private AnimatorStateInfo animInfo;
-    public float blockeoCD = 1;
+    public float blockeoCD = 0.1f;
     private float cd = 0; //Contador para coldown
     // Update is called once per frame
     private void Awake()
@@ -13,19 +13,19 @@ public class CaballeroAI : EnemigoAI {
         InicializarComponentes();
     }
   
-    void Update()
+    void FixedUpdate()
     {
-        distanciaJugador = Vector2.Distance(transform.position, jugador.position);
        // animInfo = animator.GetCurrentAnimatorStateInfo(0); regular acciones via script
         if (enemigo.muerto == false)
         {
-            if (!atacando && distanciaJugador < distanciaAtaque) //Atacar
+            distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+            cd = cd + Time.deltaTime; //Aumentar el colddown del escudo
+            if (!atacando && distanciaJugador <= distanciaAtaque) //Atacar
             {
                 GenerarDireccion(); //La dirección debe mantenerse mientras se realiza el ataque
                 VoltearSprite();
-                int rand = Random.Range(0, 100);
                 animator.SetBool("Caminando", false);
-                if (rand < 90 && blockeoCD <= cd &&distanciaJugador<2)
+                if (blockeoCD <= cd && Random.Range(0, 1) < 0.9)
                 {
                     animator.SetTrigger("Defender");
                     cd = 0;
@@ -38,12 +38,12 @@ public class CaballeroAI : EnemigoAI {
             else if ((!atacando && (enCombate|| distanciaJugador <= distanciaDetectar)))
             {
                 MoverHaciaJugador();
-            }
+            } //Moverse
             else
             {
                 animator.SetBool("Caminando", false);
             }
-            cd += Time.deltaTime; //Aumentar el colddown del escudo
+           
         }
     }
 

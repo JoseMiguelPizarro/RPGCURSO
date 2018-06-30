@@ -12,7 +12,6 @@ public class AtributosJugador : Atacable {
 
     //Atributos iniciales
    
-
     //Atributos Base
         public int SaludBase { get; set; }
         public int VelocidadBase { get; set; }
@@ -61,7 +60,7 @@ public class AtributosJugador : Atacable {
                 magiaActual = Magia;
                
             }
-            else if (value<0)
+            else if (value<=0)
             {
                 magiaActual = 0;
             }
@@ -114,12 +113,6 @@ public class AtributosJugador : Atacable {
         PanelEstado.panelEstado.ActualizarTextos();
     }
 
-    //private void Update()
-    //{
-    //    ActualizarSaludActual();
-    //    Debug.Log(Salud);
-    //    ActualizarBarraDeSalud();
-    //}
 
     private void ActualizarBarraDeSalud()
     {
@@ -140,6 +133,8 @@ public class AtributosJugador : Atacable {
     {
         ResetearModificadores();
         ActualizarModificadores(equipos);
+        ActualizarBarraDeMana();
+        ActualizarBarraDeSalud();
         jugador.velocidad = Velocidad;
     }
 

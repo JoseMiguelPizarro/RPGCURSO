@@ -205,10 +205,10 @@ MonoBehaviour:
   empujable: 1
   atacable: 1
   textoHit: {fileID: 114801287024102584, guid: e565435babd0df544835b87f4654b2c3, type: 2}
-  distanciaDetectar: 6
+  distanciaDetectar: 8
   distanciaAtaque: 2.5
   jugador: {fileID: 0}
-  blockeoCD: 2
+  blockeoCD: 1
 --- !u!114 &114229929368984636
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9555d54f9da2964682c9f761f3481de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spark: {fileID: 1529513153290570, guid: 8e74204a15ac9de4680436faf7d3c75f, type: 2}
   offset: 1.5
   "tama\xF1o": {x: 1, y: 1}
   hittableLayers:

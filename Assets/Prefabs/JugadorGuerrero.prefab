@@ -42,7 +42,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1094736695795072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.29, y: 0.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9555d54f9da2964682c9f761f3481de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spark: {fileID: 1529513153290570, guid: b1f168e5364a4c244b4e4cc26c307391, type: 2}
   offset: 1
   "tama\xF1o": {x: 0.7, y: 1}
   hittableLayers:
@@ -262,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b681608f1a4d678429b529d56fe4739d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashSpeed: 20
+  dashSpeed: 30
   dashCD: 2
   dashing: 0
   dashReady: 1

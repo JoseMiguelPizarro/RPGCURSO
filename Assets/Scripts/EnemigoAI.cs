@@ -121,6 +121,7 @@ public class EnemigoAI : Atacable {
            
         }
     }
+
     public virtual float CalcularDistanciaJugador()
     {
         distanciaJugador = Vector2.Distance(transform.position, jugador.position);

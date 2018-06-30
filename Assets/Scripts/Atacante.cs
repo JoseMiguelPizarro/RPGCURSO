@@ -6,7 +6,7 @@ using System;
 
 public class Atacante : MonoBehaviour {
 
-
+    public GameObject spark;
     //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
     public Collider2D LastHit { get { return golpe; } }
     public float offset = 1f;
@@ -61,6 +61,7 @@ public class Atacante : MonoBehaviour {
             {
                 Debug.Log("Dañó a " + objetivo.name);
                 objetivo.RecibirDanio(transform, daño);
+                Instantiate(spark, objetivo.transform.position, Quaternion.identity);
             }
         }
     }
@@ -88,10 +89,13 @@ public class Atacante : MonoBehaviour {
             if (objetivo)
             {
                 Debug.Log("Dañó a "+objetivo.name);
-                objetivo.RecibirDanio(transform,daño);
+                if (objetivo.atacable)
+                {
+                    Instantiate(spark, objetivo.transform.position, Quaternion.identity);
+                }
+                objetivo.RecibirDanio(transform, daño);
             }
         }
-        
     }
 
    public void DeterminarDirecciónAtaque(Mirada mirada)
