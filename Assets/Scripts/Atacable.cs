@@ -1,14 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
-using TextoFlotante;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Atacable : MonoBehaviour {
     public bool empujable = true;
     public bool atacable = true;
-    [SerializeField] TextoHit textoHit;
-    private Texto textoFlotante;
-   
+    [SerializeField] Texto textoHit;
+
+
     public virtual void RecibirDanio(Transform atacante, int daño)
     {
         Debug.Log(gameObject.name+" atacado");
@@ -27,34 +26,14 @@ public class Atacable : MonoBehaviour {
 
     protected void GenerartextHit(string texto)
     {
-        textoFlotante.CrearTextoFlotante("Hola",transform,0.3f,Color.blue,0.5f,0.5f,2f);
-        Debug.Log("Generando texto hit");
-        if (textoHit!=null)
-        {
-            float desfaseY = Random.Range(0.5f, 1f);
-            float desfaseX = Random.Range(-0.5f, 0.5f);
-            Vector3 desfase = new Vector3(desfaseX, desfaseY);
-            TextoHit hitText=  Instantiate(textoHit,transform.position,Quaternion.identity,transform);
-            hitText.transform.localPosition += desfase;
-            hitText.textMesh.text = texto;
-        }
+        Debug.Log("TextHit generado");
+        textoHit.CrearTextoHit(texto,transform,0.2f,Color.white,new Vector2(-0.5f,0.5f),new Vector2(0,0.5f),1f);
     }
 
-    protected void GenerartextHit(string texto, float duracion, Color color, float tamaño)
+    protected void GenerartextHit(string texto, float duracion, Color color, float tamaño,Vector2 desfaseX, Vector2 desfaseY)
     {
-        Debug.Log("Generando texto hit");
-        if (textoHit != null)
-        {
-            float desfaseY = Random.Range(0.5f, 1f);
-            float desfaseX = Random.Range(-0.8f, 0.8f);
-            Vector3 desfase = new Vector3(desfaseX, desfaseY);
-            TextoHit hitText = Instantiate(textoHit, transform.position, Quaternion.identity, transform);
-            hitText.transform.localPosition += desfase;
-            hitText.textMesh.text = texto;
-            hitText.textMesh.color = color;
-            hitText.textMesh.characterSize = tamaño;
-            hitText.tiempoDeVida = duracion;
-        }
+        Debug.Log("TextHit generado 2");
+        textoHit.CrearTextoHit(texto, transform, tamaño, color, desfaseX, desfaseY, duracion);
     }
 
     public virtual IEnumerator Morir() { yield return null; }

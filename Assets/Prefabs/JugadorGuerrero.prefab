@@ -112,7 +112,7 @@ TrailRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
-  m_MotionVectors: 1
+  m_MotionVectors: 0
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
@@ -214,10 +214,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 0
-  textoHit: {fileID: 114801287024102584, guid: e565435babd0df544835b87f4654b2c3, type: 2}
-  textoSalud: {fileID: 0}
+  textoHit: {fileID: 114724072053654968, guid: 09fdd14e4e43cb141b401a7eb0948809, type: 2}
   barraDeSalud: {fileID: 0}
   barraDeMana: {fileID: 0}
+  barraDeEXP: {fileID: 0}
 --- !u!114 &114547257093726300
 MonoBehaviour:
   m_ObjectHideFlags: 1

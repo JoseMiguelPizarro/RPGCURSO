@@ -83,16 +83,18 @@ public class EnemigoAI : Atacable {
 
     public override IEnumerator Morir()
     {
-        GetComponent<Collider2D>().isTrigger = true;
+        // GetComponent<Collider2D>().isTrigger = true; //Ignorar colisión con jugador
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), jugador.GetComponent<Collider2D>());
         empujable = false;
         enemigo.muerto = true;
         Debug.Log("Muriendo");
         //  animator.Play("Caballero_muerto");
+        sprite.sortingOrder = 1;
         animator.Play(stateHash, 0);
-        GenerartextHit(enemigo.exp.ToString() + " XP",1.3f,Color.green,0.25f);
+        GenerartextHit(enemigo.exp.ToString() + " XP",1.3f,Color.green,0.22f,new Vector2(-0.5f,0.5f),new Vector2(0.35f,0.5f));
         AtributosJugador.atributosJugador.Experiencia += enemigo.exp;
         Inventario.inventario.DineroJugador += enemigo.Dinero();
-        GenerartextHit(enemigo.Dinero().ToString() + " ORO", 1.3f, Color.yellow, 0.25f);
+        GenerartextHit(enemigo.Dinero().ToString() + " ORO", 1.3f, Color.yellow, 0.22f, new Vector2(-0.5f, 0.5f), new Vector2(0, 0.3f));
         yield return new WaitForSeconds(enemigo.muerteAnim.length);
         Destroy(gameObject);
     }

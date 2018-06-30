@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 1
-  textoHit: {fileID: 114801287024102584, guid: e565435babd0df544835b87f4654b2c3, type: 2}
+  textoHit: {fileID: 114724072053654968, guid: 09fdd14e4e43cb141b401a7eb0948809, type: 2}
   distanciaDetectar: 10
   distanciaAtaque: 10
   jugador: {fileID: 0}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 409ecf4afd2e1804aa8a1c234b16eb09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dinero: 0
+  dinero: 5
   drops:
   - {fileID: 114769631170834352, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
   dropRate:

@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870136368227900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -447.32507, y: -375.56, z: 8.029404}
+  m_LocalPosition: {x: -439.23, y: -376.2646, z: 8.029404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4808381227853444}
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   empujable: 1
   atacable: 1
-  textoHit: {fileID: 114801287024102584, guid: e565435babd0df544835b87f4654b2c3, type: 2}
+  textoHit: {fileID: 114724072053654968, guid: 09fdd14e4e43cb141b401a7eb0948809, type: 2}
   distanciaDetectar: 8
   distanciaAtaque: 2.5
   jugador: {fileID: 0}

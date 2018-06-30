@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class AtributosJugador : Atacable {
 
-    public Text textoSalud;
     private ControlJugador jugador;
     public BarraPlayer barraDeSalud;
     public BarraPlayer barraDeMana;
@@ -121,7 +120,7 @@ public class AtributosJugador : Atacable {
         FuerzaBase = 1;
         jugador = GetComponent<ControlJugador>();
         jugador.velocidad = Velocidad;
-        SaludBase = 10;
+        SaludBase = 100;
         MagiaBase = 5;
         magiaActual = Magia;
         saludActual = Salud;
@@ -144,10 +143,6 @@ public class AtributosJugador : Atacable {
         barraDeMana.Actualizar(magiaActual / (float)Magia);
     }
 
-    private void ActualizarSaludActual()
-    {
-        textoSalud.text = SaludActual.ToString();
-    }
 
     public void ActualizarAtributos(List<Equipamiento> equipos)
     {
@@ -192,6 +187,7 @@ public class AtributosJugador : Atacable {
         Nivel++;
         ConfigurarSiguienteNivel();
         Experiencia = 0;
+        GenerartextHit("NUEVO NIVEL!", 2f, Color.cyan, 0.3f, new Vector2(0,0), new Vector2(0.5f, 0.5f));
         PanelEstado.panelEstado.ActualizarTextos();
     }
 

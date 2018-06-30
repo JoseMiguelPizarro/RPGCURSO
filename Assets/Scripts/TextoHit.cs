@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class TextoHit : MonoBehaviour {
     public float tiempoDeVida = 1f;
-    public string sortingLayer;
+    public string sortingLayer="TEXTO";
     public float distanciaElevacion = 2;
     private float distanciaActual = 0;
     public TextMesh textMesh;
     private float tiempoInicio;
     private bool desvaneciendo=false;
-
+    public Color color;
 
     private void Awake()
     {
         textMesh = GetComponent<TextMesh>();
     }
-
     void Start () {
         tiempoInicio = Time.time;
         GetComponent<Renderer>().sortingLayerName = sortingLayer;

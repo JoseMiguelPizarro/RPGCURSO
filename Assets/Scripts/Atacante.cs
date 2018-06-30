@@ -68,6 +68,7 @@ public class Atacante : MonoBehaviour {
 
     public void Atacar(Mirada mirada, int daño)
     {
+
         Debug.Log("Atacó");
         DeterminarDirecciónAtaque(mirada);
          escala = AtacanteTransform.lossyScale;
