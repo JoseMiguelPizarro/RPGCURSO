@@ -197,10 +197,11 @@ public class AtributosJugador : Atacable {
 
     void ConfigurarSiguienteNivel()
     {
-        ExpSiguienteNivel = (int)Mathf.Log(Nivel, 3f);
+        ExpSiguienteNivel = 50*Mathf.CeilToInt(Mathf.Log(Nivel, 3f)); //Aproximar al valor superior
+        Debug.Log("Expsiguiente nivel" + ExpSiguienteNivel);
     }
 
-     new void Morir()
+    new void Morir()
     {
         Debug.Log("Jugador Murio");
         Destroy(gameObject);

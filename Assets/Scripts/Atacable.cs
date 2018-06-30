@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
+using TextoFlotante;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class Atacable : MonoBehaviour {
     public bool empujable = true;
     public bool atacable = true;
     [SerializeField] TextoHit textoHit;
-    
+    private Texto textoFlotante;
    
     public virtual void RecibirDanio(Transform atacante, int daño)
     {
@@ -26,6 +27,7 @@ public class Atacable : MonoBehaviour {
 
     protected void GenerartextHit(string texto)
     {
+        textoFlotante.CrearTextoFlotante("Hola",transform,0.3f,Color.blue,0.5f,0.5f,2f);
         Debug.Log("Generando texto hit");
         if (textoHit!=null)
         {
