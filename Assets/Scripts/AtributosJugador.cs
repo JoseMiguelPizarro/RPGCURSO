@@ -101,7 +101,6 @@ public class AtributosJugador : Atacable {
             else if (value <= 0)
             {
                 saludActual = 0;
-                //ActualizarBarraDeSalud();
                 eventoPrueba.Invoke((float)saludActual / Salud);
                 Morir();
             }
@@ -109,7 +108,6 @@ public class AtributosJugador : Atacable {
             {
                 saludActual = value;
                 eventoPrueba.Invoke((float)saludActual / Salud);
-                // ActualizarBarraDeSalud();
             }
         }
     }
@@ -253,6 +251,8 @@ public class AtributosJugador : Atacable {
     {
         OnLevelUp?.Invoke();
         Nivel++;
+        SaludActual = Salud;
+        MagiaActual = Magia;
         ConfigurarSiguienteNivel();
         GenerartextHit("NUEVO NIVEL!", 2f, Color.cyan, 0.3f, new Vector2(0,0), new Vector2(0.5f, 0.5f));
         razonExpNivel = ((float)(Experiencia - CurvaExperienciaAcumulativa(Nivel))) / expSiguienteNivel;

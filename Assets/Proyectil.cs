@@ -8,6 +8,7 @@ public class Proyectil : MonoBehaviour {
     public float velocidad;
     public int daño;
     public GameObject explosion;
+    public string tagObjetivo;
 
     private void FixedUpdate()
     {
@@ -16,11 +17,11 @@ public class Proyectil : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Bola de fuego colisionando");
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == tagObjetivo)
         {
             collision.gameObject.GetComponent<AtributosJugador>().RecibirDanio(transform, daño);
         }
-        if (collision.gameObject.tag!="Enemigo")
+        if (collision.gameObject.tag=="muralla")
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);

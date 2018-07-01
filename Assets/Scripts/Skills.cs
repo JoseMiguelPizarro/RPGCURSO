@@ -16,7 +16,6 @@ public class Skills : MonoBehaviour {
         trail = GetComponent<TrailRenderer>();
     }
 
-
     public IEnumerator Dash(Vector2 direccionAtaque)
     {
         if (dashReady)
