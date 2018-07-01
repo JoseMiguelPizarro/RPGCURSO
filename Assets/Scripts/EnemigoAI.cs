@@ -84,7 +84,8 @@ public class EnemigoAI : Atacable {
     public override IEnumerator Morir()
     {
         // GetComponent<Collider2D>().isTrigger = true; //Ignorar colisión con jugador
-        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), jugador.GetComponent<Collider2D>());
+        // Physics2D.IgnoreCollision(GetComponent<Collider2D>(), jugador.GetComponent<Collider2D>());
+        gameObject.layer = 12; //Muerto
         empujable = false;
         enemigo.muerto = true;
         Debug.Log("Muriendo");

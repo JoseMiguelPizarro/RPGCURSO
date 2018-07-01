@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class PanelEstado : MonoBehaviour {
 
+
 	public Text nivel;
 	public Text exp;
 	public Text salud;
@@ -12,6 +13,7 @@ public class PanelEstado : MonoBehaviour {
 	public Text Fuerza;
 	public Text Velocidad;
 	public Text Inteligencia;
+    public Text PuntosAtributo;
 
 	public static PanelEstado panelEstado;
 
@@ -34,6 +36,7 @@ public class PanelEstado : MonoBehaviour {
 		Fuerza.text = AtributosJugador.atributosJugador.Fuerza.ToString();
 		Velocidad.text = AtributosJugador.atributosJugador.Velocidad.ToString();
 		Inteligencia.text = AtributosJugador.atributosJugador.Inteligencia.ToString();
+        PuntosAtributo.text = AtributosJugador.atributosJugador.PuntosAtributos.ToString();
 	}
 
 	// Update is called once per frame

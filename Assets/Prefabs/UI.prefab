@@ -1715,6 +1715,7 @@ MonoBehaviour:
   Fuerza: {fileID: 114168312024729722}
   Velocidad: {fileID: 114161744571528542}
   Inteligencia: {fileID: 114592165027581596}
+  PuntosAtributo: {fileID: 0}
 --- !u!114 &114193888466552942
 MonoBehaviour:
   m_ObjectHideFlags: 1

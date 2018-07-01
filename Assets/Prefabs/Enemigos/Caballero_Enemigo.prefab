@@ -257,12 +257,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: Caballero
-  exp: 2
+  exp: 30
   saludEnemigo: {fileID: 0}
   muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
   muerto: 0
   Fuerza: 1
-  Velocidad: 1
+  Velocidad: 3
   Magia: 1
   Inteligencia: 1
 --- !u!114 &114604158493442384

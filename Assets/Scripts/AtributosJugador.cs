@@ -7,6 +7,17 @@ using System.ComponentModel;
 
 [System.Serializable]
 public class UnityEventFloat : UnityEvent<float> { }
+[System.Serializable]
+public class UnityEventInt: UnityEvent<int> { }
+
+public enum Atributos
+{
+    Salud,
+    Magia,
+    Velocidad,
+    Inteligencia,
+    Fuerza
+}
 public class AtributosJugador : Atacable {
 
     private ControlJugador jugador;
@@ -14,11 +25,26 @@ public class AtributosJugador : Atacable {
     public BarraPlayer barraDeMana;
     public BarraPlayer barraDeEXP;
 
+    
     public UnityEventFloat eventoPrueba;
+    public UnityEvent OnLevelUp;
+    public UnityEventInt OnModificarPuntoAtributo;
 
     //Atributos iniciales
-   
+
     //Atributos Base
+        private int puntosAtributos;
+        public int PuntosAtributos {
+        get
+        {
+            return puntosAtributos;
+        }
+        set
+        {
+            puntosAtributos =value;
+            OnModificarPuntoAtributo?.Invoke(puntosAtributos);
+        }
+        } //Puntos atributos para gastar habilidades
         public int SaludBase { get; set; }
         public int VelocidadBase { get; set; }
         public int MagiaBase { get; set; }
@@ -161,8 +187,9 @@ public class AtributosJugador : Atacable {
         MagiaBase = 5;
         magiaActual = Magia;
         saludActual = Salud;
-        PanelEstado.panelEstado.ActualizarTextos();
+        PuntosAtributos = Nivel-1;
         razonExpNivel = 0;
+        PanelEstado.panelEstado.ActualizarTextos();
         ActualizarBarraEXP();
     }
 
@@ -224,15 +251,17 @@ public class AtributosJugador : Atacable {
 
     void LevelUp()
     {
+        OnLevelUp?.Invoke();
         Nivel++;
         ConfigurarSiguienteNivel();
         GenerartextHit("NUEVO NIVEL!", 2f, Color.cyan, 0.3f, new Vector2(0,0), new Vector2(0.5f, 0.5f));
         razonExpNivel = ((float)(Experiencia - CurvaExperienciaAcumulativa(Nivel))) / expSiguienteNivel;
-        PanelEstado.panelEstado.ActualizarTextos();
+       // PanelEstado.panelEstado.ActualizarTextos();
     }
 
     void ConfigurarSiguienteNivel()
     {
+        PuntosAtributos += 1;
         expSiguienteNivel = CurvaExperiencia(Nivel); //Aproximar al valor superior
         Debug.Log("Expsiguiente para subir a nivel "+(Nivel+1)+" es " + expSiguienteNivel);
     }
@@ -256,5 +285,66 @@ public class AtributosJugador : Atacable {
     {
         Debug.Log("Jugador Murio");
         Destroy(gameObject);
+    }
+
+    public void ModificarAtributoBase(Atributos atributo, int cantidad)
+    {
+        switch (atributo)
+        {
+            case Atributos.Salud:
+                SaludBase += cantidad;
+                break;
+            case Atributos.Magia:
+                MagiaBase += cantidad;
+                break;
+            case Atributos.Velocidad:
+                VelocidadBase += Velocidad;
+                break;
+            case Atributos.Inteligencia:
+                InteligenciaBase += cantidad;
+                break;
+            case Atributos.Fuerza:
+                FuerzaBase += cantidad;
+                break;
+        }
+        PanelEstado.panelEstado.ActualizarTextos();
+    }
+
+    public void ModificarSaludBase(int cantidad)
+    {
+        SaludBase += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
+        ActualizarBarraDeSalud();
+    }
+
+    public void ModificarMagiaBase(int cantidad)
+    {
+        MagiaBase += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
+        ActualizarBarraDeMana();
+    }
+
+    public void ModificarVelocidadBase(int cantidad)
+    {
+        VelocidadBase += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
+    }
+
+    public void ModificarInteligenciaBase(int cantidad)
+    {
+        InteligenciaBase += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
+    }
+
+    public void ModificarFuerzaBase(int cantidad)
+    {
+        FuerzaBase += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
+    }
+
+    public void ModificarPuntosDeAtributos(int cantidad)
+    {
+        PuntosAtributos += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
     }
 }
