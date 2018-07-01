@@ -7,6 +7,7 @@ TagManager:
   - inventario
   - Enemigo
   - Proyectil
+  - muralla
   layers:
   - Default
   - TransparentFX

@@ -33,7 +33,6 @@ public class TextoHit : MonoBehaviour {
         if (!desvaneciendo && (Time.time-tiempoInicio)>=tiempoDeVida*0.5)
         {
             desvaneciendo = true;
-            Debug.Log("Desvaneciendo");
             StartCoroutine(Desvanecer());
         }
     }

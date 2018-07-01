@@ -13,7 +13,7 @@ public class HechizeroAI : EnemigoAI {
         CalcularDistanciaJugador();
         EnemigoComportamiento();
     }
-
+   
     protected override void VoltearSprite()
     {
         if (direccionAtaque.x > 0)
@@ -25,13 +25,16 @@ public class HechizeroAI : EnemigoAI {
 
     void InvocarBolaDeFuego()
     {
-      Proyectil bolaDeFuego=  Instantiate(proyectil, transform.position,Quaternion.identity);
-        bolaDeFuego.daño = enemigo.Inteligencia;
-        bolaDeFuego.velocidad = velocidadProyectil;
-        bolaDeFuego.trayectoria = direccionAtaque;
-        float anguloRotacion = Mathf.Atan2(direccionAtaque.y, direccionAtaque.x)*Mathf.Rad2Deg;
-        bolaDeFuego.transform.Rotate(0,0,anguloRotacion);
-        RetrocederRb();
+
+     skills.BolaDeFuego(enemigo.Inteligencia, direccionAtaque, velocidadProyectil, rb);
+      //Proyectil bolaDeFuego=  Instantiate(proyectil, transform.position,Quaternion.identity);
+      //  bolaDeFuego.tagObjetivo = "Player";
+      //  bolaDeFuego.daño = enemigo.Inteligencia;
+      //  bolaDeFuego.velocidad = velocidadProyectil;
+      //  bolaDeFuego.trayectoria = direccionAtaque;
+      //  float anguloRotacion = Mathf.Atan2(direccionAtaque.y, direccionAtaque.x)*Mathf.Rad2Deg;
+      //  bolaDeFuego.transform.Rotate(0,0,anguloRotacion);
+      //  RetrocederRb();
     }
 
     IEnumerator Retroceso()

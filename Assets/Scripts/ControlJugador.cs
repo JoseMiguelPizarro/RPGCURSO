@@ -20,12 +20,14 @@ public class ControlJugador : MonoBehaviour {
 	private Atacante atacante;
 	private Vector2 direccionAtaque;
     private Skills skills;
+    private Rigidbody2D rb;
 	
 	void Awake () {
 		EscalaInicial = transform.localScale.x;
 		animator = GetComponent<Animator>();
 		atacante = GetComponent<Atacante>();
         skills = GetComponent<Skills>();
+        rb = GetComponent<Rigidbody2D>();
 	}
 	void FixedUpdate () {
 		h = CrossPlatformInputManager.GetAxis("Horizontal");
@@ -49,11 +51,21 @@ public class ControlJugador : MonoBehaviour {
 			atacante.Atacar(direcciónMirada,AtributosJugador.atributosJugador.Fuerza);
 			Debug.Log(direcciónMirada);
 		}
-		if (skills.dashReady &&CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando") && AtributosJugador.atributosJugador.MagiaActual > 0)
+        ///----------Skill 1 --------///
+
+       
+        if (skills.dashReady &&CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando") && AtributosJugador.atributosJugador.MagiaActual > 0)
 		{
             AtributosJugador.atributosJugador.MagiaActual -= 1;
             StartCoroutine(skills.Dash(direccionAtaque));
 		}
+
+        ///----------Skill 2 --------///
+        if (AtributosJugador.atributosJugador.MagiaActual>=3 && CrossPlatformInputManager.GetButtonDown("Skill2"))
+        {
+            AtributosJugador.atributosJugador.MagiaActual -= 3;
+            skills.BolaDeFuego(AtributosJugador.atributosJugador.Inteligencia,mirada,20f,rb);
+        }
 		else if (!skills.dashing && !animatorState.IsTag("Atacando") && movimiento.magnitude>0 )
 		{
 			VoltearSprite();

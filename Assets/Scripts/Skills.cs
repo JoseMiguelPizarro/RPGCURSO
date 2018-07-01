@@ -11,9 +11,17 @@ public class Skills : MonoBehaviour {
     [HideInInspector]
     public bool dashReady = true;
     public float dashDuration = 0.2f;
+    public Proyectil proyectil;
+    public float fuerzaRetroceso = 2;
+    public bool dashAprendido;
+    public string tagObjetivo;
+    
     private void Start()
     {
-        trail = GetComponent<TrailRenderer>();
+        if (dashAprendido)
+        {
+            trail = GetComponent<TrailRenderer>();
+        }
     }
 
     public IEnumerator Dash(Vector2 direccionAtaque)
@@ -35,5 +43,17 @@ public class Skills : MonoBehaviour {
             yield return new WaitForSeconds(dashCD);
             dashReady = true;
         }
+    }
+
+    public void BolaDeFuego(int inteligencia, Vector2 trayectoria, float velocidad,Rigidbody2D rb)
+    {
+        Proyectil bolaDeFuego = Instantiate(proyectil, transform.position, Quaternion.identity);
+        bolaDeFuego.tagObjetivo = tagObjetivo;
+        bolaDeFuego.daño = inteligencia;
+        bolaDeFuego.velocidad = velocidad;
+        bolaDeFuego.trayectoria = trayectoria;
+        float anguloRotacion = Mathf.Atan2(trayectoria.y, trayectoria.x) * Mathf.Rad2Deg;
+        bolaDeFuego.transform.Rotate(0, 0, anguloRotacion);
+        rb.velocity = ((transform.position - (Vector3)trayectoria).normalized * fuerzaRetroceso);
     }
 }

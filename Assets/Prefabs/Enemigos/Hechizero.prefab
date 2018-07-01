@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraDeSalud: {fileID: 114370383221358786}
-  salud: 1
+  salud: 3
 --- !u!114 &114704447204719968
 MonoBehaviour:
   m_ObjectHideFlags: 1

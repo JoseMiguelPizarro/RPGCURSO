@@ -9,6 +9,7 @@ public class Proyectil : MonoBehaviour {
     public int daño;
     public GameObject explosion;
     public string tagObjetivo;
+    public float tiempoDeVida = 3f;
 
     private void FixedUpdate()
     {
@@ -19,18 +20,19 @@ public class Proyectil : MonoBehaviour {
         Debug.Log("Bola de fuego colisionando");
         if (collision.gameObject.tag == tagObjetivo)
         {
-            collision.gameObject.GetComponent<AtributosJugador>().RecibirDanio(transform, daño);
+            collision.gameObject.GetComponent<Atacable>().RecibirDanio(transform, daño);
+            Instantiate(explosion, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
         if (collision.gameObject.tag=="muralla")
         {
             Instantiate(explosion, transform.position, Quaternion.identity);
             Destroy(gameObject);
-
         }
     }
 
     private void Start()
     {
-        Destroy(gameObject, 3);
+        Destroy(gameObject, tiempoDeVida);
     }
 }

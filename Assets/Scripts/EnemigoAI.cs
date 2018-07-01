@@ -17,7 +17,8 @@ public class EnemigoAI : Atacable {
     protected Atacante atacante;
     protected GestorDeSalud miSalud;
     protected int stateHash;
-
+    protected Skills skills;
+    protected Rigidbody2D rb;
 
     private void Awake()
     {
@@ -34,6 +35,8 @@ public class EnemigoAI : Atacable {
         string hashstring = enemigo.nombre + "_muerto";
         stateHash = Animator.StringToHash(hashstring);
         jugador = FindObjectOfType<AtributosJugador>().transform;
+        rb = GetComponent<Rigidbody2D>();
+        skills = GetComponent<Skills>();
     }
 
     protected virtual void MoverHaciaJugador()
@@ -85,7 +88,7 @@ public class EnemigoAI : Atacable {
     {
         // GetComponent<Collider2D>().isTrigger = true; //Ignorar colisión con jugador
         // Physics2D.IgnoreCollision(GetComponent<Collider2D>(), jugador.GetComponent<Collider2D>());
-        gameObject.layer = 12; //Muerto
+        gameObject.layer = 12; // layer Muerto
         empujable = false;
         enemigo.muerto = true;
         Debug.Log("Muriendo");
@@ -102,7 +105,7 @@ public class EnemigoAI : Atacable {
 
     public virtual void EnemigoComportamiento()
     {
-        if (enemigo.muerto == false)
+        if (!enemigo.muerto)
         {
             if (!atacando && distanciaJugador < distanciaAtaque) //Atacar
             {
