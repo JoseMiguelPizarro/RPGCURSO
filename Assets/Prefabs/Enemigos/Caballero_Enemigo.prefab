@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1870136368227900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -439.23, y: -376.2646, z: 8.029404}
+  m_LocalPosition: {x: -439.61, y: -379.59, z: 8.029404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4808381227853444}
@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: Caballero
-  exp: 10
+  exp: 5
   saludEnemigo: {fileID: 0}
   muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
   muerto: 0

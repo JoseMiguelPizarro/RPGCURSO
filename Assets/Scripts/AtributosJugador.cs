@@ -2,13 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
+using System.ComponentModel;
 
+[System.Serializable]
+public class UnityEventFloat : UnityEvent<float> { }
 public class AtributosJugador : Atacable {
 
     private ControlJugador jugador;
     public BarraPlayer barraDeSalud;
     public BarraPlayer barraDeMana;
     public BarraPlayer barraDeEXP;
+
+    public UnityEventFloat eventoPrueba;
 
     //Atributos iniciales
    
@@ -22,12 +28,24 @@ public class AtributosJugador : Atacable {
     {
         get {return experienciaActual; }
 
-        set {experienciaActual=value;
-            if ((float)(experienciaActual)/(ExpSiguienteNivel)==1)
+        set {
+            experienciaActual =value;
+            if (Nivel>1)
             {
-                LevelUp();
+                while ((float)(experienciaActual - CurvaExperienciaAcumulativa(Nivel - 1)) / (expSiguienteNivel) >= 1)
+                {
+                    LevelUp();
+                }
+            }
+            else
+            {
+                while ((float)(experienciaActual) / (expSiguienteNivel) > 1)
+                {
+                    LevelUp();
+                }
             }
             ActualizarBarraEXP();
+            PanelEstado.panelEstado.ActualizarTextos();
         } }
 
         public int Nivel { get; set; }
@@ -35,6 +53,7 @@ public class AtributosJugador : Atacable {
         private int experienciaActual;
         private int magiaActual;
         private int saludActual;
+        private int experienciaRemanente;
         public int SaludActual
     {
         get
@@ -52,13 +71,15 @@ public class AtributosJugador : Atacable {
             else if (value <= 0)
             {
                 saludActual = 0;
-                ActualizarBarraDeSalud();
+                //ActualizarBarraDeSalud();
+                eventoPrueba.Invoke((float)saludActual / Salud);
                 Morir();
             }
             else
             {
                 saludActual = value;
-                ActualizarBarraDeSalud();
+                eventoPrueba.Invoke((float)saludActual / Salud);
+                // ActualizarBarraDeSalud();
             }
         }
     }
@@ -84,7 +105,6 @@ public class AtributosJugador : Atacable {
         }
     }
 
-    private int ExpSiguienteNivel = 20;
 
     public int ModificadorSalud { get; set; }
     public int ModificadorVelocidad { get; set; }
@@ -101,6 +121,9 @@ public class AtributosJugador : Atacable {
 
     public static AtributosJugador atributosJugador;
 
+    private int expSiguienteNivel;
+
+
     private void Awake()
     {
         atributosJugador = this;
@@ -115,22 +138,40 @@ public class AtributosJugador : Atacable {
     {
         VelocidadBase = 5;
         InteligenciaBase = 1;
-        Experiencia = 0;
         Nivel = 1;
+        if (Nivel>1)
+        {
+            Experiencia = CurvaExperienciaAcumulativa(Nivel - 1);
+        }
+        else
+        {
+            Experiencia = 0;
+        }
+        ConfigurarSiguienteNivel();
         FuerzaBase = 1;
         jugador = GetComponent<ControlJugador>();
         jugador.velocidad = Velocidad;
-        SaludBase = 100;
+        SaludBase = 15;
         MagiaBase = 5;
         magiaActual = Magia;
         saludActual = Salud;
         PanelEstado.panelEstado.ActualizarTextos();
+        ActualizarBarraEXP();
     }
 
 
     private void ActualizarBarraEXP()
     {
-        barraDeEXP.Actualizar((float)Experiencia /ExpSiguienteNivel);
+        if (Nivel>1) //Esto debido a que log0 está indeterminado
+        {
+            barraDeEXP.Actualizar(((float)(Experiencia - CurvaExperienciaAcumulativa(Nivel - 1))) / expSiguienteNivel);
+
+        }
+        else
+        {
+            barraDeEXP.Actualizar((float)(Experiencia) / expSiguienteNivel);
+
+        }
     }
 
     private void ActualizarBarraDeSalud()
@@ -149,7 +190,8 @@ public class AtributosJugador : Atacable {
         ResetearModificadores();
         ActualizarModificadores(equipos);
         ActualizarBarraDeMana();
-        ActualizarBarraDeSalud();
+        //ActualizarBarraDeSalud();
+        eventoPrueba.Invoke((float)saludActual / Salud);
         jugador.velocidad = Velocidad;
     }
 
@@ -186,15 +228,29 @@ public class AtributosJugador : Atacable {
     {
         Nivel++;
         ConfigurarSiguienteNivel();
-        Experiencia = 0;
         GenerartextHit("NUEVO NIVEL!", 2f, Color.cyan, 0.3f, new Vector2(0,0), new Vector2(0.5f, 0.5f));
         PanelEstado.panelEstado.ActualizarTextos();
     }
 
     void ConfigurarSiguienteNivel()
     {
-        ExpSiguienteNivel = 50*Mathf.CeilToInt(Mathf.Log(Nivel, 3f)); //Aproximar al valor superior
-        Debug.Log("Expsiguiente nivel" + ExpSiguienteNivel);
+        expSiguienteNivel = CurvaExperiencia(Nivel); //Aproximar al valor superior
+        Debug.Log("Expsiguiente para subir a nivel "+(Nivel+1)+" es " + expSiguienteNivel);
+    }
+
+    int CurvaExperiencia(int nivel)
+    {
+        return (Mathf.CeilToInt(50*(Mathf.Log(nivel, 3f)))+20);
+    }
+
+    int CurvaExperienciaAcumulativa(int nivel)
+    {
+        int exp = 0;
+        for (int i = 1; i <nivel; i++)
+        {
+            exp += CurvaExperiencia(i);
+        }
+        return exp;
     }
 
     new void Morir()

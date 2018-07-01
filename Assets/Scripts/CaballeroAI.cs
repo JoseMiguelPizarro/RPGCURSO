@@ -43,10 +43,8 @@ public class CaballeroAI : EnemigoAI {
             {
                 animator.SetBool("Caminando", false);
             }
-           
         }
     }
-
 
     private void Dash()
     {
@@ -55,21 +53,24 @@ public class CaballeroAI : EnemigoAI {
 
     public override void RecibirDanio(Transform atacante, int danio)
     {
-        if (atacable)
+        if (!enemigo.muerto)
         {
-            Empujar(atacante);
-            miSalud.SaludActual -= danio;
-            GenerartextHit(danio.ToString());
-            if (enemigo.saludEnemigo.SaludActual <= 0)
+            if (atacable)
             {
-                enemigo.Dropear();
-                StartCoroutine(Morir());
+                Empujar(atacante);
+                miSalud.SaludActual -= danio;
+                GenerartextHit(danio.ToString());
+                if (enemigo.saludEnemigo.SaludActual <= 0)
+                {
+                    enemigo.Dropear();
+                    StartCoroutine(Morir());
+                }
             }
-        }
-        else
-        {
-            animator.Play("Caballero_Atacar"); //Contraatque al estar bloqueando
-            atacable = true;
+            else
+            {
+                animator.Play("Caballero_Atacar"); //Contraatque al estar bloqueando
+                atacable = true;
+            }
         }
     }
 
