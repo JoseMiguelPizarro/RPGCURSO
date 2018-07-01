@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: Hechizero
-  exp: 20
+  exp: 3
   saludEnemigo: {fileID: 0}
   muerteAnim: {fileID: 7400000, guid: 3a2607ba59ce2d941b6095eeef9631d1, type: 2}
   muerto: 0

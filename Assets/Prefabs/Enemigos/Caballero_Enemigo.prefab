@@ -257,7 +257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nombre: Caballero
-  exp: 5
+  exp: 2
   saludEnemigo: {fileID: 0}
   muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
   muerto: 0

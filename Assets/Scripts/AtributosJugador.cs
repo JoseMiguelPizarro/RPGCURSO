@@ -24,7 +24,12 @@ public class AtributosJugador : Atacable {
         public int MagiaBase { get; set; }
         public int InteligenciaBase { get; set; }
         public int FuerzaBase { get; set; }
-        public int Experiencia
+
+    private int experienciaActual;
+    private int magiaActual;
+    private int saludActual;
+    private float razonExpNivel;
+    public int Experiencia
     {
         get {return experienciaActual; }
 
@@ -32,14 +37,16 @@ public class AtributosJugador : Atacable {
             experienciaActual =value;
             if (Nivel>1)
             {
-                while ((float)(experienciaActual - CurvaExperienciaAcumulativa(Nivel - 1)) / (expSiguienteNivel) >= 1)
+                razonExpNivel = ((float)(Experiencia - CurvaExperienciaAcumulativa(Nivel))) / expSiguienteNivel;
+                while (razonExpNivel>= 1)
                 {
                     LevelUp();
                 }
             }
             else
             {
-                while ((float)(experienciaActual) / (expSiguienteNivel) > 1)
+                razonExpNivel = ((float)(experienciaActual)) / (expSiguienteNivel);
+                while (razonExpNivel>= 1)
                 {
                     LevelUp();
                 }
@@ -50,10 +57,7 @@ public class AtributosJugador : Atacable {
 
         public int Nivel { get; set; }
 
-        private int experienciaActual;
-        private int magiaActual;
-        private int saludActual;
-        private int experienciaRemanente;
+       
         public int SaludActual
     {
         get
@@ -132,7 +136,9 @@ public class AtributosJugador : Atacable {
     private void Start()
     {
         atributosJugador.Inicializar();
+        Debug.Log("valor acumulado al nivel 1"+CurvaExperienciaAcumulativa(1));
     }
+
 
     private void Inicializar()
     {
@@ -156,22 +162,14 @@ public class AtributosJugador : Atacable {
         magiaActual = Magia;
         saludActual = Salud;
         PanelEstado.panelEstado.ActualizarTextos();
+        razonExpNivel = 0;
         ActualizarBarraEXP();
     }
 
 
     private void ActualizarBarraEXP()
     {
-        if (Nivel>1) //Esto debido a que log0 está indeterminado
-        {
-            barraDeEXP.Actualizar(((float)(Experiencia - CurvaExperienciaAcumulativa(Nivel - 1))) / expSiguienteNivel);
-
-        }
-        else
-        {
-            barraDeEXP.Actualizar((float)(Experiencia) / expSiguienteNivel);
-
-        }
+            barraDeEXP.Actualizar(razonExpNivel);
     }
 
     private void ActualizarBarraDeSalud()
@@ -229,6 +227,7 @@ public class AtributosJugador : Atacable {
         Nivel++;
         ConfigurarSiguienteNivel();
         GenerartextHit("NUEVO NIVEL!", 2f, Color.cyan, 0.3f, new Vector2(0,0), new Vector2(0.5f, 0.5f));
+        razonExpNivel = ((float)(Experiencia - CurvaExperienciaAcumulativa(Nivel))) / expSiguienteNivel;
         PanelEstado.panelEstado.ActualizarTextos();
     }
 
