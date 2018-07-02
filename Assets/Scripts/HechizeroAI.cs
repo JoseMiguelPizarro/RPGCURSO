@@ -26,7 +26,7 @@ public class HechizeroAI : EnemigoAI {
     void InvocarBolaDeFuego()
     {
 
-     skills.BolaDeFuego(enemigo.Inteligencia, direccionAtaque, velocidadProyectil, rb);
+     skills.BolaDeFuego(enemigo.Inteligencia, direccionAtaque,rb);
       //Proyectil bolaDeFuego=  Instantiate(proyectil, transform.position,Quaternion.identity);
       //  bolaDeFuego.tagObjetivo = "Player";
       //  bolaDeFuego.daño = enemigo.Inteligencia;

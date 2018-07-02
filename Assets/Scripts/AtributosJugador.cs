@@ -26,7 +26,7 @@ public class AtributosJugador : Atacable {
     public BarraPlayer barraDeEXP;
 
     
-    public UnityEventFloat eventoPrueba;
+    public UnityEventFloat OnCambiarSalud;
     public UnityEvent OnLevelUp;
     public UnityEventInt OnModificarPuntoAtributo;
 
@@ -50,6 +50,7 @@ public class AtributosJugador : Atacable {
         public int MagiaBase { get; set; }
         public int InteligenciaBase { get; set; }
         public int FuerzaBase { get; set; }
+        public int DefensaBase { get; set; }
 
     private int experienciaActual;
     private int magiaActual;
@@ -101,13 +102,13 @@ public class AtributosJugador : Atacable {
             else if (value <= 0)
             {
                 saludActual = 0;
-                eventoPrueba.Invoke((float)saludActual / Salud);
+                OnCambiarSalud.Invoke((float)saludActual / Salud);
                 Morir();
             }
             else
             {
                 saludActual = value;
-                eventoPrueba.Invoke((float)saludActual / Salud);
+                OnCambiarSalud.Invoke((float)saludActual / Salud);
             }
         }
     }
@@ -139,12 +140,14 @@ public class AtributosJugador : Atacable {
     public int ModificadorMagia { get; set; }
     public int ModificadorInteligencia { get; set; }
     public int ModificadorFuerza { get; set; }
+    public int ModificadorDefensa { get; set; }
 
     public int Salud { get {return SaludBase+ModificadorSalud; } }
     public int Velocidad { get {return VelocidadBase+ModificadorVelocidad; } }
     public int Magia { get {return MagiaBase+ModificadorMagia; }  }
     public int Inteligencia { get {return InteligenciaBase+ModificadorInteligencia; } }
     public int Fuerza { get {return FuerzaBase+ModificadorFuerza; } }
+    public int Defensa { get { return Defensa + ModificadorDefensa; } }
 
 
     public static AtributosJugador atributosJugador;
@@ -183,6 +186,7 @@ public class AtributosJugador : Atacable {
         jugador.velocidad = Velocidad;
         SaludBase = 15;
         MagiaBase = 5;
+        DefensaBase = 0;
         magiaActual = Magia;
         saludActual = Salud;
         PuntosAtributos = Nivel-1;
@@ -213,8 +217,7 @@ public class AtributosJugador : Atacable {
         ResetearModificadores();
         ActualizarModificadores(equipos);
         ActualizarBarraDeMana();
-        //ActualizarBarraDeSalud();
-        eventoPrueba.Invoke((float)saludActual / Salud);
+        OnCambiarSalud.Invoke((float)saludActual / Salud);
         jugador.velocidad = Velocidad;
     }
 
@@ -227,6 +230,7 @@ public class AtributosJugador : Atacable {
             ModificadorInteligencia += equipo.Inteligencia;
             ModificadorVelocidad += equipo.Velocidad;
             ModificadorFuerza += equipo.Fuerza;
+            ModificadorDefensa += equipo.Defensa;
         }
     }
 
@@ -333,6 +337,12 @@ public class AtributosJugador : Atacable {
     public void ModificarInteligenciaBase(int cantidad)
     {
         InteligenciaBase += cantidad;
+        PanelEstado.panelEstado.ActualizarTextos();
+    }
+
+    public void ModificarDefensaBase(int cantidad)
+    {
+        DefensaBase += cantidad;
         PanelEstado.panelEstado.ActualizarTextos();
     }
 

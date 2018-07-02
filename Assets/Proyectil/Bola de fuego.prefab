@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 114818437592337672}
   - component: {fileID: 61214338054537574}
   m_Layer: 11
-  m_Name: Fuego
+  m_Name: Bola de fuego
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -264,6 +264,8 @@ MonoBehaviour:
   velocidad: 0
   "da\xF1o": 0
   explosion: {fileID: 1451395651591726, guid: 0ff561e29a2a70e4998ace125479dd04, type: 2}
+  tagObjetivo: 
+  tiempoDeVida: 3
 --- !u!198 &198218650113331284
 ParticleSystem:
   m_ObjectHideFlags: 1

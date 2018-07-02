@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using System;
+using Random = UnityEngine.Random;
+
 
 public class Atacante : MonoBehaviour {
 
@@ -37,7 +39,7 @@ public class Atacante : MonoBehaviour {
         Debug.DrawLine(puntoA, puntoB, Color.red);
     }
 
-
+    //atacar a jugador
     public void Atacar(Vector2 mirada, int daño)
     {
         Debug.Log("Atacó");
@@ -49,7 +51,6 @@ public class Atacante : MonoBehaviour {
 
         puntoA = (Vector2)AtacanteTransform.position + facingOffset - tamañoEscalado * 0.5f;
         puntoB = puntoA + tamañoEscalado;
-
         int hitCount = Physics2D.OverlapArea(puntoA, puntoB, filtroAtaque, AtaqueOverlapResults);
 
         for (int i = 0; i < hitCount; i++)
@@ -59,6 +60,7 @@ public class Atacante : MonoBehaviour {
 
             if (objetivo)
             {
+                 daño = (int)Random.Range(daño * 0.5f, daño * 1.5f);
                 Debug.Log("Dañó a " + objetivo.name);
                 objetivo.RecibirDanio(transform, daño);
                 Instantiate(spark, objetivo.transform.position, Quaternion.identity);
@@ -94,6 +96,7 @@ public class Atacante : MonoBehaviour {
                 {
                     Instantiate(spark, objetivo.transform.position, Quaternion.identity);
                 }
+                daño = (int)Random.Range(daño * 0.5f, daño * 1.5f);
                 objetivo.RecibirDanio(transform, daño);
             }
         }

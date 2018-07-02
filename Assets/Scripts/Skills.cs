@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Skills : MonoBehaviour {
-    [SerializeField] float dashSpeed = 10;
+    //---Dash---//
+    public bool dashAprendido;
+    public float dashSpeed = 10;
     public float dashCD = 1;
     private TrailRenderer trail;
     [HideInInspector]
@@ -11,10 +13,12 @@ public class Skills : MonoBehaviour {
     [HideInInspector]
     public bool dashReady = true;
     public float dashDuration = 0.2f;
+    //---Bola de fuego---//
     public Proyectil proyectil;
     public float fuerzaRetroceso = 2;
-    public bool dashAprendido;
     public string tagObjetivo;
+    public float velocidadProyectil;
+
     
     private void Start()
     {
@@ -24,7 +28,7 @@ public class Skills : MonoBehaviour {
         }
     }
 
-    public IEnumerator Dash(Vector2 direccionAtaque)
+    public virtual IEnumerator Dash(Vector2 direccionAtaque)
     {
         if (dashReady)
         {
@@ -45,15 +49,15 @@ public class Skills : MonoBehaviour {
         }
     }
 
-    public void BolaDeFuego(int inteligencia, Vector2 trayectoria, float velocidad,Rigidbody2D rb)
+    public virtual void BolaDeFuego(int inteligencia, Vector2 trayectoria,Rigidbody2D rb)
     {
         Proyectil bolaDeFuego = Instantiate(proyectil, transform.position, Quaternion.identity);
         bolaDeFuego.tagObjetivo = tagObjetivo;
         bolaDeFuego.daño = inteligencia;
-        bolaDeFuego.velocidad = velocidad;
+        bolaDeFuego.velocidad = velocidadProyectil;
         bolaDeFuego.trayectoria = trayectoria;
         float anguloRotacion = Mathf.Atan2(trayectoria.y, trayectoria.x) * Mathf.Rad2Deg;
         bolaDeFuego.transform.Rotate(0, 0, anguloRotacion);
-        rb.velocity = ((transform.position - (Vector3)trayectoria).normalized * fuerzaRetroceso);
+        rb.velocity = (-trayectoria).normalized * fuerzaRetroceso;
     }
 }

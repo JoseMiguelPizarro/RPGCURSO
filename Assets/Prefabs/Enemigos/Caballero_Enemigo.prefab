@@ -261,7 +261,7 @@ MonoBehaviour:
   saludEnemigo: {fileID: 0}
   muerteAnim: {fileID: 7400000, guid: bc13304a80c101349a30766529d48638, type: 2}
   muerto: 0
-  Fuerza: 1
+  Fuerza: 2
   Velocidad: 3
   Magia: 1
   Inteligencia: 1
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraDeSalud: {fileID: 114860506252770524}
-  salud: 4
+  salud: 1
 --- !u!114 &114860506252770524
 MonoBehaviour:
   m_ObjectHideFlags: 1
