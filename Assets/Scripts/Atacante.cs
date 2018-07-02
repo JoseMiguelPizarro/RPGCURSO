@@ -63,7 +63,7 @@ public class Atacante : MonoBehaviour {
                  daño = (int)Random.Range(daño * 0.5f, daño * 1.5f);
                 Debug.Log("Dañó a " + objetivo.name);
                 objetivo.RecibirDanio(transform, daño);
-                Instantiate(spark, objetivo.transform.position, Quaternion.identity);
+                Instantiate(spark, objetivo.transform.position +new Vector3(0, 0, -0.5f), Quaternion.identity); //Desfase para proyectar la luz
             }
         }
     }
@@ -94,7 +94,7 @@ public class Atacante : MonoBehaviour {
                 Debug.Log("Dañó a "+objetivo.name);
                 if (objetivo.atacable)
                 {
-                    Instantiate(spark, objetivo.transform.position, Quaternion.identity);
+                    Instantiate(spark, objetivo.transform.position+new Vector3(0,0,-0.5f), Quaternion.identity); //Desfase para proyectar la luz
                 }
                 daño = (int)Random.Range(daño * 0.5f, daño * 1.5f);
                 objetivo.RecibirDanio(transform, daño);

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Skills : MonoBehaviour {
     //---Dash---//
+    [Header("Dash")]
     public bool dashAprendido;
     public float dashSpeed = 10;
     public float dashCD = 1;
@@ -14,6 +15,7 @@ public class Skills : MonoBehaviour {
     public bool dashReady = true;
     public float dashDuration = 0.2f;
     //---Bola de fuego---//
+    [Header("Bola de fuego")]
     public Proyectil proyectil;
     public float fuerzaRetroceso = 2;
     public string tagObjetivo;
