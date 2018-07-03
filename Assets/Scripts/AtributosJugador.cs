@@ -29,6 +29,7 @@ public class AtributosJugador : Atacable {
     public UnityEventFloat OnCambiarSalud;
     public UnityEvent OnLevelUp;
     public UnityEventInt OnModificarPuntoAtributo;
+    public UnityEvent OnMorir;
 
     //Atributos iniciales
 
@@ -288,6 +289,10 @@ public class AtributosJugador : Atacable {
     new void Morir()
     {
         Debug.Log("Jugador Murio");
+       TextoHit textoDeMuerte= GenerartextHit("FELIZ CUMPLEAÑOS!!!!",10, Color.red, 0.5f, new Vector2(0, 0), new Vector2(4, 4));
+        textoDeMuerte.transform.parent = null;
+        textoDeMuerte.transform.position = transform.position + new Vector3(0, 2, 0);
+        OnMorir?.Invoke();
         Destroy(gameObject);
     }
 

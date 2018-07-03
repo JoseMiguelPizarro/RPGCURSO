@@ -24,17 +24,20 @@ public class Atacable : MonoBehaviour {
         }
     }
 
-    protected void GenerartextHit(string texto)
+    protected TextoHit GenerartextHit(string texto)
     {
         Debug.Log("TextHit generado");
-        textoHit.CrearTextoHit(texto,transform,0.2f,Color.white,new Vector2(-0.5f,0.5f),new Vector2(0,0.5f),1f);
+      return  textoHit.CrearTextoHit(texto,transform,0.2f,Color.white,new Vector2(-0.5f,0.5f),new Vector2(0,0.5f),1f);
     }
 
-    protected void GenerartextHit(string texto, float duracion, Color color, float tamaño,Vector2 desfaseX, Vector2 desfaseY)
+    protected TextoHit GenerartextHit(string texto, float duracion, Color color, float tamaño,Vector2 desfaseX, Vector2 desfaseY)
     {
         Debug.Log("TextHit generado 2");
-        textoHit.CrearTextoHit(texto, transform, tamaño, color, desfaseX, desfaseY, duracion);
+       return textoHit.CrearTextoHit(texto, transform, tamaño, color, desfaseX, desfaseY, duracion);
     }
+
+
+
 
     public virtual IEnumerator Morir() { yield return null; }
 

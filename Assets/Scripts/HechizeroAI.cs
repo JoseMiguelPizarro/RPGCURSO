@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof(Skills))]
+[RequireComponent(typeof(Enemigo))]
 public class HechizeroAI : EnemigoAI {
 
-    public Proyectil proyectil;
     public float velocidadProyectil;
     public float fuerzaRetroceso = 5f;
 	// Update is called once per frame

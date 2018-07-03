@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class Objeto : Interactivo,IPointerDownHandler
+public class Objeto : Interactivo
 {
     public Item item;
     public string Nombre { get; set; }

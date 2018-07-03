@@ -7,12 +7,11 @@ using UnityEngine.EventSystems;
 
 public class Interactivo : MonoBehaviour,IPointerDownHandler {
 
-    public float radio = 5f;
-    private ControlJugador player;
+    protected ControlJugador player;
 
     private void Awake()
     {
-        player = FindObjectOfType<ControlJugador>();
+        Inicializar();
     }
 
     protected void Interactuar()
@@ -35,5 +34,10 @@ public class Interactivo : MonoBehaviour,IPointerDownHandler {
     public void OnPointerDown(PointerEventData eventData)
     {
         Interactuar();
+    }
+
+    protected virtual void Inicializar()
+    {
+     player = FindObjectOfType<ControlJugador>();
     }
 }
