@@ -7,7 +7,6 @@ public enum Mirada { Arriba,Abajo,Izquierda,Derecha}
 
 
 public class ControlJugador : MonoBehaviour {
-	public GameObject inventario;
 	private float EscalaInicial;
 	private float h;
     [HideInInspector]

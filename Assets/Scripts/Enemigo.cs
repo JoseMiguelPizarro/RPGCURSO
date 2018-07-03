@@ -39,7 +39,7 @@ public class Enemigo : MonoBehaviour {
             if (rate<=drop.dropRate[i])
             {
                 Vector2 desfaseDrop = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-               Objeto dropeo= Instantiate(drop.drops[i], transform.position+(Vector3)desfaseDrop,Quaternion.identity);
+                Objeto dropeo= Instantiate(drop.drops[i], transform.position+(Vector3)desfaseDrop,Quaternion.identity);
                 dropeo.transform.parent = GameObject.Find("Objetos").transform;
             }
         }

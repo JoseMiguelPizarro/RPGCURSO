@@ -49,28 +49,6 @@ public class PanelInventario : MonoBehaviour {
         catch { };
     }
 
-    public void AbrirCerrarInventario()
-    {
-        if (abierto)
-        {
-            Debug.Log("Desactivando Inventario");
-            canvasGroup.interactable = false;
-            canvasGroup.alpha = 0;
-            canvasGroup.blocksRaycasts = false;
-            canvasGroup.ignoreParentGroups = true;
-            abierto = false;
-        }
-        else
-        {
-            Debug.Log("Activando Inventario");
-            canvasGroup.interactable = true;
-            canvasGroup.alpha = 1;
-            canvasGroup.blocksRaycasts = true;
-            canvasGroup.ignoreParentGroups = true;
-            abierto = true;
-        }
-        
-    }
     public void Eliminar()
     {
         try

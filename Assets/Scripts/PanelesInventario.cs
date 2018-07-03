@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PanelesInventario : MonoBehaviour, IDragHandler, IBeginDragHandler
+public class PanelesInventario : MonoBehaviour
 {
 
     private CanvasGroup canvasGroup;
@@ -39,14 +39,14 @@ public class PanelesInventario : MonoBehaviour, IDragHandler, IBeginDragHandler
 
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
+    //public void OnDrag(PointerEventData eventData)
+    //{
 
-        transform.position = Input.mousePosition - relativePos;
-    }
+    //    transform.position = Input.mousePosition - relativePos;
+    //}
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        relativePos = Input.mousePosition - transform.position;
-    }
+    //public void OnBeginDrag(PointerEventData eventData)
+    //{
+    //    relativePos = Input.mousePosition - transform.position;
+    //}
 }

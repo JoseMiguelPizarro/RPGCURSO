@@ -276,7 +276,7 @@ MonoBehaviour:
   distanciaDetectar: 10
   distanciaAtaque: 10
   jugador: {fileID: 0}
-  puff: {fileID: 0}
+  puff: {fileID: 1895289599217678, guid: 4bc9ed7cd37664148b2a0925905356f8, type: 2}
   proyectil: {fileID: 114818437592337672, guid: c3b88ee3c9b068e42a43f9aae3f9771e,
     type: 2}
   velocidadProyectil: 15
@@ -317,9 +317,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinero: 5
   drops:
-  - {fileID: 114769631170834352, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
+  - {fileID: 114769631170834352, guid: f293dc5b2eee5f64e836bc9203c0d6f8, type: 2}
+  - {fileID: 114769631170834352, guid: b8e74f1059b1e674fb41b3ffa01a3a71, type: 2}
   dropRate:
-  - 100
+  - 50
+  - 10
 --- !u!212 &212113452851088020
 SpriteRenderer:
   m_ObjectHideFlags: 1

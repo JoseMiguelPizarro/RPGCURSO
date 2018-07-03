@@ -96,7 +96,7 @@ public class Inventario : MonoBehaviour
                 NuevoObjeto.GetComponent<ObjetoInventario>().item = item;
                 NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
                 NuevoObjeto.transform.localPosition = Vector2.zero;
-                NuevoObjeto.transform.localScale = new Vector3(10, 10, 1); //Ajustar tamaño
+                NuevoObjeto.transform.localScale = new Vector3(8, 8, 1); //Ajustar tamaño
                 NuevoObjeto.AddComponent<Image>().sprite = item.artwork;
                 NuevoObjeto.name = item.name;
                 casillas[CasillaVacia].ObtenerObjetoInventario();
@@ -175,6 +175,7 @@ public class Inventario : MonoBehaviour
     //Eventos
     private void BeginDrag(Casilla casilla)
     {
+        Debug.Log("Draggeando " + casilla);
         if (casilla.GetComponentInChildren<ObjetoInventario>()!=null)
         {
             casillaArrastrada = casilla;

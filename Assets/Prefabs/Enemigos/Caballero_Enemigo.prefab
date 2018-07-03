@@ -223,11 +223,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dinero: 5
   drops:
-  - {fileID: 114769631170834352, guid: 3029b8a6fa43a004993adf57ea258c6d, type: 2}
+  - {fileID: 114769631170834352, guid: 5f22eb9f0d764004eb12013d061b368f, type: 2}
   - {fileID: 114769631170834352, guid: f5f7f1fa0e3c157458c421e0aa140625, type: 2}
   dropRate:
-  - 76.7
-  - 45.2
+  - 50
+  - 10
 --- !u!114 &114500556859493370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraDeSalud: {fileID: 114860506252770524}
-  salud: 1
+  salud: 5
 --- !u!114 &114860506252770524
 MonoBehaviour:
   m_ObjectHideFlags: 1

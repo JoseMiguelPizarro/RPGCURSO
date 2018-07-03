@@ -41,6 +41,11 @@ public class EnemigoAI : Atacable {
         skills = GetComponent<Skills>();
     }
 
+    private void Start()
+    {
+        Instantiate(puff, transform.position,Quaternion.identity,transform);
+    }
+
     protected virtual void MoverHaciaJugador()
     {
         GenerarDireccion();
