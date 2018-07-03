@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class UsarSkill : Skills {
 
     public int costeMagiaDash;
     public int costeMagiaBolaDeFuego;
+    public UnityEvent OnInvocarBolaDeFuego;
+
 
     public void UsarDash(Vector2 dirección)
     {
@@ -22,6 +25,7 @@ public class UsarSkill : Skills {
         {
             AtributosJugador.atributosJugador.MagiaActual -= costeMagiaBolaDeFuego;
             BolaDeFuego(inteligencia, trayectoria, rb);
+            OnInvocarBolaDeFuego?.Invoke();
         }
     }
 }

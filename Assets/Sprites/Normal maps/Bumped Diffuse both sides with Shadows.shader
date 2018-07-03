@@ -6,7 +6,7 @@
              _BumpMap ("Normalmap", 2D) = "bump" {}
              _Color ("Tint", Color) = (1,1,1,1)
              [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
-                     _Cutoff ("Alpha Cutoff", Range (0,1)) = 0.5
+                    _Cutoff ("Alpha Cutoff", Range (0,1)) = 1
      
          }
      
@@ -16,19 +16,20 @@
              { 
                  "Queue"="Transparent" 
                  "IgnoreProjector"="True" 
-                 "RenderType"="TransparentCutOut" 
+                 "RenderType"="Transparent" 
                  "PreviewType"="Plane"
                  "CanUseSpriteAtlas"="True"
                  
              }
-             LOD 300
+             //LOD 100
      
              // Render back faces first
-             Cull Front
+             Cull Off
              Lighting On
              ZWrite Off
              Fog { Mode Off }
-             
+             Blend One OneMinusSrcAlpha
+
              CGPROGRAM
              #pragma surface surf Lambert alpha vertex:vert addshadow alphatest:_Cutoff 
              #pragma multi_compile DUMMY PIXELSNAP_ON 
@@ -69,10 +70,11 @@
              ENDCG
              
              // Now render front faces first
-             Cull Back
+             Cull Off
              Lighting On
              ZWrite Off
              Fog { Mode Off }
+			 Blend One OneMinusSrcAlpha
              
              CGPROGRAM
              #pragma surface surf Lambert alpha vertex:vert addshadow alphatest:_Cutoff 

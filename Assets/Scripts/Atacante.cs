@@ -14,6 +14,7 @@ public class Atacante : MonoBehaviour {
     public float offset = 1f;
     public Vector2 tamaño = new Vector2(1f, 1f);
     public LayerMask hittableLayers;
+    public UnityEvent OnDamage;
 
     protected ContactFilter2D filtroAtaque;
     protected Collider2D[] AtaqueOverlapResults = new Collider2D[10];
@@ -64,6 +65,7 @@ public class Atacante : MonoBehaviour {
                 Debug.Log("Dañó a " + objetivo.name);
                 objetivo.RecibirDanio(transform, daño);
                 Instantiate(spark, objetivo.transform.position +new Vector3(0, 0, -0.5f), Quaternion.identity); //Desfase para proyectar la luz
+                OnDamage?.Invoke();
             }
         }
     }
@@ -98,6 +100,7 @@ public class Atacante : MonoBehaviour {
                 }
                 daño = (int)Random.Range(daño * 0.5f, daño * 1.5f);
                 objetivo.RecibirDanio(transform, daño);
+                OnDamage?.Invoke();
             }
         }
     }

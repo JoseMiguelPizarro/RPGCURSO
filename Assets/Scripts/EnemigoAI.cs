@@ -13,12 +13,14 @@ public class EnemigoAI : Atacable {
     protected Vector2 direccionAtaque;
     protected Enemigo enemigo;
     public Transform jugador;
+    public GameObject puff;
     protected SpriteRenderer sprite;
     protected Atacante atacante;
     protected GestorDeSalud miSalud;
     protected int stateHash;
     protected Skills skills;
     protected Rigidbody2D rb;
+
 
     private void Awake()
     {
@@ -147,6 +149,11 @@ public class EnemigoAI : Atacable {
     {
         atacando = true;
         Debug.Log("Atacando true");
+    }
+
+    private void InvocarPuff()
+    {
+        GameObject miPuff = Instantiate(puff, transform.position,Quaternion.identity,null);
     }
 }
 

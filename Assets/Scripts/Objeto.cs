@@ -9,18 +9,21 @@ public class Objeto : Interactivo,IPointerDownHandler
     public string Descripción { get; set; }
     public Sprite Sprite { get; set; }
     public bool Consumible { get; set; }
-
+    private SpriteRenderer spriteRenderer;
     private void OnValidate()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         GetComponent<SpriteRenderer>().sprite = item.artwork; 
     }
 
 
     private void Start()
     {
-            GetComponent<SpriteRenderer>().sprite = item.artwork;
+      spriteRenderer=  GetComponent<SpriteRenderer>();
+      spriteRenderer.sprite = item.artwork;
+      spriteRenderer.sortingLayerName = "Drops";
     }
-
 
     protected override void Interaccion()
     {

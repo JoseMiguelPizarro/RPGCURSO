@@ -45,6 +45,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Drops
+    uniqueID: 3576682313
+    locked: 0
+  - name: Elementos
+    uniqueID: 47719109
+    locked: 0
   - name: TEXTO
     uniqueID: 2529471541
     locked: 0

@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+[RequireComponent(typeof(CapsuleCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 public class Atacable : MonoBehaviour {
     public bool empujable = true;

@@ -53,7 +53,7 @@ public class Skills : MonoBehaviour {
 
     public virtual void BolaDeFuego(int inteligencia, Vector2 trayectoria,Rigidbody2D rb)
     {
-        Proyectil bolaDeFuego = Instantiate(proyectil, transform.position, Quaternion.identity);
+        Proyectil bolaDeFuego = Instantiate(proyectil, transform.position+new Vector3(0,0,-1), Quaternion.identity);
         bolaDeFuego.tagObjetivo = tagObjetivo;
         bolaDeFuego.daño = inteligencia;
         bolaDeFuego.velocidad = velocidadProyectil;

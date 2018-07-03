@@ -131,8 +131,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1803448836233420}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.14658, y: 0.67825234, z: 8.029404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4173800254720296}
@@ -276,6 +276,7 @@ MonoBehaviour:
   distanciaDetectar: 10
   distanciaAtaque: 10
   jugador: {fileID: 0}
+  puff: {fileID: 0}
   proyectil: {fileID: 114818437592337672, guid: c3b88ee3c9b068e42a43f9aae3f9771e,
     type: 2}
   velocidadProyectil: 15
@@ -297,6 +298,11 @@ MonoBehaviour:
   hittableLayers:
     serializedVersion: 2
     m_Bits: 256
+  OnDamage:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   "direcci\xF3nAtaque": {x: 0, y: 0}
 --- !u!114 &114970605058709474
 MonoBehaviour:
@@ -391,8 +397,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 47719109
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 06efc125b0bb22a40ba726b79013a7b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
