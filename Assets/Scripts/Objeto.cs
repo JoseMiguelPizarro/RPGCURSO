@@ -10,6 +10,7 @@ public class Objeto : Interactivo
     public Sprite Sprite { get; set; }
     public bool Consumible { get; set; }
     private SpriteRenderer spriteRenderer;
+    public int cantidad;
     private void OnValidate()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,12 +35,5 @@ public class Objeto : Interactivo
             Debug.Log("Interactuó con " + name + " por override");
         }
         else { Debug.Log("Inventario Lleno"); }
-    }
-
-    void ObtenerDatos()
-    {
-        Nombre = item.name;
-        Descripción = item.descripcion;
-        Sprite = item.artwork;
     }
 }

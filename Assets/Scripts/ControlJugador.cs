@@ -42,8 +42,8 @@ public class ControlJugador : MonoBehaviour {
 			mirada = new Vector2(h, v);
 			ActualizarXYAnimator();
 		}
-
-		if (CrossPlatformInputManager.GetButtonDown("Atacar")&& !animatorState.IsTag("Atacando"))
+        ///-------Atacar-----///
+		if (ArmaEquipado && CrossPlatformInputManager.GetButtonDown("Atacar")&& !animatorState.IsTag("Atacando"))
 		{
 			DeterminarDirecciónMirada(mirada);
 			animator.SetBool("Corriendo", false);
@@ -51,9 +51,9 @@ public class ControlJugador : MonoBehaviour {
 			atacante.Atacar(direcciónMirada,AtributosJugador.atributosJugador.Fuerza);
 			Debug.Log(direcciónMirada);
 		}
-        ///----------Skill 1 --------///
 
-       
+
+        ///----------Skill 1 --------///
         if (usarSkill.dashReady &&CrossPlatformInputManager.GetButton("Skill1")&& !animatorState.IsTag("Atacando") && AtributosJugador.atributosJugador.MagiaActual > 0)
 		{
             usarSkill.UsarDash(mirada);

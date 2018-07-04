@@ -25,14 +25,6 @@ public class PanelInventario : MonoBehaviour {
         {
            inventario.UsarObjeto(objetoSeleccionado);
             ActualizarTextos();
-            //if(objetoSeleccionado.CantidadStock>0)
-            //ActualizarTextos();
-            //else
-            //{
-            //   panelInventario.txtNombreItem.text = "";
-            //   panelInventario.txtCantidadItem.text = "";
-            //   panelInventario.txtDescripcionItem.text = "";
-            //}
         }
     }
 
@@ -61,6 +53,4 @@ public class PanelInventario : MonoBehaviour {
             ActualizarTextos();
         }
         }
-
-  
 }

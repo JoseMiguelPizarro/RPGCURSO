@@ -33,7 +33,7 @@ public class PanelEquipamiento : MonoBehaviour {
         {
             if (casillaEquipamientos[i].tipoDeEquipamiento == item.tipoEquipo) //Determinar Casilla
             {
-                previousItem = (Equipamiento)casillaEquipamientos[i].Item;
+                previousItem = casillaEquipamientos[i].Item;
                 casillaEquipamientos[i].Item = item;
                 equipamientos.Add(item);
                 if (previousItem != null)
@@ -63,10 +63,10 @@ public class PanelEquipamiento : MonoBehaviour {
         if (Inventario.inventario.AñadirObjeto(equipamiento.Item))
         {
             equipamientos.Remove((Equipamiento)equipamiento.Item);
-            //if (equipamiento.Item.tip==TipoDeEquipamiento.Arma)
-            //{
-
-            //}
+            if (equipamiento.Item.tipoEquipo == TipoDeEquipamiento.Arma)
+            {
+                ControlJugador.ArmaEquipado = false;
+            }
             equipamiento.Item = null;
 
         }

@@ -92,13 +92,13 @@ public class Inventario : MonoBehaviour
                 objetos.Add(item);
                 GameObject NuevoObjeto = new GameObject();
                 NuevoObjeto.AddComponent<ObjetoInventario>();
-                NuevoObjeto.AddComponent<Arrastrable>();
                 NuevoObjeto.GetComponent<ObjetoInventario>().item = item;
                 NuevoObjeto.transform.parent = casillas[CasillaVacia].transform;
                 NuevoObjeto.transform.localPosition = Vector2.zero;
                 NuevoObjeto.transform.localScale = new Vector3(8, 8, 1); //Ajustar tamaño
                 NuevoObjeto.AddComponent<Image>().sprite = item.artwork;
                 NuevoObjeto.name = item.name;
+                
                 casillas[CasillaVacia].ObtenerObjetoInventario();
                 objetosInventario.Add(NuevoObjeto);
             return true;

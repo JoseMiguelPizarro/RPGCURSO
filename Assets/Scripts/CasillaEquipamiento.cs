@@ -6,11 +6,11 @@ using UnityEngine.EventSystems;
 
 public class CasillaEquipamiento : Casilla,IPointerClickHandler {
 
-   [SerializeField] private Item item;
+   [SerializeField] private Equipamiento item;
     private Image image;
     private Color colorNormal = Color.white;
     private Color colorDesactivado = new Color(0, 0, 0, 0);
-    public Item Item { get{ return item; }
+    public Equipamiento Item { get{ return item; }
         set {
             if (value == null)
             {
