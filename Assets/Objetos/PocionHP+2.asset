@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5e8ccad1e152448b1c44442ea1ff2e, type: 3}
   m_Name: PocionHP+2
   m_EditorClassIdentifier: 
-  nombreItem: PocionHP+2
+  NombreItem: PocionHP+2
   descripcion: 
   artwork: {fileID: 21300000, guid: dba7db15f6198ea4ba62533f00e7b61b, type: 3}
   value: 0

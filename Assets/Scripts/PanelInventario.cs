@@ -32,7 +32,7 @@ public class PanelInventario : MonoBehaviour {
     {
         try
         {
-            panelInventario.txtNombreItem.text = objetoSeleccionado.item.name;
+            panelInventario.txtNombreItem.text = objetoSeleccionado.item.NombreItem;
             if (objetoSeleccionado.item.apilable == true)
                  panelInventario.txtCantidadItem.text = objetoSeleccionado.CantidadStock.ToString();
             else panelInventario.txtCantidadItem.text = "";

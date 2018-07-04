@@ -22,14 +22,13 @@ public class Inventario : MonoBehaviour
     private int CasillaVacia = 0;
 
     private Casilla casillaArrastrada;
-    private Text StockArrastrado;
+    private Text stockArrastrado;
     public ObjetoInventario objetoArrastrado;
 
     private void Awake()
     {
         inventario = this;
         listaCasillas = GetComponentsInChildren<Casilla>();
-
     }
 
     private void Start()
@@ -88,16 +87,16 @@ public class Inventario : MonoBehaviour
             if (((item.apilable == true && !objetos.Contains(item) && !InventarioLleno)|| (item.apilable == false && !InventarioLleno)))//Revisar si funciona al implementar stack
             {
             System.Type[] componentes = { typeof(ObjetoInventario), typeof(Image) };
-                Debug.Log("Añadiendo "+ item.name);
+                Debug.Log("Añadiendo "+ item.NombreItem);
                 objetos.Add(item);
-                 GameObject nuevoObjeto = new GameObject(item.name, componentes);
+                 GameObject nuevoObjeto = new GameObject(item.NombreItem, componentes);
                  ObjetoInventario nuevoObjetoInventario = nuevoObjeto.GetComponent<ObjetoInventario>();
                 nuevoObjeto.GetComponent<Image>().sprite = item.artwork;
                 nuevoObjetoInventario.item = item;
                 nuevoObjetoInventario.transform.SetParent(casillas[CasillaVacia].transform);
                 nuevoObjetoInventario.transform.localPosition = Vector2.zero;
                 nuevoObjetoInventario.transform.localScale = new Vector3(8, 8, 1); //Ajustar tamaño
-                nuevoObjetoInventario.name = item.name;
+                nuevoObjetoInventario.name = item.NombreItem;
                 casillas[CasillaVacia].ObtenerObjetoInventario();
                 objetosInventario.Add(nuevoObjeto);
                 nuevoObjetoInventario.CantidadStock = cantidad;
@@ -199,8 +198,12 @@ public class Inventario : MonoBehaviour
         if (objetoArrastrado.transform.parent == PanelInventario.panelInventario.transform) //No se soltó en ninguna casilla
         {
             BotarObjeto();
-            Instantiate(Resources.Load("Objetos/Prefab/" + objetoArrastrado.item.name), null);
-           // Destroy(objetoArrastrado.gameObject);
+            GameObject ObjetoDrop = new GameObject(objetoArrastrado.item.NombreItem,typeof(Objeto));
+            ObjetoDrop.GetComponent<Objeto>().item = objetoArrastrado.item;
+            ObjetoDrop.GetComponent<Objeto>().cantidad = objetoArrastrado.CantidadStock;
+            ObjetoDrop.transform.position = AtributosJugador.atributosJugador.transform.position;
+            objetos.Remove(objetoArrastrado.item);
+            Destroy(objetoArrastrado.gameObject);
         }
     }
    

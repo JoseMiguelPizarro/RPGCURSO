@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e95736deec0437c459be7bf98677a10d, type: 3}
   m_Name: Armadura
   m_EditorClassIdentifier: 
-  nombreItem: Armadura
+  NombreItem: Armadura
   descripcion: Una armadurita muy bonita
   artwork: {fileID: 0}
   value: 0

@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cebc906082c3a7409d49a504b1664f3, type: 3}
   m_Name: Pantuflas
   m_EditorClassIdentifier: 
-  nombreItem: Pantuflas
+  NombreItem: Pantuflas
   descripcion: Unas bonitas pantuflas
   artwork: {fileID: 21300000, guid: 3820aeedd5003ad4d918154ec99d0aea, type: 3}
   value: 0

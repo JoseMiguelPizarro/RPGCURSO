@@ -12,21 +12,28 @@ public class Objeto : Interactivo
     public Sprite Sprite { get; set; }
     public bool Consumible { get; set; }
     private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxcollider;
     public int cantidad = 1;
     private void OnValidate()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        gameObject.name = item.name;
+        gameObject.name = item.NombreItem;
         GetComponent<SpriteRenderer>().sprite = item.artwork; 
     }
 
 
     private void Start()
     {
-      spriteRenderer=  GetComponent<SpriteRenderer>();
-      spriteRenderer.sprite = item.artwork;
-      spriteRenderer.sortingLayerName = "Drops";
-      gameObject.layer = 9;
+        Inicializar();
+        boxcollider = GetComponent<BoxCollider2D>();
+        boxcollider.isTrigger = true;
+        boxcollider.size = new Vector2(1, 1);
+        gameObject.name = item.NombreItem;
+        spriteRenderer =  GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = item.artwork;
+        spriteRenderer.sortingLayerName = "Drops";
+        spriteRenderer.material = GestorMateriales.gestorMateriales.materiales[0];
+        gameObject.layer = 9; //Capa interactuable
     }
 
     protected override void Interaccion()
