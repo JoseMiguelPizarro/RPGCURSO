@@ -11,9 +11,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cebc906082c3a7409d49a504b1664f3, type: 3}
   m_Name: Ropa
   m_EditorClassIdentifier: 
-  name: "Traje Est\xE1ndar"
+  nombreItem: Ropa
   descripcion: Solo arapos
-  artwokr: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  artwork: {fileID: 0}
   value: 1
   apilable: 0
   tipoEquipo: 1
+  Salud: 0
+  Magia: 0
+  Inteligencia: 0
+  Fuerza: 0
+  Defensa: 0
+  Velocidad: 0

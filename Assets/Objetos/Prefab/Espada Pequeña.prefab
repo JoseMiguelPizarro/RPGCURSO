@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114769631170834352}
   - component: {fileID: 61741444084056316}
   m_Layer: 9
-  m_Name: PostIT 1
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 78d8c55fff9a41a428cd0cf399844f53, type: 2}
+  cantidad: 1
 --- !u!114 &114898954909180064
 MonoBehaviour:
   m_ObjectHideFlags: 1

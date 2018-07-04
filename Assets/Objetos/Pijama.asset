@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cebc906082c3a7409d49a504b1664f3, type: 3}
   m_Name: Pijama
   m_EditorClassIdentifier: 
-  name: Pijama
+  nombreItem: Pijama
   descripcion: 
-  artwokr: {fileID: 21300000, guid: aa94c6da14ecf4a8690f02549a9ac6a7, type: 3}
+  artwork: {fileID: 0}
   value: 0
   apilable: 0
   tipoEquipo: 1

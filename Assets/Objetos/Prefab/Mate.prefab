@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114809479220512986}
   - component: {fileID: 61673314823686444}
   m_Layer: 9
-  m_Name: Mate
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79939eaa50a5d74980e6e42e2f0c860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radio: 5
   item: {fileID: 11400000, guid: 4d2ef1e473183ea4d8f807a4246e228d, type: 2}
+  cantidad: 1
 --- !u!114 &114845184491555302
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ab39471ec0a2042bd770616c4f6bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radio: 1
 --- !u!212 &212958471879823266
 SpriteRenderer:
   m_ObjectHideFlags: 1

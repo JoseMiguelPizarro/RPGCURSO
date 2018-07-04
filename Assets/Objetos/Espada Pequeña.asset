@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cebc906082c3a7409d49a504b1664f3, type: 3}
   m_Name: "Espada Peque\xF1a"
   m_EditorClassIdentifier: 
-  name: "Espada Peque\xF1a"
+  nombreItem: "Espada Peque\xF1a"
   descripcion: 
   artwork: {fileID: 21300000, guid: e52133b5dfe376646895b44a443638cd, type: 3}
   value: 0

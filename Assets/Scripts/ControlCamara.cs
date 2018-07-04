@@ -12,7 +12,7 @@ public class ControlCamara : MonoBehaviour {
     private float tiempoUltimoGolpe = 0;
     private float zoomActual;
     private float zoomPorSegundo;
-    private IEnumerator zoomCoroutine=null;
+
     private void Awake()
     {
         cv = GetComponent<CinemachineVirtualCamera>();

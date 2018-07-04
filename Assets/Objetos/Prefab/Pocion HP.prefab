@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114769631170834352}
   - component: {fileID: 61741444084056316}
   m_Layer: 9
-  m_Name: Pocion HP
+  m_Name: 
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37,8 +37,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1612052922629318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.18, y: -1.17, z: 0.50056475}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.6}
+  m_LocalPosition: {x: 5.8, y: -1.37, z: 0.50056475}
+  m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.59999996}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e79939eaa50a5d74980e6e42e2f0c860, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radio: 5
   item: {fileID: 11400000, guid: bf4723f00e3931b4396eca0a6c1087d6, type: 2}
+  cantidad: 3
 --- !u!114 &114898954909180064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ab39471ec0a2042bd770616c4f6bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radio: 1
 --- !u!212 &212074054779831914
 SpriteRenderer:
   m_ObjectHideFlags: 1

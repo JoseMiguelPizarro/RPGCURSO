@@ -15,6 +15,7 @@ public class ObjetoInventario : MonoBehaviour,IPointerClickHandler{
              }
         set {
             cantidadStock =value;
+            ActualizarCasillaPadre();
             casilla.ActualizarTextoStock(cantidadStock);
             }
     }
