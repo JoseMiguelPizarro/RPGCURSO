@@ -20,6 +20,7 @@ public class ControlJugador : MonoBehaviour {
 	private Vector2 direccionAtaque;
     private Rigidbody2D rb;
     private UsarSkill usarSkill;
+    public static bool ArmaEquipado = false;
 	
 	void Awake () {
 		EscalaInicial = transform.localScale.x;

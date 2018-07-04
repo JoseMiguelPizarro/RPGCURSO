@@ -39,9 +39,12 @@ public class PanelEquipamiento : MonoBehaviour {
                 if (previousItem != null)
                 {
                     equipamientos.Remove(previousItem);
-
                 }
                 ActualizarAtributos();
+                if (item.tipoEquipo==TipoDeEquipamiento.Arma)
+                {
+                    ControlJugador.ArmaEquipado = true;
+                }
                 return true;
             }
         }
@@ -60,7 +63,12 @@ public class PanelEquipamiento : MonoBehaviour {
         if (Inventario.inventario.AñadirObjeto(equipamiento.Item))
         {
             equipamientos.Remove((Equipamiento)equipamiento.Item);
+            //if (equipamiento.Item.tip==TipoDeEquipamiento.Arma)
+            //{
+
+            //}
             equipamiento.Item = null;
+
         }
         ActualizarAtributos();
     }
