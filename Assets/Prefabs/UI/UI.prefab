@@ -3557,6 +3557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   InventarioLleno: 0
   casilla: {fileID: 1405098021676072, guid: 8063c3b2fc89b0b4fb0a55d0cf140786, type: 2}
+  txtDinero: {fileID: 0}
   casillas: []
   objetoArrastrado: {fileID: 0}
 --- !u!222 &222017483556413574

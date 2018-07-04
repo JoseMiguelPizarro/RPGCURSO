@@ -12,8 +12,27 @@ public class Inventario : MonoBehaviour
     public bool InventarioLleno = false;
     public GameObject casilla;
     public static Inventario inventario;
+    public Text txtDinero;
     private int dineroJugador = 0;
-    public int DineroJugador { get {return dineroJugador; } set {dineroJugador=value; } }
+    public int DineroJugador
+    {
+        get
+        {
+            return dineroJugador;
+        }
+        set
+        {
+            if (value<0)
+            {
+                dineroJugador = 0;
+            }
+            else
+            {
+                dineroJugador = value;
+            }
+            ActualizarDinero();
+        }
+    }
 
     private List<Item> objetos = new List<Item>();
     public static List<GameObject> objetosInventario = new List<GameObject>();
@@ -33,7 +52,7 @@ public class Inventario : MonoBehaviour
 
     private void Start()
     {
-        
+        ActualizarDinero();   
         CargarCasillas();           //Suscribirse al evento;
         for (int i = 0; i < casillas.Count; i++)
         {
@@ -94,8 +113,13 @@ public class Inventario : MonoBehaviour
                 nuevoObjeto.GetComponent<Image>().sprite = item.artwork;
                 nuevoObjetoInventario.item = item;
                 nuevoObjetoInventario.transform.SetParent(casillas[CasillaVacia].transform);
-                nuevoObjetoInventario.transform.localPosition = Vector2.zero;
-                nuevoObjetoInventario.transform.localScale = new Vector3(8, 8, 1); //Ajustar tamaño
+                //Ajustar Rectransform de nuevo objeto en inventario
+                RectTransform rectTransform = nuevoObjeto.GetComponent<RectTransform>();
+                rectTransform.anchorMax = new Vector2(1, 1);
+                rectTransform.anchorMin = new Vector2(0, 0);
+                rectTransform.pivot= new Vector2(0.5f, 0.5f);
+                rectTransform.localScale = new Vector3(0.7f, 0.7f, 1);
+                rectTransform.localPosition = Vector3.zero;
                 nuevoObjetoInventario.name = item.NombreItem;
                 casillas[CasillaVacia].ObtenerObjetoInventario();
                 objetosInventario.Add(nuevoObjeto);
@@ -197,13 +221,13 @@ public class Inventario : MonoBehaviour
         Debug.Log("Terminó de dragear " + casilla.name);
         if (objetoArrastrado.transform.parent == PanelInventario.panelInventario.transform) //No se soltó en ninguna casilla
         {
-            BotarObjeto();
-            GameObject ObjetoDrop = new GameObject(objetoArrastrado.item.NombreItem,typeof(Objeto));
-            ObjetoDrop.GetComponent<Objeto>().item = objetoArrastrado.item;
-            ObjetoDrop.GetComponent<Objeto>().cantidad = objetoArrastrado.CantidadStock;
-            ObjetoDrop.transform.position = AtributosJugador.atributosJugador.transform.position;
-            objetos.Remove(objetoArrastrado.item);
-            Destroy(objetoArrastrado.gameObject);
+            BotarObjeto(objetoArrastrado);
+            //GameObject ObjetoDrop = new GameObject(objetoArrastrado.item.NombreItem,typeof(Objeto));
+            //ObjetoDrop.GetComponent<Objeto>().item = objetoArrastrado.item;
+            //ObjetoDrop.GetComponent<Objeto>().cantidad = objetoArrastrado.CantidadStock;
+            //ObjetoDrop.transform.position = AtributosJugador.atributosJugador.transform.position;
+            //objetos.Remove(objetoArrastrado.item);
+            //Destroy(objetoArrastrado.gameObject);
         }
     }
    
@@ -213,13 +237,15 @@ public class Inventario : MonoBehaviour
         if (objetoArrastrado != null)
         {
             objetoArrastrado.transform.position= Input.mousePosition;
-            
+            casillaArrastrada.GetComponentInChildren<Text>().enabled = false;
         }
     }
 
     private void Drop(Casilla casilla)
     {
         Debug.Log("Dropeando en casilla " + casilla.name);
+        casillaArrastrada.GetComponentInChildren<Text>().enabled = true;
+
         ObjetoInventario objetoEnNuevaCasilla = casilla.GetComponentInChildren<ObjetoInventario>();
         if (objetoEnNuevaCasilla!=null) //Existe un objeto en la casilla de destino
         {
@@ -252,9 +278,14 @@ public class Inventario : MonoBehaviour
         }
     }
 
-    public void BotarObjeto()
+    public void BotarObjeto(ObjetoInventario objetoADropear)
     {
-        Debug.Log("Objeto dropeado");
+        GameObject ObjetoDrop = new GameObject(objetoADropear.item.NombreItem, typeof(Objeto));
+        ObjetoDrop.GetComponent<Objeto>().item = objetoArrastrado.item;
+        ObjetoDrop.GetComponent<Objeto>().cantidad = objetoADropear.CantidadStock;
+        ObjetoDrop.transform.position = AtributosJugador.atributosJugador.transform.position;
+        objetos.Remove(objetoADropear.item);
+        Destroy(objetoADropear.gameObject);
     }
 
     private void RegresarObjetoInvAPosicionInicial()
@@ -263,6 +294,11 @@ public class Inventario : MonoBehaviour
             objetoArrastrado.transform.SetParent(casillaArrastrada.transform);
             objetoArrastrado.transform.position = casillaArrastrada.transform.position;
             objetoArrastrado.gameObject.GetComponent<Image>().raycastTarget = true;
+    }
+
+    public void ActualizarDinero()
+    {
+        txtDinero.text = DineroJugador.ToString();
     }
 }
 
