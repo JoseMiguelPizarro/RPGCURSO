@@ -67,7 +67,7 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
         ObtenerObjetoInventario();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public virtual void OnPointerEnter(PointerEventData eventData)
     {
         if (objetoInventario.item is Equipamiento)
         {
@@ -89,7 +89,7 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
         }
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    public virtual void OnPointerExit(PointerEventData eventData)
     {
             PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(false);
     }

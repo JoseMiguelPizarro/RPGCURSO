@@ -20,7 +20,6 @@ public class CasillaEquipamiento : Casilla,IPointerClickHandler {
                 image.sprite = value.artwork;
             }
             item = value;
-
         } }
    
 
@@ -44,5 +43,17 @@ public class CasillaEquipamiento : Casilla,IPointerClickHandler {
     public void OnPointerClick(PointerEventData eventData)
     {
         PanelEquipamiento.Equipamiento.DesEquipar(this); 
+    }
+
+    public override void OnPointerEnter(PointerEventData eventData)
+    {
+        if (item)
+        {
+            Debug.Log("Entrando a casilla equipamiento");
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(true);
+            PanelesInventario.panelesInventario.tooltipObjetos.ActualizarTextos(item.NombreItem, item.StringAtributos());
+            PanelesInventario.panelesInventario.tooltipObjetos.transform.position = transform.position;
+        }
+       
     }
 }
