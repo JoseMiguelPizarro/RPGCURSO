@@ -386,7 +386,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e05829bb728de3f4fae3df63b28c6053, type: 2}
+  - {fileID: 2100000, guid: c0ec9781e2241b140903de99f4c30b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

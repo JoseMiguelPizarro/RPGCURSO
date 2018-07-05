@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114769631170834352}
   - component: {fileID: 61741444084056316}
   m_Layer: 9
-  m_Name: "Poci\xF3n de salud peque\xF1a"
+  m_Name: Pocion HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

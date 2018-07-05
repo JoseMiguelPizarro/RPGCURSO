@@ -393,7 +393,7 @@ Prefab:
         type: 2}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e05829bb728de3f4fae3df63b28c6053, type: 2}
+      objectReference: {fileID: 2100000, guid: c0ec9781e2241b140903de99f4c30b3f, type: 2}
     - target: {fileID: 212829381048207662, guid: 8631bc85ac1035a4c934e53af12531fd,
         type: 2}
       propertyPath: m_DrawMode
@@ -948,6 +948,11 @@ Prefab:
       propertyPath: exp
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 212433398408973284, guid: 00631ea53d61ff74385f4e0b4e78f7a0,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0ec9781e2241b140903de99f4c30b3f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00631ea53d61ff74385f4e0b4e78f7a0, type: 2}
   m_IsPrefabParent: 0
@@ -1945,7 +1950,7 @@ CanvasGroup:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 306263249}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
@@ -3161,6 +3166,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 12
       objectReference: {fileID: 0}
+    - target: {fileID: 114704659485365290, guid: b9a19d215b74c534584ec809d77a2aa1,
+        type: 2}
+      propertyPath: materiales.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c0ec9781e2241b140903de99f4c30b3f, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b9a19d215b74c534584ec809d77a2aa1, type: 2}
   m_IsPrefabParent: 0
@@ -3293,7 +3303,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e05829bb728de3f4fae3df63b28c6053, type: 2}
+  - {fileID: 2100000, guid: c0ec9781e2241b140903de99f4c30b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12455,11 +12465,11 @@ Prefab:
       objectReference: {fileID: 251060313}
     - target: {fileID: 4641989696863146, guid: 188360ae8ddc0c44c9bb518d49315393, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.169537
+      value: 4.915911
       objectReference: {fileID: 0}
     - target: {fileID: 4641989696863146, guid: 188360ae8ddc0c44c9bb518d49315393, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.6981905
+      value: -0.6977733
       objectReference: {fileID: 0}
     - target: {fileID: 4641989696863146, guid: 188360ae8ddc0c44c9bb518d49315393, type: 2}
       propertyPath: m_LocalPosition.z
@@ -12472,7 +12482,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4427573722598028, guid: 188360ae8ddc0c44c9bb518d49315393, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.679642
+      value: 4.915911
       objectReference: {fileID: 0}
     - target: {fileID: 4427573722598028, guid: 188360ae8ddc0c44c9bb518d49315393, type: 2}
       propertyPath: m_LocalPosition.y
@@ -12606,7 +12616,7 @@ TilemapRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e05829bb728de3f4fae3df63b28c6053, type: 2}
+  - {fileID: 2100000, guid: c0ec9781e2241b140903de99f4c30b3f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
