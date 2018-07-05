@@ -1813,6 +1813,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b87c0b90d155ee34b989049036c7835d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tooltipObjetos: {fileID: 0}
+  tooltipEquipo: {fileID: 0}
 --- !u!114 &114259383759175440
 MonoBehaviour:
   m_ObjectHideFlags: 1

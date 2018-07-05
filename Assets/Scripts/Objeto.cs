@@ -21,18 +21,22 @@ public class Objeto : Interactivo
         GetComponent<SpriteRenderer>().sprite = item.artwork; 
     }
 
+    private void Awake()
+    {
+ 
+    }
 
     private void Start()
     {
         Inicializar();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.material = GestorMateriales.gestorMateriales.materiales[0];
+        spriteRenderer.sprite = item.artwork;
+        spriteRenderer.sortingLayerName = "Drops";
         boxcollider = GetComponent<BoxCollider2D>();
         boxcollider.isTrigger = true;
         boxcollider.size = new Vector2(1, 1);
         gameObject.name = item.NombreItem;
-        spriteRenderer =  GetComponent<SpriteRenderer>();
-        spriteRenderer.sprite = item.artwork;
-        spriteRenderer.sortingLayerName = "Drops";
-        spriteRenderer.material = GestorMateriales.gestorMateriales.materiales[0];
         gameObject.layer = 9; //Capa interactuable
     }
 

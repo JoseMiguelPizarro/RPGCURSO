@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
-public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHandler,IDropHandler {
+public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHandler,IDropHandler,IPointerEnterHandler,IPointerExitHandler {
 
     private Text txtStock;
     public ObjetoInventario objetoInventario;
@@ -65,4 +65,22 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
         OnDropEvent?.Invoke(this);
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (objetoInventario)
+        {
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar();
+            PanelesInventario.panelesInventario.tooltipObjetos.ActualizarTextos(objetoInventario.item.NombreItem, objetoInventario.item.descripcion);
+            PanelesInventario.panelesInventario.tooltipObjetos.transform.position = transform.position;
+        }
+       
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (objetoInventario)
+        {
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar();
+        }
+    }
 }

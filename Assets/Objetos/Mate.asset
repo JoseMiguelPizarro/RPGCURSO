@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: Mate
   m_EditorClassIdentifier: 
   NombreItem: Mate
-  descripcion: Un buen mate para el frio
+  descripcion: Un buen matecillo para el frio
   artwork: {fileID: 21300000, guid: ffe146d3b18e0134fb51ae29e8502288, type: 3}
   value: 0
   apilable: 0

@@ -7,7 +7,7 @@ public class GestorMateriales : MonoBehaviour {
     public static GestorMateriales gestorMateriales;
     public  Material[] materiales;
 
-    private void Start()
+    private void Awake()
     {
         gestorMateriales = this;
     }

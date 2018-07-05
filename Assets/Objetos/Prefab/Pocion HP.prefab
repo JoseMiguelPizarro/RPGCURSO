@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114769631170834352}
   - component: {fileID: 61741444084056316}
   m_Layer: 9
-  m_Name: PocionHP+2
+  m_Name: Pocion HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -59,7 +59,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.8125}
+    oldSize: {x: 0.875, y: 0.8125}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

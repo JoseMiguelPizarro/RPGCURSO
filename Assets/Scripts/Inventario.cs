@@ -113,7 +113,8 @@ public class Inventario : MonoBehaviour
                 nuevoObjeto.GetComponent<Image>().sprite = item.artwork;
                 nuevoObjetoInventario.item = item;
                 nuevoObjetoInventario.transform.SetParent(casillas[CasillaVacia].transform);
-                //Ajustar Rectransform de nuevo objeto en inventario
+                nuevoObjetoInventario.CantidadStock = cantidad;
+            //Ajustar Rectransform de nuevo objeto en inventario
                 RectTransform rectTransform = nuevoObjeto.GetComponent<RectTransform>();
                 rectTransform.anchorMax = new Vector2(1, 1);
                 rectTransform.anchorMin = new Vector2(0, 0);
@@ -122,8 +123,8 @@ public class Inventario : MonoBehaviour
                 rectTransform.localPosition = Vector3.zero;
                 nuevoObjetoInventario.name = item.NombreItem;
                 casillas[CasillaVacia].ObtenerObjetoInventario();
-                objetosInventario.Add(nuevoObjeto);
-                nuevoObjetoInventario.CantidadStock = cantidad;
+                casillas[CasillaVacia].ActualizarTextoStock(cantidad);
+                objetosInventario.Add(nuevoObjeto); //Añadir a la lista de objetos 
             return true;
 
             }
@@ -137,7 +138,6 @@ public class Inventario : MonoBehaviour
                         if (item == casillas[i].GetComponentInChildren<ObjetoInventario>().item)
                         {
                             casillas[i].GetComponentInChildren<ObjetoInventario>().CantidadStock++;
-
                             break;
                         }
                     }
@@ -190,6 +190,7 @@ public class Inventario : MonoBehaviour
                 objetoInventario.Destruir();
             }
         }
+        PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar();
     }
 
     public void EliminarObjeto( ObjetoInventario objetoInventario) //Elimina 1 stock del objeto seleccionado

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c5e8ccad1e152448b1c44442ea1ff2e, type: 3}
   m_Name: PocionHP+2
   m_EditorClassIdentifier: 
-  NombreItem: PocionHP+2
-  descripcion: 
+  NombreItem: "Poci\xF3n de salud peque\xF1a"
+  descripcion: Cura +2HP
   artwork: {fileID: 21300020, guid: c84e5ea2901d2c24e9ffcfb4705e3946, type: 3}
   value: 0
   apilable: 1

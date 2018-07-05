@@ -7,6 +7,8 @@ public class PanelesInventario : MonoBehaviour
     private CanvasGroup canvasGroup;
     private bool abierto = true;
     public static PanelesInventario panelesInventario;
+    public ToolTip tooltipObjetos;
+    public GameObject tooltipEquipo;
     private Vector3 relativePos;
     private void Awake()
     {

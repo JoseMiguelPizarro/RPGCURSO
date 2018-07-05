@@ -40,10 +40,17 @@ public class Proyectil : MonoBehaviour {
             Instantiate(explosion, transform.position, Quaternion.identity);
             humito.transform.parent = null;
             Destroy(humito.gameObject, 5);
-            Destroy(gameObject);
             //Referencia a la variable
             var emission = humito.emission;
             emission.enabled = false;
+            //var velocidadLimite = humito.limitVelocityOverLifetime;
+            //velocidadLimite.enabled = true;
+
+            //var main = humito.main;
+            // main.startSpeed = 0f;
+            var speedOvertime = humito.velocityOverLifetime;
+            speedOvertime.enabled = true;
+            Destroy(gameObject);
         }
     }
 
