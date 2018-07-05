@@ -26,7 +26,7 @@ public class Skills : MonoBehaviour {
     {
         if (dashAprendido)
         {
-            trail = GetComponent<TrailRenderer>();
+            trail = GetComponentInChildren<TrailRenderer>();
         }
     }
 

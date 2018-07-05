@@ -17,9 +17,9 @@ MonoBehaviour:
   value: 0
   apilable: 0
   tipoEquipo: 0
-  Salud: 0
+  Salud: 10
   Magia: 0
-  Inteligencia: 0
+  Inteligencia: 2
   Fuerza: 1
   Defensa: 0
   Velocidad: 0

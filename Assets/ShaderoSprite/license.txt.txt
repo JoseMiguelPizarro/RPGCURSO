@@ -1,0 +1,9 @@
+-----------
+Shadero Sprite - Shader Editor (c) VETASOFT 2018. All rights reserved.
+
+Shadero and Shadero Sprite is copyright Vetasoft, the source code are included but you CAN'T resell or share the source code.
+
+The Node Editor Framework is based on the MIT Node Editor Framework available here: https://github.com/Seneral/Node_Editor_Framework
+
+Since Shadero rewrites many parts of the Node Framework, all the modificifations that are not from the Node Editor Framework source code are copyright Vetasoft.
+-----------

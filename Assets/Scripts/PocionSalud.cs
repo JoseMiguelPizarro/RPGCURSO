@@ -20,18 +20,16 @@ public class PocionSalud : Item
         switch (tipo)
         {
             case Pociones.Salud:
-                if (AtributosJugador.atributosJugador.SaludActual == AtributosJugador.atributosJugador.Salud)
+                if (AtributosJugador.atributosJugador.SaludActual >= AtributosJugador.atributosJugador.Salud)
                 {
-
                     return false;
                 }
                 AtributosJugador.atributosJugador.SaludActual += CantidadCurar;
                 return true;
 
             case Pociones.Mana:
-                if (AtributosJugador.atributosJugador.MagiaActual == AtributosJugador.atributosJugador.Magia)
+                if (AtributosJugador.atributosJugador.MagiaActual >= AtributosJugador.atributosJugador.Magia)
                 {
-
                     return false;
                 }
                 AtributosJugador.atributosJugador.MagiaActual += CantidadCurar;

@@ -8,7 +8,6 @@ public class ToolTip : MonoBehaviour {
     public Text nombreObjeto;
     public Text descripcionObjeto;
     private CanvasGroup canvasGroup;
-    private bool abierto = false;
 
     private void Awake()
     {
@@ -20,26 +19,24 @@ public class ToolTip : MonoBehaviour {
         nombreObjeto.text = nombre;
         descripcionObjeto.text = descripcion;
     }
-    public void AparecerOcultar()
+    public void AparecerOcultar(bool abrir)
     {
      
-            if (abierto)
+            if (!abrir)
             {
-                Debug.Log("Desactivando Inventario");
-                canvasGroup.interactable = false;
+                Debug.Log("Desactivando tooltip");
+               // canvasGroup.interactable = false;
                 canvasGroup.alpha = 0;
-                canvasGroup.blocksRaycasts = false;
                 canvasGroup.ignoreParentGroups = true;
-                abierto = false;
+                abrir = false;
             }
             else
             {
-                Debug.Log("Activando Inventario");
-                canvasGroup.interactable = true;
+                Debug.Log("Activando tooltip");
+               // canvasGroup.interactable = true;
                 canvasGroup.alpha = 1;
-                canvasGroup.blocksRaycasts = true;
                 canvasGroup.ignoreParentGroups = true;
-                abierto = true;
+                abrir = true;
             }
     }
 

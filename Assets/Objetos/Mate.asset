@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Name: Mate
   m_EditorClassIdentifier: 
   NombreItem: Mate
-  descripcion: Un buen matecillo para el frio
+  descripcion: "Un buen matecillo\n para el frio"
   artwork: {fileID: 21300000, guid: ffe146d3b18e0134fb51ae29e8502288, type: 3}
   value: 0
   apilable: 0
-  tipoEquipo: 3
-  Salud: 0
+  tipoEquipo: 0
+  Salud: 20
   Magia: 1
   Inteligencia: 1
   Fuerza: 0

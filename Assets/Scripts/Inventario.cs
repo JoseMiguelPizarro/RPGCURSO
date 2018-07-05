@@ -190,7 +190,7 @@ public class Inventario : MonoBehaviour
                 objetoInventario.Destruir();
             }
         }
-        PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar();
+        PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(false);
     }
 
     public void EliminarObjeto( ObjetoInventario objetoInventario) //Elimina 1 stock del objeto seleccionado
@@ -230,6 +230,7 @@ public class Inventario : MonoBehaviour
             //objetos.Remove(objetoArrastrado.item);
             //Destroy(objetoArrastrado.gameObject);
         }
+        objetoArrastrado = null;
     }
    
 

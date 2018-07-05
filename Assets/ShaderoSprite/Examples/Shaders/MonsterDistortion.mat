@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: MonsterDistortion
+  m_Shader: {fileID: 4800000, guid: ef5f834a9a3e15a489dd51627b2623c9, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_1:
+        m_Texture: {fileID: 2800000, guid: d427915866b40f44d8995359b3986e56, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_1:
+        m_Texture: {fileID: 2800000, guid: b69edb07234ec174fb7843a1fbd18207, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - AnimatedPingPongOffsetUV_1_OffsetX_1: 0
+    - AnimatedPingPongOffsetUV_1_OffsetY_1: 0.56025594
+    - AnimatedPingPongOffsetUV_1_Speed_1: 0.15384592
+    - AnimatedPingPongOffsetUV_1_ZoomX_1: 1
+    - AnimatedPingPongOffsetUV_1_ZoomY_1: 1
+    - DistortionUV_DistanceX_1: 0.84615403
+    - DistortionUV_DistanceY_1: 0.84615403
+    - DistortionUV_Speed_1: 1
+    - DistortionUV_WaveX_1: 9.846179
+    - DistortionUV_WaveY_1: 28.553812
+    - OffsetUV_X_1: 0
+    - OffsetUV_Y_1: 0
+    - OffsetUV_ZoomX_1: 1
+    - OffsetUV_ZoomY_1: 1
+    - TiltDownUV_TiltDownUV_Value_1: -0.0820512
+    - TiltUpUV_TiltUpUV_Value_1: 0.0410258
+    - TwistUV_TwistUV_Bend_1: 0.20769139
+    - TwistUV_TwistUV_PosX_1: 0.38461363
+    - TwistUV_TwistUV_PosY_1: 0.5384594
+    - TwistUV_TwistUV_Radius_1: 0.40000004
+    - ZoomUV_PosX_1: 0.5
+    - ZoomUV_PosY_1: 0.20768708
+    - ZoomUV_Zoom_1: 1.3691382
+    - _Add_Fade_1: 1.7487198
+    - _BlurHQ_Intensity_1: 4.861572
+    - _Burn_Speed_1: -2.9461513
+    - _Burn_Value_1: 0
+    - _CircleFade_Dist_1: 0.1884617
+    - _CircleFade_PosX_1: 0.5
+    - _CircleFade_PosY_1: 0.476924
+    - _CircleFade_Size_1: 0.3000011
+    - _ColorMask: 15
+    - _Desintegration_Speed_1: 0.5
+    - _Desintegration_Value_1: 0
+    - _Destroyer_Speed_1: 0.5
+    - _Destroyer_Value_1: 0.5525638
+    - _Displacement_Plus_Size_1: 2.71
+    - _Displacement_Plus_ValueX_1: 0
+    - _Displacement_Plus_ValueY_1: -0.030768761
+    - _Generate_Fire_PosX_1: 0
+    - _Generate_Fire_PosY_1: 0.46346223
+    - _Generate_Fire_Precision_1: 0.058333255
+    - _Generate_Fire_Smooth_1: 0.16346113
+    - _Generate_Fire_Speed_1: -1.0179474
+    - _RGBA_Add_Fade_1: 0.43589586
+    - _SpriteFade: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    m_Colors:
+    - _FillColor_Color_1: {r: 0, g: 0, b: 0, a: 1}
+    - _TintRGBA_Color_1: {r: 0, g: 0.751724, b: 1, a: 1}

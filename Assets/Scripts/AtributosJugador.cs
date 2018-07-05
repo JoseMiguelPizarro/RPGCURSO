@@ -16,8 +16,10 @@ public enum Atributos
     Magia,
     Velocidad,
     Inteligencia,
-    Fuerza
+    Fuerza,
+    Defensa
 }
+
 public class AtributosJugador : Atacable {
 
     private ControlJugador jugador;
@@ -95,7 +97,7 @@ public class AtributosJugador : Atacable {
         set
         {
             
-            if (value > SaludBase)
+            if (value > Salud)
             {
                 saludActual = Salud;
 

@@ -1,0 +1,989 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: PreviewMaterial
+  m_Shader: {fileID: 4800000, guid: 059ce462da41a6047be095acf2b3409c, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - DisplacementPack_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - MorphingPack_After_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - MorphingPack_Before_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - MorphingPack_UV_After_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - MorphingPack_UV_Before_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - PatternMovementPackMask_2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - PatternMovementPack_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - PatternMovementPack_2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - SpriteSheetUVAnimPack_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 30a8fd2b2dee8e54090ff5b729909db2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_1:
+        m_Texture: {fileID: 2800000, guid: c954edac1329ac44ab0c3ca69f732480, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_2:
+        m_Texture: {fileID: 2800000, guid: dc2333e30d803f84ea78aae652212b8e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_3:
+        m_Texture: {fileID: 2800000, guid: f0213cf5d9034b4448fe62e75b024e6d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_4:
+        m_Texture: {fileID: 2800000, guid: ecb05761374765d43a93f1d0dd1c8172, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_5:
+        m_Texture: {fileID: 2800000, guid: 3c2d903f629b42e45b8ba57420cec19e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_6:
+        m_Texture: {fileID: 2800000, guid: 422f246e2f34bd148afa13a99f3abfe3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RenderTex_1:
+        m_Texture: {fileID: 8400000, guid: 57ebe8324f455fe48834b7520c4c2ce9, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_1:
+        m_Texture: {fileID: 2800000, guid: 1d865dfce22fdf74885d0c0da6a4ac13, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_2:
+        m_Texture: {fileID: 2800000, guid: b6ef11c6140bcec499e753562140faa4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_3:
+        m_Texture: {fileID: 2800000, guid: 380bd29db7fb34b4a8b2e55a0d259b33, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_4:
+        m_Texture: {fileID: 2800000, guid: 785e2f10cde81dc4794aaafccb47cbba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceRenderTextureTex_13:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceRenderTextureTex_3:
+        m_Texture: {fileID: 8400000, guid: 8913ccc77db4e7a4082b0cb2b243f729, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceRenderTextureTex_5:
+        m_Texture: {fileID: 8400000, guid: 8913ccc77db4e7a4082b0cb2b243f729, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - AnimatedMouvementUV_Speed_1: 0.1
+    - AnimatedMouvementUV_X_1: 0
+    - AnimatedMouvementUV_Y_1: 0
+    - AnimatedPingPongOffsetUV_1_OffsetX_1: 0
+    - AnimatedPingPongOffsetUV_1_OffsetY_1: 0
+    - AnimatedPingPongOffsetUV_1_Speed_1: 0.1
+    - AnimatedPingPongOffsetUV_1_ZoomX_1: 1
+    - AnimatedPingPongOffsetUV_1_ZoomY_1: 1
+    - AnimatedTwistUV_AnimatedTwistUV_Bend_1: 0
+    - AnimatedTwistUV_AnimatedTwistUV_Bend_2: 0
+    - AnimatedTwistUV_AnimatedTwistUV_PosX_1: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_PosX_2: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_PosY_1: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_PosY_2: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_Radius_1: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_Radius_2: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_Speed_1: 0
+    - AnimatedTwistUV_AnimatedTwistUV_Speed_2: 0
+    - AnimatedZoomUV_AnimatedZoomUV_Intensity_1: 0.5
+    - AnimatedZoomUV_AnimatedZoomUV_PosX_1: 0.5
+    - AnimatedZoomUV_AnimatedZoomUV_PosY_1: 0.5
+    - AnimatedZoomUV_AnimatedZoomUV_Speed_1: 0
+    - AnimatedZoomUV_AnimatedZoomUV_Zoom_1: 1
+    - DistortionUV_DistanceX_1: 0.3
+    - DistortionUV_DistanceX_2: 0.139
+    - DistortionUV_DistanceY_1: 0.3
+    - DistortionUV_DistanceY_2: 0.13
+    - DistortionUV_Speed_1: 1
+    - DistortionUV_Speed_2: 1
+    - DistortionUV_WaveX_1: 10
+    - DistortionUV_WaveX_2: 10
+    - DistortionUV_WaveY_1: 10
+    - DistortionUV_WaveY_2: 20.103
+    - FishEyeUV_Size_1: 0.25
+    - KaleidoscopeUV_Number_1: 1
+    - KaleidoscopeUV_PosX_1: 0.5
+    - KaleidoscopeUV_PosY_1: 0.5
+    - OffsetUV_X_1: -0.123
+    - OffsetUV_Y_1: -0.423
+    - OffsetUV_ZoomX_1: 1.381
+    - OffsetUV_ZoomY_1: 1.838
+    - PixelUV_Size_1: 32
+    - PixelXYUV_SizeX_1: 32
+    - PixelXYUV_SizeY_1: 32
+    - PositionUV_X_1: 0
+    - PositionUV_Y_1: 0
+    - ResizeUV_X_1: -0.749
+    - ResizeUV_Y_1: -0.074
+    - ResizeUV_ZoomX_1: 2.851
+    - ResizeUV_ZoomY_1: 2.833
+    - RotationUV_Rotation_1: 0
+    - RotationUV_Rotation_PosX_1: 0.5
+    - RotationUV_Rotation_PosY_1: 0.5
+    - RotationUV_Rotation_Speed_1: 0
+    - SpriteSheetAnimationUV_Frame_1: 32
+    - SpriteSheetAnimationUV_Size_1: 4
+    - SpriteSheetFrameUV_Frame_1: 0
+    - SpriteSheetFrameUV_Frame_2: 8
+    - SpriteSheetFrameUV_SizeX_1: 4
+    - SpriteSheetFrameUV_SizeX_2: 4
+    - SpriteSheetFrameUV_SizeY_1: 7
+    - SpriteSheetFrameUV_SizeY_2: 10
+    - SpriteSheetFrameUV_Size_1: 2
+    - SpriteSheetFrameUV_Size_2: 4
+    - TwistUV_TwistUV_Bend_1: 0
+    - TwistUV_TwistUV_Bend_2: -1
+    - TwistUV_TwistUV_PosX_1: 0.5
+    - TwistUV_TwistUV_PosX_2: 0.5
+    - TwistUV_TwistUV_PosY_1: 0.5
+    - TwistUV_TwistUV_PosY_2: 0.7179495
+    - TwistUV_TwistUV_Radius_1: 0.5
+    - TwistUV_TwistUV_Radius_2: 0.5121561
+    - ZoomUV_PosX_1: 1.346
+    - ZoomUV_PosY_1: -0.038
+    - ZoomUV_Zoom_1: 1.026
+    - _Add_Fade_1: 0.446
+    - _AlphaAsAura_Fade_1: 1
+    - _AlphaIntensity_Fade_1: 1
+    - _AutomaticLerp_Speed_1: 1
+    - _Blend_Fade_1: 0
+    - _BlurHQ_Intensity_1: 1
+    - _Blur_Intensity_1: 1
+    - _Blur_Intensity_2: 1
+    - _BumpScale: 1
+    - _Burn_Speed_1: -3.395
+    - _Burn_Value_1: 0
+    - _CircleFade_Dist_1: 0.2
+    - _CircleFade_Dist_2: 0.2
+    - _CircleFade_PosX_1: 0.5
+    - _CircleFade_PosX_2: 0.5
+    - _CircleFade_PosY_1: 0.5
+    - _CircleFade_PosY_2: 0.5
+    - _CircleFade_Size_1: 0.3
+    - _CircleFade_Size_2: 0.3
+    - _ColorGradients_Fade_: 0
+    - _ColorGradients_Fade_1: 1
+    - _ColorGradients_Fade_2: 1
+    - _ColorGradients_Offset_: 0.6256276
+    - _ColorGradients_Offset_1: 0
+    - _ColorGradients_Offset_2: 0
+    - _ColorHSV_Brightness_1: 1
+    - _ColorHSV_Hue_1: 180
+    - _ColorHSV_Saturation_1: 1
+    - _ColorMask: 15
+    - _Cutoff: 0.5
+    - _Darkness_Fade_1: 0.3
+    - _Destroyer_Speed_1: 0.5
+    - _Destroyer_Value_1: 0
+    - _DetailNormalMapScale: 1
+    - _Displacement_Plus_Size_1: 0.418
+    - _Displacement_Plus_Size_10: 1
+    - _Displacement_Plus_Size_11: 1
+    - _Displacement_Plus_Size_12: 1
+    - _Displacement_Plus_Size_13: 1
+    - _Displacement_Plus_Size_14: 1
+    - _Displacement_Plus_ValueX_1: -0.077
+    - _Displacement_Plus_ValueX_10: 0
+    - _Displacement_Plus_ValueX_11: 0
+    - _Displacement_Plus_ValueX_12: 0
+    - _Displacement_Plus_ValueX_13: 0
+    - _Displacement_Plus_ValueX_14: 0
+    - _Displacement_Plus_ValueY_1: 0.038
+    - _Displacement_Plus_ValueY_10: 0
+    - _Displacement_Plus_ValueY_11: 0
+    - _Displacement_Plus_ValueY_12: 0
+    - _Displacement_Plus_ValueY_13: 0
+    - _Displacement_Plus_ValueY_14: 0
+    - _Displacement_Value_1: 0.05
+    - _DstBlend: 0
+    - _Emboss_Angle_1: 0
+    - _Emboss_Distance_1: 0.3
+    - _Emboss_Intensity_1: 1
+    - _Emboss_grayfade_1: 1
+    - _Emboss_original_1: 1
+    - _EnableExternalAlpha: 0
+    - _FadeToAlpha_Fade_1: 1
+    - _Generate_Checker_PosX_1: 0.5
+    - _Generate_Checker_PosY_1: 0.5
+    - _Generate_Checker_Size_1: 5
+    - _Generate_Circle_Dist_1: 0.01
+    - _Generate_Circle_PosX_1: 0.5
+    - _Generate_Circle_PosY_1: 0.5
+    - _Generate_Circle_Size_1: 0.4
+    - _Generate_Donut_PosX_1: 0.5
+    - _Generate_Donut_PosX_2: 0.5
+    - _Generate_Donut_PosX_3: 0.5
+    - _Generate_Donut_PosX_4: 0.5
+    - _Generate_Donut_PosX_5: 0.5
+    - _Generate_Donut_PosY_1: 0.5
+    - _Generate_Donut_PosY_2: 0.5
+    - _Generate_Donut_PosY_3: 0.5
+    - _Generate_Donut_PosY_4: 0.5
+    - _Generate_Donut_PosY_5: 0.5
+    - _Generate_Donut_SizeDonut_1: 0.2
+    - _Generate_Donut_SizeDonut_2: 0.2
+    - _Generate_Donut_SizeDonut_3: 0
+    - _Generate_Donut_SizeDonut_4: 0
+    - _Generate_Donut_SizeDonut_5: 0
+    - _Generate_Donut_SizeSmooth_1: 0.2
+    - _Generate_Donut_SizeSmooth_2: 0.2
+    - _Generate_Donut_SizeSmooth_3: 0
+    - _Generate_Donut_SizeSmooth_4: 0
+    - _Generate_Donut_SizeSmooth_5: 0
+    - _Generate_Donut_Size_1: 0.1
+    - _Generate_Donut_Size_2: 0.1
+    - _Generate_Donut_Size_3: 0
+    - _Generate_Donut_Size_4: 0
+    - _Generate_Donut_Size_5: 0
+    - _Generate_Fire_PosX_1: 0
+    - _Generate_Fire_PosX_3: 0.11153824
+    - _Generate_Fire_PosY_1: 0
+    - _Generate_Fire_PosY_3: 0
+    - _Generate_Fire_Precision_1: 0.095
+    - _Generate_Fire_Precision_3: 0.05
+    - _Generate_Fire_Smooth_1: 0.136
+    - _Generate_Fire_Smooth_3: 0.34999946
+    - _Generate_Fire_Speed_1: 1
+    - _Generate_Fire_Speed_3: 1
+    - _Generate_Line_Size_1: 4
+    - _Generate_Line_Size_2: 0.5
+    - _Generate_Shape_Dist_1: 0.01
+    - _Generate_Shape_Dist_2: 0.01
+    - _Generate_Shape_PosX_1: 0.5
+    - _Generate_Shape_PosX_2: 0.5
+    - _Generate_Shape_PosY_1: 0.5
+    - _Generate_Shape_PosY_2: 0.7352941
+    - _Generate_Shape_Rotation_1: 0
+    - _Generate_Shape_Rotation_2: 0
+    - _Generate_Shape_Side_1: 3
+    - _Generate_Shape_Side_2: 3
+    - _Generate_Shape_Size_1: 0.4
+    - _Generate_Shape_Size_2: 0.4
+    - _Generate_Voronoi_Seed_10: 1
+    - _Generate_Voronoi_Seed_100: 1.1935906
+    - _Generate_Voronoi_Seed_101: 1
+    - _Generate_Voronoi_Seed_102: 1.1935906
+    - _Generate_Voronoi_Seed_103: 1
+    - _Generate_Voronoi_Seed_104: 1.1935906
+    - _Generate_Voronoi_Seed_105: 1
+    - _Generate_Voronoi_Seed_106: 1.1935906
+    - _Generate_Voronoi_Seed_107: 1
+    - _Generate_Voronoi_Seed_108: 1.1935906
+    - _Generate_Voronoi_Seed_109: 1
+    - _Generate_Voronoi_Seed_11: 1
+    - _Generate_Voronoi_Seed_110: 1.1935906
+    - _Generate_Voronoi_Seed_111: 1
+    - _Generate_Voronoi_Seed_112: 1.1935906
+    - _Generate_Voronoi_Seed_113: 1
+    - _Generate_Voronoi_Seed_114: 1.1935906
+    - _Generate_Voronoi_Seed_115: 1
+    - _Generate_Voronoi_Seed_116: 1.1935906
+    - _Generate_Voronoi_Seed_117: 1
+    - _Generate_Voronoi_Seed_118: 1.1935906
+    - _Generate_Voronoi_Seed_119: 1
+    - _Generate_Voronoi_Seed_12: 1
+    - _Generate_Voronoi_Seed_120: 1.1935906
+    - _Generate_Voronoi_Seed_121: 1
+    - _Generate_Voronoi_Seed_122: 1.1935906
+    - _Generate_Voronoi_Seed_123: 1.1935906
+    - _Generate_Voronoi_Seed_124: 1.1935906
+    - _Generate_Voronoi_Seed_125: 1.1935906
+    - _Generate_Voronoi_Seed_126: 1.1935906
+    - _Generate_Voronoi_Seed_127: 1.1935906
+    - _Generate_Voronoi_Seed_128: 1.1935906
+    - _Generate_Voronoi_Seed_129: 1.1935906
+    - _Generate_Voronoi_Seed_13: 1
+    - _Generate_Voronoi_Seed_130: 1.1935906
+    - _Generate_Voronoi_Seed_131: 1.1935906
+    - _Generate_Voronoi_Seed_132: 1.1935906
+    - _Generate_Voronoi_Seed_133: 1.1935906
+    - _Generate_Voronoi_Seed_134: 1.1935906
+    - _Generate_Voronoi_Seed_135: 1.1935906
+    - _Generate_Voronoi_Seed_136: 1.1935906
+    - _Generate_Voronoi_Seed_137: 1.1935906
+    - _Generate_Voronoi_Seed_138: 1.1935906
+    - _Generate_Voronoi_Seed_139: 1.1935906
+    - _Generate_Voronoi_Seed_14: 1
+    - _Generate_Voronoi_Seed_140: 1.1935906
+    - _Generate_Voronoi_Seed_141: 1.1935906
+    - _Generate_Voronoi_Seed_142: 1.1935906
+    - _Generate_Voronoi_Seed_143: 1.1935906
+    - _Generate_Voronoi_Seed_144: 1.1935906
+    - _Generate_Voronoi_Seed_145: 1.1935906
+    - _Generate_Voronoi_Seed_146: 1.1935906
+    - _Generate_Voronoi_Seed_147: 1.1935906
+    - _Generate_Voronoi_Seed_148: 1.1935906
+    - _Generate_Voronoi_Seed_149: 1.1935906
+    - _Generate_Voronoi_Seed_15: 1
+    - _Generate_Voronoi_Seed_150: 1.1935906
+    - _Generate_Voronoi_Seed_151: 1.1935906
+    - _Generate_Voronoi_Seed_152: 1.1935906
+    - _Generate_Voronoi_Seed_153: 1.1935906
+    - _Generate_Voronoi_Seed_154: 1.1935906
+    - _Generate_Voronoi_Seed_155: 1.1935906
+    - _Generate_Voronoi_Seed_156: 1.1935906
+    - _Generate_Voronoi_Seed_157: 1.1935906
+    - _Generate_Voronoi_Seed_158: 1.1935906
+    - _Generate_Voronoi_Seed_159: 1.1935906
+    - _Generate_Voronoi_Seed_16: 1
+    - _Generate_Voronoi_Seed_160: 1.1935906
+    - _Generate_Voronoi_Seed_161: 1.1935906
+    - _Generate_Voronoi_Seed_162: 1.1935906
+    - _Generate_Voronoi_Seed_163: 1.1935906
+    - _Generate_Voronoi_Seed_164: 1.1935906
+    - _Generate_Voronoi_Seed_165: 1.1935906
+    - _Generate_Voronoi_Seed_169: 1.1935906
+    - _Generate_Voronoi_Seed_17: 1
+    - _Generate_Voronoi_Seed_170: 1.1935906
+    - _Generate_Voronoi_Seed_171: 1.1935906
+    - _Generate_Voronoi_Seed_172: 1.1935906
+    - _Generate_Voronoi_Seed_173: 1.1935906
+    - _Generate_Voronoi_Seed_174: 1.1935906
+    - _Generate_Voronoi_Seed_175: 1.1935906
+    - _Generate_Voronoi_Seed_176: 1.1935906
+    - _Generate_Voronoi_Seed_177: 1.1935906
+    - _Generate_Voronoi_Seed_178: 1.1935906
+    - _Generate_Voronoi_Seed_179: 1.1935906
+    - _Generate_Voronoi_Seed_18: 1
+    - _Generate_Voronoi_Seed_180: 1.1935906
+    - _Generate_Voronoi_Seed_181: 1.1935906
+    - _Generate_Voronoi_Seed_182: 1.1935906
+    - _Generate_Voronoi_Seed_183: 1.1935906
+    - _Generate_Voronoi_Seed_184: 1.1935906
+    - _Generate_Voronoi_Seed_185: 1.1935906
+    - _Generate_Voronoi_Seed_186: 1.1935906
+    - _Generate_Voronoi_Seed_187: 1.1935906
+    - _Generate_Voronoi_Seed_188: 1.1935906
+    - _Generate_Voronoi_Seed_189: 1.1935906
+    - _Generate_Voronoi_Seed_19: 1
+    - _Generate_Voronoi_Seed_190: 1.1935906
+    - _Generate_Voronoi_Seed_191: 1.1935906
+    - _Generate_Voronoi_Seed_192: 1.1935906
+    - _Generate_Voronoi_Seed_193: 1.1935906
+    - _Generate_Voronoi_Seed_194: 1.1935906
+    - _Generate_Voronoi_Seed_195: 1.1935906
+    - _Generate_Voronoi_Seed_196: 1.6115425
+    - _Generate_Voronoi_Seed_197: 1.6115425
+    - _Generate_Voronoi_Seed_198: 1.6115425
+    - _Generate_Voronoi_Seed_199: 1.6115425
+    - _Generate_Voronoi_Seed_2: 1
+    - _Generate_Voronoi_Seed_20: 1
+    - _Generate_Voronoi_Seed_200: 1.6115425
+    - _Generate_Voronoi_Seed_201: 1.6115425
+    - _Generate_Voronoi_Seed_202: 1.6115425
+    - _Generate_Voronoi_Seed_203: 1.6115425
+    - _Generate_Voronoi_Seed_204: 1.6115425
+    - _Generate_Voronoi_Seed_205: 1.6115425
+    - _Generate_Voronoi_Seed_206: 1.6115425
+    - _Generate_Voronoi_Seed_207: 1.6115425
+    - _Generate_Voronoi_Seed_208: 1.6115425
+    - _Generate_Voronoi_Seed_209: 1.6115425
+    - _Generate_Voronoi_Seed_21: 1
+    - _Generate_Voronoi_Seed_210: 1.6115425
+    - _Generate_Voronoi_Seed_211: 1.6115425
+    - _Generate_Voronoi_Seed_212: 1.6115425
+    - _Generate_Voronoi_Seed_213: 1.6115425
+    - _Generate_Voronoi_Seed_214: 1.6115425
+    - _Generate_Voronoi_Seed_215: 1.6115425
+    - _Generate_Voronoi_Seed_216: 1.6115425
+    - _Generate_Voronoi_Seed_217: 1.6115425
+    - _Generate_Voronoi_Seed_218: 1.6115425
+    - _Generate_Voronoi_Seed_219: 1.6115425
+    - _Generate_Voronoi_Seed_22: 1
+    - _Generate_Voronoi_Seed_220: 1.6115425
+    - _Generate_Voronoi_Seed_221: 1.6115425
+    - _Generate_Voronoi_Seed_222: 1.6115425
+    - _Generate_Voronoi_Seed_223: 1.6115425
+    - _Generate_Voronoi_Seed_224: 1.6115425
+    - _Generate_Voronoi_Seed_225: 1.6115425
+    - _Generate_Voronoi_Seed_226: 1.6115425
+    - _Generate_Voronoi_Seed_227: 1.6115425
+    - _Generate_Voronoi_Seed_229: 1.6115425
+    - _Generate_Voronoi_Seed_23: 1
+    - _Generate_Voronoi_Seed_230: 1.6115425
+    - _Generate_Voronoi_Seed_231: 1.6115425
+    - _Generate_Voronoi_Seed_232: 1.6115425
+    - _Generate_Voronoi_Seed_233: 1.6115425
+    - _Generate_Voronoi_Seed_234: 1.6115425
+    - _Generate_Voronoi_Seed_235: 1.6115425
+    - _Generate_Voronoi_Seed_236: 1.6115425
+    - _Generate_Voronoi_Seed_237: 1.6115425
+    - _Generate_Voronoi_Seed_24: 1
+    - _Generate_Voronoi_Seed_25: 1
+    - _Generate_Voronoi_Seed_26: 1
+    - _Generate_Voronoi_Seed_27: 1
+    - _Generate_Voronoi_Seed_28: 1
+    - _Generate_Voronoi_Seed_29: 1
+    - _Generate_Voronoi_Seed_3: 1
+    - _Generate_Voronoi_Seed_30: 1
+    - _Generate_Voronoi_Seed_31: 1
+    - _Generate_Voronoi_Seed_32: 1
+    - _Generate_Voronoi_Seed_33: 1
+    - _Generate_Voronoi_Seed_34: 1
+    - _Generate_Voronoi_Seed_35: 1
+    - _Generate_Voronoi_Seed_36: 1
+    - _Generate_Voronoi_Seed_37: 1
+    - _Generate_Voronoi_Seed_38: 1
+    - _Generate_Voronoi_Seed_39: 1
+    - _Generate_Voronoi_Seed_4: 1
+    - _Generate_Voronoi_Seed_40: 1
+    - _Generate_Voronoi_Seed_41: 1
+    - _Generate_Voronoi_Seed_42: 1
+    - _Generate_Voronoi_Seed_43: 1
+    - _Generate_Voronoi_Seed_44: 1
+    - _Generate_Voronoi_Seed_45: 1
+    - _Generate_Voronoi_Seed_46: 1
+    - _Generate_Voronoi_Seed_47: 1
+    - _Generate_Voronoi_Seed_48: 1
+    - _Generate_Voronoi_Seed_49: 1
+    - _Generate_Voronoi_Seed_5: 1
+    - _Generate_Voronoi_Seed_50: 1
+    - _Generate_Voronoi_Seed_51: 1
+    - _Generate_Voronoi_Seed_52: 1
+    - _Generate_Voronoi_Seed_53: 1
+    - _Generate_Voronoi_Seed_54: 1
+    - _Generate_Voronoi_Seed_55: 1
+    - _Generate_Voronoi_Seed_56: 1
+    - _Generate_Voronoi_Seed_57: 1
+    - _Generate_Voronoi_Seed_58: 1
+    - _Generate_Voronoi_Seed_59: 1
+    - _Generate_Voronoi_Seed_6: 1
+    - _Generate_Voronoi_Seed_60: 1
+    - _Generate_Voronoi_Seed_61: 1
+    - _Generate_Voronoi_Seed_62: 1
+    - _Generate_Voronoi_Seed_63: 1
+    - _Generate_Voronoi_Seed_64: 1
+    - _Generate_Voronoi_Seed_65: 1
+    - _Generate_Voronoi_Seed_66: 1
+    - _Generate_Voronoi_Seed_67: 1
+    - _Generate_Voronoi_Seed_68: 1
+    - _Generate_Voronoi_Seed_69: 1
+    - _Generate_Voronoi_Seed_7: 1
+    - _Generate_Voronoi_Seed_70: 1
+    - _Generate_Voronoi_Seed_71: 1
+    - _Generate_Voronoi_Seed_72: 1
+    - _Generate_Voronoi_Seed_73: 1
+    - _Generate_Voronoi_Seed_74: 1
+    - _Generate_Voronoi_Seed_75: 1
+    - _Generate_Voronoi_Seed_76: 1
+    - _Generate_Voronoi_Seed_77: 1
+    - _Generate_Voronoi_Seed_78: 1
+    - _Generate_Voronoi_Seed_79: 1
+    - _Generate_Voronoi_Seed_8: 1
+    - _Generate_Voronoi_Seed_80: 1
+    - _Generate_Voronoi_Seed_81: 1
+    - _Generate_Voronoi_Seed_82: 1
+    - _Generate_Voronoi_Seed_83: 1
+    - _Generate_Voronoi_Seed_84: 1
+    - _Generate_Voronoi_Seed_85: 1
+    - _Generate_Voronoi_Seed_86: 1
+    - _Generate_Voronoi_Seed_87: 1
+    - _Generate_Voronoi_Seed_88: 1
+    - _Generate_Voronoi_Seed_89: 1
+    - _Generate_Voronoi_Seed_9: 1
+    - _Generate_Voronoi_Seed_90: 1
+    - _Generate_Voronoi_Seed_91: 1
+    - _Generate_Voronoi_Seed_92: 1
+    - _Generate_Voronoi_Seed_93: 1
+    - _Generate_Voronoi_Seed_94: 1.1935906
+    - _Generate_Voronoi_Seed_95: 1
+    - _Generate_Voronoi_Seed_96: 1.1935906
+    - _Generate_Voronoi_Seed_97: 1
+    - _Generate_Voronoi_Seed_98: 1.1935906
+    - _Generate_Voronoi_Seed_99: 1
+    - _Generate_Voronoi_Size_10: 8
+    - _Generate_Voronoi_Size_100: 26.707733
+    - _Generate_Voronoi_Size_101: 1
+    - _Generate_Voronoi_Size_102: 26.707733
+    - _Generate_Voronoi_Size_103: 1
+    - _Generate_Voronoi_Size_104: 26.707733
+    - _Generate_Voronoi_Size_105: 1
+    - _Generate_Voronoi_Size_106: 26.707733
+    - _Generate_Voronoi_Size_107: 1
+    - _Generate_Voronoi_Size_108: 26.707733
+    - _Generate_Voronoi_Size_109: 1
+    - _Generate_Voronoi_Size_11: 8
+    - _Generate_Voronoi_Size_110: 26.707733
+    - _Generate_Voronoi_Size_111: 1
+    - _Generate_Voronoi_Size_112: 26.707733
+    - _Generate_Voronoi_Size_113: 1
+    - _Generate_Voronoi_Size_114: 26.707733
+    - _Generate_Voronoi_Size_115: 1
+    - _Generate_Voronoi_Size_116: 26.707733
+    - _Generate_Voronoi_Size_117: 1
+    - _Generate_Voronoi_Size_118: 26.707733
+    - _Generate_Voronoi_Size_119: 1
+    - _Generate_Voronoi_Size_12: 8
+    - _Generate_Voronoi_Size_120: 26.707733
+    - _Generate_Voronoi_Size_121: 1
+    - _Generate_Voronoi_Size_122: 26.707733
+    - _Generate_Voronoi_Size_123: 26.707733
+    - _Generate_Voronoi_Size_124: 26.707733
+    - _Generate_Voronoi_Size_125: 26.707733
+    - _Generate_Voronoi_Size_126: 26.707733
+    - _Generate_Voronoi_Size_127: 26.707733
+    - _Generate_Voronoi_Size_128: 26.707733
+    - _Generate_Voronoi_Size_129: 26.707733
+    - _Generate_Voronoi_Size_13: 8
+    - _Generate_Voronoi_Size_130: 26.707733
+    - _Generate_Voronoi_Size_131: 26.707733
+    - _Generate_Voronoi_Size_132: 26.707733
+    - _Generate_Voronoi_Size_133: 26.707733
+    - _Generate_Voronoi_Size_134: 26.707733
+    - _Generate_Voronoi_Size_135: 26.707733
+    - _Generate_Voronoi_Size_136: 26.707733
+    - _Generate_Voronoi_Size_137: 25.394932
+    - _Generate_Voronoi_Size_138: 25.394932
+    - _Generate_Voronoi_Size_139: 25.394932
+    - _Generate_Voronoi_Size_14: 8
+    - _Generate_Voronoi_Size_140: 25.394932
+    - _Generate_Voronoi_Size_141: 25.394932
+    - _Generate_Voronoi_Size_142: 25.394932
+    - _Generate_Voronoi_Size_143: 25.394932
+    - _Generate_Voronoi_Size_144: 25.394932
+    - _Generate_Voronoi_Size_145: 25.394932
+    - _Generate_Voronoi_Size_146: 25.394932
+    - _Generate_Voronoi_Size_147: 25.394932
+    - _Generate_Voronoi_Size_148: 25.394932
+    - _Generate_Voronoi_Size_149: 25.394932
+    - _Generate_Voronoi_Size_15: 8
+    - _Generate_Voronoi_Size_150: 25.394932
+    - _Generate_Voronoi_Size_151: 25.394932
+    - _Generate_Voronoi_Size_152: 25.394932
+    - _Generate_Voronoi_Size_153: 25.394932
+    - _Generate_Voronoi_Size_154: 25.394932
+    - _Generate_Voronoi_Size_155: 25.394932
+    - _Generate_Voronoi_Size_156: 25.394932
+    - _Generate_Voronoi_Size_157: 25.394932
+    - _Generate_Voronoi_Size_158: 25.394932
+    - _Generate_Voronoi_Size_159: 25.394932
+    - _Generate_Voronoi_Size_16: 8
+    - _Generate_Voronoi_Size_160: 25.394932
+    - _Generate_Voronoi_Size_161: 25.394932
+    - _Generate_Voronoi_Size_162: 25.394932
+    - _Generate_Voronoi_Size_163: 25.394932
+    - _Generate_Voronoi_Size_164: 25.394932
+    - _Generate_Voronoi_Size_165: 25.394932
+    - _Generate_Voronoi_Size_169: 25.394932
+    - _Generate_Voronoi_Size_17: 8
+    - _Generate_Voronoi_Size_170: 25.394932
+    - _Generate_Voronoi_Size_171: 25.394932
+    - _Generate_Voronoi_Size_172: 25.394932
+    - _Generate_Voronoi_Size_173: 25.394932
+    - _Generate_Voronoi_Size_174: 25.394932
+    - _Generate_Voronoi_Size_175: 25.394932
+    - _Generate_Voronoi_Size_176: 25.394932
+    - _Generate_Voronoi_Size_177: 25.394932
+    - _Generate_Voronoi_Size_178: 25.394932
+    - _Generate_Voronoi_Size_179: 25.394932
+    - _Generate_Voronoi_Size_18: 8
+    - _Generate_Voronoi_Size_180: 20.800055
+    - _Generate_Voronoi_Size_181: 20.800055
+    - _Generate_Voronoi_Size_182: 20.800055
+    - _Generate_Voronoi_Size_183: 20.800055
+    - _Generate_Voronoi_Size_184: 20.800055
+    - _Generate_Voronoi_Size_185: 20.800055
+    - _Generate_Voronoi_Size_186: 5.9082274
+    - _Generate_Voronoi_Size_187: 5.9082274
+    - _Generate_Voronoi_Size_188: 5.9082274
+    - _Generate_Voronoi_Size_189: 5.9082274
+    - _Generate_Voronoi_Size_19: 8
+    - _Generate_Voronoi_Size_190: 15.097956
+    - _Generate_Voronoi_Size_191: 15.097956
+    - _Generate_Voronoi_Size_192: 15.097956
+    - _Generate_Voronoi_Size_193: 15.097956
+    - _Generate_Voronoi_Size_194: 5.908202
+    - _Generate_Voronoi_Size_195: 5.908202
+    - _Generate_Voronoi_Size_196: 5.908202
+    - _Generate_Voronoi_Size_197: 20.841547
+    - _Generate_Voronoi_Size_198: 20.841547
+    - _Generate_Voronoi_Size_199: 20.841547
+    - _Generate_Voronoi_Size_2: 8
+    - _Generate_Voronoi_Size_20: 8
+    - _Generate_Voronoi_Size_200: 20.841547
+    - _Generate_Voronoi_Size_201: 20.841547
+    - _Generate_Voronoi_Size_202: 20.841547
+    - _Generate_Voronoi_Size_203: 20.841547
+    - _Generate_Voronoi_Size_204: 20.841547
+    - _Generate_Voronoi_Size_205: 20.841547
+    - _Generate_Voronoi_Size_206: 20.841547
+    - _Generate_Voronoi_Size_207: 20.841547
+    - _Generate_Voronoi_Size_208: 20.841547
+    - _Generate_Voronoi_Size_209: 20.841547
+    - _Generate_Voronoi_Size_21: 8
+    - _Generate_Voronoi_Size_210: 20.841547
+    - _Generate_Voronoi_Size_211: 20.841547
+    - _Generate_Voronoi_Size_212: 20.841547
+    - _Generate_Voronoi_Size_213: 20.841547
+    - _Generate_Voronoi_Size_214: 20.841547
+    - _Generate_Voronoi_Size_215: 20.841547
+    - _Generate_Voronoi_Size_216: 20.841547
+    - _Generate_Voronoi_Size_217: 20.841547
+    - _Generate_Voronoi_Size_218: 20.841547
+    - _Generate_Voronoi_Size_219: 20.841547
+    - _Generate_Voronoi_Size_22: 8
+    - _Generate_Voronoi_Size_220: 20.841547
+    - _Generate_Voronoi_Size_221: 20.841547
+    - _Generate_Voronoi_Size_222: 20.841547
+    - _Generate_Voronoi_Size_223: 20.841547
+    - _Generate_Voronoi_Size_224: 20.841547
+    - _Generate_Voronoi_Size_225: 20.841547
+    - _Generate_Voronoi_Size_226: 20.841547
+    - _Generate_Voronoi_Size_227: 20.841547
+    - _Generate_Voronoi_Size_229: 20.841547
+    - _Generate_Voronoi_Size_23: 8
+    - _Generate_Voronoi_Size_230: 20.841547
+    - _Generate_Voronoi_Size_231: 20.841547
+    - _Generate_Voronoi_Size_232: 20.841547
+    - _Generate_Voronoi_Size_233: 20.841547
+    - _Generate_Voronoi_Size_234: 20.841547
+    - _Generate_Voronoi_Size_235: 20.841547
+    - _Generate_Voronoi_Size_236: 20.841547
+    - _Generate_Voronoi_Size_237: 20.841547
+    - _Generate_Voronoi_Size_24: 14.441105
+    - _Generate_Voronoi_Size_25: 8
+    - _Generate_Voronoi_Size_26: 14.441105
+    - _Generate_Voronoi_Size_27: 8
+    - _Generate_Voronoi_Size_28: 14.441105
+    - _Generate_Voronoi_Size_29: 1
+    - _Generate_Voronoi_Size_3: 8
+    - _Generate_Voronoi_Size_30: 14.441105
+    - _Generate_Voronoi_Size_31: 1
+    - _Generate_Voronoi_Size_32: 14.441105
+    - _Generate_Voronoi_Size_33: 1
+    - _Generate_Voronoi_Size_34: 14.441105
+    - _Generate_Voronoi_Size_35: 1
+    - _Generate_Voronoi_Size_36: 14.441105
+    - _Generate_Voronoi_Size_37: 1
+    - _Generate_Voronoi_Size_38: 14.441105
+    - _Generate_Voronoi_Size_39: 1
+    - _Generate_Voronoi_Size_4: 8
+    - _Generate_Voronoi_Size_40: 14.441105
+    - _Generate_Voronoi_Size_41: 1
+    - _Generate_Voronoi_Size_42: 14.441105
+    - _Generate_Voronoi_Size_43: 1
+    - _Generate_Voronoi_Size_44: 14.441105
+    - _Generate_Voronoi_Size_45: 1
+    - _Generate_Voronoi_Size_46: 14.441105
+    - _Generate_Voronoi_Size_47: 1
+    - _Generate_Voronoi_Size_48: 14.441105
+    - _Generate_Voronoi_Size_49: 1
+    - _Generate_Voronoi_Size_5: 8
+    - _Generate_Voronoi_Size_50: 14.441105
+    - _Generate_Voronoi_Size_51: 1
+    - _Generate_Voronoi_Size_52: 14.441105
+    - _Generate_Voronoi_Size_53: 1
+    - _Generate_Voronoi_Size_54: 14.441105
+    - _Generate_Voronoi_Size_55: 1
+    - _Generate_Voronoi_Size_56: 14.441105
+    - _Generate_Voronoi_Size_57: 1
+    - _Generate_Voronoi_Size_58: 14.441105
+    - _Generate_Voronoi_Size_59: 1
+    - _Generate_Voronoi_Size_6: 8
+    - _Generate_Voronoi_Size_60: 14.441105
+    - _Generate_Voronoi_Size_61: 1
+    - _Generate_Voronoi_Size_62: 14.441105
+    - _Generate_Voronoi_Size_63: 1
+    - _Generate_Voronoi_Size_64: 14.441105
+    - _Generate_Voronoi_Size_65: 1
+    - _Generate_Voronoi_Size_66: 8
+    - _Generate_Voronoi_Size_67: 1
+    - _Generate_Voronoi_Size_68: 8
+    - _Generate_Voronoi_Size_69: 1
+    - _Generate_Voronoi_Size_7: 8
+    - _Generate_Voronoi_Size_70: 8
+    - _Generate_Voronoi_Size_71: 1
+    - _Generate_Voronoi_Size_72: 8
+    - _Generate_Voronoi_Size_73: 1
+    - _Generate_Voronoi_Size_74: 8
+    - _Generate_Voronoi_Size_75: 1
+    - _Generate_Voronoi_Size_76: 8
+    - _Generate_Voronoi_Size_77: 1
+    - _Generate_Voronoi_Size_78: 8
+    - _Generate_Voronoi_Size_79: 1
+    - _Generate_Voronoi_Size_8: 8
+    - _Generate_Voronoi_Size_80: 8
+    - _Generate_Voronoi_Size_81: 1
+    - _Generate_Voronoi_Size_82: 8
+    - _Generate_Voronoi_Size_83: 1
+    - _Generate_Voronoi_Size_84: 8
+    - _Generate_Voronoi_Size_85: 1
+    - _Generate_Voronoi_Size_86: 8
+    - _Generate_Voronoi_Size_87: 1
+    - _Generate_Voronoi_Size_88: 8
+    - _Generate_Voronoi_Size_89: 1
+    - _Generate_Voronoi_Size_9: 8
+    - _Generate_Voronoi_Size_90: 26.707733
+    - _Generate_Voronoi_Size_91: 1
+    - _Generate_Voronoi_Size_92: 26.707733
+    - _Generate_Voronoi_Size_93: 1
+    - _Generate_Voronoi_Size_94: 26.707733
+    - _Generate_Voronoi_Size_95: 1
+    - _Generate_Voronoi_Size_96: 26.707733
+    - _Generate_Voronoi_Size_97: 1
+    - _Generate_Voronoi_Size_98: 26.707733
+    - _Generate_Voronoi_Size_99: 1
+    - _Generate_Xray_Number_1: 16
+    - _Generate_Xray_Number_10: 8
+    - _Generate_Xray_Number_2: 5
+    - _Generate_Xray_Number_3: 5
+    - _Generate_Xray_Number_5: 8
+    - _Generate_Xray_Number_6: 8
+    - _Generate_Xray_Number_7: 8
+    - _Generate_Xray_Number_8: 8
+    - _Generate_Xray_Number_9: 8
+    - _Generate_Xray_PosX_1: 0.5
+    - _Generate_Xray_PosX_10: 0.5
+    - _Generate_Xray_PosX_2: 0.5
+    - _Generate_Xray_PosX_3: 0.5
+    - _Generate_Xray_PosX_5: 0.5
+    - _Generate_Xray_PosX_6: 0.5
+    - _Generate_Xray_PosX_7: 0.5
+    - _Generate_Xray_PosX_8: 0.5
+    - _Generate_Xray_PosX_9: 0.5
+    - _Generate_Xray_PosY_1: 0.5
+    - _Generate_Xray_PosY_10: 0.5
+    - _Generate_Xray_PosY_2: 0.5
+    - _Generate_Xray_PosY_3: 0.5
+    - _Generate_Xray_PosY_5: 0.5
+    - _Generate_Xray_PosY_6: 0.5
+    - _Generate_Xray_PosY_7: 0.5
+    - _Generate_Xray_PosY_8: 0.5
+    - _Generate_Xray_PosY_9: 0.5
+    - _Generate_Xray_Speed_1: 0
+    - _Generate_Xray_Speed_10: 0
+    - _Generate_Xray_Speed_2: 0
+    - _Generate_Xray_Speed_3: 0
+    - _Generate_Xray_Speed_5: 0
+    - _Generate_Xray_Speed_6: 0
+    - _Generate_Xray_Speed_7: 0
+    - _Generate_Xray_Speed_8: 0
+    - _Generate_Xray_Speed_9: 0
+    - _GhostFX_ClipDown_1: 0.7
+    - _GhostFX_ClipLeft_1: 0.7
+    - _GhostFX_ClipRight_1: 0.7
+    - _GhostFX_ClipUp_1: 0.7
+    - _GhostFX_Smooth_1: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GrayScale_Fade: 1
+    - _GrayScale_Fade_0: 0.65769213
+    - _GrayScale_Fade_1: 1
+    - _GrayScale_Fade_1545: 1
+    - _GrayScale_Fade_2: 1
+    - _GrayScale_Fade_3: 1
+    - _GrayScale_Fade_4: 1
+    - _GrayScale_Fade_5: 1
+    - _GrayScale_Fade_6: 1
+    - _GrayScale_Fadesss: 1
+    - _HdrCreate_Value_1: 1
+    - _Hologram_Speed_1: 1
+    - _Hologram_Value_1: 1
+    - _HolographicParalax_Size_1: 1
+    - _HumanBreatEx_Intensity_1: 0.05
+    - _HumanBreatEx_Side_Intensity_1: 0.05
+    - _HumanBreatEx_Speed_1: 0.05
+    - _InnerGlowHQ_Intensity_1: 2
+    - _InnerGlowHQ_Size_1: 3
+    - _Lerp_Fade_1: 1
+    - _Make3DFX_Dist_1: 0.5
+    - _Make3DFX_Dist_2: 0.86794865
+    - _Make3DFX_Light_1: 0.2
+    - _Make3DFX_Light_2: -0.73846513
+    - _Make3DFX_PosX_1: 0.3
+    - _Make3DFX_PosX_2: 0.0051246015
+    - _Make3DFX_PosY_1: 0.2
+    - _Make3DFX_PosY_2: -0.09743948
+    - _Make3DFX_Size_1: 8
+    - _Make3DFX_Size_2: 8.512886
+    - _Mask2RGBA_Fade_1: 0.017
+    - _MaskChannel_Fade_1: 1
+    - _MaskRGBA_Fade_1: 0
+    - _MaskRGBA_Fade_2: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _MorphingPack_Blend_1: 1
+    - _MorphingPack_Stranger_1: 1
+    - _MotionBlurFast_Angle_1: 0
+    - _MotionBlurFast_Distance_1: 1
+    - _OcclusionStrength: 1
+    - _OperationBlendMask_Fade_1: 1
+    - _OperationBlend_Fade_1: 1
+    - _OperationBlend_Fade_2: 1
+    - _Outline_Size_1: 1
+    - _Parallax: 0.02
+    - _PatternMovement_PosX_1: 0.077
+    - _PatternMovement_PosX_2: 0
+    - _PatternMovement_PosY_1: -0.4
+    - _PatternMovement_PosY_2: -0.092
+    - _PatternMovement_Speed_1: 0.974
+    - _PatternMovement_Speed_2: 0.979
+    - _PlasmaFX_Fade_1: 0.5
+    - _PlasmaFX_Offset_1: 0.5
+    - _PlasmaFX_Speed_1: 0.5
+    - _PlasmaLightFX_BW_1: 1
+    - _PlasmaLightFX_Fade_1: 0.5
+    - _PlasmaLightFX_Speed_1: 0.5
+    - _PremadeGradients_Fade_1: 1
+    - _PremadeGradients_Fade_2: 1
+    - _PremadeGradients_Offset_1: 0
+    - _PremadeGradients_Offset_2: 0
+    - _PremadeGradients_Speed_1: 0
+    - _PremadeGradients_Speed_2: 0
+    - _RGBA_Add_Fade_1: 1.756
+    - _RGBA_Mul_Fade_1: 1.012
+    - _RGBA_Sub_Fade_1: 1
+    - _ShadowLight_Intensity_1: 1.5
+    - _ShadowLight_NoSprite_1: 1
+    - _ShadowLight_PosX_1: 0
+    - _ShadowLight_PosY_1: 0
+    - _ShadowLight_Precision_1: 8
+    - _ShadowLight_Size_1: 1.2
+    - _ShinyFX_Intensity_1: 1
+    - _ShinyFX_Intensity_2: 0.614633
+    - _ShinyFX_Pos_1: 0
+    - _ShinyFX_Pos_2: 0.09756041
+    - _ShinyFX_Size_1: -0.1
+    - _ShinyFX_Size_2: -0.06341464
+    - _ShinyFX_Smooth_1: 0.25
+    - _ShinyFX_Smooth_2: 0.257317
+    - _ShinyFX_Speed_1: 1
+    - _ShinyFX_Speed_2: 1.141461
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpriteFade: 1
+    - _SpriteSheetUVAnimPack_Blend_1: 1
+    - _SpriteSheetUVAnimPack_Frame1_1: 0
+    - _SpriteSheetUVAnimPack_Frame2_1: 1
+    - _SpriteSheetUVAnimPack_Size_1: 4
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _Threshold_Fade_1: 0.5
+    - _TurnAlphaToBlack_Fade_1: 1
+    - _TurnAlphaToBlack_Fade_6: 1
+    - _TurnAlphaToBlack_Fade_7: 1
+    - _TurnAlphaToBlack_Fade_8: 1
+    - _TurnAlphaToBlack_Fade_9: 1
+    - _TurnBlackToAlpha_Fade_1: 1
+    - _TurnCGA_Fade_1: 1
+    - _TurnGold_Speed_1: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    - __CompressionFX_Value_1: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorGradients_Color1_1: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorGradients_Color2_1: {r: 0, g: 0, b: 1, a: 1}
+    - _ColorGradients_Color3_1: {r: 0, g: 1, b: 0, a: 1}
+    - _ColorGradients_Color4_1: {r: 1, g: 1, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FillColor_Color_1: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _FourGradients_Color1_1: {r: 1, g: 0, b: 0, a: 1}
+    - _FourGradients_Color1_1222: {r: 1, g: 0, b: 0, a: 1}
+    - _FourGradients_Color1_2: {r: 1, g: 0, b: 0, a: 1}
+    - _FourGradients_Color2_1: {r: 0.13968495, g: 0.13968495, b: 0.4056604, a: 1}
+    - _FourGradients_Color2_2: {r: 0, g: 1, b: 0, a: 1}
+    - _FourGradients_Color3_1: {r: 1, g: 0, b: 0, a: 1}
+    - _FourGradients_Color3_2: {r: 0, g: 0, b: 1, a: 1}
+    - _FourGradients_Color4_1: {r: 1, g: 1, b: 1, a: 1}
+    - _FourGradients_Color4_2: {r: 1, g: 1, b: 0, a: 1}
+    - _FourGradients_Up_Left: {r: 1, g: 0, b: 0, a: 1}
+    - _FourGradients_Up_Right: {r: 0, g: 1, b: 0, a: 1}
+    - _Generate_Checker_PosY_1: {r: 1, g: 0, b: 0, a: 1}
+    - _Generate_Checker_Size_1: {r: 0, g: 1, b: 0, a: 1}
+    - _GrayScale_Fade_1: {r: 0, g: 0, b: 1, a: 1}
+    - _InnerGlowHQ_Color_1: {r: 1, g: 1, b: 0, a: 1}
+    - _Outline_Color_1: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowLight_Color_1: {r: 0, g: 0.7, b: 1, a: 1}
+    - _TintRGBA_Color_1: {r: 1, g: 0, b: 0, a: 1}

@@ -52,6 +52,7 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         OnEndDragEvent?.Invoke(this);
+        ObtenerObjetoInventario();
     }
 
     public Casilla CasillaPadre()
@@ -63,24 +64,33 @@ public class Casilla : MonoBehaviour,IDragHandler,IEndDragHandler,IBeginDragHand
     {
         Debug.Log("Dropeando");
         OnDropEvent?.Invoke(this);
+        ObtenerObjetoInventario();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (objetoInventario)
+        if (objetoInventario.item is Equipamiento)
         {
-            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar();
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(true);
+            Equipamiento equipo = (Equipamiento)objetoInventario.item;
+            PanelesInventario.panelesInventario.tooltipObjetos.ActualizarTextos(objetoInventario.item.NombreItem, equipo.StringAtributos());
+            PanelesInventario.panelesInventario.tooltipObjetos.transform.position = transform.position;
+        }
+        else if (objetoInventario.item) //Tooltip para objetos
+        {
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(true);
             PanelesInventario.panelesInventario.tooltipObjetos.ActualizarTextos(objetoInventario.item.NombreItem, objetoInventario.item.descripcion);
             PanelesInventario.panelesInventario.tooltipObjetos.transform.position = transform.position;
         }
-       
+
+        if(!objetoInventario)
+        {
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(false);
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (objetoInventario)
-        {
-            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar();
-        }
+            PanelesInventario.panelesInventario.tooltipObjetos.AparecerOcultar(false);
     }
 }

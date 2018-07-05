@@ -1,0 +1,304 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Magic_Pot
+  m_Shader: {fileID: 4800000, guid: e387b4a63d09ae4419cfaf2968475093, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 30a8fd2b2dee8e54090ff5b729909db2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_1:
+        m_Texture: {fileID: 2800000, guid: f5a455c8493d9dd4ead4de1977877df2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_2:
+        m_Texture: {fileID: 2800000, guid: 019b38fc1935ba94d80927dafebbcc42, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_3:
+        m_Texture: {fileID: 2800000, guid: eae6a90d87b312641a6e595a9e50ae73, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_4:
+        m_Texture: {fileID: 2800000, guid: a723c4ece330bf34981f0b9ff19655ec, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_5:
+        m_Texture: {fileID: 2800000, guid: eae6a90d87b312641a6e595a9e50ae73, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_6:
+        m_Texture: {fileID: 2800000, guid: d7c9b49185d965449bdc6e25a75301eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_1:
+        m_Texture: {fileID: 2800000, guid: d7c9b49185d965449bdc6e25a75301eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_2:
+        m_Texture: {fileID: 2800000, guid: 07f25df34d509a7428922c0c019a1788, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SourceNewTex_3:
+        m_Texture: {fileID: 2800000, guid: 380bd29db7fb34b4a8b2e55a0d259b33, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - AnimatedMouvementUV_Speed_1: 0.38205191
+    - AnimatedMouvementUV_Speed_2: 0.38205191
+    - AnimatedMouvementUV_X_1: 0.1564112
+    - AnimatedMouvementUV_X_2: 0.1564112
+    - AnimatedMouvementUV_Y_1: -0.3153843
+    - AnimatedMouvementUV_Y_2: -0.3153843
+    - AnimatedOffsetUV_Speed_1: 0.4038446
+    - AnimatedOffsetUV_X_1: 0
+    - AnimatedOffsetUV_Y_1: -0.5794881
+    - AnimatedOffsetUV_ZoomX_1: 1.0173053
+    - AnimatedOffsetUV_ZoomY_1: 1
+    - AnimatedPingPongOffsetUV_1_OffsetX_1: -0.2563993
+    - AnimatedPingPongOffsetUV_1_OffsetY_1: -0.86799544
+    - AnimatedPingPongOffsetUV_1_Speed_1: 0.08585064
+    - AnimatedPingPongOffsetUV_1_ZoomX_1: 1.0693063
+    - AnimatedPingPongOffsetUV_1_ZoomY_1: 1
+    - AnimatedPingPongOffsetUV_2_OffsetX_2: 0.56922954
+    - AnimatedPingPongOffsetUV_2_OffsetY_2: -0.70000124
+    - AnimatedPingPongOffsetUV_2_Speed_2: -0.22692324
+    - AnimatedPingPongOffsetUV_2_ZoomX_2: 1
+    - AnimatedPingPongOffsetUV_2_ZoomY_2: 1
+    - AnimatedTwistUV_AnimatedTwistUV_Bend_1: 0.107694186
+    - AnimatedTwistUV_AnimatedTwistUV_Bend_2: 0.4230769
+    - AnimatedTwistUV_AnimatedTwistUV_PosX_1: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_PosX_2: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_PosY_1: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_PosY_2: 0.5
+    - AnimatedTwistUV_AnimatedTwistUV_Radius_1: 1
+    - AnimatedTwistUV_AnimatedTwistUV_Radius_2: 0.69871795
+    - AnimatedTwistUV_AnimatedTwistUV_Speed_1: 4.8974295
+    - AnimatedTwistUV_AnimatedTwistUV_Speed_2: -2.4358976
+    - DistortionUV_DistanceX_1: 0.25831956
+    - DistortionUV_DistanceX_2: 1
+    - DistortionUV_DistanceY_1: 0.44678086
+    - DistortionUV_DistanceY_2: 1
+    - DistortionUV_Speed_1: 0.54608
+    - DistortionUV_Speed_2: 1
+    - DistortionUV_WaveX_1: 4.3469553
+    - DistortionUV_WaveX_2: 16.653345
+    - DistortionUV_WaveY_1: 8.941807
+    - DistortionUV_WaveY_2: 17.802032
+    - OffsetUV_X_1: -0.015384774
+    - OffsetUV_X_2: 0.030769251
+    - OffsetUV_X_3: 0.030769251
+    - OffsetUV_Y_1: 0.03076876
+    - OffsetUV_Y_2: -0.13846157
+    - OffsetUV_Y_3: -0.13846157
+    - OffsetUV_ZoomX_1: 1.0519211
+    - OffsetUV_ZoomX_2: 1
+    - OffsetUV_ZoomX_3: 1
+    - OffsetUV_ZoomY_1: 1.9138477
+    - OffsetUV_ZoomY_2: 3.1080737
+    - OffsetUV_ZoomY_3: 3.1080737
+    - PixelXYUV_SizeX_1: 19.173077
+    - PixelXYUV_SizeY_1: 13.115384
+    - RotationUV_Rotation_1: 11.077036
+    - RotationUV_Rotation_PosX_1: 0.5
+    - RotationUV_Rotation_PosY_1: 0.5
+    - TwistUV_TwistUV_Bend_1: 0
+    - TwistUV_TwistUV_Bend_2: -1
+    - TwistUV_TwistUV_PosX_1: 0.5
+    - TwistUV_TwistUV_PosX_2: 0.5
+    - TwistUV_TwistUV_PosY_1: 0.5
+    - TwistUV_TwistUV_PosY_2: 0.7179495
+    - TwistUV_TwistUV_Radius_1: 0.5
+    - TwistUV_TwistUV_Radius_2: 0.5121561
+    - ZoomUV_PosX_1: 0.5
+    - ZoomUV_PosX_2: 0.5
+    - ZoomUV_PosY_1: 0.5
+    - ZoomUV_PosY_2: 0.5
+    - ZoomUV_Zoom_1: 0.5239452
+    - ZoomUV_Zoom_2: 0.9846191
+    - _Add_Fade_1: 1.4998968
+    - _BlurHQ_Intensity_1: 1
+    - _BumpScale: 1
+    - _Burn_Speed_1: 0.5
+    - _Burn_Value_1: 0
+    - _CircleFade_Dist_1: 0.2
+    - _CircleFade_Dist_2: 0.2
+    - _CircleFade_PosX_1: 0.5
+    - _CircleFade_PosX_2: 0.5
+    - _CircleFade_PosY_1: 0.5
+    - _CircleFade_PosY_2: 0.5
+    - _CircleFade_Size_1: 0.22307692
+    - _CircleFade_Size_2: 0.34615386
+    - _ColorGradients_Fade_1: 0.5679486
+    - _ColorGradients_Fade_2: 1
+    - _ColorMask: 15
+    - _Cutoff: 0.5
+    - _Darkness_Fade_1: 0.33973968
+    - _DetailNormalMapScale: 1
+    - _Displacement_Plus_Size_1: 0.1615382
+    - _Displacement_Plus_ValueX_1: 0.2692308
+    - _Displacement_Plus_ValueY_1: 0.1410256
+    - _Displacement_Value_1: -0.5384693
+    - _Displacement_Value_2: -0.020517202
+    - _DstBlend: 0
+    - _Generate_Fire_PosX_1: 0.11153824
+    - _Generate_Fire_PosY_1: 0
+    - _Generate_Fire_Precision_1: 0.05
+    - _Generate_Fire_Smooth_1: 0.34999946
+    - _Generate_Fire_Speed_1: 1
+    - _Generate_Shape_Dist_1: 0.4282047
+    - _Generate_Shape_PosX_1: 0.5
+    - _Generate_Shape_PosY_1: 1.4076926
+    - _Generate_Shape_Rotation_1: 42
+    - _Generate_Shape_Side_1: 2
+    - _Generate_Shape_Size_1: -0.16282068
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Lerp_Fade_1: 0.33333373
+    - _Mask2RGBA_Fade_1: 1
+    - _MaskRGBA_Fade_1: 0
+    - _MaskRGBA_Fade_2: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _Mul_Fade_1: 1
+    - _OcclusionStrength: 1
+    - _OperationBlendMask_Fade_1: 1
+    - _OperationBlendMask_Fade_2: 1
+    - _OperationBlend_Fade_1: 1
+    - _OperationBlend_Fade_2: 1
+    - _OperationBlend_Fade_3: 0.70060927
+    - _OperationBlend_Fade_4: 1
+    - _Parallax: 0.02
+    - _PatternMovementMask_PosX_1: 0.06666369
+    - _PatternMovementMask_PosX_11: 1
+    - _PatternMovementMask_PosX_12: 1
+    - _PatternMovementMask_PosX_13: 1
+    - _PatternMovementMask_PosX_14: 0
+    - _PatternMovementMask_PosX_15: -0.18974422
+    - _PatternMovementMask_PosX_16: -0.18974422
+    - _PatternMovementMask_PosX_17: -0.18974422
+    - _PatternMovementMask_PosX_18: -0.18974422
+    - _PatternMovementMask_PosX_19: -0.18974422
+    - _PatternMovementMask_PosX_20: -0.18974422
+    - _PatternMovementMask_PosX_21: -0.18974422
+    - _PatternMovementMask_PosX_22: -0.18974422
+    - _PatternMovementMask_PosX_23: -0.18974422
+    - _PatternMovementMask_PosY_1: -0.612818
+    - _PatternMovementMask_PosY_11: 1
+    - _PatternMovementMask_PosY_12: 1
+    - _PatternMovementMask_PosY_13: 1
+    - _PatternMovementMask_PosY_14: 0
+    - _PatternMovementMask_PosY_15: 0
+    - _PatternMovementMask_PosY_16: -0.21538368
+    - _PatternMovementMask_PosY_17: -0.21538368
+    - _PatternMovementMask_PosY_18: -0.21538368
+    - _PatternMovementMask_PosY_19: -0.21538368
+    - _PatternMovementMask_PosY_20: -0.21538368
+    - _PatternMovementMask_PosY_21: -0.21538368
+    - _PatternMovementMask_PosY_22: -0.21538368
+    - _PatternMovementMask_PosY_23: -0.21538368
+    - _PatternMovementMask_Speed_1: 0.40513262
+    - _PatternMovementMask_Speed_11: 1
+    - _PatternMovementMask_Speed_12: 1
+    - _PatternMovementMask_Speed_13: 1
+    - _PatternMovementMask_Speed_14: 1
+    - _PatternMovementMask_Speed_15: 1
+    - _PatternMovementMask_Speed_16: 1
+    - _PatternMovementMask_Speed_17: 3.3128192
+    - _PatternMovementMask_Speed_18: 3.3128192
+    - _PatternMovementMask_Speed_19: 3.3128192
+    - _PatternMovementMask_Speed_20: 3.3128192
+    - _PatternMovementMask_Speed_21: 3.3128192
+    - _PatternMovementMask_Speed_22: 3.3128192
+    - _PatternMovementMask_Speed_23: 3.3128192
+    - _PatternMovement_PosX_1: 0
+    - _PatternMovement_PosX_2: 1
+    - _PatternMovement_PosY_1: 0.589742
+    - _PatternMovement_PosY_2: 1
+    - _PatternMovement_Speed_1: 0.7433456
+    - _PatternMovement_Speed_2: 1
+    - _PlasmaFX_Offset_1: 0.09230786
+    - _PlasmaFX_Speed_1: 0.23076923
+    - _PremadeGradients_Fade_1: 0.38076234
+    - _PremadeGradients_Fade_2: 0.27307677
+    - _PremadeGradients_Offset_1: 0
+    - _PremadeGradients_Offset_2: 0
+    - _PremadeGradients_Speed_1: 1.0256426
+    - _PremadeGradients_Speed_2: 0.56414324
+    - _RGBA_Add_Fade_1: 4
+    - _RGBA_Mul_Fade_1: 2
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpriteFade: 1
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorGradients_Color1_1: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorGradients_Color1_2: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorGradients_Color2_1: {r: 0, g: 0.83448267, b: 1, a: 1}
+    - _ColorGradients_Color2_2: {r: 0, g: 0, b: 1, a: 1}
+    - _ColorGradients_Color3_1: {r: 1, g: 0.9724138, b: 0, a: 1}
+    - _ColorGradients_Color3_2: {r: 0, g: 1, b: 0, a: 1}
+    - _ColorGradients_Color4_1: {r: 1, g: 0, b: 0, a: 1}
+    - _ColorGradients_Color4_2: {r: 1, g: 1, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FillColor_Color_1: {r: 0.058823526, g: 0.22109559, b: 1, a: 1}
+    - _FourGradients_Color1_1: {r: 1, g: 0, b: 0, a: 0.34}
+    - _FourGradients_Color2_1: {r: 0, g: 1, b: 0, a: 0.322}
+    - _FourGradients_Color3_1: {r: 0, g: 0, b: 1, a: 0.347}
+    - _FourGradients_Color4_1: {r: 1, g: 1, b: 1, a: 0.472}

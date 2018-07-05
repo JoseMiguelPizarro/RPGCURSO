@@ -5,7 +5,7 @@ using UnityEngine;
 public class PanelEquipamiento : MonoBehaviour {
 
     public static PanelEquipamiento Equipamiento;
-    
+
 
     public CasillaEquipamiento[] casillaEquipamientos;
     public List<Equipamiento> equipamientos = new List<Equipamiento>();
