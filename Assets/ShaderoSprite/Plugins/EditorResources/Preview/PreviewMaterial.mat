@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: PreviewMaterial
-  m_Shader: {fileID: 4800000, guid: 059ce462da41a6047be095acf2b3409c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5b9e67df4d21bcd429aec3301f7d8fc4, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -87,7 +87,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_1:
-        m_Texture: {fileID: 2800000, guid: c954edac1329ac44ab0c3ca69f732480, type: 3}
+        m_Texture: {fileID: 2800000, guid: a8c4b0289feb6184faf494e63a5d5fb8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_2:
@@ -257,7 +257,7 @@ Material:
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _Darkness_Fade_1: 0.3
-    - _Destroyer_Speed_1: 0.5
+    - _Destroyer_Speed_1: 1
     - _Destroyer_Value_1: 0
     - _DetailNormalMapScale: 1
     - _Displacement_Plus_Size_1: 0.418
@@ -986,4 +986,4 @@ Material:
     - _Outline_Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShadowLight_Color_1: {r: 0, g: 0.7, b: 1, a: 1}
-    - _TintRGBA_Color_1: {r: 1, g: 0, b: 0, a: 1}
+    - _TintRGBA_Color_1: {r: 1, g: 1, b: 1, a: 0}

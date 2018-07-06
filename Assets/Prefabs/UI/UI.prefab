@@ -2872,6 +2872,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tooltipObjetos: {fileID: 114844557015646958}
   tooltipEquipo: {fileID: 0}
+  OnCerrar:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnAbrir:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114265335664607710
 MonoBehaviour:
   m_ObjectHideFlags: 1
