@@ -17,8 +17,6 @@ public class PanelesInventario : MonoBehaviour
     {
         panelesInventario = this;
         canvasGroup = GetComponent<CanvasGroup>();
-        AbrirCerrarInventario();
-
     }
 
     public void AbrirCerrarInventario()

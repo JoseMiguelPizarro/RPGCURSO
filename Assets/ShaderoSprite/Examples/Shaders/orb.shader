@@ -12,9 +12,9 @@ Properties
 [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
 DisplacementPack_2("DisplacementPack_2(RGB)", 2D) = "white" { }
 DisplacementPack_1("DisplacementPack_1(RGB)", 2D) = "white" { }
-OffsetUV_X_1("OffsetUV_X_1", Range(-1, 1)) = -0.0820516
-OffsetUV_Y_1("OffsetUV_Y_1", Range(-1, 1)) = -0.173077
-OffsetUV_ZoomX_1("OffsetUV_ZoomX_1", Range(0.1, 10)) = 1
+OffsetUV_X_1("OffsetUV_X_1", Range(-1, 1)) = -1
+OffsetUV_Y_1("OffsetUV_Y_1", Range(-1, 1)) = 0.132
+OffsetUV_ZoomX_1("OffsetUV_ZoomX_1", Range(0.1, 10)) = 0.933
 OffsetUV_ZoomY_1("OffsetUV_ZoomY_1", Range(0.1, 10)) = 1
 _NewTex_5("NewTex_5(RGB)", 2D) = "white" { }
 _NewTex_3("NewTex_3(RGB)", 2D) = "white" { }
@@ -176,19 +176,19 @@ return lerp(uv,uv+float2(x,y),value);
 }
 float4 frag (v2f i) : COLOR
 {
-float2 ZoomUV_2 = ZoomUV(i.texcoord,0.2818581,0.5,0.5);
-float4 _DisplacementPack_2 = DisplacementPack(ZoomUV_2,DisplacementPack_2,-0.001561429,-0.2021967,-1.217884,1,1);
-float2 _Simple_Displacement_1 = SimpleDisplacementUV(i.texcoord,_DisplacementPack_2.r*_DisplacementPack_2.a,0,-0.1040089);
-float2 DistortionUV_1 = DistortionUV(_Simple_Displacement_1,10,7.991311,0.2149961,0.07140644,0.3538568);
-float2 DistortionUV_2 = DistortionUV(DistortionUV_1,10,20.10254,0.1391024,0.1301283,1);
-float2 ZoomUV_1 = ZoomUV(DistortionUV_2,2.42604,0.5,0.5);
-float2 FishEyeUV_1 = FishEyeUV(ZoomUV_1,0.3734018);
-float4 _DisplacementPack_1 = DisplacementPack(FishEyeUV_1,DisplacementPack_1,-0.2890022,0.2186863,1.209905,1,1);
-float4 _ColorFilters_1 = ColorFilters(_DisplacementPack_1,float4(0.5,1.41,-0.81,0.07),float4(-0.17,0.62,0.29,-0.34),float4(-1.59,-1.37,-2,-0.06),1);
+float2 ZoomUV_2 = ZoomUV(i.texcoord,0.282,0.5,0.5);
+float4 _DisplacementPack_2 = DisplacementPack(ZoomUV_2,DisplacementPack_2,-0.002,-0.202,-1.218,1,1);
+float2 _Simple_Displacement_1 = SimpleDisplacementUV(i.texcoord,_DisplacementPack_2.r*_DisplacementPack_2.a,0,-0.104);
+float2 DistortionUV_1 = DistortionUV(_Simple_Displacement_1,10,7.991,0.215,0.071,0.354);
+float2 DistortionUV_2 = DistortionUV(DistortionUV_1,10,20.103,0.139,0.13,1);
+float2 ZoomUV_1 = ZoomUV(DistortionUV_2,2.426,0.5,0.5);
+float2 FishEyeUV_1 = FishEyeUV(ZoomUV_1,0.373);
+float4 _DisplacementPack_1 = DisplacementPack(FishEyeUV_1,DisplacementPack_1,-0.289,0.219,1.21,1,1);
+float4 _ColorFilters_1 = ColorFilters(_DisplacementPack_1,float4(1,1.02,0,-0.64),float4(0.18,1,0.04,0),float4(0.28,-0.26,1,0.12),1);
 float2 OffsetUV_1 = OffsetUVClamp(FishEyeUV_1,OffsetUV_X_1,OffsetUV_Y_1,OffsetUV_ZoomX_1,OffsetUV_ZoomY_1);
 float4 NewTex_5 = tex2D(_NewTex_5,OffsetUV_1);
-NewTex_5.r += 0.2538272;
-_ColorFilters_1 = lerp(_ColorFilters_1,_ColorFilters_1*_ColorFilters_1.a + NewTex_5*NewTex_5.a,1.3128);
+NewTex_5.r += 0.254;
+_ColorFilters_1 = lerp(_ColorFilters_1,_ColorFilters_1*_ColorFilters_1.a + NewTex_5*NewTex_5.a,1.313);
 float4 NewTex_3 = tex2D(_NewTex_3, i.texcoord);
 float4 NewTex_4 = tex2D(_NewTex_4,OffsetUV_1);
 NewTex_3 = lerp(NewTex_3,NewTex_3 * NewTex_4,1);
@@ -197,7 +197,7 @@ float4 NewTex_2 = tex2D(_NewTex_2, i.texcoord);
 float4 OperationBlend_2 = OperationBlend(_ColorFilters_1, NewTex_2, 1); 
 float4 NewTex_1 = tex2D(_NewTex_1, i.texcoord);
 float4 OperationBlend_1 = OperationBlend(OperationBlend_2, NewTex_1, 1); 
-float4 HdrCreate_1 = HdrCreate(OperationBlend_1,0.256379);
+float4 HdrCreate_1 = HdrCreate(OperationBlend_1,0.256);
 float4 FinalResult = HdrCreate_1;
 FinalResult.rgb *= i.color.rgb;
 FinalResult.a = FinalResult.a * _SpriteFade * i.color.a;

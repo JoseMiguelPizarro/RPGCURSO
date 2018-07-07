@@ -2143,6 +2143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e05a790b303d9b45aea6174b874152c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  indiceMaterialInventario: 1
   InventarioLleno: 0
   casilla: {fileID: 1405098021676072, guid: 8063c3b2fc89b0b4fb0a55d0cf140786, type: 2}
   txtDinero: {fileID: 114143059178028974}

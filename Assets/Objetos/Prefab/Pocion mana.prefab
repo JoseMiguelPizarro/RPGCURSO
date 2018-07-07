@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114769631170834352}
   - component: {fileID: 61741444084056316}
   m_Layer: 9
-  m_Name: PocionMana
+  m_Name: Pocion mana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 2bf3977226e312a49bf02de7df25e617, type: 2}
   cantidad: 1
+  material: 0
 --- !u!114 &114898954909180064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +108,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e05829bb728de3f4fae3df63b28c6053, type: 2}
+  - {fileID: 2100000, guid: 79ef7a440b0737745a94c7cd48363f08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

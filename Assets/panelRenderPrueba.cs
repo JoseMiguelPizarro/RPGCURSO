@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class panelRenderPrueba : MonoBehaviour {
 
-    private CanvasRenderer miRender;
+    private CanvasRenderer myRender;
 
     private void Awake()
     {
-        miRender = GetComponent<CanvasRenderer>();
+        myRender = GetComponent<CanvasRenderer>();
         
     }
 
@@ -17,19 +17,27 @@ public class panelRenderPrueba : MonoBehaviour {
         Debug.Log("Ejecutando shader");
         for (float i = 0; i <= 1; i+=0.03f)
         {
-            miRender.GetMaterial().SetFloat("_Destroyer_Value_1", i);
+            myRender.GetMaterial().SetFloat("_Burn_Value_1", i);
             yield return new WaitForEndOfFrame();
         }
+        myRender.GetMaterial().SetFloat("_Burn_Value_1", 1);
+        myRender.GetMaterial().SetFloat("SpriteFade", 0f);
+        Debug.Log("spritefade es" + myRender.GetMaterial().GetFloat("SpriteFade"));
+
     }
+
 
     IEnumerator FadeIn()
     {
         Debug.Log("Ejecutando shad");
+        myRender.GetMaterial().SetFloat("SpriteFade", 1f);
+
         for (float i = 1; i >= 0; i -= 0.03f)
         {
-            miRender.GetMaterial().SetFloat("_Destroyer_Value_1", i);
+            myRender.GetMaterial().SetFloat("_Burn_Value_1", i);
             yield return new WaitForEndOfFrame();
         }
+        myRender.GetMaterial().SetFloat("_Burn_Value_1", 0);
     }
 
 

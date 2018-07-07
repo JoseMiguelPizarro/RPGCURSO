@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////
 /// Shadero Sprite: Sprite Shader Editor - by VETASOFT 2018 //
-/// Shader generate with Shadero 1.0.0                      //
+/// Shader generate with Shadero 1.9.0                      //
 /// http://u3d.as/V7t #AssetStore                           //
 /// http://www.shadero.com #Docs                            //
 //////////////////////////////////////////////////////////////
@@ -9,75 +9,63 @@ Shader "Shadero Customs/FireCircle"
 {
 Properties
 {
-[HideInInspector] _MainTex("Base (RGB)", 2D) = "white" {}
+[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
+_Color ("Tint", Color) = (1,1,1,1)
+[HideInInspector] _RendererColor("RendererColor", Color) = (1,1,1,1)
+[HideInInspector] _Flip("Flip", Vector) = (1,1,1,1)
+[PerRendererData] _AlphaTex("External Alpha", 2D) = "white" {}
+[PerRendererData] _EnableExternalAlpha("Enable External Alpha", Float) = 0
 _SourceNewTex_1("_SourceNewTex_1(RGB)", 2D) = "white" { }
-ZoomUV_Zoom_1("ZoomUV_Zoom_1", Range(0.2, 4)) = 1.803114
-ZoomUV_PosX_1("ZoomUV_PosX_1", Range(-1, 2)) = 0.551282
-ZoomUV_PosY_1("ZoomUV_PosY_1", Range(-1, 2)) =0.5
-KaleidoscopeUV_PosX_1("KaleidoscopeUV_PosX_1",  Range(-2, 2)) = 0.4974365
-KaleidoscopeUV_PosY_1("KaleidoscopeUV_PosY_1",  Range(-2, 2)) = 0.5358973
-KaleidoscopeUV_Number_1("KaleidoscopeUV_Number_1", Range(0, 6)) = 3.911537
-_Generate_Fire_PosX_1("_Generate_Fire_PosX_1", Range(-1, 2)) = -0.03463451
-_Generate_Fire_PosY_1("_Generate_Fire_PosY_1", Range(-1, 2)) = 0.4076714
+ZoomUV_Zoom_1("ZoomUV_Zoom_1", Range(0.2, 4)) = 1.803
+ZoomUV_PosX_1("ZoomUV_PosX_1", Range(-3, 3)) = 0.551
+ZoomUV_PosY_1("ZoomUV_PosY_1", Range(-3, 3)) =0.5
+KaleidoscopeUV_PosX_1("KaleidoscopeUV_PosX_1",  Range(-2, 2)) = 0.497
+KaleidoscopeUV_PosY_1("KaleidoscopeUV_PosY_1",  Range(-2, 2)) = 0.536
+KaleidoscopeUV_Number_1("KaleidoscopeUV_Number_1", Range(0, 6)) = 3.912
+_Generate_Fire_PosX_1("_Generate_Fire_PosX_1", Range(-1, 2)) = -0.035
+_Generate_Fire_PosY_1("_Generate_Fire_PosY_1", Range(-1, 2)) = 0.408
 _Generate_Fire_Precision_1("_Generate_Fire_Precision_1", Range(0, 1)) = 0.05
-_Generate_Fire_Smooth_1("_Generate_Fire_Smooth_1", Range(0, 1)) = 0.3076923
-_Generate_Fire_Speed_1("_Generate_Fire_Speed_1", Range(-2, 2)) = 0.7025381
-_RGBA_Add_Fade_1("_RGBA_Add_Fade_1", Range(0, 4)) = 2.433287
-_CircleFade_PosX_2("_CircleFade_PosX_2", Range(-1, 2)) = 0.5
-_CircleFade_PosY_2("_CircleFade_PosY_2", Range(-1, 2)) = 1.238448
-_CircleFade_Size_2("_CircleFade_Size_2", Range(-1, 1)) = 0.9756321
-_CircleFade_Dist_2("_CircleFade_Dist_2", Range(0, 1)) = 0.2647388
+_Generate_Fire_Smooth_1("_Generate_Fire_Smooth_1", Range(0, 1)) = 0.308
+_Generate_Fire_Speed_1("_Generate_Fire_Speed_1", Range(-2, 2)) = 0.703
+_RGBA_Add_Fade_1("_RGBA_Add_Fade_1", Range(0, 4)) = 2.433
+_CircleFade_PosX_1("_CircleFade_PosX_1", Range(-1, 2)) = 0.607
+_CircleFade_PosY_1("_CircleFade_PosY_1", Range(-1, 2)) = 1.238
+_CircleFade_Size_1("_CircleFade_Size_1", Range(-1, 1)) = 0.976
+_CircleFade_Dist_1("_CircleFade_Dist_1", Range(0, 1)) = 0.265
 _SpriteFade("SpriteFade", Range(0, 1)) = 1.0
-
-// required for UI.Mask
-[HideInInspector]_StencilComp("Stencil Comparison", Float) = 8
-[HideInInspector]_Stencil("Stencil ID", Float) = 0
-[HideInInspector]_StencilOp("Stencil Operation", Float) = 0
-[HideInInspector]_StencilWriteMask("Stencil Write Mask", Float) = 255
-[HideInInspector]_StencilReadMask("Stencil Read Mask", Float) = 255
-[HideInInspector]_ColorMask("Color Mask", Float) = 15
 
 }
 
 SubShader
 {
-
-Tags {"Queue" = "Transparent" "IgnoreProjector" = "true" "RenderType" = "Transparent"}
-ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off
-
-// required for UI.Mask
-Stencil
+Tags
 {
-Ref [_Stencil]
-Comp [_StencilComp]
-Pass [_StencilOp]
-ReadMask [_StencilReadMask]
-WriteMask [_StencilWriteMask]
+"Queue" = "Transparent"
+"IgnoreProjector" = "True"
+"RenderType" = "Transparent"
+"PreviewType" = "Plane"
+"CanUseSpriteAtlas" = "True"
+
 }
 
-Pass
-{
+Cull Off
+Lighting Off
+ZWrite Off
+Blend SrcAlpha OneMinusSrcAlpha
+
 
 CGPROGRAM
-#pragma vertex vert
-#pragma fragment frag
-#pragma fragmentoption ARB_precision_hint_fastest
-# include "UnityCG.cginc"
 
-struct appdata_t{
-float4 vertex   : POSITION;
-float4 color    : COLOR;
-float2 texcoord : TEXCOORD0;
-};
-
-struct v2f
+#pragma surface surf Lambert vertex:vert  nolightmap nodynlightmap keepalpha noinstancing
+#pragma multi_compile _ PIXELSNAP_ON
+#pragma multi_compile _ ETC1_EXTERNAL_ALPHA
+#include "UnitySprites.cginc"
+struct Input
 {
-float2 texcoord  : TEXCOORD0;
-float4 vertex   : SV_POSITION;
-float4 color    : COLOR;
+float2 uv_MainTex;
+float4 color;
 };
 
-sampler2D _MainTex;
 float _SpriteFade;
 sampler2D _SourceNewTex_1;
 float ZoomUV_Zoom_1;
@@ -92,18 +80,19 @@ float _Generate_Fire_Precision_1;
 float _Generate_Fire_Smooth_1;
 float _Generate_Fire_Speed_1;
 float _RGBA_Add_Fade_1;
-float _CircleFade_PosX_2;
-float _CircleFade_PosY_2;
-float _CircleFade_Size_2;
-float _CircleFade_Dist_2;
+float _CircleFade_PosX_1;
+float _CircleFade_PosY_1;
+float _CircleFade_Size_1;
+float _CircleFade_Dist_1;
 
-v2f vert(appdata_t IN)
+void vert(inout appdata_full v, out Input o)
 {
-v2f OUT;
-OUT.vertex = UnityObjectToClipPos(IN.vertex);
-OUT.texcoord = IN.texcoord;
-OUT.color = IN.color;
-return OUT;
+v.vertex.xy *= _Flip.xy;
+#if defined(PIXELSNAP_ON)
+v.vertex = UnityPixelSnap (v.vertex);
+#endif
+UNITY_INITIALIZE_OUTPUT(Input, o);
+o.color = v.color * _Color * _RendererColor;
 }
 
 
@@ -197,26 +186,25 @@ a = abs(a - tau / sides / 2.);
 uv = r * float2(cos(a), sin(a));
 return uv;
 }
-float4 frag (v2f i) : COLOR
+void surf(Input i, inout SurfaceOutput o)
 {
-float4 SourceRGBA_1 = tex2D(_SourceNewTex_1, i.texcoord);
-float2 ZoomUV_1 = ZoomUV(i.texcoord,ZoomUV_Zoom_1,ZoomUV_PosX_1,ZoomUV_PosY_1);
+float4 SourceRGBA_1 = tex2D(_SourceNewTex_1, i.uv_MainTex);
+float2 ZoomUV_1 = ZoomUV(i.uv_MainTex,ZoomUV_Zoom_1,ZoomUV_PosX_1,ZoomUV_PosY_1);
 float2 KaleidoscopeUV_1 = KaleidoscopeUV(ZoomUV_1,KaleidoscopeUV_PosX_1,KaleidoscopeUV_PosY_1,KaleidoscopeUV_Number_1);
 float4 _Generate_Fire_1 = Generate_Fire(KaleidoscopeUV_1,_Generate_Fire_PosX_1,_Generate_Fire_PosY_1,_Generate_Fire_Precision_1,_Generate_Fire_Smooth_1,_Generate_Fire_Speed_1,0);
-float4 _PatternMovementMask_1 = PatternMovementMask(i.texcoord,_SourceNewTex_1,SourceRGBA_1,_Generate_Fire_1,-0.06409317,-0.415363,0.502504);
+float4 _PatternMovementMask_1 = PatternMovementMask(i.uv_MainTex,_SourceNewTex_1,SourceRGBA_1,_Generate_Fire_1,-0.064,-0.415,0.503);
 _PatternMovementMask_1.rg += _RGBA_Add_Fade_1;
-float4 _CircleFade_1 = Circle_Fade(_Generate_Fire_1,i.texcoord,0.5,0.5,0.3,0.2);
-float4 _PremadeGradients_1 = Color_PreGradients(_CircleFade_1,float4(1,0,0.13,1),float4(0.42,0.95,0,1),float4(0.99,0.68,0.99,1),float4(0.39,0.39,1,1),-0.2564071,1,0);
-float4 OperationBlendMask_1 = OperationBlendMask(_PremadeGradients_1, _PatternMovementMask_1, _CircleFade_1, 1); 
-float4 _CircleFade_2 = Circle_Fade(OperationBlendMask_1,i.texcoord,_CircleFade_PosX_2,_CircleFade_PosY_2,_CircleFade_Size_2,_CircleFade_Dist_2);
-float4 FinalResult = _CircleFade_2;
-FinalResult.rgb *= i.color.rgb;
-FinalResult.a = FinalResult.a * _SpriteFade;
-return FinalResult;
+float4 _CircleFade_2 = Circle_Fade(_Generate_Fire_1,i.uv_MainTex,0.5,0.5,0.3,0.2);
+float4 _PremadeGradients_1 = Color_PreGradients(_CircleFade_2,float4(1,0,0.13,1),float4(0.42,0.95,0,1),float4(0.99,0.68,0.99,1),float4(0.39,0.39,1,1),-0.256,1,0);
+float4 OperationBlendMask_1 = OperationBlendMask(_PremadeGradients_1, _PatternMovementMask_1, _CircleFade_2, 1); 
+float4 _CircleFade_1 = Circle_Fade(OperationBlendMask_1,i.uv_MainTex,_CircleFade_PosX_1,_CircleFade_PosY_1,_CircleFade_Size_1,_CircleFade_Dist_1);
+float4 FinalResult = _CircleFade_1;
+o.Albedo = FinalResult.rgb* i.color.rgb;
+o.Alpha = FinalResult.a * _SpriteFade * i.color.a;
+clip(o.Alpha - 0.05);
 }
 
 ENDCG
 }
-}
-Fallback "Sprites/Default"
+Fallback "Sprites /Default"
 }

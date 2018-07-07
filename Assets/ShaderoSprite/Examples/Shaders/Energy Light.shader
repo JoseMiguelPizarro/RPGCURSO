@@ -1,6 +1,6 @@
 //////////////////////////////////////////////////////////////
 /// Shadero Sprite: Sprite Shader Editor - by VETASOFT 2018 //
-/// Shader generate with Shadero 1.0.0                      //
+/// Shader generate with Shadero 1.9.0                      //
 /// http://u3d.as/V7t #AssetStore                           //
 /// http://www.shadero.com #Docs                            //
 //////////////////////////////////////////////////////////////
@@ -9,12 +9,12 @@ Shader "Shadero Customs/Energy Light"
 {
 Properties
 {
-[HideInInspector] _MainTex("Base (RGB)", 2D) = "white" {}
-_Generate_Fire_PosX_2("_Generate_Fire_PosX_2", Range(-1, 2)) = 0.1115382
-_Generate_Fire_PosY_2("_Generate_Fire_PosY_2", Range(-1, 2)) = 0
-_Generate_Fire_Precision_2("_Generate_Fire_Precision_2", Range(0, 1)) = 0.05
-_Generate_Fire_Smooth_2("_Generate_Fire_Smooth_2", Range(0, 1)) = 0.3499995
-_Generate_Fire_Speed_2("_Generate_Fire_Speed_2", Range(-2, 2)) = 1
+[PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
+_Generate_Fire_PosX_1("_Generate_Fire_PosX_1", Range(-1, 2)) = 0.112
+_Generate_Fire_PosY_1("_Generate_Fire_PosY_1", Range(-1, 2)) = 0
+_Generate_Fire_Precision_1("_Generate_Fire_Precision_1", Range(0, 1)) = 0.05
+_Generate_Fire_Smooth_1("_Generate_Fire_Smooth_1", Range(0, 1)) = 0.35
+_Generate_Fire_Speed_1("_Generate_Fire_Speed_1", Range(-2, 2)) = 1
 _SpriteFade("SpriteFade", Range(0, 1)) = 1.0
 
 // required for UI.Mask
@@ -30,7 +30,7 @@ _SpriteFade("SpriteFade", Range(0, 1)) = 1.0
 SubShader
 {
 
-Tags {"Queue" = "Transparent" "IgnoreProjector" = "true" "RenderType" = "Transparent"}
+Tags {"Queue" = "Transparent" "IgnoreProjector" = "true" "RenderType" = "Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
 ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off
 
 GrabPass { "_GrabTexture"  } 
@@ -52,7 +52,7 @@ CGPROGRAM
 #pragma vertex vert
 #pragma fragment frag
 #pragma fragmentoption ARB_precision_hint_fastest
-# include "UnityCG.cginc"
+#include "UnityCG.cginc"
 
 struct appdata_t{
 float4 vertex   : POSITION;
@@ -71,11 +71,11 @@ float4 color    : COLOR;
 sampler2D _GrabTexture;
 sampler2D _MainTex;
 float _SpriteFade;
-float _Generate_Fire_PosX_2;
-float _Generate_Fire_PosY_2;
-float _Generate_Fire_Precision_2;
-float _Generate_Fire_Smooth_2;
-float _Generate_Fire_Speed_2;
+float _Generate_Fire_PosX_1;
+float _Generate_Fire_PosY_1;
+float _Generate_Fire_Precision_1;
+float _Generate_Fire_Smooth_1;
+float _Generate_Fire_Speed_1;
 
 v2f vert(appdata_t IN)
 {
@@ -166,18 +166,18 @@ return tex2D(source,lerp(uv,uv+float2(rgba.r*x,rgba.g*y),value*r));
 }
 float4 frag (v2f i) : COLOR
 {
-float2 AnimatedTwistUV_1 = AnimatedTwistUV(i.texcoord,0.4230769,0.5,0.5,0.698718,-2.435898);
-float4 _Generate_Fire_1 = Generate_Fire(AnimatedTwistUV_1,0,-0.2903815,0.03910104,0.5653816,0.9846184,0);
-float4 _CircleFade_1 = Circle_Fade(_Generate_Fire_1,i.texcoord,0.5,0.5,0.3461539,0.2);
-float4 _Displacement_Plus_1 = DisplacementPlusUV(i.screenuv,_GrabTexture,_CircleFade_1,_CircleFade_1,0.2692308,0.1410256,0.1615382);
-float2 AnimatedTwistUV_2 = AnimatedTwistUV(i.texcoord,0.6307698,0.5,0.5,1,4.897429);
-float4 _Generate_Fire_2 = Generate_Fire(AnimatedTwistUV_2,_Generate_Fire_PosX_2,_Generate_Fire_PosY_2,_Generate_Fire_Precision_2,_Generate_Fire_Smooth_2,_Generate_Fire_Speed_2,0);
-float4 _CircleFade_2 = Circle_Fade(_Generate_Fire_2,i.texcoord,0.5,0.5,0.2230769,0.2);
-float4 _PremadeGradients_1 = Color_PreGradients(_CircleFade_2,float4(0.55,0.55,0.55,1),float4(0.8,0.8,0.8,1),float4(0.29,0.29,0.29,1),float4(0.54,0.59,0.6900001,1),0,1,0);
-_Displacement_Plus_1 = lerp(_Displacement_Plus_1,_Displacement_Plus_1 + _PremadeGradients_1,1 * _PremadeGradients_1.a);
+float2 AnimatedTwistUV_2 = AnimatedTwistUV(i.texcoord,0.423,0.5,0.5,0.699,-2.436);
+float4 _Generate_Fire_2 = Generate_Fire(AnimatedTwistUV_2,0,-0.29,0.039,0.565,0.985,0);
+float4 _CircleFade_2 = Circle_Fade(_Generate_Fire_2,i.texcoord,0.5,0.5,0.346,0.2);
+float4 _Displacement_Plus_1 = DisplacementPlusUV(i.screenuv,_GrabTexture,_CircleFade_2,_CircleFade_2,0.269,0.141,0.162);
+float2 AnimatedTwistUV_1 = AnimatedTwistUV(i.texcoord,0.631,0.5,0.5,1,4.897);
+float4 _Generate_Fire_1 = Generate_Fire(AnimatedTwistUV_1,_Generate_Fire_PosX_1,_Generate_Fire_PosY_1,_Generate_Fire_Precision_1,_Generate_Fire_Smooth_1,_Generate_Fire_Speed_1,0);
+float4 _CircleFade_1 = Circle_Fade(_Generate_Fire_1,i.texcoord,0.5,0.5,0.223,0.2);
+float4 _PremadeGradients_1 = Color_PreGradients(_CircleFade_1,float4(0.55,0.55,0.55,1),float4(0.8,0.8,0.8,1),float4(0.29,0.29,0.29,1),float4(0.54,0.59,0.6900001,1),0,1,0);
+_Displacement_Plus_1 = lerp(_Displacement_Plus_1,_Displacement_Plus_1*_Displacement_Plus_1.a + _PremadeGradients_1*_PremadeGradients_1.a,1 * _PremadeGradients_1.a);
 float4 FinalResult = _Displacement_Plus_1;
 FinalResult.rgb *= i.color.rgb;
-FinalResult.a = FinalResult.a * _SpriteFade;
+FinalResult.a = FinalResult.a * _SpriteFade * i.color.a;
 return FinalResult;
 }
 

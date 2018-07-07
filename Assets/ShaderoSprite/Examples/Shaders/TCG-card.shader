@@ -5,14 +5,14 @@
 /// http://www.shadero.com #Docs                            //
 //////////////////////////////////////////////////////////////
 
-Shader "Shadero Customs/"
+Shader "Shadero Customs/TCG-card"
 {
 Properties
 {
 [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
-ZoomUV_Zoom_1("ZoomUV_Zoom_1", Range(0.2, 4)) = 1.026392
-ZoomUV_PosX_1("ZoomUV_PosX_1", Range(-3, 3)) = 1.346154
-ZoomUV_PosY_1("ZoomUV_PosY_1", Range(-3, 3)) =-0.03846156
+ZoomUV_Zoom_1("ZoomUV_Zoom_1", Range(0.2, 4)) = 1.026
+ZoomUV_PosX_1("ZoomUV_PosX_1", Range(-3, 3)) = 1.346
+ZoomUV_PosY_1("ZoomUV_PosY_1", Range(-3, 3)) =-0.038
 _SourceNewTex_1("_SourceNewTex_1(RGB)", 2D) = "white" { }
 _ColorHSV_Hue_1("_ColorHSV_Hue_1", Range(0, 360)) = 180
 _ColorHSV_Saturation_1("_ColorHSV_Saturation_1", Range(0, 2)) = 1
@@ -20,21 +20,21 @@ _ColorHSV_Brightness_1("_ColorHSV_Brightness_1", Range(0, 2)) = 1
 _NewTex_4("NewTex_4(RGB)", 2D) = "white" { }
 _SourceNewTex_2("_SourceNewTex_2(RGB)", 2D) = "white" { }
 _SourceNewTex_3("_SourceNewTex_3(RGB)", 2D) = "white" { }
-_RGBA_Mul_Fade_1("_RGBA_Mul_Fade_1", Range(0, 2)) = 1.011534
+_RGBA_Mul_Fade_1("_RGBA_Mul_Fade_1", Range(0, 2)) = 1.012
 _PatternMovement_PosX_2("_PatternMovement_PosX_2", Range(-2, 2)) = 0
-_PatternMovement_PosY_2("_PatternMovement_PosY_2", Range(-2, 2)) = -0.09230707
-_PatternMovement_Speed_2("_PatternMovement_Speed_2", Range(1, 16)) = 0.9794906
+_PatternMovement_PosY_2("_PatternMovement_PosY_2", Range(-2, 2)) = -0.092
+_PatternMovement_Speed_2("_PatternMovement_Speed_2", Range(1, 16)) = 0.979
 _NewTex_2("NewTex_2(RGB)", 2D) = "white" { }
 _NewTex_1("NewTex_1(RGB)", 2D) = "white" { }
 _RenderTex_1("RenderTex_1(RGB)", 2D) = "white" { }
 _NewTex_3("NewTex_3(RGB)", 2D) = "white" { }
 _SourceNewTex_4("_SourceNewTex_4(RGB)", 2D) = "white" { }
 SpriteSheetFrameUV_Size_1("SpriteSheetFrameUV_Size_1", Range(2, 16)) = 4
-SpriteSheetFrameUV_Frame_1("SpriteSheetFrameUV_Frame_1", Range(0, 1)) = 10
+SpriteSheetFrameUV_Frame_1("SpriteSheetFrameUV_Frame_1", Range(0, 15)) = 10
 SpriteSheetFrameUV_Size_2("SpriteSheetFrameUV_Size_2", Range(2, 16)) = 4
-SpriteSheetFrameUV_Frame_2("SpriteSheetFrameUV_Frame_2", Range(0, 1)) = 8
+SpriteSheetFrameUV_Frame_2("SpriteSheetFrameUV_Frame_2", Range(0, 15)) = 8
 _Burn_Value_1("_Burn_Value_1", Range(0, 1)) = 0
-_Burn_Speed_1("_Burn_Speed_1", Range(-8, 8)) = -3.394876
+_Burn_Speed_1("_Burn_Speed_1", Range(-8, 8)) = -3.395
 _Destroyer_Value_1("_Destroyer_Value_1", Range(0, 1)) = 0
 _Destroyer_Speed_1("_Destroyer_Speed_1", Range(0, 1)) =  0.5
 _SpriteFade("SpriteFade", Range(0, 1)) = 1.0
@@ -53,7 +53,7 @@ SubShader
 {
 
 Tags {"Queue" = "Transparent" "IgnoreProjector" = "true" "RenderType" = "Transparent" "PreviewType"="Plane" "CanUseSpriteAtlas"="True" }
-ZWrite Off Blend One OneMinusSrcAlpha Cull Off
+ZWrite Off Blend SrcAlpha OneMinusSrcAlpha Cull Off
 
 // required for UI.Mask
 Stencil
@@ -331,44 +331,44 @@ return uv;
 }
 float4 frag (v2f i) : COLOR
 {
-float2 OffsetUV_1 = OffsetUV(i.texcoord,-0.123077,-0.4230717,1.38077,1.837692);
+float2 OffsetUV_1 = OffsetUV(i.texcoord,-0.123,-0.423,1.381,1.838);
 float2 ZoomUV_1 = ZoomUV(OffsetUV_1,ZoomUV_Zoom_1,ZoomUV_PosX_1,ZoomUV_PosY_1);
-float4 _Generate_Fire_1 = Generate_Fire(ZoomUV_1,0,0,0.0948718,0.1358962,1,1);
-float4 _Displacement_Plus_1 = DisplacementPlusUV(ZoomUV_1,_SourceNewTex_1,_Generate_Fire_1,float4(1,1,1,1),-0.07692308,0.03846153,0.41795);
+float4 _Generate_Fire_1 = Generate_Fire(ZoomUV_1,0,0,0.095,0.136,1,1);
+float4 _Displacement_Plus_1 = DisplacementPlusUV(ZoomUV_1,_SourceNewTex_1,_Generate_Fire_1,float4(1,1,1,1),-0.077,0.038,0.418);
 float4 _ColorHSV_1 = ColorHSV(_Displacement_Plus_1,_ColorHSV_Hue_1,_ColorHSV_Saturation_1,_ColorHSV_Brightness_1);
 float4 NewTex_4 = tex2D(_NewTex_4,ZoomUV_1);
-float4 Mask2RGBA_1 = lerp(_ColorHSV_1,_Generate_Fire_1, lerp(NewTex_4.r, 1 - NewTex_4.r ,0.01666142));
+float4 Mask2RGBA_1 = lerp(_ColorHSV_1,_Generate_Fire_1, lerp(NewTex_4.r, 1 - NewTex_4.r ,0.017));
 float4 SourceRGBA_3 = tex2D(_SourceNewTex_2, ZoomUV_1);
 float4 SourceRGBA_1 = tex2D(_SourceNewTex_3, ZoomUV_1);
-float4 _PatternMovement_1 = PatternMovement(i.texcoord,_SourceNewTex_3,SourceRGBA_1,0.07692778,-0.3999994,0.9743543);
+float4 _PatternMovement_1 = PatternMovement(i.texcoord,_SourceNewTex_3,SourceRGBA_1,0.077,-0.4,0.974);
 float4 TurnAlphaToBlack_1 = TurnAlphaToBlack(_PatternMovement_1,1);
-float4 _Displacement_Plus_2 = DisplacementPlusUV(ZoomUV_1,_SourceNewTex_2,TurnAlphaToBlack_1,NewTex_4,0,-0.8692244,0.3307745);
+float4 _Displacement_Plus_2 = DisplacementPlusUV(ZoomUV_1,_SourceNewTex_2,TurnAlphaToBlack_1,NewTex_4,0,-0.869,0.331);
 _Displacement_Plus_2.r *= _RGBA_Mul_Fade_1;
 float4 OperationBlend_6 = OperationBlend(SourceRGBA_3, _Displacement_Plus_2, 1); 
 float4 OperationBlend_1 = OperationBlend(Mask2RGBA_1, OperationBlend_6, 1); 
 float4 _PatternMovement_2 = PatternMovement(i.texcoord,_SourceNewTex_3,SourceRGBA_1,_PatternMovement_PosX_2,_PatternMovement_PosY_2,_PatternMovement_Speed_2);
 _PatternMovement_2.a = lerp(SourceRGBA_3.r * _PatternMovement_2.a, (1 - SourceRGBA_3.r) * _PatternMovement_2.a,0);
-_PatternMovement_2.r += 1.756415;
-OperationBlend_1 = lerp(OperationBlend_1,OperationBlend_1*OperationBlend_1.a + _PatternMovement_2*_PatternMovement_2.a,0.4461576 * _PatternMovement_2.a);
+_PatternMovement_2.r += 1.756;
+OperationBlend_1 = lerp(OperationBlend_1,OperationBlend_1*OperationBlend_1.a + _PatternMovement_2*_PatternMovement_2.a,0.446 * _PatternMovement_2.a);
 float4 NewTex_2 = tex2D(_NewTex_2, i.texcoord);
 float4 NewTex_1 = tex2D(_NewTex_1, i.texcoord);
 float4 Mask2RGBA_2 = lerp(OperationBlend_1,NewTex_2, lerp(NewTex_1.r, 1 - NewTex_1.r ,1));
-float2 ResizeUV_3 = ResizeUVClamp(i.texcoord,0.001279777,0.01538419,1,1.655969);
+float2 ResizeUV_3 = ResizeUVClamp(i.texcoord,0.001,0.015,1,1.656);
 float4 RenderTex_1 = tex2D(_RenderTex_1,ResizeUV_3);
 float4 TurnBlackToAlpha_1 = TurnBlackToAlpha(RenderTex_1,0,1);
 float4 NewTex_3 = tex2D(_NewTex_3, i.texcoord);
 float4 OperationBlend_2 = OperationBlend(TurnBlackToAlpha_1, NewTex_3, 1); 
-float2 ResizeUV_1 = ResizeUVClamp(i.texcoord,-0.7487159,-0.07435843,2.851282,2.832692);
+float2 ResizeUV_1 = ResizeUVClamp(i.texcoord,-0.749,-0.074,2.851,2.833);
 float2 SpriteSheetFrameUV_1 = SpriteSheetFrame(ResizeUV_1,SpriteSheetFrameUV_Size_1,SpriteSheetFrameUV_Frame_1);
 float4 SourceRGBA_2 = tex2D(_SourceNewTex_4, SpriteSheetFrameUV_1);
-float2 ResizeUV_2 = ResizeUVClamp(i.texcoord,-0.1435895,-0.07564525,2.853135,2.858974);
+float2 ResizeUV_2 = ResizeUVClamp(i.texcoord,-0.144,-0.076,2.853,2.859);
 float2 SpriteSheetFrameUV_2 = SpriteSheetFrame(ResizeUV_2,SpriteSheetFrameUV_Size_2,SpriteSheetFrameUV_Frame_2);
 float4 SourceRGBA_4 = tex2D(_SourceNewTex_4, SpriteSheetFrameUV_2);
 float4 OperationBlend_4 = OperationBlend(SourceRGBA_2, SourceRGBA_4, 1); 
 float4 OperationBlend_5 = OperationBlend(OperationBlend_2, OperationBlend_4, 1); 
 float4 _Burn_1 = BurnFX(OperationBlend_5,i.texcoord,_Burn_Value_1,_Burn_Speed_1,2);
 float4 OperationBlend_3 = OperationBlend(Mask2RGBA_2, _Burn_1, 1); 
-float4 _Destroyer_1 = DestroyerFX(OperationBlend_3,i.texcoord,_Destroyer_Value_1,_Destroyer_Speed_1,0.9154201);
+float4 _Destroyer_1 = DestroyerFX(OperationBlend_3,i.texcoord,_Destroyer_Value_1,_Destroyer_Speed_1,0.915);
 float4 FinalResult = _Destroyer_1;
 FinalResult.rgb *= i.color.rgb;
 FinalResult.a = FinalResult.a * _SpriteFade * i.color.a;

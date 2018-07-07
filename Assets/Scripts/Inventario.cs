@@ -9,6 +9,7 @@ using System;
 public class Inventario : MonoBehaviour
 
 {
+    public int indiceMaterialInventario = 1;
     public bool InventarioLleno = false;
     public GameObject casilla;
     public static Inventario inventario;
@@ -125,6 +126,7 @@ public class Inventario : MonoBehaviour
                 casillas[CasillaVacia].ObtenerObjetoInventario();
                 casillas[CasillaVacia].ActualizarTextoStock(cantidad);
                 objetosInventario.Add(nuevoObjeto); //Añadir a la lista de objetos 
+            nuevoObjeto.GetComponent<Image>().material= GestorMateriales.gestorMateriales.materiales[indiceMaterialInventario];
             return true;
 
             }

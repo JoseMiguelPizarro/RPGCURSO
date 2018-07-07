@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   item: {fileID: 11400000, guid: 71821b1f3853cf24287a6e820c74d4b4, type: 2}
   cantidad: 1
+  material: 0
 --- !u!114 &114898954909180064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -107,7 +108,7 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: e05829bb728de3f4fae3df63b28c6053, type: 2}
+  - {fileID: 2100000, guid: 79ef7a440b0737745a94c7cd48363f08, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

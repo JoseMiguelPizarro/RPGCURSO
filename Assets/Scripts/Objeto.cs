@@ -14,6 +14,8 @@ public class Objeto : Interactivo
     private SpriteRenderer spriteRenderer;
     private BoxCollider2D boxcollider;
     public int cantidad = 1;
+    [Tooltip("indice del material del gestor de materiales")]
+    public int material = 0;
     private void OnValidate()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -30,7 +32,7 @@ public class Objeto : Interactivo
     {
         Inicializar();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        spriteRenderer.material = GestorMateriales.gestorMateriales.materiales[0];
+        spriteRenderer.material = GestorMateriales.gestorMateriales.materiales[material];
         spriteRenderer.sprite = item.artwork;
         spriteRenderer.sortingLayerName = "Drops";
         boxcollider = GetComponent<BoxCollider2D>();

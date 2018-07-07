@@ -22,6 +22,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - DisplacementPack_2:
+        m_Texture: {fileID: 2800000, guid: d205ea28f3bf2e94ea4597cdb871638b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - MorphingPack_After_1:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -87,19 +91,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_1:
-        m_Texture: {fileID: 2800000, guid: a8c4b0289feb6184faf494e63a5d5fb8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8121d9a1fda971343a69d52a81ea52bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_2:
-        m_Texture: {fileID: 2800000, guid: dc2333e30d803f84ea78aae652212b8e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 019b38fc1935ba94d80927dafebbcc42, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_3:
-        m_Texture: {fileID: 2800000, guid: f0213cf5d9034b4448fe62e75b024e6d, type: 3}
+        m_Texture: {fileID: 2800000, guid: eae6a90d87b312641a6e595a9e50ae73, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_4:
-        m_Texture: {fileID: 2800000, guid: ecb05761374765d43a93f1d0dd1c8172, type: 3}
+        m_Texture: {fileID: 2800000, guid: a723c4ece330bf34981f0b9ff19655ec, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_5:
@@ -123,11 +127,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SourceNewTex_1:
-        m_Texture: {fileID: 2800000, guid: 1d865dfce22fdf74885d0c0da6a4ac13, type: 3}
+        m_Texture: {fileID: 2800000, guid: 07f25df34d509a7428922c0c019a1788, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SourceNewTex_2:
-        m_Texture: {fileID: 2800000, guid: b6ef11c6140bcec499e753562140faa4, type: 3}
+        m_Texture: {fileID: 2800000, guid: 07f25df34d509a7428922c0c019a1788, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SourceNewTex_3:
@@ -151,43 +155,43 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - AnimatedMouvementUV_Speed_1: 0.1
-    - AnimatedMouvementUV_X_1: 0
-    - AnimatedMouvementUV_Y_1: 0
-    - AnimatedPingPongOffsetUV_1_OffsetX_1: 0
-    - AnimatedPingPongOffsetUV_1_OffsetY_1: 0
-    - AnimatedPingPongOffsetUV_1_Speed_1: 0.1
-    - AnimatedPingPongOffsetUV_1_ZoomX_1: 1
+    - AnimatedMouvementUV_Speed_1: 0.382
+    - AnimatedMouvementUV_X_1: 0.156
+    - AnimatedMouvementUV_Y_1: -0.315
+    - AnimatedPingPongOffsetUV_1_OffsetX_1: -0.256
+    - AnimatedPingPongOffsetUV_1_OffsetY_1: -0.868
+    - AnimatedPingPongOffsetUV_1_Speed_1: 0.086
+    - AnimatedPingPongOffsetUV_1_ZoomX_1: 1.069
     - AnimatedPingPongOffsetUV_1_ZoomY_1: 1
-    - AnimatedTwistUV_AnimatedTwistUV_Bend_1: 0
-    - AnimatedTwistUV_AnimatedTwistUV_Bend_2: 0
+    - AnimatedTwistUV_AnimatedTwistUV_Bend_1: 0.631
+    - AnimatedTwistUV_AnimatedTwistUV_Bend_2: 0.423
     - AnimatedTwistUV_AnimatedTwistUV_PosX_1: 0.5
     - AnimatedTwistUV_AnimatedTwistUV_PosX_2: 0.5
     - AnimatedTwistUV_AnimatedTwistUV_PosY_1: 0.5
     - AnimatedTwistUV_AnimatedTwistUV_PosY_2: 0.5
-    - AnimatedTwistUV_AnimatedTwistUV_Radius_1: 0.5
-    - AnimatedTwistUV_AnimatedTwistUV_Radius_2: 0.5
-    - AnimatedTwistUV_AnimatedTwistUV_Speed_1: 0
-    - AnimatedTwistUV_AnimatedTwistUV_Speed_2: 0
+    - AnimatedTwistUV_AnimatedTwistUV_Radius_1: 1
+    - AnimatedTwistUV_AnimatedTwistUV_Radius_2: 0.699
+    - AnimatedTwistUV_AnimatedTwistUV_Speed_1: 4.897
+    - AnimatedTwistUV_AnimatedTwistUV_Speed_2: -2.436
     - AnimatedZoomUV_AnimatedZoomUV_Intensity_1: 0.5
     - AnimatedZoomUV_AnimatedZoomUV_PosX_1: 0.5
     - AnimatedZoomUV_AnimatedZoomUV_PosY_1: 0.5
     - AnimatedZoomUV_AnimatedZoomUV_Speed_1: 0
     - AnimatedZoomUV_AnimatedZoomUV_Zoom_1: 1
-    - DistortionUV_DistanceX_1: 0.3
-    - DistortionUV_DistanceX_2: 0.139
-    - DistortionUV_DistanceY_1: 0.3
-    - DistortionUV_DistanceY_2: 0.13
-    - DistortionUV_Speed_1: 1
-    - DistortionUV_Speed_2: 1
-    - DistortionUV_WaveX_1: 10
-    - DistortionUV_WaveX_2: 10
-    - DistortionUV_WaveY_1: 10
-    - DistortionUV_WaveY_2: 20.103
-    - FishEyeUV_Size_1: 0.25
-    - KaleidoscopeUV_Number_1: 1
-    - KaleidoscopeUV_PosX_1: 0.5
-    - KaleidoscopeUV_PosY_1: 0.5
+    - DistortionUV_DistanceX_1: 0.609
+    - DistortionUV_DistanceX_2: 0.422
+    - DistortionUV_DistanceY_1: 0.609
+    - DistortionUV_DistanceY_2: 0.58
+    - DistortionUV_Speed_1: -2
+    - DistortionUV_Speed_2: 0.454
+    - DistortionUV_WaveX_1: 17.559
+    - DistortionUV_WaveX_2: 8.287
+    - DistortionUV_WaveY_1: 0.492
+    - DistortionUV_WaveY_2: 30.441
+    - FishEyeUV_Size_1: 0.373
+    - KaleidoscopeUV_Number_1: 3.912
+    - KaleidoscopeUV_PosX_1: 0.497
+    - KaleidoscopeUV_PosY_1: 0.536
     - OffsetUV_X_1: -0.123
     - OffsetUV_Y_1: -0.423
     - OffsetUV_ZoomX_1: 1.381
@@ -207,26 +211,26 @@ Material:
     - RotationUV_Rotation_Speed_1: 0
     - SpriteSheetAnimationUV_Frame_1: 32
     - SpriteSheetAnimationUV_Size_1: 4
-    - SpriteSheetFrameUV_Frame_1: 0
+    - SpriteSheetFrameUV_Frame_1: 10
     - SpriteSheetFrameUV_Frame_2: 8
     - SpriteSheetFrameUV_SizeX_1: 4
     - SpriteSheetFrameUV_SizeX_2: 4
     - SpriteSheetFrameUV_SizeY_1: 7
     - SpriteSheetFrameUV_SizeY_2: 10
-    - SpriteSheetFrameUV_Size_1: 2
+    - SpriteSheetFrameUV_Size_1: 4
     - SpriteSheetFrameUV_Size_2: 4
     - TwistUV_TwistUV_Bend_1: 0
     - TwistUV_TwistUV_Bend_2: -1
     - TwistUV_TwistUV_PosX_1: 0.5
     - TwistUV_TwistUV_PosX_2: 0.5
     - TwistUV_TwistUV_PosY_1: 0.5
-    - TwistUV_TwistUV_PosY_2: 0.7179495
+    - TwistUV_TwistUV_PosY_2: 0.718
     - TwistUV_TwistUV_Radius_1: 0.5
-    - TwistUV_TwistUV_Radius_2: 0.5121561
-    - ZoomUV_PosX_1: 1.346
-    - ZoomUV_PosY_1: -0.038
-    - ZoomUV_Zoom_1: 1.026
-    - _Add_Fade_1: 0.446
+    - TwistUV_TwistUV_Radius_2: 0.512
+    - ZoomUV_PosX_1: 0.551
+    - ZoomUV_PosY_1: 0.5
+    - ZoomUV_Zoom_1: 1.803
+    - _Add_Fade_1: 4
     - _AlphaAsAura_Fade_1: 1
     - _AlphaIntensity_Fade_1: 1
     - _AutomaticLerp_Speed_1: 1
@@ -235,15 +239,15 @@ Material:
     - _Blur_Intensity_1: 1
     - _Blur_Intensity_2: 1
     - _BumpScale: 1
-    - _Burn_Speed_1: -3.395
+    - _Burn_Speed_1: 0.672
     - _Burn_Value_1: 0
-    - _CircleFade_Dist_1: 0.2
+    - _CircleFade_Dist_1: 0.265
     - _CircleFade_Dist_2: 0.2
-    - _CircleFade_PosX_1: 0.5
+    - _CircleFade_PosX_1: 0.607
     - _CircleFade_PosX_2: 0.5
-    - _CircleFade_PosY_1: 0.5
+    - _CircleFade_PosY_1: 1.238
     - _CircleFade_PosY_2: 0.5
-    - _CircleFade_Size_1: 0.3
+    - _CircleFade_Size_1: 0.976
     - _CircleFade_Size_2: 0.3
     - _ColorGradients_Fade_: 0
     - _ColorGradients_Fade_1: 1
@@ -257,7 +261,7 @@ Material:
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _Darkness_Fade_1: 0.3
-    - _Destroyer_Speed_1: 1
+    - _Destroyer_Speed_1: 8
     - _Destroyer_Value_1: 0
     - _DetailNormalMapScale: 1
     - _Displacement_Plus_Size_1: 0.418
@@ -278,7 +282,7 @@ Material:
     - _Displacement_Plus_ValueY_12: 0
     - _Displacement_Plus_ValueY_13: 0
     - _Displacement_Plus_ValueY_14: 0
-    - _Displacement_Value_1: 0.05
+    - _Displacement_Value_1: -0.538
     - _DstBlend: 0
     - _Emboss_Angle_1: 0
     - _Emboss_Distance_1: 0.3
@@ -320,14 +324,19 @@ Material:
     - _Generate_Donut_Size_4: 0
     - _Generate_Donut_Size_5: 0
     - _Generate_Fire_PosX_1: 0
+    - _Generate_Fire_PosX_2: 0
     - _Generate_Fire_PosX_3: 0.11153824
     - _Generate_Fire_PosY_1: 0
+    - _Generate_Fire_PosY_2: -0.29
     - _Generate_Fire_PosY_3: 0
-    - _Generate_Fire_Precision_1: 0.095
+    - _Generate_Fire_Precision_1: 0.104
+    - _Generate_Fire_Precision_2: 0.039
     - _Generate_Fire_Precision_3: 0.05
-    - _Generate_Fire_Smooth_1: 0.136
+    - _Generate_Fire_Smooth_1: 0.071
+    - _Generate_Fire_Smooth_2: 0.565
     - _Generate_Fire_Smooth_3: 0.34999946
     - _Generate_Fire_Speed_1: 1
+    - _Generate_Fire_Speed_2: 0.985
     - _Generate_Fire_Speed_3: 1
     - _Generate_Line_Size_1: 4
     - _Generate_Line_Size_2: 0.5
@@ -861,7 +870,7 @@ Material:
     - _GrayScale_Fade_5: 1
     - _GrayScale_Fade_6: 1
     - _GrayScale_Fadesss: 1
-    - _HdrCreate_Value_1: 1
+    - _HdrCreate_Value_1: 0.256
     - _Hologram_Speed_1: 1
     - _Hologram_Value_1: 1
     - _HolographicParalax_Size_1: 1
@@ -883,7 +892,7 @@ Material:
     - _Make3DFX_Size_2: 8.512886
     - _Mask2RGBA_Fade_1: 0.017
     - _MaskChannel_Fade_1: 1
-    - _MaskRGBA_Fade_1: 0
+    - _MaskRGBA_Fade_1: 0.707
     - _MaskRGBA_Fade_2: 0
     - _Metallic: 0
     - _Mode: 0
@@ -897,11 +906,11 @@ Material:
     - _OperationBlend_Fade_2: 1
     - _Outline_Size_1: 1
     - _Parallax: 0.02
-    - _PatternMovement_PosX_1: 0.077
+    - _PatternMovement_PosX_1: 0.164
     - _PatternMovement_PosX_2: 0
-    - _PatternMovement_PosY_1: -0.4
+    - _PatternMovement_PosY_1: -1.643
     - _PatternMovement_PosY_2: -0.092
-    - _PatternMovement_Speed_1: 0.974
+    - _PatternMovement_Speed_1: 0.313
     - _PatternMovement_Speed_2: 0.979
     - _PlasmaFX_Fade_1: 0.5
     - _PlasmaFX_Offset_1: 0.5
@@ -911,19 +920,19 @@ Material:
     - _PlasmaLightFX_Speed_1: 0.5
     - _PremadeGradients_Fade_1: 1
     - _PremadeGradients_Fade_2: 1
-    - _PremadeGradients_Offset_1: 0
+    - _PremadeGradients_Offset_1: -0.256
     - _PremadeGradients_Offset_2: 0
     - _PremadeGradients_Speed_1: 0
     - _PremadeGradients_Speed_2: 0
-    - _RGBA_Add_Fade_1: 1.756
+    - _RGBA_Add_Fade_1: 2.433
     - _RGBA_Mul_Fade_1: 1.012
     - _RGBA_Sub_Fade_1: 1
-    - _ShadowLight_Intensity_1: 1.5
+    - _ShadowLight_Intensity_1: 0.086
     - _ShadowLight_NoSprite_1: 1
     - _ShadowLight_PosX_1: 0
     - _ShadowLight_PosY_1: 0
-    - _ShadowLight_Precision_1: 8
-    - _ShadowLight_Size_1: 1.2
+    - _ShadowLight_Precision_1: 10.466
+    - _ShadowLight_Size_1: 0.515
     - _ShinyFX_Intensity_1: 1
     - _ShinyFX_Intensity_2: 0.614633
     - _ShinyFX_Pos_1: 0
@@ -966,7 +975,7 @@ Material:
     - _ColorGradients_Color3_1: {r: 0, g: 1, b: 0, a: 1}
     - _ColorGradients_Color4_1: {r: 1, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FillColor_Color_1: {r: 1, g: 1, b: 1, a: 1}
+    - _FillColor_Color_1: {r: 1, g: 0.45336083, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FourGradients_Color1_1: {r: 1, g: 0, b: 0, a: 1}
     - _FourGradients_Color1_1222: {r: 1, g: 0, b: 0, a: 1}

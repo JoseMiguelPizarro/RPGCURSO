@@ -18,6 +18,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -39,7 +43,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 30a8fd2b2dee8e54090ff5b729909db2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -47,7 +51,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NewTex_1:
-        m_Texture: {fileID: 2800000, guid: a8c4b0289feb6184faf494e63a5d5fb8, type: 3}
+        m_Texture: {fileID: 2800000, guid: 8121d9a1fda971343a69d52a81ea52bf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -60,13 +64,19 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - PinchUV_Size_1: 0
+    - ZoomUV_PosX_1: 0.5
+    - ZoomUV_PosY_1: 0.5
+    - ZoomUV_Zoom_1: 2.243
     - _BumpScale: 1
+    - _Burn_Speed_1: 0.672
+    - _Burn_Value_1: 1
     - _ColorMask: 15
     - _Cutoff: 0.5
-    - _Destroyer_Speed_1: 1
-    - _Destroyer_Value_1: 0.010000439
+    - _Destroyer_Speed_1: 8
+    - _Destroyer_Value_1: 0
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EnableExternalAlpha: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -74,6 +84,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ShinyFX_Intensity_1: 1
+    - _ShinyFX_Pos_1: 0
+    - _ShinyFX_Size_1: -0.1
+    - _ShinyFX_Smooth_1: 0.25
+    - _ShinyFX_Speed_1: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SpriteFade: 1
@@ -88,8 +103,11 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FillColor_Color_1: {r: 1, g: 0.45336083, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FourGradients_Color1_1: {r: 1, g: 0, b: 0, a: 1}
     - _FourGradients_Color2_1: {r: 1, g: 0, b: 0.08466101, a: 1}
     - _FourGradients_Color3_1: {r: 0, g: 0, b: 1, a: 1}
     - _FourGradients_Color4_1: {r: 1, g: 0.036569934, b: 0, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
     - _TintRGBA_Color_1: {r: 1, g: 1, b: 1, a: 0}
