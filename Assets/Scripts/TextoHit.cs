@@ -26,7 +26,7 @@ public class TextoHit : MonoBehaviour {
     {
         if (distanciaActual<=distanciaElevacion)
         {
-            Debug.Log("Subiendo");
+
             transform.localPosition += new Vector3(0, 0.1f, 0);
             distanciaActual += 0.1f;
         }

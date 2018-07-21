@@ -25,6 +25,7 @@ public class PocionSalud : Item
                     return false;
                 }
                 AtributosJugador.atributosJugador.SaludActual += CantidadCurar;
+                Debug.Log("Poción usada, cantidad de hp= "+AtributosJugador.atributosJugador.SaludActual);
                 return true;
 
             case Pociones.Mana:

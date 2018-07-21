@@ -13,16 +13,22 @@ public class BarraDeSalud : MonoBehaviour {
     public void Start()
     {
         barra = GetComponent<SpriteRenderer>();
-        colorFondo = fondo.color;
+        if (fondo!=null)
+        {
+            colorFondo = fondo.color;
+            fondo.color = new Color(1, 1, 1, 0);
+        }
         colorBarra = barra.color;
-        fondo.color = new Color(1, 1, 1, 0);
         barra.color = new Color(1, 1, 1, 0);
     }
     public void Actualizar(float porcentaje)
     {
         if (atacado==false)
         {
-            fondo.color = colorFondo;
+            if (fondo!=null)
+            {
+                fondo.color = colorFondo;
+            }
             barra.color = colorBarra;
         }
         transform.localScale = new Vector3(porcentaje, transform.localScale.y);

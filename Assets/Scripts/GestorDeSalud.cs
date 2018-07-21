@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GestorDeSalud : MonoBehaviour {
 
     public BarraDeSalud barraDeSalud;
     public int salud;
-    [HideInInspector]
+    public UnityEventFloat OnCambiarSalud;
+    
     private int saludActual;
     public int SaludActual {
         get {
@@ -18,6 +20,7 @@ public class GestorDeSalud : MonoBehaviour {
             {
                 saludActual = 0;
             }
+            OnCambiarSalud?.Invoke(saludActual / (float)salud);
             Actualizar();
         } }
     private void Awake()
@@ -26,6 +29,9 @@ public class GestorDeSalud : MonoBehaviour {
     }
     public void Actualizar()
     {
-        barraDeSalud.Actualizar((saludActual / (float)salud));
+        if (OnCambiarSalud==null)
+        {
+            barraDeSalud.Actualizar((saludActual / (float)salud));
+        }
     }
 }

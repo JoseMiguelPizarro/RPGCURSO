@@ -10,8 +10,22 @@ Shader "Shadero Previews/PreviewXATXQ2"
 Properties
 {
 [PerRendererData] _MainTex("Sprite Texture", 2D) = "white" {}
-_SourceNewTex_2("_SourceNewTex_2(RGB)", 2D) = "white" { }
-_NewTex_4("NewTex_4(RGB)", 2D) = "white" { }
+ZoomUV_Zoom_1("ZoomUV_Zoom_1", Range(0.2, 4)) = 1.743
+ZoomUV_PosX_1("ZoomUV_PosX_1", Range(-3, 3)) = 0.5
+ZoomUV_PosY_1("ZoomUV_PosY_1", Range(-3, 3)) =0.5
+_Generate_Fire_PosX_1("_Generate_Fire_PosX_1", Range(-1, 2)) = -0.086
+_Generate_Fire_PosY_1("_Generate_Fire_PosY_1", Range(-1, 2)) = -0.455
+_Generate_Fire_Precision_1("_Generate_Fire_Precision_1", Range(0, 1)) = 0.05
+_Generate_Fire_Smooth_1("_Generate_Fire_Smooth_1", Range(0, 1)) = 0
+_Generate_Fire_Speed_1("_Generate_Fire_Speed_1", Range(-2, 2)) = 1
+_ColorGradients_Color1_1("_ColorGradients_Color1_1", COLOR) = (0.5333334,0.9725491,0.8156863,1)
+_ColorGradients_Color2_1("_ColorGradients_Color2_1", COLOR) = (0.5518868,1,0.9008679,1)
+_ColorGradients_Color3_1("_ColorGradients_Color3_1", COLOR) = (0.5529412,1,0.9019608,1)
+_ColorGradients_Color4_1("_ColorGradients_Color4_1", COLOR) = (0.6745098,0.9490197,0.8470589,1)
+_CircleFade_PosX_1("_CircleFade_PosX_1", Range(-1, 2)) = 0.5
+_CircleFade_PosY_1("_CircleFade_PosY_1", Range(-1, 2)) = 0.5
+_CircleFade_Size_1("_CircleFade_Size_1", Range(-1, 1)) = 0.3
+_CircleFade_Dist_1("_CircleFade_Dist_1", Range(0, 1)) = 0.2
 _SpriteFade("SpriteFade", Range(0, 1)) = 1.0
 
 // required for UI.Mask
@@ -64,8 +78,22 @@ float4 color    : COLOR;
 
 sampler2D _MainTex;
 float _SpriteFade;
-sampler2D _SourceNewTex_2;
-sampler2D _NewTex_4;
+float ZoomUV_Zoom_1;
+float ZoomUV_PosX_1;
+float ZoomUV_PosY_1;
+float _Generate_Fire_PosX_1;
+float _Generate_Fire_PosY_1;
+float _Generate_Fire_Precision_1;
+float _Generate_Fire_Smooth_1;
+float _Generate_Fire_Speed_1;
+float4 _ColorGradients_Color1_1;
+float4 _ColorGradients_Color2_1;
+float4 _ColorGradients_Color3_1;
+float4 _ColorGradients_Color4_1;
+float _CircleFade_PosX_1;
+float _CircleFade_PosY_1;
+float _CircleFade_Size_1;
+float _CircleFade_Dist_1;
 
 v2f vert(appdata_t IN)
 {
@@ -77,42 +105,6 @@ return OUT;
 }
 
 
-float2 AnimatedPingPongOffsetUV(float2 uv, float offsetx, float offsety, float zoomx, float zoomy, float speed)
-{
-float time = sin(_Time * 100* speed)  * 0.1;
-speed *= time * 25;
-uv += float2(offsetx, offsety)*speed;
-uv = uv * float2(zoomx, zoomy);
-return uv;
-}
-float2 DistortionUV(float2 p, float WaveX, float WaveY, float DistanceX, float DistanceY, float Speed)
-{
-Speed *=_Time*100;
-p.x= p.x+sin(p.y*WaveX + Speed)*DistanceX*0.05;
-p.y= p.y+cos(p.x*WaveY + Speed)*DistanceY*0.05;
-return p;
-}
-float4 UniColor(float4 txt, float4 color)
-{
-txt.rgb = lerp(txt.rgb,color.rgb,color.a);
-return txt;
-}
-float2 TwistUV(float2 uv, float value, float posx, float posy, float radius)
-{
-float2 center = float2(posx, posy);
-float2 tc = uv - center;
-float dist = length(tc);
-if (dist < radius)
-{
-float percent = (radius - dist) / radius;
-float theta = percent * percent * 16.0 * sin(value);
-float s = sin(theta);
-float c = cos(theta);
-tc = float2(dot(tc, float2(c, -s)), dot(tc, float2(s, c)));
-}
-tc += center;
-return tc;
-}
 float2 ZoomUV(float2 uv, float zoom, float posx, float posy)
 {
 float2 center = float2(posx, posy);
@@ -121,78 +113,132 @@ uv = uv * zoom;
 uv += center;
 return uv;
 }
-float4 DisplacementUV(float2 uv,sampler2D source,float x, float y, float value)
+float4 Circle_Fade(float4 txt, float2 uv, float posX, float posY, float Size, float Smooth)
 {
-return tex2D(source,lerp(uv,uv+float2(x,y),value));
+float2 center = float2(posX, posY);
+float dist = 1.0 - smoothstep(Size, Size + Smooth, length(center - uv));
+txt.a *= dist;
+return txt;
 }
-float4 OperationBlend(float4 origin, float4 overlay, float blend)
+float Generate_Fire_hash2D(float2 x)
 {
-float4 o = origin; 
-o.a = overlay.a + origin.a * (1 - overlay.a);
-o.rgb = (overlay.rgb * overlay.a + origin.rgb * origin.a * (1 - overlay.a)) / (o.a+0.0000001);
-o.a = saturate(o.a);
-o = lerp(origin, o, blend);
-return o;
+return frac(sin(dot(x, float2(13.454, 7.405)))*12.3043);
 }
-float4 Color_PreGradients(float4 rgba, float4 a, float4 b, float4 c, float4 d, float offset, float fade, float speed)
+
+float Generate_Fire_voronoi2D(float2 uv, float precision)
 {
-float gray = (rgba.r + rgba.g + rgba.b) / 3;
-gray += offset+(speed*_Time*20);
-float4 result = a + b * cos(6.28318 * (c * gray + d));
-result.a = rgba.a;
-result.rgb = lerp(rgba.rgb, result.rgb, fade);
+float2 fl = floor(uv);
+float2 fr = frac(uv);
+float res = 1.0;
+for (int j = -1; j <= 1; j++)
+{
+for (int i = -1; i <= 1; i++)
+{
+float2 p = float2(i, j);
+float h = Generate_Fire_hash2D(fl + p);
+float2 vp = p - fr + h;
+float d = dot(vp, vp);
+res += 1.0 / pow(d, 8.0);
+}
+}
+return pow(1.0 / res, precision);
+}
+
+float4 Generate_Fire(float2 uv, float posX, float posY, float precision, float smooth, float speed, float black)
+{
+uv += float2(posX, posY);
+float t = _Time*60*speed;
+float up0 = Generate_Fire_voronoi2D(uv * float2(6.0, 4.0) + float2(0, -t), precision);
+float up1 = 0.5 + Generate_Fire_voronoi2D(uv * float2(6.0, 4.0) + float2(42, -t ) + 30.0, precision);
+float finalMask = up0 * up1  + (1.0 - uv.y);
+finalMask += (1.0 - uv.y)* 0.5;
+finalMask *= 0.7 - abs(uv.x - 0.5);
+float4 result = smoothstep(smooth, 0.95, finalMask);
+result.a = saturate(result.a + black);
 return result;
 }
-float2 FlipUV_H(float2 uv)
+float4 Color_Gradients(float4 txt, float2 uv, float4 col1, float4 col2, float4 col3, float4 col4)
 {
-uv.x = 1 - uv.x;
-return uv;
+float4 c1 = lerp(col1, col2, smoothstep(0., 0.33, uv.x));
+c1 = lerp(c1, col3, smoothstep(0.33, 0.66, uv.x));
+c1 = lerp(c1, col4, smoothstep(0.66, 1, uv.x));
+c1.a = txt.a;
+return c1;
 }
-float2 FlipUV_V(float2 uv)
+float InnerGlowAlpha(sampler2D source, float2 uv)
 {
-uv.y = 1 - uv.y;
-return uv;
+return (1 - tex2D(source, uv).a);
 }
-float2 AnimatedMouvementUV(float2 uv, float offsetx, float offsety, float speed)
+float4 InnerGlow(float2 uv, sampler2D source, float Intensity, float size, float4 color)
 {
-speed *=_Time*50;
-uv += float2(offsetx, offsety)*speed;
-uv = fmod(uv,1);
-return uv;
+float step1 = 0.00390625f * size*2;
+float step2 = step1 * 2;
+float4 result = float4 (0, 0, 0, 0);
+float2 texCoord = float2(0, 0);
+texCoord = uv + float2(-step2, -step2); result += InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step1, -step2); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(0, -step2); result += 6.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step1, -step2); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step2, -step2); result += InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step2, -step1); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step1, -step1); result += 16.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(0, -step1); result += 24.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step1, -step1); result += 16.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step2, -step1); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step2, 0); result += 6.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step1, 0); result += 24.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv; result += 36.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step1, 0); result += 24.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step2, 0); result += 6.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step2, step1); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step1, step1); result += 16.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(0, step1); result += 24.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step1, step1); result += 16.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step2, step1); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step2, step2); result += InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(-step1, step2); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(0, step2); result += 6.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step1, step2); result += 4.0 * InnerGlowAlpha(source, texCoord);
+texCoord = uv + float2(step2, step2); result += InnerGlowAlpha(source, texCoord);
+result = result*0.00390625;
+result = lerp(tex2D(source,uv),color*Intensity,result*color.a);
+result.a = tex2D(source, uv).a;
+return saturate(result);
 }
-float4 PatternMovement(float2 uv, sampler2D source, float4 rgba, float posx, float posy, float speed)
+float4 ShadowLight(sampler2D source, float2 uv, float precision, float size, float4 color, float intensity, float posx, float posy,float fade)
 {
-float t = _Time * 20 * speed;
-uv = fmod(abs(uv+float2(posx*t, posy*t)),1);
-float4 result = tex2D(source, uv);
-result.a = result.a * rgba.a;
-return result;
+int samples = precision;
+int samples2 = samples *0.5;
+float4 ret = float4(0, 0, 0, 0);
+float count = 0;
+for (int iy = -samples2; iy < samples2; iy++)
+{
+for (int ix = -samples2; ix < samples2; ix++)
+{
+float2 uv2 = float2(ix, iy);
+uv2 /= samples;
+uv2 *= size*0.1;
+uv2 += float2(-posx,posy);
+uv2 = saturate(uv+uv2);
+ret += tex2D(source, uv2);
+count++;
 }
-float4 OperationBlendMask(float4 origin, float4 overlay, float4 mask, float blend)
-{
-float4 o = origin; 
-origin.rgb = overlay.a * overlay.rgb + origin.a * (1 - overlay.a) * origin.rgb;
-origin.a = overlay.a + origin.a * (1 - overlay.a);
-origin.a *= mask;
-origin = lerp(o, origin,blend);
-return origin;
 }
-float4 PatternMovementMask(float2 uv, sampler2D source, float4 rgba, float4 mask, float posx, float posy, float speed)
-{
-float t = _Time * 20 * speed;
-uv = fmod(abs(uv+float2(posx*t, posy*t)),1);
-float4 result = tex2D(source, uv);
-result.a = result.a * rgba.a * mask.r;
-return result;
+ret = lerp(float4(0, 0, 0, 0), ret / count, intensity);
+ret.rgb = color.rgb;
+float4 m = ret;
+float4 b = tex2D(source, uv);
+ret = lerp(ret, b, b.a);
+ret = lerp(m,ret,fade);
+return ret;
 }
 float4 frag (v2f i) : COLOR
 {
-float2 DistortionUV_2 = DistortionUV(FlipUV_V(i.texcoord),16.653,17.802,1,1,1);
-float2 TwistUV_2 = TwistUV(DistortionUV_2,-1,0.5,0.718,0.512);
-float2 ZoomUV_1 = ZoomUV(TwistUV_2,0.524,0.5,0.5);
-float4 NewTex_4 = tex2D(_NewTex_4, i.texcoord);
-float4 _PatternMovement_1 = PatternMovement(ZoomUV_1,_SourceNewTex_2,NewTex_4,0,0.59,0.743);
-float4 FinalResult = _PatternMovement_1;
+float2 ZoomUV_1 = ZoomUV(i.texcoord,ZoomUV_Zoom_1,ZoomUV_PosX_1,ZoomUV_PosY_1);
+float4 _Generate_Fire_1 = Generate_Fire(ZoomUV_1,_Generate_Fire_PosX_1,_Generate_Fire_PosY_1,_Generate_Fire_Precision_1,_Generate_Fire_Smooth_1,_Generate_Fire_Speed_1,0);
+float4 _ColorGradients_1 = Color_Gradients(_Generate_Fire_1,i.texcoord,_ColorGradients_Color1_1,_ColorGradients_Color2_1,_ColorGradients_Color3_1,_ColorGradients_Color4_1);
+float4 _CircleFade_1 = Circle_Fade(_ColorGradients_1,i.texcoord,_CircleFade_PosX_1,_CircleFade_PosY_1,_CircleFade_Size_1,_CircleFade_Dist_1);
+float4 FinalResult = _CircleFade_1;
 FinalResult.rgb *= i.color.rgb;
 FinalResult.a = FinalResult.a * _SpriteFade * i.color.a;
 return FinalResult;

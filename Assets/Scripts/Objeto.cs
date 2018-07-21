@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 
 [RequireComponent (typeof(SpriteRenderer),typeof(BoxCollider2D))]
 public class Objeto : Interactivo
@@ -23,10 +23,7 @@ public class Objeto : Interactivo
         GetComponent<SpriteRenderer>().sprite = item.artwork; 
     }
 
-    private void Awake()
-    {
- 
-    }
+  
 
     private void Start()
     {

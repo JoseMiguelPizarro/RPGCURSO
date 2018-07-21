@@ -24,16 +24,15 @@ public class ToolTip : MonoBehaviour {
      
             if (!abrir)
             {
-                Debug.Log("Desactivando tooltip");
-               // canvasGroup.interactable = false;
+                canvasGroup.interactable = false;
                 canvasGroup.alpha = 0;
                 canvasGroup.ignoreParentGroups = true;
                 abrir = false;
             }
             else
             {
-                Debug.Log("Activando tooltip");
-               // canvasGroup.interactable = true;
+
+                canvasGroup.interactable = true;
                 canvasGroup.alpha = 1;
                 canvasGroup.ignoreParentGroups = true;
                 abrir = true;

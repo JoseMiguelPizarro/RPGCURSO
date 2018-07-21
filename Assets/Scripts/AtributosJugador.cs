@@ -92,6 +92,9 @@ public class AtributosJugador : Atacable {
     {
         get
         {
+            if (saludActual>Salud)
+                return Salud;
+            else
             return saludActual;
         }
         set
@@ -100,24 +103,28 @@ public class AtributosJugador : Atacable {
             if (value > Salud)
             {
                 saludActual = Salud;
-
+                OnCambiarSalud.Invoke((float)SaludActual / Salud);
             }
             else if (value <= 0)
             {
                 saludActual = 0;
-                OnCambiarSalud.Invoke((float)saludActual / Salud);
+                OnCambiarSalud.Invoke((float)SaludActual / Salud);
                 Morir();
             }
             else
             {
                 saludActual = value;
-                OnCambiarSalud.Invoke((float)saludActual / Salud);
+                OnCambiarSalud.Invoke((float)SaludActual / Salud);
             }
         }
     }
         public int MagiaActual
     {
-        get { return magiaActual; }
+        get {
+            if (magiaActual>Magia)
+                return Magia;
+            else
+            return magiaActual; }
         set
         {
             if (value > Magia)
@@ -206,12 +213,12 @@ public class AtributosJugador : Atacable {
 
     private void ActualizarBarraDeSalud()
     {
-        barraDeSalud.Actualizar(saludActual / (float)Salud);
+        barraDeSalud.Actualizar(SaludActual / (float)Salud);
     }
 
     private void ActualizarBarraDeMana()
     {
-        barraDeMana.Actualizar(magiaActual / (float)Magia);
+        barraDeMana.Actualizar(MagiaActual / (float)Magia);
     }
 
 
@@ -220,7 +227,7 @@ public class AtributosJugador : Atacable {
         ResetearModificadores();
         ActualizarModificadores(equipos);
         ActualizarBarraDeMana();
-        OnCambiarSalud.Invoke((float)saludActual / Salud);
+        OnCambiarSalud.Invoke((float)SaludActual / Salud);
         jugador.velocidad = Velocidad;
     }
 
@@ -235,6 +242,7 @@ public class AtributosJugador : Atacable {
             ModificadorFuerza += equipo.Fuerza;
             ModificadorDefensa += equipo.Defensa;
         }
+
     }
 
     private void ResetearModificadores()

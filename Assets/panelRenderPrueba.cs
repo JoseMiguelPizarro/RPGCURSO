@@ -21,8 +21,8 @@ public class panelRenderPrueba : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
         myRender.GetMaterial().SetFloat("_Burn_Value_1", 1);
-        myRender.GetMaterial().SetFloat("SpriteFade", 0f);
-        Debug.Log("spritefade es" + myRender.GetMaterial().GetFloat("SpriteFade"));
+        myRender.GetMaterial().SetFloat("_SpriteFade", 0f);
+        Debug.Log("spritefade es" + myRender.GetMaterial().GetFloat("_SpriteFade"));
 
     }
 
@@ -30,7 +30,7 @@ public class panelRenderPrueba : MonoBehaviour {
     IEnumerator FadeIn()
     {
         Debug.Log("Ejecutando shad");
-        myRender.GetMaterial().SetFloat("SpriteFade", 1f);
+        myRender.GetMaterial().SetFloat("_SpriteFade", 1f);
 
         for (float i = 1; i >= 0; i -= 0.03f)
         {

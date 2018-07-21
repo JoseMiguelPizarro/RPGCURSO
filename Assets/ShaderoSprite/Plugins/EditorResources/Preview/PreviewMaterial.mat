@@ -178,15 +178,15 @@ Material:
     - AnimatedZoomUV_AnimatedZoomUV_PosY_1: 0.5
     - AnimatedZoomUV_AnimatedZoomUV_Speed_1: 0
     - AnimatedZoomUV_AnimatedZoomUV_Zoom_1: 1
-    - DistortionUV_DistanceX_1: 0.609
+    - DistortionUV_DistanceX_1: 0.179
     - DistortionUV_DistanceX_2: 0.422
-    - DistortionUV_DistanceY_1: 0.609
+    - DistortionUV_DistanceY_1: 0.279
     - DistortionUV_DistanceY_2: 0.58
-    - DistortionUV_Speed_1: -2
+    - DistortionUV_Speed_1: 1
     - DistortionUV_Speed_2: 0.454
-    - DistortionUV_WaveX_1: 17.559
+    - DistortionUV_WaveX_1: 21.029
     - DistortionUV_WaveX_2: 8.287
-    - DistortionUV_WaveY_1: 0.492
+    - DistortionUV_WaveY_1: 10.914
     - DistortionUV_WaveY_2: 30.441
     - FishEyeUV_Size_1: 0.373
     - KaleidoscopeUV_Number_1: 3.912
@@ -227,9 +227,9 @@ Material:
     - TwistUV_TwistUV_PosY_2: 0.718
     - TwistUV_TwistUV_Radius_1: 0.5
     - TwistUV_TwistUV_Radius_2: 0.512
-    - ZoomUV_PosX_1: 0.551
+    - ZoomUV_PosX_1: 0.5
     - ZoomUV_PosY_1: 0.5
-    - ZoomUV_Zoom_1: 1.803
+    - ZoomUV_Zoom_1: 1.743
     - _Add_Fade_1: 4
     - _AlphaAsAura_Fade_1: 1
     - _AlphaIntensity_Fade_1: 1
@@ -241,14 +241,14 @@ Material:
     - _BumpScale: 1
     - _Burn_Speed_1: 0.672
     - _Burn_Value_1: 0
-    - _CircleFade_Dist_1: 0.265
-    - _CircleFade_Dist_2: 0.2
-    - _CircleFade_PosX_1: 0.607
-    - _CircleFade_PosX_2: 0.5
-    - _CircleFade_PosY_1: 1.238
-    - _CircleFade_PosY_2: 0.5
-    - _CircleFade_Size_1: 0.976
-    - _CircleFade_Size_2: 0.3
+    - _CircleFade_Dist_1: 0.2
+    - _CircleFade_Dist_2: 0.211
+    - _CircleFade_PosX_1: 0.5
+    - _CircleFade_PosX_2: 0.532
+    - _CircleFade_PosY_1: 0.5
+    - _CircleFade_PosY_2: 0.452
+    - _CircleFade_Size_1: 0.3
+    - _CircleFade_Size_2: 0.129
     - _ColorGradients_Fade_: 0
     - _ColorGradients_Fade_1: 1
     - _ColorGradients_Fade_2: 1
@@ -261,7 +261,7 @@ Material:
     - _ColorMask: 15
     - _Cutoff: 0.5
     - _Darkness_Fade_1: 0.3
-    - _Destroyer_Speed_1: 8
+    - _Destroyer_Speed_1: 0.918
     - _Destroyer_Value_1: 0
     - _DetailNormalMapScale: 1
     - _Displacement_Plus_Size_1: 0.418
@@ -323,16 +323,16 @@ Material:
     - _Generate_Donut_Size_3: 0
     - _Generate_Donut_Size_4: 0
     - _Generate_Donut_Size_5: 0
-    - _Generate_Fire_PosX_1: 0
+    - _Generate_Fire_PosX_1: -0.086
     - _Generate_Fire_PosX_2: 0
     - _Generate_Fire_PosX_3: 0.11153824
-    - _Generate_Fire_PosY_1: 0
+    - _Generate_Fire_PosY_1: -0.455
     - _Generate_Fire_PosY_2: -0.29
     - _Generate_Fire_PosY_3: 0
-    - _Generate_Fire_Precision_1: 0.104
+    - _Generate_Fire_Precision_1: 0.05
     - _Generate_Fire_Precision_2: 0.039
     - _Generate_Fire_Precision_3: 0.05
-    - _Generate_Fire_Smooth_1: 0.071
+    - _Generate_Fire_Smooth_1: 0
     - _Generate_Fire_Smooth_2: 0.565
     - _Generate_Fire_Smooth_3: 0.34999946
     - _Generate_Fire_Speed_1: 1
@@ -870,15 +870,15 @@ Material:
     - _GrayScale_Fade_5: 1
     - _GrayScale_Fade_6: 1
     - _GrayScale_Fadesss: 1
-    - _HdrCreate_Value_1: 0.256
+    - _HdrCreate_Value_1: 3.271
     - _Hologram_Speed_1: 1
     - _Hologram_Value_1: 1
     - _HolographicParalax_Size_1: 1
     - _HumanBreatEx_Intensity_1: 0.05
     - _HumanBreatEx_Side_Intensity_1: 0.05
     - _HumanBreatEx_Speed_1: 0.05
-    - _InnerGlowHQ_Intensity_1: 2
-    - _InnerGlowHQ_Size_1: 3
+    - _InnerGlowHQ_Intensity_1: 1.8
+    - _InnerGlowHQ_Size_1: 0
     - _Lerp_Fade_1: 1
     - _Make3DFX_Dist_1: 0.5
     - _Make3DFX_Dist_2: 0.86794865
@@ -927,21 +927,21 @@ Material:
     - _RGBA_Add_Fade_1: 2.433
     - _RGBA_Mul_Fade_1: 1.012
     - _RGBA_Sub_Fade_1: 1
-    - _ShadowLight_Intensity_1: 0.086
+    - _ShadowLight_Intensity_1: 1.5
     - _ShadowLight_NoSprite_1: 1
     - _ShadowLight_PosX_1: 0
     - _ShadowLight_PosY_1: 0
-    - _ShadowLight_Precision_1: 10.466
-    - _ShadowLight_Size_1: 0.515
-    - _ShinyFX_Intensity_1: 1
+    - _ShadowLight_Precision_1: 8
+    - _ShadowLight_Size_1: 1.2
+    - _ShinyFX_Intensity_1: 0.679
     - _ShinyFX_Intensity_2: 0.614633
     - _ShinyFX_Pos_1: 0
     - _ShinyFX_Pos_2: 0.09756041
-    - _ShinyFX_Size_1: -0.1
+    - _ShinyFX_Size_1: -0.061
     - _ShinyFX_Size_2: -0.06341464
-    - _ShinyFX_Smooth_1: 0.25
+    - _ShinyFX_Smooth_1: 0.246
     - _ShinyFX_Smooth_2: 0.257317
-    - _ShinyFX_Speed_1: 1
+    - _ShinyFX_Speed_1: 0.964
     - _ShinyFX_Speed_2: 1.141461
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -970,10 +970,10 @@ Material:
     - __CompressionFX_Value_1: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorGradients_Color1_1: {r: 1, g: 0, b: 0, a: 1}
-    - _ColorGradients_Color2_1: {r: 0, g: 0, b: 1, a: 1}
-    - _ColorGradients_Color3_1: {r: 0, g: 1, b: 0, a: 1}
-    - _ColorGradients_Color4_1: {r: 1, g: 1, b: 0, a: 1}
+    - _ColorGradients_Color1_1: {r: 0.57254905, g: 0.9843138, b: 0.82745105, a: 1}
+    - _ColorGradients_Color2_1: {r: 0.5518868, g: 1, b: 0.90086794, a: 1}
+    - _ColorGradients_Color3_1: {r: 0.5529412, g: 1, b: 0.90196085, a: 1}
+    - _ColorGradients_Color4_1: {r: 0.57254905, g: 0.9843138, b: 0.82745105, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FillColor_Color_1: {r: 1, g: 0.45336083, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
@@ -991,8 +991,8 @@ Material:
     - _Generate_Checker_PosY_1: {r: 1, g: 0, b: 0, a: 1}
     - _Generate_Checker_Size_1: {r: 0, g: 1, b: 0, a: 1}
     - _GrayScale_Fade_1: {r: 0, g: 0, b: 1, a: 1}
-    - _InnerGlowHQ_Color_1: {r: 1, g: 1, b: 0, a: 1}
+    - _InnerGlowHQ_Color_1: {r: 0.7169812, g: 0.08785889, b: 0, a: 1}
     - _Outline_Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowLight_Color_1: {r: 0, g: 0.7, b: 1, a: 1}
+    - _ShadowLight_Color_1: {r: 1, g: 1, b: 1, a: 1}
     - _TintRGBA_Color_1: {r: 1, g: 1, b: 1, a: 0}

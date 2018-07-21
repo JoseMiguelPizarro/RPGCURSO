@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Jose
+  m_Shader: {fileID: 4800000, guid: 9f4e34402ef69e04d9bda65f46d3ee87, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 30a8fd2b2dee8e54090ff5b729909db2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - AnimatedMouvementUV_Speed_1: 0.625
+    - AnimatedMouvementUV_X_1: 0.161
+    - AnimatedMouvementUV_Y_1: 0
+    - KaleidoscopeUV_Number_1: 1
+    - KaleidoscopeUV_PosX_1: 0.5
+    - KaleidoscopeUV_PosY_1: 0.5
+    - ZoomUV_PosX_1: 0.5
+    - ZoomUV_PosY_1: 0.5
+    - ZoomUV_Zoom_1: 1.743
+    - _Add_Fade_1: 0.586
+    - _BumpScale: 1
+    - _CircleFade_Dist_1: 0.2
+    - _CircleFade_Dist_2: 0.211
+    - _CircleFade_PosX_1: 0.5
+    - _CircleFade_PosX_2: 0.532
+    - _CircleFade_PosY_1: 0.5
+    - _CircleFade_PosY_2: 0.452
+    - _CircleFade_Size_1: 0.3
+    - _CircleFade_Size_2: 0.129
+    - _ColorMask: 15
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _EnableExternalAlpha: 0
+    - _Generate_Fire_PosX_1: -0.086
+    - _Generate_Fire_PosY_1: -0.455
+    - _Generate_Fire_Precision_1: 0.05
+    - _Generate_Fire_Smooth_1: 0
+    - _Generate_Fire_Speed_1: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _InnerGlowHQ_Intensity_1: 2
+    - _InnerGlowHQ_Size_1: 3
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _OperationBlend_Fade_1: 1
+    - _Parallax: 0.02
+    - _ShadowLight_Intensity_1: 1.5
+    - _ShadowLight_NoSprite_1: 1
+    - _ShadowLight_PosX_1: 0
+    - _ShadowLight_PosY_1: 0
+    - _ShadowLight_Precision_1: 8
+    - _ShadowLight_Size_1: 1.2
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpriteFade: 1
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorGradients_Color1_1: {r: 0.57254905, g: 0.9843138, b: 0.82745105, a: 1}
+    - _ColorGradients_Color2_1: {r: 0.5518868, g: 1, b: 0.90086794, a: 1}
+    - _ColorGradients_Color3_1: {r: 0.5529412, g: 1, b: 0.90196085, a: 1}
+    - _ColorGradients_Color4_1: {r: 0.57254905, g: 0.9843138, b: 0.82745105, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _InnerGlowHQ_Color_1: {r: 1, g: 1, b: 0, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowLight_Color_1: {r: 1, g: 1, b: 1, a: 1}

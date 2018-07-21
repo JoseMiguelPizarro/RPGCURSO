@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Dash
+  m_Shader: {fileID: 4800000, guid: 606809e88535ac54c8a48639e2bf9ba0, type: 3}
+  m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 30a8fd2b2dee8e54090ff5b729909db2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NewTex_1:
+        m_Texture: {fileID: 2800000, guid: 8121d9a1fda971343a69d52a81ea52bf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - DistortionUV_DistanceX_1: 0.179
+    - DistortionUV_DistanceY_1: 0.279
+    - DistortionUV_Speed_1: 1
+    - DistortionUV_WaveX_1: 21.029
+    - DistortionUV_WaveY_1: 10.914
+    - PositionUV_X_1: 0.114
+    - PositionUV_Y_1: -2
+    - SpriteSheetAnimationUV_Frame_1: 1
+    - SpriteSheetAnimationUV_Size_1: 2
+    - SpriteSheetFrameUV_Frame_1: 0
+    - SpriteSheetFrameUV_Size_1: 3
+    - _Add_Fade_1: 4
+    - _BumpScale: 1
+    - _ColorMask: 15
+    - _Cutoff: 0.5
+    - _Destroyer_Speed_1: 0.918
+    - _Destroyer_Value_1: 0
+    - _DetailNormalMapScale: 1
+    - _Displacement_Plus_Size_1: 1
+    - _Displacement_Plus_ValueX_1: 0.621
+    - _Displacement_Plus_ValueY_1: 0
+    - _DstBlend: 0
+    - _Emboss_Angle_1: 0.129
+    - _Emboss_Distance_1: 0.3
+    - _Emboss_Intensity_1: 1
+    - _Emboss_grayfade_1: 1
+    - _Emboss_original_1: 1
+    - _EnableExternalAlpha: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _HdrCreate_Value_1: 0.886
+    - _HumanBreatEx_Intensity_1: 1.392
+    - _HumanBreatEx_Side_Intensity_1: 0.836
+    - _HumanBreatEx_Speed_1: 0.886
+    - _HumanBreat_Intensity_1: 0.493
+    - _HumanBreat_Speed_1: 0.607
+    - _InnerGlowHQ_Intensity_1: 1.8
+    - _InnerGlowHQ_Size_1: 0
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _OperationBlend_Fade_1: 0
+    - _Parallax: 0.02
+    - _ShadowLight_Intensity_1: 4
+    - _ShadowLight_NoSprite_1: 1
+    - _ShadowLight_PosX_1: 1
+    - _ShadowLight_PosY_1: -0.001
+    - _ShadowLight_Precision_1: 15.725
+    - _ShadowLight_Size_1: 0
+    - _ShinyFX_Intensity_1: 0.679
+    - _ShinyFX_Pos_1: 0
+    - _ShinyFX_Size_1: -0.061
+    - _ShinyFX_Smooth_1: 0.246
+    - _ShinyFX_Speed_1: 0.964
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SpriteFade: 1
+    - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _TurnEGA_Fade_1: 1
+    - _TurnGB_Fade_1: 1
+    - _UVSec: 0
+    - _ZWrite: 1
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _InnerGlowHQ_Color_1: {r: 0.7169812, g: 0.08785889, b: 0, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowLight_Color_1: {r: 1, g: 0.6076495, b: 0, a: 0.23921569}

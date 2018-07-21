@@ -1,19 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemigoAI : Atacable {
 
+    public float distanciaAtaque = 2.5f;
+    public Transform jugador;
+    public GameObject puff;
+    public float distanciaDetectar = 6f;
+    public UnityEvent OnMorir;
+
     protected bool enCombate = false;
     protected bool atacando = false;
-    public float distanciaDetectar = 6f;
-    public float distanciaAtaque = 2.5f;
     protected float distanciaJugador;
     protected Animator animator;
     protected Vector2 direccionAtaque;
     protected Enemigo enemigo;
-    public Transform jugador;
-    public GameObject puff;
+   
     protected SpriteRenderer sprite;
     protected Atacante atacante;
     protected GestorDeSalud miSalud;
@@ -83,8 +87,10 @@ public class EnemigoAI : Atacable {
             Empujar(atacante);
             GenerartextHit(danio.ToString());
             miSalud.SaludActual -= danio;
-            if (enemigo.saludEnemigo.SaludActual <= 0)
+            if (miSalud.SaludActual <= 0)
             {
+                OnMorir?.Invoke();
+                Debug.Log("Muriendo");
                 enemigo.Dropear();
                 StartCoroutine(Morir());
             }
