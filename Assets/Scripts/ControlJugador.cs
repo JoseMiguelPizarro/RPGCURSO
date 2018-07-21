@@ -69,7 +69,7 @@ public class ControlJugador : MonoBehaviour {
 			VoltearSprite();
 			DeterminarDirecciónMirada(mirada);
 			animator.SetBool("Corriendo", true);
-			transform.Translate(movimiento * velocidad * Time.deltaTime, Space.World);
+			rb.AddForce(movimiento * velocidad*20);
 		}
 		else
 		{

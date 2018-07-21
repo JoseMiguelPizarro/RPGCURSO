@@ -96,6 +96,7 @@ public class hookshot : MonoBehaviour {
             disparado = false;
             anclado = false;
             contador = 0;
+            Physics2D.IgnoreCollision(hit.collider, GetComponentInParent<Collider2D>(), false);
         }
 
         if (disparado)
@@ -116,7 +117,7 @@ public class hookshot : MonoBehaviour {
         {
            // hit.collider.gameObject.GetComponent<Rigidbody2D>().MovePosition(nodos[seccionesCadena - 1].transform.position);
             hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direccionMirada*fuerzaArrastrar);
-            if ((hit.transform.position-transform.position).magnitude>seccionesMaximo*largoSeccion*2)
+            if ((hit.transform.position-transform.position).magnitude>seccionesMaximo*largoSeccion*3)
             {
                 ResetearCadena();
             }
@@ -129,9 +130,8 @@ public class hookshot : MonoBehaviour {
        
         if (disparado && anclado && disparando)
         {
-            hit.collider.gameObject.GetComponent<Rigidbody2D>().velocity= (direccionMirada.normalized * 30);
+            hit.collider.gameObject.GetComponent<Rigidbody2D>().AddForce(direccionMirada.normalized * 30000);
             disparando = false;
-            Physics2D.IgnoreCollision(hit.collider, GetComponent<Collider2D>(),false);
             Debug.Log("Disparado!");
         }
     }
@@ -141,7 +141,7 @@ public class hookshot : MonoBehaviour {
         anclado = false;
         disparado = false;
         disparando = false;
-        Physics2D.IgnoreCollision(hit.collider, GetComponent<Collider2D>(), false);
+        Physics2D.IgnoreCollision(hit.collider, GetComponentInParent<Collider2D>(), false);
     }
 
     private void AjustarCadena(float longitud)
@@ -210,7 +210,7 @@ public class hookshot : MonoBehaviour {
         {
             Debug.Log("Hiteo");
             anclado = true;
-            Physics2D.IgnoreCollision(hit.collider, GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(hit.collider, GetComponentInParent<Collider2D>());
             //nada
         }
     }
